@@ -10,18 +10,14 @@ import tyke.Glyph;
 import peote.view.Color;
 
 class HotFarmer extends FullScene {
-	var tiles13px:SpriteRenderer;
-	var tiles18px:SpriteRenderer;
-	var debugShapes:ShapeRenderer;
+
 	var pieces:Array<Plant>;
 
 	override function create() {
 		super.create();
 		var numTilesWide = 8;
 		var isIndividualFrameBuffer = true;
-		tiles13px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", numTilesWide, isIndividualFrameBuffer);
-		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", 1, isIndividualFrameBuffer, 640, 640);
-		debugShapes = stage.createShapeRenderLayer("debugShapes");
+
 
 		app.window.onKeyDown.add((code, modifier) -> switch code {
 			case W: scrollUp();

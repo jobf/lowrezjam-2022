@@ -10,8 +10,6 @@ import tyke.Glyph;
 import peote.view.Color;
 
 class SunBurn extends FullScene {
-	var tiles13px:SpriteRenderer;
-	var debugShapes:ShapeRenderer;
 	var people:Array<Person>;
 
 	override function create() {

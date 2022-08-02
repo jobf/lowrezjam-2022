@@ -1,5 +1,6 @@
+import escape.EscapeVelocity;
 import tyke.Loop;
-import concepts.EscapeVelocity;
+import tyke.Graphics;
 import concepts.SunBurn;
 import concepts.HotFarmer;
 import tyke.jam.SoundManager;
@@ -50,7 +51,8 @@ class Concepts extends FullScene {
 			}
 		});
 		var lastIndex = concepts.length -1;
-		app.changeScene(concepts[lastIndex](app));
+		// app.changeScene(concepts[lastIndex](app));
+		app.changeScene(concepts[0](app));
 	}
 }
 
@@ -59,6 +61,17 @@ class FullScene extends Scene {
 	var world:World;
 	var audio:SoundManager;
 	var behaviours:Array<CountDown> = [];
+	
+	var tiles13px:SpriteRenderer;
+	var tiles18px:SpriteRenderer;
+	
+	var starRenderer:ShapeRenderer;
+	var starSpriteRenderer:SpriteRenderer;
+	var spaceLevelTiles:SpriteRenderer;
+	var debugShapes:ShapeRenderer;
+	// public function new(app:App, backgroundColor:Color = 0x000000ff, actionCallBawidth:Int = 0, height:Int = 0){
+
+	// }
 
 	override function create() {
 		super.create();
@@ -79,6 +92,16 @@ class FullScene extends Scene {
 
 		audio = new SoundManager();
 		app.core.log('initialized audio');
+		var tiles13pxTilesWide = 8;
+		var tiles18pxTilesWide = 1;
+		var isIndividualFrameBuffer = true;
+		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
+		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 1, true);
+		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 8, true);
+		tiles13px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", tiles13pxTilesWide, isIndividualFrameBuffer);
+		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", tiles18pxTilesWide, isIndividualFrameBuffer, 640, 640);
+		debugShapes = stage.createShapeRenderLayer("debugShapes");
+		app.core.log('initialized renderers');
 	}
 
 	override function update(elapsedSeconds:Float) {
@@ -104,4 +127,7 @@ class FullScene extends Scene {
 		// super.onPauseEnd();
 		audio.pause(false);
 	}
+
+
+
 }

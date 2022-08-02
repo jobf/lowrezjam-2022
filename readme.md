@@ -1,69 +1,43 @@
 
-vampire
-mole
-gingers
+# Install
 
-vampire growin plants but can only be out at night, but th eplants helps them be out during day as well?
+```shell
+# gl
+haxelib git peote-view https://github.com/maitag/peote-view.git
 
-sun melting tar mac
+# glyph
+haxelib install json2object
+haxelib git peote-text https://github.com/maitag/peote-text.git
 
-sun melting snow
+# physics
+haxelib install hxmath
+haxelib git echo https://github.com/AustinEast/echo.git
 
-day night cycle where onlky active at night or shaded
+# input (keyboard/game controller)
+haxelib git input2action https://github.com/maitag/input2action.git
 
+# tile maps
+haxelib git deepnightLibs https://github.com/deepnight/deepnightLibs.git
+haxelib git ldtk-haxe-api https://github.com/deepnight/ldtk-haxe-api.git
 
-crossing the desert
+# tyke (jam branch)
+haxelib git tyke https://github.com/jobf/tyke.git feature/lowresjam-2022
+```
 
-devloping photographs
+# Run
 
-having to keep the grass wet because the sun is so hot it's gonna burn it
-heat proof clothing upgrade
-globally?
-from planes?
+```shell
+# hashlink
+./hl-run
 
-sun is drying up all the water in canals etc
+# web debug (useful for debugging if hashlink won't debug)
+./web-debug
+```
 
-sun burn medic
-sets place on the hottest battlefield know to man - the beach
-it's a heatwave and everyone is determined to burn to a crisp so off to the beach they go
-problem is they literally do burn up!
-you are the THE SUN BLOCK MEDIC and need to go round administering protection
-start with - lotions?
-occasionally people tip and so you earn money to buy upgrades?
-- parasols (instant but small)
-- gazebos (small time penalty but larger)
-- trees (take a while to grow but more coverage)
+# Editing levels
 
-vampire gardener
-plants as tools
-a vampire hopelessly in love with flowers
-has to grow tool trees, literally the tools grow on the trees
-trying to grow plants to cover the garden
-initially growing them inside under lamps but then gradually taking over outside
+For quicker level editing feedback, run with compiler flag `-D editinglevels`.
 
-it's got so hot that all the greenery outside is crisping up
-so you gotta keep it watered so stuff don't dry out - what is there to deter you from drying out?
-occasionally have to refill bucket or whatever from wells as run around 
-wells start drying up too so have to place more maybe?
-nice town village/city setting topdown forced perspective stardew style
-big town map and have to run around keeping everything in pots watered
-farmer keeping their crops watered
+Now whenever you save the level in ldtk you can simply press `r` while in the GetawayScene to restart the level and reload the latest version of the levels.
 
-plants as tools
-companion planting (pest control)
-
-Kill It With Fire/Sun is enemy - burning ants with magnifying glass (the ants are pixels)
-or... you're protecting ants 
-and you have to kill scorpions etc
-sparrows n shit
-
-• Plants As Tools
-• Block
-• Ace In The Hole
-• The Sun Is Your Enemy
-• You Are The Last Hope
-• Gravity Wells
-• Booby Traps
-• Kill It With Fire
-• Convergence
-• Steamy
+Example in `hl-edit-debug` script.
