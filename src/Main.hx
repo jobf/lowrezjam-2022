@@ -1,7 +1,7 @@
 import tyke.Loop;
-import lime.ui.KeyCode;
 import concepts.EscapeVelocity;
 import concepts.SunBurn;
+import concepts.HotFarmer;
 import tyke.jam.SoundManager;
 import echo.World;
 import echo.Echo;
@@ -25,23 +25,32 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
-		app -> return new EscapeVelocity(app, 0x00000000),
-		app -> return new SunBurn(app, 0xffbd4aFF)
+		app -> return new EscapeVelocity(app, 0x00000000, 256, 256),
+		app -> return new SunBurn(app, 0xffbd4aFF),
+		app -> return new HotFarmer(app, 0x521104FF),
 	];
 
 	override function create() {
 		super.create();
 		app.window.onKeyDown.add((code, modifier) -> {
 			var conceptId = switch code {
-				case KeyCode.NUMBER_1: 0;
-				case KeyCode.NUMBER_2: 1;
+				case R: -2;
+				case NUMBER_1: 0;
+				case NUMBER_2: 1;
+				case NUMBER_3: 2;
 				case _: -1;
 			}
+
+			if(conceptId == -2){
+				app.resetScene();
+			}
+
 			if (conceptId >= 0) {
 				app.changeScene(concepts[conceptId](app));
 			}
 		});
-		app.changeScene(concepts[0](app));
+		var lastIndex = concepts.length -1;
+		app.changeScene(concepts[lastIndex](app));
 	}
 }
 

@@ -6,9 +6,34 @@ import peote.view.Color;
 import tyke.Graphics;
 
 @:structInit
-class DebugCore{
-    public var renderer:ShapeRenderer;
-    public var color:Color;
+class DebugCore {
+	public var renderer:ShapeRenderer;
+	public var color:Color;
+}
+
+@:structInit
+class Cursor {
+	public var sprite:Sprite;
+	public var shape:Shape;
+	public var body:Body;
+	public var gamePieceUnder:GamePiece = null;
+
+	var onClick:GamePiece->Void;
+
+	public function init() {
+		body.on_move = (x, y) -> {
+			sprite.setPosition(x, y);
+			shape.setPosition(x, y);
+		}
+	}
+
+	public function click() {
+		if(gamePieceUnder != null){
+			trace('click');
+			onClick(gamePieceUnder);
+		}
+	}
+
 }
 
 class GamePiece {
@@ -17,21 +42,22 @@ class GamePiece {
 
 	var shape:Shape;
 	var behaviours:Array<CountDown>;
-    var debug:DebugCore;
+	var debug:DebugCore;
 
 	static var debugShapes:ShapeRenderer;
 	static var debugColor:Color;
 
-    public function new(x:Int, y:Int, bodyW:Int, bodyH:Int, sprite:Sprite, body:Body, debug:DebugCore) {
+	public function new(x:Int, y:Int, bodyW:Int, bodyH:Int, sprite:Sprite, body:Body, debug:DebugCore) {
 		this.sprite = sprite;
 		this.body = body;
-        this.debug = debug;
+		this.debug = debug;
 		shape = this.debug.renderer.makeShape(x, y, bodyW, bodyH, RECT, this.debug.color);
 
 		this.body.on_move = on_move;
 		this.body.on_rotate = on_rotate;
+		this.body.gamepiece = this;
 
-        behaviours = [];
+		behaviours = [];
 	}
 
 	inline function on_move(x:Float, y:Float) {
@@ -52,4 +78,6 @@ class GamePiece {
 			b.update(elapsedSeconds);
 		}
 	}
+
+	public function click(){}
 }

@@ -57,5 +57,9 @@
 	<!-- <haxedef name="HXCPP_MSVC_VER=120" if="cpp" /> -->
 	<!-- <haxedef name="HXCPP_MSVC_VER=140" if="cpp" /> -->
 	<haxedef name="no_macro_cache"/>
+
+
+	<haxeflag name="--macro" value="echo.Macros.add_data('gamepiece','concepts.Core.GamePiece')"/>
+
 	
 </project>
