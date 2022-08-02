@@ -1,5 +1,6 @@
 package escape;
 
+import echo.data.Types.ShapeType;
 import echo.Body;
 import tyke.Ldtk;
 import concepts.Core;
@@ -37,15 +38,18 @@ class Level {
 			for (tileData in stack) {
 				var tileX = cx * l_Tiles_16_RenderSize;
 				var tileY = cy * l_Tiles_16_RenderSize;
+                var config = Configuration.obstacles[tileData.tileId];
+
 				var sprite = this.levelTiles.makeSprite(tileX, tileY, l_Tiles_16_RenderSize, tileData.tileId);
-				var hitBoxW = 6;
-				var hitBoxH = 6;
+				var hitBoxW = config.hitboxHeight;
+				var hitBoxH = config.hitboxHeight;
 				var body = new Body({
 					shape: {
 						solid: false,
 						radius: hitBoxW * 0.5,
 						width: hitBoxW,
 						height: hitBoxH,
+                        type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT
 					},
 					x: tileX,
 					y: tileY,
@@ -53,7 +57,7 @@ class Level {
 				});
 				var obstacle = new Obstacle(tileX, tileY, hitBoxW, hitBoxH, sprite, body, obstacleDebugCore);
 				world.add(obstacle.body);
-				obstacle.body.velocity.x = -30;
+				obstacle.body.velocity.x = config.velocityX;
 			}
 		});
 	}
