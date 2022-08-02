@@ -19,6 +19,7 @@ class SunBurn extends FullScene {
 		tiles13px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", numTilesWide, isIndividualFrameBuffer);
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 
+		// var numPeople = 10;
 		var numPeople = 100;
 
 		app.window.onKeyDown.add((code, modifier) -> switch code {
@@ -87,6 +88,7 @@ class SunBurn extends FullScene {
 					} else {
 						stopTravelOnComplete(person);
 					}
+					person.cook();
 				}
 			}, true)
 		];
@@ -113,12 +115,12 @@ class SunBurn extends FullScene {
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset += scrollIncrement;
 	}
-	
+
 	inline function scrollRight() {
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset -= scrollIncrement;
 	}
-	
+
 	inline function scrollUp() {
 		@:privateAccess
 		stage.globalFrameBuffer.display.yOffset += scrollIncrement;
@@ -134,12 +136,12 @@ class Person {
 	public var speed(default, null):Float;
 	public var sprite(default, null):Sprite;
 	public var body(default, null):Body;
-	
+
 	var shape:Shape;
 	var behaviours:Array<CountDown> = [];
 
 	static var debugShapes:ShapeRenderer;
-	
+
 	public static function initDebug(shapes:ShapeRenderer) {
 		debugShapes = shapes;
 	}
@@ -169,10 +171,24 @@ class Person {
 		shape.rotation = r;
 	}
 
-
 	public function update(elapsedSeconds:Float) {
 		for (b in behaviours) {
 			b.update(elapsedSeconds);
+		}
+	}
+
+	var cookingIncrement = 1 / 6;
+	var cookedAmount:Float = 0;
+
+	public function cook() {
+		cookedAmount += (cookingIncrement * (1 - speed));
+		// trace('cookedAmount $cookedAmount');
+		var cookedTileId = Math.floor(cookedAmount);
+		if (cookedTileId > 7) {
+			cookedTileId = 7;
+		}
+		if (cookedTileId > sprite.tile) {
+			sprite.tile = cookedTileId;
 		}
 	}
 }
