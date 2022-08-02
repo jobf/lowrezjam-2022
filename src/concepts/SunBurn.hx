@@ -1,5 +1,7 @@
 package concepts;
 
+import concepts.Core;
+import concepts.Core.GamePiece;
 import Main;
 import tyke.Loop.CountDown;
 import echo.Body;
@@ -30,8 +32,9 @@ class SunBurn extends FullScene {
 			case _: return;
 		});
 
-		Person.initDebug(debugShapes);
-
+		var debugColor = Color.CYAN;
+		debugColor.alpha = 0;
+		
 		var worldWidth = 128;
 		var worldHeight = 128;
 		world.width = worldWidth;
@@ -61,7 +64,10 @@ class SunBurn extends FullScene {
 					x: x,
 					y: y,
 					kinematic: true
-				})), speed);
+				})), {
+					renderer: debugShapes,
+					color: debugColor
+				}, speed);
 			}
 		];
 
@@ -132,53 +138,17 @@ class SunBurn extends FullScene {
 	}
 }
 
-class Person {
-	public var speed(default, null):Float;
-	public var sprite(default, null):Sprite;
-	public var body(default, null):Body;
-
-	var shape:Shape;
-	var behaviours:Array<CountDown> = [];
-
-	static var debugShapes:ShapeRenderer;
-
-	public static function initDebug(shapes:ShapeRenderer) {
-		debugShapes = shapes;
-	}
-
-	public function new(x:Int, y:Int, w:Int, h:Int, sprite:Sprite, body:Body, speed:Float) {
-		this.sprite = sprite;
-		this.body = body;
-		var color = Color.CYAN;
-		// color.alpha = 200;
-		color.alpha = 0;
-		shape = debugShapes.makeShape(x, y, w, h, RECT, color);
-		this.body.on_move = on_move;
-		this.body.on_rotate = on_rotate;
+class Person extends GamePiece{
+	public function new(x:Int, y:Int, bodyW:Int, bodyH:Int, sprite:Sprite, body:Body, debug:DebugCore, speed:Float){
+		super(x, y, bodyW, bodyH, sprite, body, debug);
 		this.speed = speed;
 	}
 
-	inline function on_move(x:Float, y:Float) {
-		var x_ = Std.int(x);
-		var y_ = Std.int(y);
-		sprite.setPosition(x_, y_);
-		shape.setPosition(x_, y_);
-		// sprite.z = Std.int(y_);
-	}
-
-	inline function on_rotate(r:Float) {
-		sprite.rotation = r;
-		shape.rotation = r;
-	}
-
-	public function update(elapsedSeconds:Float) {
-		for (b in behaviours) {
-			b.update(elapsedSeconds);
-		}
-	}
+	public var speed(default, null):Float;
 
 	var cookingIncrement = 1 / 6;
 	var cookedAmount:Float = 0;
+
 
 	public function cook() {
 		cookedAmount += (cookingIncrement * (1 - speed));
