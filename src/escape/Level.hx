@@ -32,7 +32,7 @@ class Level {
 		var l_Tiles_16_RenderSize = 16;
 		var obstacleDebugCore:DebugCore = {
 			renderer: debugRenderer,
-			color: 0x44008800
+			color: 0x44008880
 		}
 		LevelLoader.renderLayer(l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {

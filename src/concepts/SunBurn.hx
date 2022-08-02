@@ -16,7 +16,7 @@ class SunBurn extends FullScene {
 		super.create();
 		var numTilesWide = 8;
 		var isIndividualFrameBuffer = true;
-		tiles13px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", numTilesWide, isIndividualFrameBuffer);
+		tiles14px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", numTilesWide, isIndividualFrameBuffer);
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 
 		// var numPeople = 10;
@@ -52,7 +52,7 @@ class SunBurn extends FullScene {
 				var height = 7;
 				var tileSize = 14;
 				var tileId = 3;
-				new Person(x, y, width, height, tiles13px.makeSprite(x, y, tileSize, tileId), world.add(new Body({
+				new Person(x, y, width, height, tiles14px.makeSprite(x, y, tileSize, tileId), world.add(new Body({
 					shape: {
 						solid: false,
 						// radius: radius,

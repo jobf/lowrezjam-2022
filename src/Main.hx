@@ -62,7 +62,7 @@ class FullScene extends Scene {
 	var audio:SoundManager;
 	var behaviours:Array<CountDown> = [];
 	
-	var tiles13px:SpriteRenderer;
+	var tiles14px:SpriteRenderer;
 	var tiles18px:SpriteRenderer;
 	
 	var starRenderer:ShapeRenderer;
@@ -92,13 +92,13 @@ class FullScene extends Scene {
 
 		audio = new SoundManager();
 		app.core.log('initialized audio');
-		var tiles13pxTilesWide = 8;
+		var tiles14pxTilesWide = 8;
 		var tiles18pxTilesWide = 1;
 		var isIndividualFrameBuffer = true;
 		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
 		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 1, true);
 		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 8, true);
-		tiles13px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", tiles13pxTilesWide, isIndividualFrameBuffer);
+		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", tiles14pxTilesWide, isIndividualFrameBuffer);
 		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", tiles18pxTilesWide, isIndividualFrameBuffer, 640, 640);
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 		app.core.log('initialized renderers');

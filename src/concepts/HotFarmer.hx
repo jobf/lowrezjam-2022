@@ -55,7 +55,7 @@ class HotFarmer extends FullScene {
 				var height = 7;
 				var tileId = 11;
 
-				pieces.push(new Plant(x, y, width, height, tiles13px.makeSprite(x, y, tileSize, tileId), world.add(new Body({
+				pieces.push(new Plant(x, y, width, height, tiles14px.makeSprite(x, y, tileSize, tileId), world.add(new Body({
 					shape: {
 						solid: false,
 						// radius: radius,

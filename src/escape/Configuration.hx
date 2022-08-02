@@ -13,8 +13,8 @@ class Configuration {
 		// },
 		0 => {
 			shape: CIRCLE,
-			hitboxWidth: 4,
-			hitboxHeight: 4,
+			hitboxWidth: 2,
+			hitboxHeight: 2,
             velocityX: -30.0
 		},
         1 => {

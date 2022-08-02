@@ -51,13 +51,14 @@ class EscapeVelocity extends FullScene {
 
 		var shipX = 90;
 		var shipY = 40;
-		var shipW = 16;
-		var shipH = 16;
+		var shipW = 8;
+		var shipH = 4;
 		var shipTileId = 16;
 		var shipSpeed = 1.0;
 		var maxTravelDistance = 40;
+		var shipTileSize = 14;
 
-		ship = new Ship(shipX, shipY, shipW, shipH, tiles13px.makeSprite(shipX, shipY, shipW, shipH, shipTileId), new Body({
+		ship = new Ship(shipX, shipY, shipW, shipH, tiles14px.makeSprite(shipX, shipY, shipTileSize, shipTileId), new Body({
 			shape: {
 				solid: false,
 				// radius: radius,
@@ -69,15 +70,18 @@ class EscapeVelocity extends FullScene {
 			kinematic: true
 		}), {
 			renderer: debugShapes,
-			color: 0xffff2200
-		}, shipSpeed, maxTravelDistance);
+			color: 0xff202080
+		},
+		shipSpeed,
+		maxTravelDistance);
+
 		world.add(ship.body);
 
 		var speedUpPause = 0.4;
 		behaviours = [
 			new CountDown(speedUpPause, () -> {
 				starfieldSpeed = (ship.body.x / 128);
-				trace('starfieldSpeed $starfieldSpeed');
+				// trace('starfieldSpeed $starfieldSpeed');
 			}, true),
 			new CountDown(0.2, () -> {
 				for (star in stars) {
@@ -143,7 +147,7 @@ class Star {
 
 	public function update(starfieldSpeed:Float) {
 		speed = starfieldSpeed * distanceFactor;
-		trace('star speed $speed');
+		// trace('star speed $speed');
 		shape.x -= (maximumTravel * speed);
 		if (shape.x < -maximumTravel) {
 			shape.x = 64 + maximumTravel;

@@ -51,6 +51,10 @@ class GamePiece {
 		this.sprite = sprite;
 		this.body = body;
 		this.debug = debug;
+		#if !debug
+		this.debug.color.alpha = 0;
+		#end
+		
 		shape = this.debug.renderer.makeShape(x, y, bodyW, bodyH, RECT, this.debug.color);
 
 		this.body.on_move = on_move;
