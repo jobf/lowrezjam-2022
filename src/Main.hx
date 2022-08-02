@@ -94,7 +94,7 @@ class FullScene extends Scene {
 		app.core.log('initialized audio');
 		var tiles14pxTilesWide = 8;
 		var tiles18pxTilesWide = 1;
-		var isIndividualFrameBuffer = true;
+		var isIndividualFrameBuffer = false;
 		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
 		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 1, true);
 		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 8, true);
@@ -104,6 +104,11 @@ class FullScene extends Scene {
 		app.core.log('initialized renderers');
 	}
 
+	override function destroy(){
+		super.destroy();
+		world.dispose();
+	}
+	
 	override function update(elapsedSeconds:Float) {
 		// super.update(elapsedSeconds);
 		world.step(elapsedSeconds);

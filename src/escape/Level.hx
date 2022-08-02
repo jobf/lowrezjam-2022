@@ -14,6 +14,9 @@ class Level {
 	var world:World;
 	var levelId:Int;
 
+	public var obstacles(default, null):Array<Body>;
+	public var pieces(default, null):Array<GamePiece> = [];
+
 	public function new(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, levelId:Int) {
 		#if editinglevels
 		// load src version of tracks.ldtk (for hot reload)
@@ -23,7 +26,7 @@ class Level {
 		// load packaged version of tracks.ldtk (for distribution)
 		spaceMaps = new Space();
 		#end
-
+		obstacles = [];
 		this.levelTiles = levelTiles;
 		this.world = world;
 		this.levelId = levelId;
@@ -38,26 +41,33 @@ class Level {
 			for (tileData in stack) {
 				var tileX = cx * l_Tiles_16_RenderSize;
 				var tileY = cy * l_Tiles_16_RenderSize;
-                var config = Configuration.obstacles[tileData.tileId];
-
-				var sprite = this.levelTiles.makeSprite(tileX, tileY, l_Tiles_16_RenderSize, tileData.tileId);
-				var hitBoxW = config.hitboxHeight;
-				var hitBoxH = config.hitboxHeight;
-				var body = new Body({
-					shape: {
-						solid: false,
-						radius: hitBoxW * 0.5,
-						width: hitBoxW,
-						height: hitBoxH,
-                        type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT
-					},
-					x: tileX,
-					y: tileY,
-					kinematic: true
-				});
-				var obstacle = new Obstacle(tileX, tileY, hitBoxW, hitBoxH, sprite, body, obstacleDebugCore);
-				world.add(obstacle.body);
-				obstacle.body.velocity.x = config.velocityX;
+				var config = Configuration.obstacles[tileData.tileId];
+				if (config == null) {
+					trace('!!! no config for tile Id ${tileData.tileId}');
+				} else {
+					var sprite = this.levelTiles.makeSprite(tileX, tileY, l_Tiles_16_RenderSize, tileData.tileId);
+					var hitBoxW = config.hitboxWidth;
+					var hitBoxH = config.hitboxHeight;
+					var body = new Body({
+						shape: {
+							solid: false,
+							// radius: Std.int(hitBoxW * 0.5),
+							width: hitBoxW,
+							height: hitBoxH,
+							// type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT
+						},
+                        mass: 1,
+						x: tileX,
+						y: tileY,
+						kinematic: true,
+					});
+					var obstacle = new Obstacle(tileX, tileY, hitBoxW, hitBoxH, sprite, body, obstacleDebugCore);
+					world.add(obstacle.body);
+                    pieces.push(obstacle);
+					obstacles.push(obstacle.body);
+					obstacle.body.velocity.x = config.velocityX;
+					obstacle.body.velocity.y = 0;
+				}
 			}
 		});
 	}

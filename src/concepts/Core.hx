@@ -54,7 +54,7 @@ class GamePiece {
 		#if !debug
 		this.debug.color.alpha = 0;
 		#end
-		
+
 		shape = this.debug.renderer.makeShape(x, y, bodyW, bodyH, RECT, this.debug.color);
 
 		this.body.on_move = on_move;
@@ -70,6 +70,7 @@ class GamePiece {
 		sprite.setPosition(x_, y_);
 		shape.setPosition(x_, y_);
 		// sprite.z = Std.int(y_);
+		// trace('on move $x $x_ $y $y_ ${body.x} ${body.y}');
 	}
 
 	inline function on_rotate(r:Float) {

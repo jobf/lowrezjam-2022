@@ -1,5 +1,6 @@
 package escape;
 
+import echo.Echo;
 import tyke.Ldtk;
 import echo.World;
 import concepts.Core;
@@ -18,6 +19,15 @@ class EscapeVelocity extends FullScene {
 
 	override function create() {
 		super.create();
+		// world.width = 256;
+		// world.height = 256;
+		world.dispose();
+		world = Echo.start({
+			width: 1024,
+			height: 1024,
+			gravity_y: 100,
+			iterations: 2
+		});
 		var layer = stage.getLayer("stars");
 		@:privateAccess
 		layer.frameBuffer.display.xOffset = -64;
@@ -62,9 +72,10 @@ class EscapeVelocity extends FullScene {
 			shape: {
 				solid: false,
 				// radius: radius,
-				width: width,
-				height: height,
+				width: shipW,
+				height: shipH,
 			},
+			mass: 1,
 			x: shipX,
 			y: shipY,
 			kinematic: true
@@ -92,6 +103,14 @@ class EscapeVelocity extends FullScene {
 
 		level = new Level(debugShapes, spaceLevelTiles, world, 0);
 		
+		world.listen(ship.body, level.obstacles, {
+
+			enter: (shipBody, obstacleBody, collisionData) -> {
+				trace('collide ship id ${shipBody.id}  x ${shipBody.x} y ${shipBody.y} obstacle id ${obstacleBody.id} x ${obstacleBody.x} y ${obstacleBody.y} ');
+				app.resetScene();
+			},
+		});
+
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> ship.moveUp(isDown),
 			onControlRight: isDown -> ship.moveRight(isDown),
