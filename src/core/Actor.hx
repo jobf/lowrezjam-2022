@@ -75,6 +75,11 @@ class BaseActor {
 
 		// handle collisions with body
 		core.body.collider = new Collider(options.collisionType, body -> collideWith(body));
+
+		#if !debug
+		// only show the debug shape for debugging
+		core.shape.visible = false;
+		#end
 	}
 
 	public function update(elapsedSeconds:Float) {
