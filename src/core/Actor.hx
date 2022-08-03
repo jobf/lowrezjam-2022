@@ -40,9 +40,20 @@ function actorFactory(options:ActorOptions, actorSystem:ActorSystem):ActorCore {
 	var x_ = Std.int(options.bodyOptions.x);
 	var y_ = Std.int(options.bodyOptions.y);
 	return {
-		sprite: actorSystem.tiles.makeSprite(x_, y_, options.spriteTileSize, options.spriteTileId),
-		shape: actorSystem.shapes.makeShape(x_, y_, Std.int(options.bodyOptions.shape.width), Std.int(options.bodyOptions.shape.height), options.shape,
-			options.debugColor),
+		sprite: actorSystem.tiles.makeSprite(
+			x_, 
+			y_, 
+			options.spriteTileSize, 
+			options.spriteTileId
+		),
+		shape: actorSystem.shapes.makeShape(
+			x_, 
+			y_, 
+			Std.int(options.bodyOptions.shape.width), 
+			Std.int(options.bodyOptions.shape.height), 
+			options.shape,
+			options.debugColor
+		),
 		bodyOptions: options.bodyOptions,
 		body: new Body(options.bodyOptions)
 	}
@@ -75,6 +86,14 @@ class BaseActor {
 
 		// handle collisions with body
 		core.body.collider = new Collider(options.collisionType, body -> collideWith(body));
+
+		// register body in world
+		system.world.add(core.body);
+
+		#if !debug
+		// only show the debug shape for debugging
+		core.shape.visible = false;
+		#end
 	}
 
 	public function update(elapsedSeconds:Float) {

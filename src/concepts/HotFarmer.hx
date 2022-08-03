@@ -18,15 +18,6 @@ class HotFarmer extends FullScene {
 		var numTilesWide = 8;
 		var isIndividualFrameBuffer = true;
 
-
-		app.window.onKeyDown.add((code, modifier) -> switch code {
-			case W: scrollUp();
-			case A: scrollLeft();
-			case S: scrollDown();
-			case D: scrollRight();
-			case _: return;
-		});
-
 		var debugColor = Color.MAGENTA;
 		debugColor.alpha = 100;
 
@@ -165,32 +156,6 @@ class HotFarmer extends FullScene {
 		right: 0,
 		down: 0
 	};
-
-	var scrollIncrement = 7;
-
-	inline function scrollLeft() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.xOffset += scrollIncrement;
-		cursor.body.x -= scrollIncrement;
-	}
-
-	inline function scrollRight() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.xOffset -= scrollIncrement;
-		cursor.body.x += scrollIncrement;
-	}
-
-	inline function scrollUp() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.yOffset += scrollIncrement;
-		cursor.body.y -= scrollIncrement;
-	}
-
-	inline function scrollDown() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.yOffset -= scrollIncrement;
-		cursor.body.y += scrollIncrement;
-	}
 
 	var plantBodies:Array<Body>;
 }
