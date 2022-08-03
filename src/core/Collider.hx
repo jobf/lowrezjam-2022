@@ -21,4 +21,5 @@ enum CollisionType{
     VEHICLE;
     ROCK;
     SUN;
+    PROJECTILE;
 }

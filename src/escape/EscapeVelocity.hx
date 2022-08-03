@@ -75,6 +75,14 @@ class EscapeVelocity extends FullScene {
 			},
 		});
 
+		// register projectile and obstacle collisions
+		world.listen(ship.weapon.projectiles, level.obstacles, {
+			enter: (projectileBody, obstacleBody, collisionData) -> {
+				obstacleBody.collider.collideWith(projectileBody);
+				projectileBody.collider.collideWith(obstacleBody);
+			},
+		});
+
 		var sunActorSystem:ActorSystem = {
 			world: world,
 			tiles: tiles14px,
@@ -82,15 +90,15 @@ class EscapeVelocity extends FullScene {
 			peoteView: app.core.peoteView
 		};
 
-		sun = new Sun(sunActorSystem);
+		// sun = new Sun(sunActorSystem);
 
 		// register ship and sun collisions
-		world.listen(ship.core.body, sun.core.body, {
-			enter: (shipBody, sunBody, collisionData) -> {
-				sunBody.collider.collideWith(shipBody);
-				shipBody.collider.collideWith(sunBody);
-			},
-		});
+		// world.listen(ship.core.body, sun.core.body, {
+		// 	enter: (shipBody, sunBody, collisionData) -> {
+		// 		sunBody.collider.collideWith(shipBody);
+		// 		shipBody.collider.collideWith(sunBody);
+		// 	},
+		// });
 
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> ship.moveUp(isDown),

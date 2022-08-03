@@ -64,6 +64,12 @@ class BaseActor {
 
 	var options:ActorOptions;
 	var behaviours:Array<CountDown>;
+	
+	var isDestructible(default, set):Bool = true;
+    function set_isDestructible(value:Bool):Bool {
+        throw new haxe.exceptions.NotImplementedException();
+    }
+    
 
 	public function new(options:ActorOptions, system:ActorSystem) {
 		this.options = options;
@@ -109,5 +115,16 @@ class BaseActor {
 
 	function collideWith(body:Body) {
 		// override me
+	}
+
+	function kill(){
+		core.body.remove();
+		core.shape.visible = false;
+		core.sprite.visible = false;
+
+		core.shape.color.a =0;// = false;
+		core.sprite.alphaStart = 0;// = false;
+		core.sprite.alphaEnd = 0;// = false;
+		core.sprite.alpha = 0;// = false;
 	}
 }
