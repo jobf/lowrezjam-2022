@@ -67,10 +67,28 @@ class EscapeVelocity extends FullScene {
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, 0);
 
+		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
 				obstacleBody.collider.collideWith(shipBody);
 				shipBody.collider.collideWith(obstacleBody);
+			},
+		});
+
+		var sunActorSystem:ActorSystem = {
+			world: world,
+			tiles: tiles14px,
+			shapes: debugShapes,
+			peoteView: app.core.peoteView
+		};
+
+		sun = new Sun(sunActorSystem);
+
+		// register ship and sun collisions
+		world.listen(ship.core.body, sun.core.body, {
+			enter: (shipBody, sunBody, collisionData) -> {
+				sunBody.collider.collideWith(shipBody);
+				shipBody.collider.collideWith(sunBody);
 			},
 		});
 
@@ -97,4 +115,33 @@ class EscapeVelocity extends FullScene {
 		}
 		starField.update(elapsedSeconds);
 	}
+
+	var sun:Sun;
+	function traceSun(){
+		trace('sun ${sun.core.body.x} ${sun.core.body.y}');
+	}
+
+	// override function scrollDown() {
+	// 	// super.scrollDown();
+	// 	sun.core.body.y -= scrollIncrement;
+	// 	traceSun();
+	// }
+	
+	// override function scrollUp() {
+	// 	// super.scrollUp();
+	// 	sun.core.body.y += scrollIncrement;
+	// 	traceSun();
+	// }
+
+	// override function scrollLeft() {
+	// 	// super.scrollLeft();
+	// 	sun.core.body.x -= scrollIncrement;
+	// 	traceSun();
+	// }
+
+	// override function scrollRight() {
+	// 	// super.scrollRight();
+	// 	sun.core.body.x += scrollIncrement;
+	// 	traceSun();
+	// }
 }

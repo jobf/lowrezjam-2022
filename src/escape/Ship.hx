@@ -62,7 +62,11 @@ class Ship extends BaseActor {
 		switch body.collider.type {
 			case ROCK:
 				takeDamage();
+			case SUN:
+				trace('hit sun');
+				takeDamage();
 			case _:
+				trace('unhandled collision');
 				return;
 		}
 	}
@@ -81,7 +85,7 @@ class Ship extends BaseActor {
 	var isInvulnerable:Bool;
 
 	inline function resetTookDamage() {
-		if(isInvulnerable){
+		if (isInvulnerable) {
 			trace('resetTookDamage');
 			isInvulnerable = false;
 			core.sprite.setFlashing(false);

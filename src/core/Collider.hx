@@ -20,4 +20,5 @@ enum CollisionType{
     UNDEFINED;
     VEHICLE;
     ROCK;
+    SUN;
 }
