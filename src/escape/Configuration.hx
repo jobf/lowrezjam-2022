@@ -15,37 +15,37 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 2,
 			hitboxHeight: 2,
-            velocityX: -30.0
+            velocityX: -50.0
 		},
         1 => {
 			shape: CIRCLE,
 			hitboxWidth: 5,
 			hitboxHeight: 5,
-            velocityX: -30
+            velocityX: -50.0
 		},
         2 => {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -30.0
+            velocityX: -50.0
 		},
         3 => {
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-            velocityX: -30.0
+            velocityX: -50.0
 		},
 		5 => {
 			shape: CIRCLE,
 			hitboxWidth: 10,
 			hitboxHeight: 6,
-            velocityX: -30.0
+            velocityX: -50.0
 		},
 		6 => {
 			shape: CIRCLE,
 			hitboxWidth: 14,
 			hitboxHeight: 14,
-            velocityX: -30.0
+            velocityX: -50.0
 		},
 	];
 }

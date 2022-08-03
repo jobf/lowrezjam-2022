@@ -82,15 +82,15 @@ class EscapeVelocity extends FullScene {
 			peoteView: app.core.peoteView
 		};
 
-		sun = new Sun(sunActorSystem);
+		// sun = new Sun(sunActorSystem);
 
-		// register ship and sun collisions
-		world.listen(ship.core.body, sun.core.body, {
-			enter: (shipBody, sunBody, collisionData) -> {
-				sunBody.collider.collideWith(shipBody);
-				shipBody.collider.collideWith(sunBody);
-			},
-		});
+		// // register ship and sun collisions
+		// world.listen(ship.core.body, sun.core.body, {
+		// 	enter: (shipBody, sunBody, collisionData) -> {
+		// 		sunBody.collider.collideWith(shipBody);
+		// 		shipBody.collider.collideWith(sunBody);
+		// 	},
+		// });
 
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> ship.moveUp(isDown),
