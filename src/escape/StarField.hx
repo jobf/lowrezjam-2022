@@ -21,39 +21,30 @@ class StarField {
 			}, true),
 		];
 
-        // generate star range
-		var numStars = 60;
+		// generate star range
+		var numStars = 42;
 		starfieldSpeed = 0;
-        
+
 		stars = [
 			for (i in 0...numStars) {
-				var x = randomInt(width);
+				var x = 64 + randomInt(64);
 				var y = randomInt(height);
-				var color = Color.WHITE;
-				var distanceChance = randomInt(3);
-				var distanceFactor = switch distanceChance {
-					// case 1: -0.05;
-					// case 2: -0.7;
-					// case 3: -0.5;
-					// case _: -0.01;
-					// case 1: -0.05;
-					case 2: 0.9;
-					case 3: 0.2;
-					case _: 0.01;
-				};
-				var minAlpha = 90;
-				var maxAlpha = (222 - minAlpha);
-				var alpha = (maxAlpha * distanceFactor) + minAlpha;
-				color.alpha = Std.int(alpha);
-				new Star(x, y, distanceFactor, starSprites.makeSprite(x, y, 64, 1));
+				var distanceLevels = 6;
+				var slowDown = 0.5;
+				var distanceModifier = 1 / distanceLevels * slowDown;
+				var distance = randomInt(distanceLevels);
+				distance = Std.int(6 * distanceModifier);
+				if(distance == 0){
+					distance = 1;
+				}
+				new Star(x, y, distanceModifier, starSprites.makeSprite(x, y, 64, distance, 0, true, 1));
 			}
 
 		];
-
 	}
 
 	public function update(elapsedSeconds:Float) {
-		starfieldSpeed = ship.core.body.velocity.x;
+		starfieldSpeed =  (ship.core.body.x / 64) - 1;
 		for (b in behaviours) {
 			b.update(elapsedSeconds);
 		}
@@ -61,37 +52,40 @@ class StarField {
 }
 
 class Star {
-    
-    var sprite:Sprite;
-    var x:Float;
+	var sprite:Sprite;
+	var x:Float;
 	var y:Int;
-	var xOffset:Int;
-	var xTruncLast:Int = 0;
 	var distanceFactor:Float;
 
-	public function new(xOffset:Int, y:Int, distanceFactor:Float, sprite:Sprite) {
-		this.xOffset = xOffset;
-		this.x = xOffset;
+	public function new(x:Int, y:Int, distanceFactor:Float, sprite:Sprite) {
+		this.x = x;
 		this.y = y;
 		this.distanceFactor = distanceFactor;
 		this.sprite = sprite;
+		this.sprite.w = 2;
 		this.sprite.h = 1;
 	}
 
 	var speed:Float;
-	var maximumTravel = 24;
-	var maximumTrail = 24;
-
+	var maximumTravel = 64;
+	var velocity:Float;
 	public function update(starfieldSpeed:Float) {
 		speed = starfieldSpeed * distanceFactor;
-		// trace('star speed $speed');
-		x -= (maximumTravel * speed);
-		if (x < -maximumTravel) {
-			x = 64 + maximumTravel;
+		velocity = maximumTravel * speed;
+		x -= velocity;
+		if(x < -maximumTravel){
+			// x = maximumTravel * 2;
+			x = 64 + randomInt(64);
 		}
-		sprite.x = Std.int(x);
-		var trailSpeed = speed * 0.5;
-		sprite.w = Std.int(maximumTrail * trailSpeed);
-	}
+		sprite.x = Std.int(x + maximumTravel);
 
+		// trace('star speed $speed velocity $velocity x $x ${sprite.x}');
+		var maxTrail = 60;
+		var minTrail = 1;
+		var trail = Std.int((speed * 10) * maxTrail);
+		if(trail <= minTrail){
+			trail = minTrail;
+		}
+		sprite.w = trail;
+	}
 }
