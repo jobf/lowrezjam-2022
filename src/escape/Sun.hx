@@ -31,6 +31,8 @@ class Sun extends BaseActor{
             }
         },
         system);
+
+        core.shape.visible = true;
     }
 
 	// function makeCore(options:ActorOptions, system:ActorSystem):ActorCore{
