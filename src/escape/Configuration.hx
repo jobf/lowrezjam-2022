@@ -35,6 +35,18 @@ class Configuration {
 			hitboxHeight: 8,
             velocityX: -30.0
 		},
+		5 => {
+			shape: CIRCLE,
+			hitboxWidth: 10,
+			hitboxHeight: 6,
+            velocityX: -30.0
+		},
+		6 => {
+			shape: CIRCLE,
+			hitboxWidth: 14,
+			hitboxHeight: 14,
+            velocityX: -30.0
+		},
 	];
 }
 
