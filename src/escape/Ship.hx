@@ -81,7 +81,7 @@ class Ship extends BaseActor {
 		super.collideWith(body);
 		switch body.collider.type {
 			case ROCK:
-				takeDamage();
+				takeDamageFromObstacle(body);
 			case SUN:
 				trace('hit sun');
 				takeDamage();
@@ -99,6 +99,12 @@ class Ship extends BaseActor {
 			isInvulnerable = true;
 			core.sprite.setFlashing(true);
 			takeDamageCountdown.reset();
+		}
+	}
+
+	function takeDamageFromObstacle(body:Body) {
+		if(body.obstacleConfiguration.damagePoints > 0)		{
+			takeDamage();
 		}
 	}
 

@@ -73,7 +73,7 @@ class Level {
 						}
 					};
 
-					var obstacle = new Obstacle(obstacleOptions, obstacleSystem);
+					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
                     actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
 					obstacle.core.body.velocity.x = config.velocityX;

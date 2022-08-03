@@ -9,43 +9,73 @@ class Configuration {
 		// 	shape: RECT,
 		// 	hitboxWidth: 4,
 		// 	hitboxHeight: 4
-        // velocityX: -30.0
+        // velocityX: -30.0,
+		// isDestructible: true,
+		// damagePoints: 0
 		// },
 		0 => {
 			shape: CIRCLE,
 			hitboxWidth: 2,
 			hitboxHeight: 2,
-            velocityX: -50.0
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 0
 		},
         1 => {
 			shape: CIRCLE,
 			hitboxWidth: 5,
 			hitboxHeight: 5,
-            velocityX: -50.0
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
 		},
         2 => {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
 		},
         3 => {
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-            velocityX: -50.0
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+        4 => {
+			shape: RECT,
+			hitboxWidth: 8,
+			hitboxHeight: 8,
+            velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 0
 		},
 		5 => {
 			shape: CIRCLE,
 			hitboxWidth: 10,
 			hitboxHeight: 6,
-            velocityX: -50.0
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
 		},
 		6 => {
 			shape: CIRCLE,
 			hitboxWidth: 14,
 			hitboxHeight: 14,
-            velocityX: -50.0
+            velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 1
+		},
+		7 => {
+			shape: CIRCLE,
+			hitboxWidth: 14,
+			hitboxHeight: 14,
+            velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 0
 		},
 	];
 }
@@ -71,4 +101,14 @@ class ObstacleConfiguration {
         if it's a CIRCLE or RECT (rectangle)
     **/
 	public var shape:Geometry;
+
+	/**
+		if the obstacle can be destroyed set this to true
+	**/
+	public var isDestructible:Bool;
+
+	/**
+		how much damage the obstacle inflicts on a ship when colliding
+	**/
+		public var damagePoints:Int;
 }
