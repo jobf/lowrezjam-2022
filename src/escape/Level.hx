@@ -1,9 +1,9 @@
 package escape;
 
-import echo.data.Types.ShapeType;
+import peote.view.PeoteView;
+import core.Actor;
 import echo.Body;
 import tyke.Ldtk;
-import concepts.Core;
 import echo.World;
 import tyke.Graphics;
 import ldtk.Space;
@@ -15,9 +15,9 @@ class Level {
 	var levelId:Int;
 
 	public var obstacles(default, null):Array<Body>;
-	public var pieces(default, null):Array<GamePiece> = [];
+	public var actors(default, null):Array<BaseActor> = [];
 
-	public function new(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, levelId:Int) {
+	public function new(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, levelId:Int) {
 		#if editinglevels
 		// load src version of tracks.ldtk (for hot reload)
 		var json = sys.io.File.getContent("../../../assets/ldtk/space/space.ldtk");
@@ -33,10 +33,14 @@ class Level {
 
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
 		var l_Tiles_16_RenderSize = 16;
-		var obstacleDebugCore:DebugCore = {
-			renderer: debugRenderer,
-			color: 0x44008880
+		
+		var obstacleSystem:ActorSystem = {
+			world: world,
+			tiles: levelTiles,
+			shapes: debugRenderer,
+			peoteView: peoteView
 		}
+
 		LevelLoader.renderLayer(l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
 				var tileX = cx * l_Tiles_16_RenderSize;
@@ -45,28 +49,32 @@ class Level {
 				if (config == null) {
 					trace('!!! no config for tile Id ${tileData.tileId}');
 				} else {
-					var sprite = this.levelTiles.makeSprite(tileX, tileY, l_Tiles_16_RenderSize, tileData.tileId);
-					var hitBoxW = config.hitboxWidth;
-					var hitBoxH = config.hitboxHeight;
-					var body = new Body({
-						shape: {
-							solid: false,
-							// radius: Std.int(hitBoxW * 0.5),
-							width: hitBoxW,
-							height: hitBoxH,
-							// type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT
-						},
-                        mass: 1,
-						x: tileX,
-						y: tileY,
-						kinematic: true,
-					});
-					var obstacle = new Obstacle(tileX, tileY, hitBoxW, hitBoxH, sprite, body, obstacleDebugCore);
-					world.add(obstacle.body);
-                    pieces.push(obstacle);
-					obstacles.push(obstacle.body);
-					obstacle.body.velocity.x = config.velocityX;
-					obstacle.body.velocity.y = 0;
+					var obstacleOptions:ActorOptions = {
+						spriteTileSize: l_Tiles_16_RenderSize,
+						spriteTileId: tileData.tileId,
+						shape: config.shape,
+						makeCore: actorFactory,
+						debugColor: 0x44008880,
+						collisionType: ROCK,
+						bodyOptions: {
+							shape: {
+								solid: false,
+								width: config.hitboxWidth,
+								height: config.hitboxHeight,
+							},
+							mass: 1,
+							x: tileX,
+							y: tileY,
+							kinematic: true
+						}
+					};
+
+					var obstacle = new Obstacle(obstacleOptions, obstacleSystem);
+					world.add(obstacle.core.body);
+                    actors.push(obstacle);
+					obstacles.push(obstacle.core.body);
+					obstacle.core.body.velocity.x = config.velocityX;
+					obstacle.core.body.velocity.y = 0;
 				}
 			}
 		});

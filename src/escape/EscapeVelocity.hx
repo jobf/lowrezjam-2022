@@ -1,11 +1,8 @@
 package escape;
 
+import core.Actor;
 import echo.Echo;
-import tyke.Ldtk;
-import echo.World;
-import concepts.Core;
 import echo.Body;
-import concepts.Core.GamePiece;
 import core.Controller;
 import tyke.Loop;
 import Main;
@@ -14,8 +11,11 @@ import tyke.Glyph;
 import peote.view.Color;
 
 class EscapeVelocity extends FullScene {
-	var stars:Array<Star>;
-	var starfieldSpeed:Float;
+	
+	var starField:StarField;
+	var level:Level;
+	var ship:Ship;
+	var controller:Controller;
 
 	override function create() {
 		super.create();
@@ -31,83 +31,48 @@ class EscapeVelocity extends FullScene {
 		var layer = stage.getLayer("stars");
 		@:privateAccess
 		layer.frameBuffer.display.xOffset = -64;
-		// generate star range
-		var numStars = 60;
-		starfieldSpeed = 0;
-		stars = [
-			for (i in 0...numStars) {
-				var x = randomInt(this.width);
-				var y = randomInt(64);
-				var color = Color.WHITE;
-				var distanceChance = randomInt(3);
-				var distanceFactor = switch distanceChance {
-					// case 1: -0.05;
-					// case 2: -0.7;
-					// case 3: -0.5;
-					// case _: -0.01;
-					// case 1: -0.05;
-					case 2: 0.9;
-					case 3: 0.2;
-					case _: 0.01;
-				};
-				var minAlpha = 90;
-				var maxAlpha = (222 - minAlpha);
-				var alpha = (maxAlpha * distanceFactor) + minAlpha;
-				color.alpha = Std.int(alpha);
-				new Star(x, y, distanceFactor, starRenderer.makeShape(x, y, 1, 1, RECT, color), starSpriteRenderer.makeSprite(x, y, 64, 1));
+		
+		var shipOptions:ActorOptions = {
+			spriteTileSize: 14,
+			spriteTileId: 16,
+			shape: RECT,
+			makeCore: actorFactory,
+			debugColor: 0xff202080,
+			collisionType: VEHICLE,
+			bodyOptions: {
+				shape: {
+					solid: false,
+					// radius: radius,
+					width: 8,
+					height: 4,
+				},
+				mass: 1,
+				x: 90,
+				y: 40,
+				kinematic: true
 			}
+		};
 
-		];
+		var shipActorSystem:ActorSystem = {
+			world: world,
+			tiles: tiles14px,
+			shapes: debugShapes,
+			peoteView: app.core.peoteView
+		};
 
-		var shipX = 90;
-		var shipY = 40;
-		var shipW = 8;
-		var shipH = 4;
-		var shipTileId = 16;
 		var shipSpeed = 1.0;
 		var maxTravelDistance = 40;
-		var shipTileSize = 14;
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance);
+		world.add(ship.core.body);
 
-		ship = new Ship(shipX, shipY, shipW, shipH, tiles14px.makeSprite(shipX, shipY, shipTileSize, shipTileId), new Body({
-			shape: {
-				solid: false,
-				// radius: radius,
-				width: shipW,
-				height: shipH,
-			},
-			mass: 1,
-			x: shipX,
-			y: shipY,
-			kinematic: true
-		}), {
-			renderer: debugShapes,
-			color: 0xff202080
-		},
-		shipSpeed,
-		maxTravelDistance);
-
-		world.add(ship.body);
-
-		var speedUpPause = 0.4;
-		behaviours = [
-			new CountDown(speedUpPause, () -> {
-				starfieldSpeed = (ship.body.x / 128);
-				// trace('starfieldSpeed $starfieldSpeed');
-			}, true),
-			new CountDown(0.2, () -> {
-				for (star in stars) {
-					star.update(starfieldSpeed);
-				}
-			}, true),
-		];
-
-		level = new Level(debugShapes, spaceLevelTiles, world, 0);
 		
-		world.listen(ship.body, level.obstacles, {
+		starField = new StarField(ship, 256, 128, starSpriteRenderer);
+		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, 0);
 
+		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
-				trace('collide ship id ${shipBody.id}  x ${shipBody.x} y ${shipBody.y} obstacle id ${obstacleBody.id} x ${obstacleBody.x} y ${obstacleBody.y} ');
-				app.resetScene();
+				obstacleBody.collider.collideWith(shipBody);
+				shipBody.collider.collideWith(obstacleBody);
 			},
 		});
 
@@ -126,61 +91,12 @@ class EscapeVelocity extends FullScene {
 		controller.disable();
 	}
 
-	var controller:Controller;
-
-	var ship:Ship;
-	// override function onMouseDown(x:Float, y:Float, button:MouseButton) {
-	// 	super.onMouseDown(x, y, button);
-	// 	@:privateAccess
-	// 	ship.body.x = app.core.display.localX(x) - stage.globalFrameBuffer.display.xOffset;
-	// 	@:privateAccess
-	// 	ship.body.y = app.core.display.localX(y) - stage.globalFrameBuffer.display.yOffset;
-	// 	trace('${ship.body.x}, ${ship.body.y}');
-	// }
-
-	var level:Level;
-}
-
-class Star {
-	public var shape:Shape;
-	public var x:Float;
-
-	var y:Int;
-	var xOffset:Int;
-	var xTruncLast:Int = 0;
-	var distanceFactor:Float;
-
-	public function new(xOffset:Int, y:Int, distanceFactor:Float, shape:Shape, sprite:Sprite) {
-		this.xOffset = xOffset;
-		this.x = xOffset;
-		this.y = y;
-		this.distanceFactor = distanceFactor;
-		this.shape = shape;
-		this.sprite = sprite;
-		this.sprite.h = 1;
-		shape.color.alpha = 0;
-	}
-	var speed:Float;
-	var maximumTravel = 24;
-	var maximumTrail = 24;
-
-	public function update(starfieldSpeed:Float) {
-		speed = starfieldSpeed * distanceFactor;
-		// trace('star speed $speed');
-		shape.x -= (maximumTravel * speed);
-		if (shape.x < -maximumTravel) {
-			shape.x = 64 + maximumTravel;
+	override function update(elapsedSeconds:Float) {
+		super.update(elapsedSeconds);
+		ship.update(elapsedSeconds);
+		for (a in level.actors) {
+			a.update(elapsedSeconds);
 		}
-		sprite.x = shape.x;
-		var trailSpeed = speed * 0.5;
-		shape.w = Std.int(maximumTrail * trailSpeed);
-		sprite.w = shape.w;
+		starField.update(elapsedSeconds);
 	}
-
-	public function setX(nextX:Int) {
-		x = nextX;
-		shape.x = nextX;
-	}
-
-	var sprite:Sprite;
 }

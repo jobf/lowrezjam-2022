@@ -61,5 +61,7 @@
 
 	<haxeflag name="--macro" value="echo.Macros.add_data('gamepiece','concepts.Core.GamePiece')"/>
 
+	<haxeflag name="--macro" value="echo.Macros.add_data('collider','core.Collider')"/>
+
 	
 </project>

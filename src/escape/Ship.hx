@@ -1,18 +1,19 @@
 package escape;
 
+import tyke.Loop;
 import echo.Body;
-import tyke.Graphics;
-import concepts.Core;
+import core.Actor;
 
-
-class Ship extends GamePiece {
+class Ship extends BaseActor {
 	var speed:Float;
 	var maxTravelDistance:Int;
 
-	public function new(x:Int, y:Int, bodyW:Int, bodyH:Int, sprite:Sprite, body:Body, debug:DebugCore, speed:Float, maxTravelDistance:Int) {
-		super(x, y, bodyW, bodyH, sprite, body, debug);
+	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int) {
+		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
+		takeDamageCountdown = new CountDown(2.0, () -> resetTookDamage(), false);
+		behaviours.push(takeDamageCountdown);
 	}
 
 	var isMovingVertical:Bool;
@@ -21,40 +22,69 @@ class Ship extends GamePiece {
 	public function moveUp(isDown:Bool) {
 		isMovingVertical = isDown;
 		if (isMovingVertical) {
-			body.velocity.y = -Std.int(maxTravelDistance * speed);
+			core.body.velocity.y = -Std.int(maxTravelDistance * speed);
 		} else {
-			body.velocity.y = 0;
+			core.body.velocity.y = 0;
 		}
 	}
 
 	public function moveRight(isDown:Bool) {
 		isMovingHorizontal = isDown;
 		if (isMovingHorizontal) {
-			body.velocity.x = Std.int(maxTravelDistance * speed);
+			core.body.velocity.x = Std.int(maxTravelDistance * speed);
 		} else {
-			body.velocity.x = 0;
+			core.body.velocity.x = 0;
 		}
 	}
 
 	public function moveLeft(isDown:Bool) {
 		isMovingHorizontal = isDown;
 		if (isMovingHorizontal) {
-			body.velocity.x = -Std.int(maxTravelDistance * speed);
+			core.body.velocity.x = -Std.int(maxTravelDistance * speed);
 		} else {
-			body.velocity.x = 0;
+			core.body.velocity.x = 0;
 		}
 	}
 
 	public function moveDown(isDown:Bool) {
 		isMovingVertical = isDown;
 		if (isMovingVertical) {
-			body.velocity.y = Std.int(maxTravelDistance * speed);
+			core.body.velocity.y = Std.int(maxTravelDistance * speed);
 		} else {
-			body.velocity.y = 0;
+			core.body.velocity.y = 0;
 		}
 	}
 
 	public function action(isDown:Bool) {}
+
+	override function collideWith(body:Body) {
+		super.collideWith(body);
+		switch body.collider.type {
+			case ROCK:
+				takeDamage();
+			case _:
+				return;
+		}
+	}
+
+	var takeDamageCountdown:CountDown;
+
+	function takeDamage() {
+		if (!isInvulnerable) {
+			trace('takeDamage');
+			isInvulnerable = true;
+			core.sprite.setFlashing(true);
+			takeDamageCountdown.reset();
+		}
+	}
+
+	var isInvulnerable:Bool;
+
+	inline function resetTookDamage() {
+		if(isInvulnerable){
+			trace('resetTookDamage');
+			isInvulnerable = false;
+			core.sprite.setFlashing(false);
+		}
+	}
 }
-
-

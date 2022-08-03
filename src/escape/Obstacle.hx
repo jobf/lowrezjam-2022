@@ -1,8 +1,8 @@
 package escape;
 
-import concepts.Core;
+import core.Actor.BaseActor;
 
 
-class Obstacle extends GamePiece{
+class Obstacle extends BaseActor{
 
 }
