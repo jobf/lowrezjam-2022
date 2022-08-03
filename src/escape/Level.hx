@@ -1,5 +1,6 @@
 package escape;
 
+import echo.data.Types.ShapeType;
 import peote.view.PeoteView;
 import core.Actor;
 import echo.Body;
@@ -58,7 +59,9 @@ class Level {
 						collisionType: ROCK,
 						bodyOptions: {
 							shape: {
+								type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
 								solid: false,
+								radius: Std.int(config.hitboxWidth * 0.5),
 								width: config.hitboxWidth,
 								height: config.hitboxHeight,
 							},
