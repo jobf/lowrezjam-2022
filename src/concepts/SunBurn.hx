@@ -22,14 +22,6 @@ class SunBurn extends FullScene {
 		// var numPeople = 10;
 		var numPeople = 100;
 
-		app.window.onKeyDown.add((code, modifier) -> switch code {
-			case W: scrollUp();
-			case A: scrollLeft();
-			case S: scrollDown();
-			case D: scrollRight();
-			case _: return;
-		});
-
 		var debugColor = Color.CYAN;
 		debugColor.alpha = 0;
 		
@@ -113,27 +105,6 @@ class SunBurn extends FullScene {
 		down: 0
 	};
 
-	var scrollIncrement = 7;
-
-	inline function scrollLeft() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.xOffset += scrollIncrement;
-	}
-
-	inline function scrollRight() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.xOffset -= scrollIncrement;
-	}
-
-	inline function scrollUp() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.yOffset += scrollIncrement;
-	}
-
-	inline function scrollDown() {
-		@:privateAccess
-		stage.globalFrameBuffer.display.yOffset -= scrollIncrement;
-	}
 }
 
 class Person extends GamePiece{

@@ -102,6 +102,14 @@ class FullScene extends Scene {
 		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", tiles18pxTilesWide, isIndividualFrameBuffer, 640, 640);
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 		app.core.log('initialized renderers');
+
+		app.window.onKeyDown.add((code, modifier) -> switch code {
+			case W: scrollUp();
+			case A: scrollLeft();
+			case S: scrollDown();
+			case D: scrollRight();
+			case _: return;
+		});
 	}
 
 	override function destroy(){
@@ -132,7 +140,26 @@ class FullScene extends Scene {
 		// super.onPauseEnd();
 		audio.pause(false);
 	}
+	
+	var scrollIncrement = 8;
+	function scrollLeft() {
+		@:privateAccess
+		stage.globalFrameBuffer.display.xOffset += scrollIncrement;
+	}
 
+	function scrollRight() {
+		@:privateAccess
+		stage.globalFrameBuffer.display.xOffset -= scrollIncrement;
+	}
 
+	function scrollUp() {
+		@:privateAccess
+		stage.globalFrameBuffer.display.yOffset += scrollIncrement;
+	}
+
+	function scrollDown() {
+		@:privateAccess
+		stage.globalFrameBuffer.display.yOffset -= scrollIncrement;
+	}
 
 }
