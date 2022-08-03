@@ -92,7 +92,7 @@ class EscapeVelocity extends FullScene {
 
 		// sun = new Sun(sunActorSystem);
 
-		// register ship and sun collisions
+		// // register ship and sun collisions
 		// world.listen(ship.core.body, sun.core.body, {
 		// 	enter: (shipBody, sunBody, collisionData) -> {
 		// 		sunBody.collider.collideWith(shipBody);

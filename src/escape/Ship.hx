@@ -14,8 +14,8 @@ class Ship extends BaseActor {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
+		takeDamageCountdown = new CountDown(1.0, () -> resetTookDamage(), false);
 		this.weapon = new Weapon(system);
-		takeDamageCountdown = new CountDown(2.0, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
 
 		weaponUseCountdown = new CountDown(0.1, () -> resetCanUseWeapon(), false);
