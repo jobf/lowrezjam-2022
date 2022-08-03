@@ -87,6 +87,9 @@ class BaseActor {
 		// handle collisions with body
 		core.body.collider = new Collider(options.collisionType, body -> collideWith(body));
 
+		// register body in world
+		system.world.add(core.body);
+
 		#if !debug
 		// only show the debug shape for debugging
 		core.shape.visible = false;

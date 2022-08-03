@@ -63,8 +63,6 @@ class EscapeVelocity extends FullScene {
 		var shipSpeed = 1.0;
 		var maxTravelDistance = 40;
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance);
-		world.add(ship.core.body);
-
 		
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, 0);
