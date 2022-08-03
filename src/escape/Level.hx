@@ -34,6 +34,7 @@ class Level {
 
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
 		var l_Tiles_16_RenderSize = 16;
+		var l_Tiles_16_GridSize = 4;
 		
 		var obstacleSystem:ActorSystem = {
 			world: world,
@@ -44,8 +45,8 @@ class Level {
 
 		LevelLoader.renderLayer(l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
-				var tileX = cx * l_Tiles_16_RenderSize;
-				var tileY = cy * l_Tiles_16_RenderSize;
+				var tileX = cx * l_Tiles_16_GridSize;
+				var tileY = cy * l_Tiles_16_GridSize;
 				var config = Configuration.obstacles[tileData.tileId];
 				if (config == null) {
 					trace('!!! no config for tile Id ${tileData.tileId}');
