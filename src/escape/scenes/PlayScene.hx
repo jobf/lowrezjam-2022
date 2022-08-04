@@ -22,10 +22,10 @@ class PlayScene extends FullScene {
 
 	public function new(levelProgressIndex:Int, app:App, backgroundColor:Color = 0x000000ff, width:Int = 0, height:Int = 0) {
 		// these are the id's of the levels used from ldtk
-		final levelIds = [0, 1, 0];
+		final levelIds = [0, 1, 2];
 		
 		// next line forces which level is being played (for testing), comment it out for proper progression
-		levelProgressIndex = 1;
+		// levelProgressIndex = 1;
 
 		level = new Level(levelIds[levelProgressIndex]);
 
