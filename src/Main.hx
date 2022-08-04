@@ -1,3 +1,4 @@
+import escape.Configuration;
 import escape.scenes.PlayScene;
 import escape.scenes.CutScene;
 import tyke.Loop;
@@ -25,7 +26,7 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
-		app -> return new CutScene(0, app, 0x00000000, 256, 256),
+		app -> return new CutScene(0, app, Configuration.cutScenes[0]),
 		app -> return new PlayScene(0, app, 0x00000000, 256, 256)
 	];
 

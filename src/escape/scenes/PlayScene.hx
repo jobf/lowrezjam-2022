@@ -179,6 +179,6 @@ class PlayScene extends FullScene {
 	function endLevel() {
 		var nextLevelIndex = levelProgressIndex + 1;
 		trace('end level, starting $nextLevelIndex');
-		app.changeScene(new CutScene(nextLevelIndex, app, 0x00000000, 256, 256));
+		app.changeScene(new CutScene(nextLevelIndex, app, Configuration.cutScenes[0]));
 	}
 }
