@@ -87,6 +87,14 @@ class Configuration {
 			isDestructible: false,
 			damagePoints: 0
 		},
+		9 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 1
+		},
 	];
 }
 
