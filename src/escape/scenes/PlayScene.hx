@@ -1,4 +1,4 @@
-package escape;
+package escape.scenes;
 
 import escape.scenes.CutScene;
 import tyke.App;
@@ -12,7 +12,7 @@ import tyke.Graphics;
 import tyke.Glyph;
 import peote.view.Color;
 
-class EscapeVelocity extends FullScene {
+class PlayScene extends FullScene {
 	var starField:StarField;
 	var level:Level;
 	var ship:Ship;

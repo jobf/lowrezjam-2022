@@ -36,7 +36,7 @@ class CutScene extends FullScene {
 			currentFrame++;
 			testFrame.tile = currentFrame;
 		} else {
-			app.changeScene(new EscapeVelocity(levelProgressIndex, app, 0x00000000, 256, 256));
+			app.changeScene(new PlayScene(levelProgressIndex, app, 0x00000000, 256, 256));
 		}
 	}
 }
