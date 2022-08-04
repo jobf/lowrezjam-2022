@@ -21,6 +21,8 @@ class Obstacle extends BaseActor {
 		switch body.collider.type {
 			case PROJECTILE:
 				takeDamage(body);
+			case VEHICLE:
+				takeDamage(body);
 			case _:
 				return;
 		}
