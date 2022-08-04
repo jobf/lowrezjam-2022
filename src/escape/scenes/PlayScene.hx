@@ -21,13 +21,25 @@ class PlayScene extends FullScene {
 	var levelProgressIndex:Int;
 
 	public function new(levelProgressIndex:Int, app:App, backgroundColor:Color = 0x000000ff, width:Int = 0, height:Int = 0) {
+		// these are the id's of the levels used from ldtk
+		final levelIds = [0, 1, 0];
+		levelProgressIndex = 1;
+		level = new Level(levelIds[levelProgressIndex]);
+
+		if (level.levelStyle == Neutralize) {
+			backgroundColor = 0xffff00ff;
+		}
+
 		super(app, backgroundColor, width, height);
+
 		// this is the current level being played, e.g. 0 will use the first id from levelIds
 		this.levelProgressIndex = levelProgressIndex;
 	}
 
 	override function create() {
 		super.create();
+
+		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView);
 
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
@@ -75,12 +87,6 @@ class PlayScene extends FullScene {
 		var maxTravelDistance = 40;
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles);
 
-		starField = new StarField(ship, 256, 128, starSpriteRenderer);
-
-		// these are the id's of the levels used from ldtk
-		final levelIds = [0, 1, 0];
-		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, levelIds[levelProgressIndex]);
-
 		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
@@ -97,22 +103,28 @@ class PlayScene extends FullScene {
 			},
 		});
 
-		var sunActorSystem:ActorSystem = {
-			world: world,
-			tiles: tiles14px,
-			shapes: debugShapes,
-			peoteView: app.core.peoteView
-		};
+		if (level.levelStyle != Neutralize) {
+			starField = new StarField(ship, 256, 128, starSpriteRenderer);
+		}
 
-		// sun = new Sun(sunActorSystem);
+		if (level.levelStyle == Escape) {
+			var sunActorSystem:ActorSystem = {
+				world: world,
+				tiles: tiles14px,
+				shapes: debugShapes,
+				peoteView: app.core.peoteView
+			};
 
-		// // register ship and sun collisions
-		// world.listen(ship.core.body, sun.core.body, {
-		// 	enter: (shipBody, sunBody, collisionData) -> {
-		// 		sunBody.collider.collideWith(shipBody);
-		// 		shipBody.collider.collideWith(sunBody);
-		// 	},
-		// });
+			sun = new Sun(sunActorSystem);
+
+			// register ship and sun collisions
+			world.listen(ship.core.body, sun.core.body, {
+				enter: (shipBody, sunBody, collisionData) -> {
+					sunBody.collider.collideWith(shipBody);
+					shipBody.collider.collideWith(sunBody);
+				},
+			});
+		}
 
 		// register ship and finish line collisions
 		world.listen(ship.core.body, level.finishLine.core.body, {
@@ -139,14 +151,22 @@ class PlayScene extends FullScene {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		ship.update(elapsedSeconds);
-		starField.update(elapsedSeconds);
-		var speedMod = starField.starfieldSpeed * 1.5;
-
-		for (a in level.actors) {
-			a.setSpeedMod(speedMod);
-			a.update(elapsedSeconds);
+		if(level.levelStyle != Neutralize){
+			starField.update(elapsedSeconds);
+			var speedMod = starField.starfieldSpeed * 1.5;
+			for (a in level.actors) {
+				a.setSpeedMod(speedMod);
+				a.update(elapsedSeconds);
+			}
+			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
 		}
-		level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
+		else{
+			for (a in level.actors) {
+				a.update(elapsedSeconds);
+			}
+			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity;
+		}
+
 	}
 
 	var sun:Sun;

@@ -18,8 +18,9 @@ class Level {
 	public var obstacles(default, null):Array<Body>;
 	public var actors(default, null):Array<Obstacle> = [];
 	public var finishLine(default, null):BaseActor;
+	public var levelStyle(default, null):Enum_LevelStyle;
 
-	public function new(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, levelId:Int) {
+	public function new(levelId:Int) {
 		#if editinglevels
 		// load src version of tracks.ldtk (for hot reload)
 		var json = sys.io.File.getContent("../../../assets/ldtk/space/space.ldtk");
@@ -29,13 +30,15 @@ class Level {
 		spaceMaps = new Space();
 		#end
 		obstacles = [];
-		this.levelTiles = levelTiles;
-		this.world = world;
 		this.levelId = levelId;
 
-		var l_Style = spaceMaps.levels[levelId].f_LevelStyle;
-		trace('level style $l_Style');
+		levelStyle = spaceMaps.levels[levelId].f_LevelStyle;
+		trace('level style $levelStyle');
+	}
 
+	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView) {
+		this.levelTiles = levelTiles;
+		this.world = world;
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
 		var l_Tiles_16_RenderSize = 16;
 		var l_Tiles_16_GridSize = 4;
@@ -89,7 +92,7 @@ class Level {
 		var finishLines = spaceMaps.levels[levelId].l_Zones.all_FinishLine;
 		for (f in finishLines) {
 			var tileX = f.cx * l_Tiles_16_GridSize;
-			
+
 			finishLine = new BaseActor({
 				spriteTileSize: 0,
 				spriteTileId: 0,
