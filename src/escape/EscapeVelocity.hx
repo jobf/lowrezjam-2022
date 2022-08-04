@@ -11,7 +11,6 @@ import tyke.Glyph;
 import peote.view.Color;
 
 class EscapeVelocity extends FullScene {
-	
 	var starField:StarField;
 	var level:Level;
 	var ship:Ship;
@@ -35,7 +34,7 @@ class EscapeVelocity extends FullScene {
 		var layer = stage.getLayer("stars");
 		@:privateAccess
 		layer.frameBuffer.display.xOffset = -64;
-		
+
 		var shipOptions:ActorOptions = {
 			spriteTileSize: 14,
 			spriteTileId: 16,
@@ -67,9 +66,16 @@ class EscapeVelocity extends FullScene {
 		var shipSpeed = 1.0;
 		var maxTravelDistance = 40;
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles);
-		
+
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
-		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, 0);
+
+		// these are the id's of the levels used from ldtk
+		final levelIds = [0, 0, 0];
+
+		// this is the current level being played, e.g. 0 will use the first id from levelIds
+		var levelProgressIndex = 0;
+
+		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, levelIds[levelProgressIndex]);
 
 		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
@@ -112,7 +118,6 @@ class EscapeVelocity extends FullScene {
 			onControlAction: isDown -> ship.action(isDown)
 		});
 		controller.enable();
-
 	}
 
 	override function destroy() {
@@ -131,7 +136,8 @@ class EscapeVelocity extends FullScene {
 	}
 
 	var sun:Sun;
-	function traceSun(){
+
+	function traceSun() {
 		trace('sun ${sun.core.body.x} ${sun.core.body.y}');
 	}
 
@@ -140,23 +146,19 @@ class EscapeVelocity extends FullScene {
 	// 	sun.core.body.y -= scrollIncrement;
 	// 	traceSun();
 	// }
-	
 	// override function scrollUp() {
 	// 	// super.scrollUp();
 	// 	sun.core.body.y += scrollIncrement;
 	// 	traceSun();
 	// }
-
 	// override function scrollLeft() {
 	// 	// super.scrollLeft();
 	// 	sun.core.body.x -= scrollIncrement;
 	// 	traceSun();
 	// }
-
 	// override function scrollRight() {
 	// 	// super.scrollRight();
 	// 	sun.core.body.x += scrollIncrement;
 	// 	traceSun();
 	// }
-
 }
