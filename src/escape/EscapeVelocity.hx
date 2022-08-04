@@ -1,5 +1,7 @@
 package escape;
 
+import escape.scenes.CutScene;
+import tyke.App;
 import core.Actor;
 import echo.Echo;
 import echo.Body;
@@ -16,10 +18,17 @@ class EscapeVelocity extends FullScene {
 	var ship:Ship;
 	var controller:Controller;
 	var hudTiles:SpriteRenderer;
+	var levelProgressIndex:Int;
+
+	public function new(levelProgressIndex:Int, app:App, backgroundColor:Color = 0x000000ff, width:Int = 0, height:Int = 0) {
+		super(app, backgroundColor, width, height);
+		// this is the current level being played, e.g. 0 will use the first id from levelIds
+		this.levelProgressIndex = levelProgressIndex;
+	}
 
 	override function create() {
 		super.create();
-	
+
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
 		// world.height = 256;
@@ -70,10 +79,6 @@ class EscapeVelocity extends FullScene {
 
 		// these are the id's of the levels used from ldtk
 		final levelIds = [0, 0, 0];
-
-		// this is the current level being played, e.g. 0 will use the first id from levelIds
-		var levelProgressIndex = 0;
-
 		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, levelIds[levelProgressIndex]);
 
 		// register ship and obstacle collisions
@@ -136,7 +141,7 @@ class EscapeVelocity extends FullScene {
 		ship.update(elapsedSeconds);
 		starField.update(elapsedSeconds);
 		var speedMod = starField.starfieldSpeed * 1.5;
-		
+
 		for (a in level.actors) {
 			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
@@ -172,6 +177,8 @@ class EscapeVelocity extends FullScene {
 	// }
 
 	function endLevel() {
-		trace('end level');
+		var nextLevelIndex = levelProgressIndex + 1;
+		trace('end level, starting $nextLevelIndex');
+		app.changeScene(new CutScene(nextLevelIndex, app, 0x00000000, 256, 256));
 	}
 }
