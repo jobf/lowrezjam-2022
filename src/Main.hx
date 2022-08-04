@@ -1,8 +1,7 @@
+import escape.scenes.CutScene;
 import escape.EscapeVelocity;
 import tyke.Loop;
 import tyke.Graphics;
-import concepts.SunBurn;
-import concepts.HotFarmer;
 import tyke.jam.SoundManager;
 import echo.World;
 import echo.Echo;
@@ -26,9 +25,8 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
-		app -> return new EscapeVelocity(app, 0x00000000, 256, 256),
-		app -> return new SunBurn(app, 0xffbd4aFF),
-		app -> return new HotFarmer(app, 0x521104FF),
+		app -> return new CutScene(app, 0x00000000, 256, 256),
+		app -> return new EscapeVelocity(app, 0x00000000, 256, 256)
 	];
 
 	override function create() {
