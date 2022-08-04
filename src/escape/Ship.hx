@@ -17,6 +17,9 @@ class Ship extends BaseActor {
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
 		
+		maxShield = 6;
+		currentShield = 6;
+
 		weapon = new Weapon(system);
 		hud = new Hud(hudTiles, weapon);
 		
@@ -34,11 +37,7 @@ class Ship extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
-		// @:privateAccess
-		// hud.weaponMeterSprite.x = core.body.x;
-		// @:privateAccess
-		// hud.weaponMeterSprite.y = core.body.y;
-		hud.update();
+		hud.update(shieldPercent);
 	}
 
 	public function moveUp(isDown:Bool) {
@@ -112,8 +111,9 @@ class Ship extends BaseActor {
 	var takeDamageCountdown:CountDown;
 
 	function takeDamage() {
-		if (!isInvulnerable) {
+		if (!isInvulnerable && currentShield > 1) {
 			trace('takeDamage');
+			currentShield--;
 			isInvulnerable = true;
 			core.sprite.setFlashing(true);
 			takeDamageCountdown.reset();
@@ -136,7 +136,17 @@ class Ship extends BaseActor {
 		}
 	}
 
+	public var shieldPercent(get, null):Float;
+
 	var hud:Hud;
+
+	var maxShield:Int;
+
+	var currentShield:Int;
+
+	function get_shieldPercent():Float {
+		return currentShield / maxShield;
+	}
 }
 
 class Weapon {
