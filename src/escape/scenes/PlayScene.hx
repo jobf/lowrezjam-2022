@@ -1,5 +1,7 @@
-package escape;
+package escape.scenes;
 
+import escape.scenes.CutScene;
+import tyke.App;
 import core.Actor;
 import echo.Echo;
 import echo.Body;
@@ -10,16 +12,22 @@ import tyke.Graphics;
 import tyke.Glyph;
 import peote.view.Color;
 
-class EscapeVelocity extends FullScene {
+class PlayScene extends FullScene {
 	var starField:StarField;
 	var level:Level;
 	var ship:Ship;
 	var controller:Controller;
 	var hudTiles:SpriteRenderer;
+	var levelProgressIndex:Int;
+
+	public function new(levelProgressIndex:Int, app:App, backgroundColor:Color = 0x000000ff, width:Int = 0, height:Int = 0) {
+		super(app, backgroundColor, width, height);
+		// this is the current level being played, e.g. 0 will use the first id from levelIds
+		this.levelProgressIndex = levelProgressIndex;
+	}
 
 	override function create() {
 		super.create();
-		scrollIncrement = 0;
 
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
@@ -70,11 +78,7 @@ class EscapeVelocity extends FullScene {
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
 
 		// these are the id's of the levels used from ldtk
-		final levelIds = [0, 1, 0];
-
-		// this is the current level being played, e.g. 0 will use the first id from levelIds
-		var levelProgressIndex = 0;
-
+		final levelIds = [0, 0, 0];
 		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, levelIds[levelProgressIndex]);
 
 		// register ship and obstacle collisions
@@ -110,6 +114,13 @@ class EscapeVelocity extends FullScene {
 		// 	},
 		// });
 
+		// register ship and finish line collisions
+		world.listen(ship.core.body, level.finishLine.core.body, {
+			enter: (shipBody, finishLineBody, collisionData) -> {
+				endLevel();
+			},
+		});
+
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> ship.moveUp(isDown),
 			onControlRight: isDown -> ship.moveRight(isDown),
@@ -129,10 +140,13 @@ class EscapeVelocity extends FullScene {
 		super.update(elapsedSeconds);
 		ship.update(elapsedSeconds);
 		starField.update(elapsedSeconds);
+		var speedMod = starField.starfieldSpeed * 1.5;
+
 		for (a in level.actors) {
-			a.setSpeedMod(starField.starfieldSpeed * 1.5);
+			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
 		}
+		level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
 	}
 
 	var sun:Sun;
@@ -161,4 +175,10 @@ class EscapeVelocity extends FullScene {
 	// 	sun.core.body.x += scrollIncrement;
 	// 	traceSun();
 	// }
+
+	function endLevel() {
+		var nextLevelIndex = levelProgressIndex + 1;
+		trace('end level, starting $nextLevelIndex');
+		app.changeScene(new CutScene(nextLevelIndex, app, 0x00000000, 256, 256));
+	}
 }

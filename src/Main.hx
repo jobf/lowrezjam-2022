@@ -1,5 +1,5 @@
+import escape.scenes.PlayScene;
 import escape.scenes.CutScene;
-import escape.EscapeVelocity;
 import tyke.Loop;
 import tyke.Graphics;
 import tyke.jam.SoundManager;
@@ -25,8 +25,8 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
-		app -> return new CutScene(app, 0x00000000, 256, 256),
-		app -> return new EscapeVelocity(app, 0x00000000, 256, 256)
+		app -> return new CutScene(0, app, 0x00000000, 256, 256),
+		app -> return new PlayScene(0, app, 0x00000000, 256, 256)
 	];
 
 	override function create() {
@@ -67,13 +67,13 @@ class FullScene extends Scene {
 	var starSpriteRenderer:SpriteRenderer;
 	var spaceLevelTiles:SpriteRenderer;
 	var debugShapes:ShapeRenderer;
-
-	// public function new(app:App, backgroundColor:Color = 0x000000ff, actionCallBawidth:Int = 0, height:Int = 0){
-	// }
-
+	
 	override function create() {
 		super.create();
-
+		#if !debug
+		// disable manual scroll unless in debug mode
+		scrollIncrement = 0;
+		#end
 		// todo - pass stage dimensions into Scene constructor as nullable ints?
 		var stageWidth = app.core.config.screenWidth;
 		var stageHeight = app.core.config.screenHeight;
