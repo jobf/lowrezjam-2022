@@ -123,10 +123,11 @@ class EscapeVelocity extends FullScene {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		ship.update(elapsedSeconds);
+		starField.update(elapsedSeconds);
 		for (a in level.actors) {
+			a.setSpeedMod(starField.starfieldSpeed * 1.5);
 			a.update(elapsedSeconds);
 		}
-		starField.update(elapsedSeconds);
 	}
 
 	var sun:Sun;

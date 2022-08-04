@@ -7,7 +7,7 @@ import tyke.Graphics;
 
 class StarField {
 	var stars:Array<Star>;
-	var starfieldSpeed:Float;
+	public var starfieldSpeed(default, null):Float;
 	var ship:Ship;
 	var behaviours:Array<CountDown>;
 

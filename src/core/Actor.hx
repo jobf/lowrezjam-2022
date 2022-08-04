@@ -122,10 +122,14 @@ class BaseActor {
 		core.body.dispose();
 		core.shape.visible = false;
 		// core.sprite.visible = false;
-
+		
 		// core.shape.color.a =0;
 		core.sprite.alphaStart = 0;// = false;
 		core.sprite.alphaEnd = 0;
 		core.sprite.alpha = 0;
+		
+		isAlive = false;
 	}
+
+	var isAlive:Bool = true;
 }

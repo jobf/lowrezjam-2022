@@ -16,7 +16,7 @@ class Level {
 	var levelId:Int;
 
 	public var obstacles(default, null):Array<Body>;
-	public var actors(default, null):Array<BaseActor> = [];
+	public var actors(default, null):Array<Obstacle> = [];
 
 	public function new(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, levelId:Int) {
 		#if editinglevels
