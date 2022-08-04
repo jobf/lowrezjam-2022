@@ -70,13 +70,21 @@ class Configuration {
 			hitboxHeight: 14,
 			velocityX: -50.0,
 			isDestructible: false,
-			damagePoints: 1
+			damagePoints: 2
 		},
 		7 => {
 			shape: CIRCLE,
 			hitboxWidth: 14,
 			hitboxHeight: 14,
 			velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 0
+		},
+		8 => {
+			shape: CIRCLE,
+			hitboxWidth: 8,
+			hitboxHeight: 8,
+            velocityX: -50.0,
 			isDestructible: false,
 			damagePoints: 0
 		},

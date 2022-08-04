@@ -78,7 +78,7 @@ class PlayScene extends FullScene {
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
 
 		// these are the id's of the levels used from ldtk
-		final levelIds = [0, 0, 0];
+		final levelIds = [0, 1, 0];
 		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, levelIds[levelProgressIndex]);
 
 		// register ship and obstacle collisions
