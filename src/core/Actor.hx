@@ -118,13 +118,14 @@ class BaseActor {
 	}
 
 	function kill(){
-		core.body.remove();
+		// core.body.remove();
+		core.body.dispose();
 		core.shape.visible = false;
-		core.sprite.visible = false;
+		// core.sprite.visible = false;
 
-		core.shape.color.a =0;// = false;
+		// core.shape.color.a =0;
 		core.sprite.alphaStart = 0;// = false;
-		core.sprite.alphaEnd = 0;// = false;
-		core.sprite.alpha = 0;// = false;
+		core.sprite.alphaEnd = 0;
+		core.sprite.alpha = 0;
 	}
 }

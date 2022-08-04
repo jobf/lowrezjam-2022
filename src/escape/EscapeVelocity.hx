@@ -16,9 +16,13 @@ class EscapeVelocity extends FullScene {
 	var level:Level;
 	var ship:Ship;
 	var controller:Controller;
+	var hudTiles:SpriteRenderer;
 
 	override function create() {
 		super.create();
+		scrollIncrement = 0;
+
+		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
 		// world.height = 256;
 		world.dispose();
@@ -62,7 +66,7 @@ class EscapeVelocity extends FullScene {
 
 		var shipSpeed = 1.0;
 		var maxTravelDistance = 40;
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance);
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles);
 		
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		level = new Level(debugShapes, spaceLevelTiles, world, app.core.peoteView, 0);
@@ -108,6 +112,7 @@ class EscapeVelocity extends FullScene {
 			onControlAction: isDown -> ship.action(isDown)
 		});
 		controller.enable();
+
 	}
 
 	override function destroy() {
@@ -152,4 +157,5 @@ class EscapeVelocity extends FullScene {
 	// 	sun.core.body.x += scrollIncrement;
 	// 	traceSun();
 	// }
+
 }

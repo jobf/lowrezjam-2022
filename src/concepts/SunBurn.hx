@@ -16,7 +16,7 @@ class SunBurn extends FullScene {
 		super.create();
 		var numTilesWide = 8;
 		var isIndividualFrameBuffer = true;
-		tiles14px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", numTilesWide, isIndividualFrameBuffer);
+		tiles14px = stage.createSpriteRendererFor("assets/sprites/13-px-tiles.png", 14, 14, isIndividualFrameBuffer);
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 
 		// var numPeople = 10;

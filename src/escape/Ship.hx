@@ -1,5 +1,6 @@
 package escape;
 
+import tyke.Graphics.SpriteRenderer;
 import echo.data.Types.ShapeType;
 import tyke.Loop;
 import echo.Body;
@@ -8,22 +9,37 @@ import core.Actor;
 class Ship extends BaseActor {
 	var speed:Float;
 	var maxTravelDistance:Int;
+
 	public var weapon(default, null):Weapon;
 
-	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int) {
+	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
+		
+		weapon = new Weapon(system);
+		hud = new Hud(hudTiles, weapon);
+		
 		takeDamageCountdown = new CountDown(1.0, () -> resetTookDamage(), false);
-		this.weapon = new Weapon(system);
 		behaviours.push(takeDamageCountdown);
 
 		weaponUseCountdown = new CountDown(0.1, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
+
 	}
 
 	var isMovingVertical:Bool;
 	var isMovingHorizontal:Bool;
+	
+	override function update(elapsedSeconds:Float) {
+		super.update(elapsedSeconds);
+		weapon.update(elapsedSeconds);
+		// @:privateAccess
+		// hud.weaponMeterSprite.x = core.body.x;
+		// @:privateAccess
+		// hud.weaponMeterSprite.y = core.body.y;
+		hud.update();
+	}
 
 	public function moveUp(isDown:Bool) {
 		isMovingVertical = isDown;
@@ -63,12 +79,14 @@ class Ship extends BaseActor {
 
 	var canUseWeapon:Bool = true;
 	var weaponUseCountdown:CountDown;
-	function resetCanUseWeapon(){
+
+	function resetCanUseWeapon() {
 		canUseWeapon = true;
 	}
 
 	public function action(isDown:Bool) {
-		if(!isDown) return;
+		if (!isDown)
+			return;
 
 		if (canUseWeapon) {
 			canUseWeapon = false;
@@ -103,7 +121,7 @@ class Ship extends BaseActor {
 	}
 
 	function takeDamageFromObstacle(body:Body) {
-		if(body.obstacleConfiguration.damagePoints > 0)		{
+		if (body.obstacleConfiguration.damagePoints > 0) {
 			takeDamage();
 		}
 	}
@@ -117,6 +135,8 @@ class Ship extends BaseActor {
 			core.sprite.setFlashing(false);
 		}
 	}
+
+	var hud:Hud;
 }
 
 class Weapon {
@@ -124,15 +144,62 @@ class Weapon {
 
 	public function new(projectileActorSystem:ActorSystem) {
 		this.projectileActorSystem = projectileActorSystem;
+		refillWeaponCountdown = new CountDown(0.6, () -> increaseShotsAvailable(), true);
 	}
 
+	public var totalShots(default, null):Int = 6;
+	public var shotsAvailable(default, null):Int = 6;
 	public var projectiles(default, null):Array<Body> = [];
+
 	public function shoot(from_x:Int, from_y:Int, velocity_x:Float, velocity_y:Float) {
 		// trace('shoot $from_x $from_y $velocity_x $velocity_y');
-		var projectile = new Projectile(projectileActorSystem, from_x, from_y, velocity_x, velocity_y);
-		projectiles.push(projectile.core.body);
+		if (shotsAvailable > 0) {
+			var projectile = new Projectile(projectileActorSystem, from_x, from_y, velocity_x, velocity_y);
+			projectiles.push(projectile.core.body);
+			shotsAvailable--;
+		}
+	}
+
+	public function update(elapsedSeconds:Float) {
+		refillWeaponCountdown.update(elapsedSeconds);
+	}
+
+	var refillWeaponCountdown:CountDown;
+
+	function increaseShotsAvailable() {
+		if(shotsAvailable < totalShots){
+			shotsAvailable++;
+		}
 	}
 }
+
+// @:structInit
+// class WeaponConfiguration{
+//     /**
+//         how wide the collision body should be (full width not radius)
+//     **/
+// 	public var hitboxWidth:Int;
+//     /**
+//         how high the collision body should be (full width not radius)
+//     **/
+// 	public var hitboxHeight:Int;
+//     /**
+//         the speed the body moves at, negative values means moving to the left
+//     **/
+// 	public var velocityX:Float;
+//     /**
+//         if it's a CIRCLE or RECT (rectangle)
+//     **/
+// 	public var shape:Geometry;
+// 	/**
+// 		if the obstacle can be destroyed set this to true
+// 	**/
+// 	public var isDestructible:Bool;
+// 	/**
+// 		how much damage the obstacle inflicts on a ship when colliding
+// 	**/
+// 		public var damagePoints:Int;
+// }
 
 class Projectile extends BaseActor {
 	public function new(system:ActorSystem, x:Int, y:Int, velocity_x:Float, velocity_y:Float) {
@@ -164,8 +231,10 @@ class Projectile extends BaseActor {
 	override function collideWith(body:Body) {
 		super.collideWith(body);
 		switch body.collider.type {
-			case ROCK: endUse();
-			case _: return;
+			case ROCK:
+				endUse();
+			case _:
+				return;
 		}
 	}
 

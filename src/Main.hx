@@ -42,7 +42,7 @@ class Concepts extends FullScene {
 				case _: -1;
 			}
 
-			if(conceptId == -2){
+			if (conceptId == -2) {
 				app.resetScene();
 			}
 
@@ -50,7 +50,7 @@ class Concepts extends FullScene {
 				app.changeScene(concepts[conceptId](app));
 			}
 		});
-		var lastIndex = concepts.length -1;
+		var lastIndex = concepts.length - 1;
 		// app.changeScene(concepts[lastIndex](app));
 		app.changeScene(concepts[0](app));
 	}
@@ -61,16 +61,16 @@ class FullScene extends Scene {
 	var world:World;
 	var audio:SoundManager;
 	var behaviours:Array<CountDown> = [];
-	
+
 	var tiles14px:SpriteRenderer;
 	var tiles18px:SpriteRenderer;
-	
+
 	var starRenderer:ShapeRenderer;
 	var starSpriteRenderer:SpriteRenderer;
 	var spaceLevelTiles:SpriteRenderer;
 	var debugShapes:ShapeRenderer;
-	// public function new(app:App, backgroundColor:Color = 0x000000ff, actionCallBawidth:Int = 0, height:Int = 0){
 
+	// public function new(app:App, backgroundColor:Color = 0x000000ff, actionCallBawidth:Int = 0, height:Int = 0){
 	// }
 
 	override function create() {
@@ -96,10 +96,10 @@ class FullScene extends Scene {
 		var tiles18pxTilesWide = 1;
 		var isIndividualFrameBuffer = false;
 		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
-		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 1, true);
-		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 8, true);
-		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", tiles14pxTilesWide, isIndividualFrameBuffer);
-		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", tiles18pxTilesWide, isIndividualFrameBuffer, 640, 640);
+		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 64, 1, true);
+		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true);
+		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, isIndividualFrameBuffer);
+		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", 18, 18, isIndividualFrameBuffer, 640, 640);
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 		app.core.log('initialized renderers');
 
@@ -112,11 +112,11 @@ class FullScene extends Scene {
 		});
 	}
 
-	override function destroy(){
+	override function destroy() {
 		super.destroy();
 		world.dispose();
 	}
-	
+
 	override function update(elapsedSeconds:Float) {
 		// super.update(elapsedSeconds);
 		world.step(elapsedSeconds);
@@ -140,8 +140,9 @@ class FullScene extends Scene {
 		// super.onPauseEnd();
 		audio.pause(false);
 	}
-	
+
 	var scrollIncrement = 8;
+
 	function scrollLeft() {
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset += scrollIncrement;
@@ -161,5 +162,4 @@ class FullScene extends Scene {
 		@:privateAccess
 		stage.globalFrameBuffer.display.yOffset -= scrollIncrement;
 	}
-
 }
