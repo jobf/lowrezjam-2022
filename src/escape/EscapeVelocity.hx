@@ -70,7 +70,7 @@ class EscapeVelocity extends FullScene {
 		starField = new StarField(ship, 256, 128, starSpriteRenderer);
 
 		// these are the id's of the levels used from ldtk
-		final levelIds = [0, 0, 0];
+		final levelIds = [0, 1, 0];
 
 		// this is the current level being played, e.g. 0 will use the first id from levelIds
 		var levelProgressIndex = 0;
