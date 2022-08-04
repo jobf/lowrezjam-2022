@@ -23,11 +23,14 @@ class PlayScene extends FullScene {
 	public function new(levelProgressIndex:Int, app:App, backgroundColor:Color = 0x000000ff, width:Int = 0, height:Int = 0) {
 		// these are the id's of the levels used from ldtk
 		final levelIds = [0, 1, 0];
+		
+		// next line forces which level is being played (for testing), comment it out for proper progression
 		levelProgressIndex = 1;
+
 		level = new Level(levelIds[levelProgressIndex]);
 
 		if (level.levelStyle == Neutralize) {
-			backgroundColor = 0xffff00ff;
+			backgroundColor = 0xf79617ff;
 		}
 
 		super(app, backgroundColor, width, height);
@@ -39,8 +42,7 @@ class PlayScene extends FullScene {
 	override function create() {
 		super.create();
 
-		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView);
-
+		
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
 		// world.height = 256;
@@ -51,6 +53,9 @@ class PlayScene extends FullScene {
 			gravity_y: 100,
 			iterations: 2
 		});
+
+		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView);
+
 		var layer = stage.getLayer("stars");
 		@:privateAccess
 		layer.frameBuffer.display.xOffset = -64;
@@ -155,7 +160,7 @@ class PlayScene extends FullScene {
 			starField.update(elapsedSeconds);
 			var speedMod = starField.starfieldSpeed * 1.5;
 			for (a in level.actors) {
-				a.setSpeedMod(speedMod);
+				// a.setSpeedMod(speedMod);
 				a.update(elapsedSeconds);
 			}
 			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
