@@ -26,7 +26,7 @@ class Ship extends BaseActor {
 		takeDamageCountdown = new CountDown(1.0, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
 
-		weaponUseCountdown = new CountDown(0.1, () -> resetCanUseWeapon(), false);
+		weaponUseCountdown = new CountDown(0.15, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
 
 	}
@@ -154,7 +154,7 @@ class Weapon {
 
 	public function new(projectileActorSystem:ActorSystem) {
 		this.projectileActorSystem = projectileActorSystem;
-		refillWeaponCountdown = new CountDown(0.6, () -> increaseShotsAvailable(), true);
+		refillWeaponCountdown = new CountDown(4.0, () -> increaseShotsAvailable(), true);
 	}
 
 	public var totalShots(default, null):Int = 6;
