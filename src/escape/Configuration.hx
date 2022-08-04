@@ -3,6 +3,8 @@ package escape;
 import tyke.Graphics;
 
 class Configuration {
+	public static var finishLineVelocity:Float = -50.0;
+
 	public static var obstacles:Map<Int, ObstacleConfiguration> = [
         // example rectangle
         // 1000 => {

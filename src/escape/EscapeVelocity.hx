@@ -19,8 +19,7 @@ class EscapeVelocity extends FullScene {
 
 	override function create() {
 		super.create();
-		scrollIncrement = 0;
-
+	
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
 		// world.height = 256;
@@ -110,6 +109,13 @@ class EscapeVelocity extends FullScene {
 		// 	},
 		// });
 
+		// register ship and finish line collisions
+		world.listen(ship.core.body, level.finishLine.core.body, {
+			enter: (shipBody, finishLineBody, collisionData) -> {
+				endLevel();
+			},
+		});
+
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> ship.moveUp(isDown),
 			onControlRight: isDown -> ship.moveRight(isDown),
@@ -129,10 +135,13 @@ class EscapeVelocity extends FullScene {
 		super.update(elapsedSeconds);
 		ship.update(elapsedSeconds);
 		starField.update(elapsedSeconds);
+		var speedMod = starField.starfieldSpeed * 1.5;
+		
 		for (a in level.actors) {
-			a.setSpeedMod(starField.starfieldSpeed * 1.5);
+			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
 		}
+		level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
 	}
 
 	var sun:Sun;
@@ -161,4 +170,8 @@ class EscapeVelocity extends FullScene {
 	// 	sun.core.body.x += scrollIncrement;
 	// 	traceSun();
 	// }
+
+	function endLevel() {
+		trace('end level');
+	}
 }

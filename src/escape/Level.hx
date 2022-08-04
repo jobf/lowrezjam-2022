@@ -17,6 +17,7 @@ class Level {
 
 	public var obstacles(default, null):Array<Body>;
 	public var actors(default, null):Array<Obstacle> = [];
+	public var finishLine(default, null):BaseActor;
 
 	public function new(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, levelId:Int) {
 		#if editinglevels
@@ -35,14 +36,10 @@ class Level {
 		var l_Style = spaceMaps.levels[levelId].f_LevelStyle;
 		trace('level style $l_Style');
 
-		var finish_line = spaceMaps.levels[levelId].l_Zones.all_FinishLine;
-		for(f in finish_line){
-			trace('finish line $f');
-		}
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
 		var l_Tiles_16_RenderSize = 16;
 		var l_Tiles_16_GridSize = 4;
-		
+
 		var obstacleSystem:ActorSystem = {
 			world: world,
 			tiles: levelTiles,
@@ -81,12 +78,41 @@ class Level {
 					};
 
 					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
-                    actors.push(obstacle);
+					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
 					obstacle.core.body.velocity.x = config.velocityX;
 					obstacle.core.body.velocity.y = 0;
 				}
 			}
 		});
+
+		var finishLines = spaceMaps.levels[levelId].l_Zones.all_FinishLine;
+		for (f in finishLines) {
+			var tileX = f.cx * l_Tiles_16_GridSize;
+			
+			finishLine = new BaseActor({
+				spriteTileSize: 0,
+				spriteTileId: 0,
+				shape: RECT,
+				makeCore: actorFactory,
+				debugColor: 0x992060a0,
+				collisionType: FINISH,
+				bodyOptions: {
+					shape: {
+						type: RECT,
+						solid: false,
+						width: 32,
+						height: 80,
+					},
+					mass: 1,
+					x: tileX,
+					y: 40,
+					kinematic: true,
+					velocity_x: Configuration.finishLineVelocity
+				}
+			}, obstacleSystem);
+
+			trace('initiliazed finish line at $tileX');
+		}
 	}
 }

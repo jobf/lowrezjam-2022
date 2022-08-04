@@ -67,13 +67,13 @@ class FullScene extends Scene {
 	var starSpriteRenderer:SpriteRenderer;
 	var spaceLevelTiles:SpriteRenderer;
 	var debugShapes:ShapeRenderer;
-
-	// public function new(app:App, backgroundColor:Color = 0x000000ff, actionCallBawidth:Int = 0, height:Int = 0){
-	// }
-
+	
 	override function create() {
 		super.create();
-
+		#if !debug
+		// disable manual scroll unless in debug mode
+		scrollIncrement = 0;
+		#end
 		// todo - pass stage dimensions into Scene constructor as nullable ints?
 		var stageWidth = app.core.config.screenWidth;
 		var stageHeight = app.core.config.screenHeight;
