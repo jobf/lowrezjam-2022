@@ -32,6 +32,13 @@ class Level {
 		this.world = world;
 		this.levelId = levelId;
 
+		var l_Style = spaceMaps.levels[levelId].f_LevelStyle;
+		trace('level style $l_Style');
+
+		var finish_line = spaceMaps.levels[levelId].l_Zones.all_FinishLine;
+		for(f in finish_line){
+			trace('finish line $f');
+		}
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
 		var l_Tiles_16_RenderSize = 16;
 		var l_Tiles_16_GridSize = 4;
