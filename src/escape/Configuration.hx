@@ -96,6 +96,286 @@ class Configuration {
 			isDestructible: false,
 			damagePoints: 1
 		},
+		10 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 1
+		},
+		11 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: false,
+			damagePoints: 1
+		},
+		12 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		13 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		14 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		15 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		16 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		17 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		18 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		19 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		20 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		21 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		22 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		23 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		24 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		25 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		26 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		27 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		28 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		29 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		30 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		31 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		32 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		33 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		34 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		35 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		36 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		37 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		38 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		39 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		40 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		41 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		42 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		43 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
+		44 => {
+			shape: CIRCLE,
+			hitboxWidth: 6,
+			hitboxHeight: 6,
+            velocityX: -50.0,
+			isDestructible: true,
+			damagePoints: 1
+		},
 	];
 
 	public static var cutScenes:Map<Int, CutSceneConfiguration> = [
