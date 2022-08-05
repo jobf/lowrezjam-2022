@@ -37,7 +37,7 @@ class Obstacle extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		if (isAlive) {
 			super.update(elapsedSeconds);
-			core.body.velocity.x = config.velocityX * speedMod;
+			core.body.velocity.x = (Configuration.baseVelocityX * speedMod) * config.velocityModX;
 		}
 	}
 

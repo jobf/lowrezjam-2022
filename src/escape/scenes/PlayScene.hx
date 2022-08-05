@@ -23,7 +23,7 @@ class PlayScene extends FullScene {
 	var hudTiles:SpriteRenderer;
 	var levelConfig:LevelConfig;
 	var shipActorSystem:ActorSystem;
-	
+
 	public function new(app:App, levelConfig:LevelConfig) {
 		this.levelConfig = levelConfig;
 		level = new Level(levelConfig.ldtk_level_id);
@@ -164,7 +164,7 @@ class PlayScene extends FullScene {
 		for(a in level.actors){
 			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
-			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
+			level.finishLine.core.body.velocity.x = Configuration.baseVelocityX * speedMod;
 		}
 
 		if (level.levelStyle != Neutralize) {

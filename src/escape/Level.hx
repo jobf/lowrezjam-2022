@@ -87,7 +87,7 @@ class Level {
 					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
 					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
-					obstacle.core.body.velocity.x = config.velocityX;
+					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
 					obstacle.core.body.velocity.y = 0;
 				}
 			}
@@ -115,7 +115,7 @@ class Level {
 					x: tileX,
 					y: 40,
 					kinematic: true,
-					velocity_x: Configuration.finishLineVelocity
+					velocity_x: Configuration.baseVelocityX
 				}
 			}, obstacleSystem);
 
