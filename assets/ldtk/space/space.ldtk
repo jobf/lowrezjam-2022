@@ -961,9 +961,9 @@
 			"__smartColor": "#ADADB5",
 			"__bgPos": null,
 			"externalRelPath": null,
-			"fieldInstances": [{ "__identifier": "LevelStyle", "__value": "Escape", "__type": "LocalEnum.LevelStyle", "__tile": null, "defUid": 8, "realEditorValues": [{
+			"fieldInstances": [{ "__identifier": "LevelStyle", "__value": "Approach", "__type": "LocalEnum.LevelStyle", "__tile": null, "defUid": 8, "realEditorValues": [{
 				"id": "V_String",
-				"params": ["Escape"]
+				"params": ["Approach"]
 			}] }],
 			"layerInstances": [
 				{
