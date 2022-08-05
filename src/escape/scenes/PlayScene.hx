@@ -23,8 +23,6 @@ class PlayScene extends FullScene {
 	var levelConfig:LevelConfig;
 
 	public function new(app:App, levelConfig:LevelConfig) {
-		// public function new(levelConfig:LevelConfig, app:App) {
-
 		this.levelConfig = levelConfig;
 		level = new Level(levelConfig.ldtk_level_id);
 
@@ -44,7 +42,6 @@ class PlayScene extends FullScene {
 		super.create();
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset -= 64;
-		// this.cutScene = new CutScene(levelConfig.cutSceneConfig, cutSceneRendererFor(levelConfig.cutSceneConfig));
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
 		// world.height = 256;
@@ -57,10 +54,6 @@ class PlayScene extends FullScene {
 		});
 
 		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView);
-
-		// var layer = stage.getLayer("stars");
-		// @:privateAccess
-		// layer.frameBuffer.display.xOffset = -64;
 
 		var shipOptions:ActorOptions = {
 			spriteTileSize: 14,

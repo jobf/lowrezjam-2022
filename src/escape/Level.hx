@@ -25,6 +25,10 @@ class Level {
 		// load src version of tracks.ldtk (for hot reload)
 		var json = sys.io.File.getContent("../../../assets/ldtk/space/space.ldtk");
 		spaceMaps = new Space(json);
+		#elseif speedrun
+		// load src version of tracks.ldtk (for hot reload)
+		var json = sys.io.File.getContent("../../../assets/ldtk/space/space-mini-levels.ldtk");
+		spaceMaps = new Space(json);
 		#else
 		// load packaged version of tracks.ldtk (for distribution)
 		spaceMaps = new Space();

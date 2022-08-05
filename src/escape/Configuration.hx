@@ -114,9 +114,9 @@ class Configuration {
 			ldtk_level_id: 0,
 			nextLevel: NextLevel(1),
 			cutSceneConfig: {
-				frames: [3, 4],
-				framesPerSecond: 1,
-				framesAssetPath: "assets/cutScenes/placeholders.png",
+				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],
+				framesPerSecond: 6,
+				framesAssetPath: "assets/cutScenes/test-frames-leave-earth.png",
 			}
 		},
 		{
@@ -124,9 +124,9 @@ class Configuration {
 			ldtk_level_id: 1,
 			nextLevel: NextLevel(2),
 			cutSceneConfig: {
-				frames: [5, 6, 7],
-				framesPerSecond: 1,
-				framesAssetPath: "assets/cutScenes/placeholders.png",
+				frames: [2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 39, 39, 39, 39, 39],
+				framesPerSecond: 6,
+				framesAssetPath: "assets/cutScenes/test-frames-leave-asteroid.png",
 			}
 		},
 		{
@@ -134,17 +134,17 @@ class Configuration {
 			ldtk_level_id: 2,
 			nextLevel: GameWin,
 			cutSceneConfig: {
-				frames: [10, 10],
-				framesPerSecond: 1,
-				framesAssetPath: "assets/cutScenes/placeholders.png",
+				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 16, 16, 16, 16, 16],
+				framesPerSecond: 4,
+				framesAssetPath: "assets/cutScenes/test-frames-leave-sun.png",
 			}
 		}
 	];
 
 	public static var introCutScene:CutSceneConfiguration = {
-		
-		frames: [0,1,2,3,4,5,6,7],
-		framesAssetPath: "assets/cutScenes/test.png",
+		frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13],
+		framesPerSecond: 3,
+		framesAssetPath: "assets/cutScenes/test-frames-control-room.png",
 	};
 
 	public static var gameOverScene:CutSceneConfiguration = {
@@ -154,7 +154,7 @@ class Configuration {
 	};
 
 	public static var gameWinScene:CutSceneConfiguration = {
-		frames: [2, 2],
+		frames: [2, 2, 2, 2, 2, 2, 2],
 		framesPerSecond: 1,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
 	};

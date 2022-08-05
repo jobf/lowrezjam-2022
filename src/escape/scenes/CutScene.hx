@@ -1,11 +1,8 @@
 package escape.scenes;
 
-import tyke.Stage.IsComplete;
 import peote.view.Color;
-import tyke.App;
 import tyke.Loop.CountDown;
 import tyke.Graphics;
-import Main.FullScene;
 
 @:structInit
 class CutSceneConfiguration {
@@ -42,20 +39,19 @@ class CutScene {
 	}
 
 	function advanceFrame() {
-        if(isComplete){
-            return;
-        }
-
         currentFrame++;
-        frame.tile = config.frames[currentFrame];
+		// trace('new frame is ${config.frames[currentFrame]}');
 	}
-
+	
     public function update(elapsedSeconds:Float){
-        refreshFrameCountdown.update(elapsedSeconds);
+		if(!isComplete){
+			refreshFrameCountdown.update(elapsedSeconds);
+			frame.tile = config.frames[currentFrame];
+		}
     }
 
 
 	function get_isComplete():Bool {
-		return currentFrame >= totalFrames;
+		return currentFrame >= config.frames.length - 1;
 	}
 }
