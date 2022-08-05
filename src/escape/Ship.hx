@@ -111,7 +111,7 @@ class Ship extends BaseActor {
 	var takeDamageCountdown:CountDown;
 
 	function takeDamage() {
-		if (!isInvulnerable && currentShield > 1) {
+		if (!isInvulnerable && !isDead) {
 			trace('takeDamage');
 			currentShield--;
 			isInvulnerable = true;
@@ -124,6 +124,7 @@ class Ship extends BaseActor {
 		if (body.obstacleConfiguration.damagePoints > 0) {
 			takeDamage();
 			if (currentShield <= 0) {
+				trace('ship shield expleted');
 				isDead = true;
 			}
 		}

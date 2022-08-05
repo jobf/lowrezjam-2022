@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import escape.scenes.BaseScene.TitleScene;
 import escape.scenes.BaseScene.MovieScene;
 import escape.Configuration;
 import escape.scenes.CutScene;
@@ -174,9 +175,11 @@ class PlayScene extends FullScene {
 		if (ship.isDead) {
 			isLevelEnded = true;
 			trace('\n - \n ---- game over \n - \n ');
-			app.changeScene(new MovieScene(app, Configuration.gameOverScene, scene -> return));
+			app.changeScene(new TitleScene(app, Configuration.gameOverScene, scene -> {
+				// do thing
+			}));
 		}
-		if (isLevelEnded) {
+		if (isLevelEnded && !ship.isDead) {
 			trace('level complete');
 			// launched next play scene
 			switch levelConfig.nextLevel {
