@@ -125,7 +125,7 @@ class Ship extends BaseActor {
 			takeDamage();
 			if (currentShield <= 0) {
 				trace('ship shield expleted');
-				isDead = true;
+				// isDead = true;
 			}
 		}
 	}
@@ -151,6 +151,10 @@ class Ship extends BaseActor {
 	function get_shieldPercent():Float {
 		return currentShield / maxShield;
 	}
+
+	inline public function getSpeedMod():Float {
+		return (core.body.x / 64) - 1;
+	}
 }
 
 class Weapon {
@@ -158,19 +162,24 @@ class Weapon {
 
 	public function new(projectileActorSystem:ActorSystem) {
 		this.projectileActorSystem = projectileActorSystem;
+		projectiles = [];
 		refillWeaponCountdown = new CountDown(4.0, () -> increaseShotsAvailable(), true);
 	}
 
 	public var totalShots(default, null):Int = 6;
 	public var shotsAvailable(default, null):Int = 6;
-	public var projectiles(default, null):Array<Body> = [];
+	public var projectiles(default, null):Array<Body>;
 
 	public function shoot(from_x:Int, from_y:Int, velocity_x:Float, velocity_y:Float) {
 		// trace('shoot $from_x $from_y $velocity_x $velocity_y');
-		if (shotsAvailable > 0) {
-			var projectile = new Projectile(projectileActorSystem, from_x, from_y, velocity_x, velocity_y);
-			projectiles.push(projectile.core.body);
-			shotsAvailable--;
+		if (projectileActorSystem.world.members == null) {
+			trace('how can this happen?');
+		} else {
+			if (shotsAvailable > 0) {
+				var projectile = new Projectile(projectileActorSystem, from_x, from_y, velocity_x, velocity_y);
+				projectiles.push(projectile.core.body);
+				shotsAvailable--;
+			}
 		}
 	}
 

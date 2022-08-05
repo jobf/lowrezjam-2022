@@ -22,7 +22,8 @@ class PlayScene extends FullScene {
 	var controller:Controller;
 	var hudTiles:SpriteRenderer;
 	var levelConfig:LevelConfig;
-
+	var shipActorSystem:ActorSystem;
+	
 	public function new(app:App, levelConfig:LevelConfig) {
 		this.levelConfig = levelConfig;
 		level = new Level(levelConfig.ldtk_level_id);
@@ -77,7 +78,7 @@ class PlayScene extends FullScene {
 			}
 		};
 
-		var shipActorSystem:ActorSystem = {
+		shipActorSystem = {
 			world: world,
 			tiles: tiles14px,
 			shapes: debugShapes,
@@ -88,21 +89,7 @@ class PlayScene extends FullScene {
 		var maxTravelDistance = 40;
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles);
 
-		// register ship and obstacle collisions
-		world.listen(ship.core.body, level.obstacles, {
-			enter: (shipBody, obstacleBody, collisionData) -> {
-				obstacleBody.collider.collideWith(shipBody);
-				shipBody.collider.collideWith(obstacleBody);
-			},
-		});
-
-		// register projectile and obstacle collisions
-		world.listen(ship.weapon.projectiles, level.obstacles, {
-			enter: (projectileBody, obstacleBody, collisionData) -> {
-				obstacleBody.collider.collideWith(projectileBody);
-				projectileBody.collider.collideWith(obstacleBody);
-			},
-		});
+		
 
 		if (level.levelStyle != Neutralize) {
 			starField = new StarField(ship, 256, 128, starSpriteRenderer);
@@ -127,14 +114,6 @@ class PlayScene extends FullScene {
 			});
 		}
 
-		// register ship and finish line collisions
-		world.listen(ship.core.body, level.finishLine.core.body, {
-			enter: (shipBody, finishLineBody, collisionData) -> {
-				isLevelEnded = true;
-				trace('finish line!!!!!!!!<<<<<<');
-			},
-		});
-
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> ship.moveUp(isDown),
 			onControlRight: isDown -> ship.moveRight(isDown),
@@ -143,6 +122,30 @@ class PlayScene extends FullScene {
 			onControlAction: isDown -> ship.action(isDown)
 		});
 		controller.enable();
+
+		// register ship and obstacle collisions
+		world.listen(ship.core.body, level.obstacles, {
+			enter: (shipBody, obstacleBody, collisionData) -> {
+				obstacleBody.collider.collideWith(shipBody);
+				shipBody.collider.collideWith(obstacleBody);
+			},
+		});
+
+		// register projectile and obstacle collisions
+		world.listen(ship.weapon.projectiles, level.obstacles, {
+			enter: (projectileBody, obstacleBody, collisionData) -> {
+				obstacleBody.collider.collideWith(projectileBody);
+				projectileBody.collider.collideWith(obstacleBody);
+			},
+		});
+		
+		// register ship and finish line collisions
+		world.listen(ship.core.body, level.finishLine.core.body, {
+			enter: (shipBody, finishLineBody, collisionData) -> {
+				isLevelEnded = true;
+				trace('finish line!!!!!!!!<<<<<<');
+			},
+		});
 	}
 
 	override function destroy() {
@@ -156,20 +159,16 @@ class PlayScene extends FullScene {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		ship.update(elapsedSeconds);
+		var speedMod = ship.getSpeedMod() * 1.5;
+
+		for(a in level.actors){
+			a.setSpeedMod(speedMod);
+			a.update(elapsedSeconds);
+			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
+		}
 
 		if (level.levelStyle != Neutralize) {
 			starField.update(elapsedSeconds);
-			var speedMod = starField.starfieldSpeed * 1.5;
-			for (a in level.actors) {
-				// a.setSpeedMod(speedMod);
-				a.update(elapsedSeconds);
-			}
-			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
-		} else {
-			for (a in level.actors) {
-				a.update(elapsedSeconds);
-			}
-			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity;
 		}
 
 		if (ship.isDead) {

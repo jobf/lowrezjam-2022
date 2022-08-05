@@ -44,7 +44,7 @@ class StarField {
 	}
 
 	public function update(elapsedSeconds:Float) {
-		starfieldSpeed =  (ship.core.body.x / 64) - 1;
+		starfieldSpeed =  ship.getSpeedMod();
 		for (b in behaviours) {
 			b.update(elapsedSeconds);
 		}
