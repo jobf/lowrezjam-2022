@@ -27,6 +27,7 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
+		app -> return new PlayScene(app, Configuration.levels[0]),
 		app -> return new TitleScene(app, Configuration.introCutScene, scene -> app.changeScene(new MovieScene(app, Configuration.levels[0].cutSceneConfig, scene -> app.changeScene(new PlayScene(app, Configuration.levels[0]))))),
 	];
 

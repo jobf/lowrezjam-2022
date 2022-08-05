@@ -5,7 +5,7 @@ import escape.scenes.CutScene.CutSceneConfiguration;
 import tyke.Graphics;
 
 class Configuration {
-	public static var finishLineVelocity:Float = -50.0;
+	public static var finishLineVelocity:Float = -100.0;
 
 	public static var obstacles:Map<Int, ObstacleConfiguration> = [
 		// example rectangle
@@ -21,7 +21,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 2,
 			hitboxHeight: 2,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 0
 		},
@@ -29,7 +29,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 5,
 			hitboxHeight: 5,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -37,7 +37,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -45,7 +45,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -53,7 +53,7 @@ class Configuration {
 			shape: RECT,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 0
 		},
@@ -61,7 +61,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 10,
 			hitboxHeight: 6,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -69,7 +69,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 14,
 			hitboxHeight: 14,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 2
 		},
@@ -77,7 +77,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 14,
 			hitboxHeight: 14,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 0
 		},
@@ -85,7 +85,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 0
 		},
@@ -93,7 +93,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-			velocityX: -50.0,
+			velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 1
 		},
@@ -101,7 +101,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 1
 		},
@@ -109,7 +109,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: false,
 			damagePoints: 1
 		},
@@ -117,7 +117,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -125,7 +125,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -133,7 +133,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -141,7 +141,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -149,7 +149,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -157,7 +157,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -165,7 +165,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -173,7 +173,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -181,7 +181,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -189,7 +189,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -197,7 +197,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -205,7 +205,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -213,7 +213,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -221,7 +221,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -229,7 +229,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -237,7 +237,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -245,7 +245,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -253,7 +253,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -261,7 +261,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -269,7 +269,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -277,7 +277,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -285,7 +285,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -293,7 +293,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -301,7 +301,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -309,7 +309,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -317,7 +317,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -325,7 +325,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -333,7 +333,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -341,7 +341,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -349,7 +349,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -357,7 +357,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -365,7 +365,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -373,7 +373,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+            velocityX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -391,7 +391,7 @@ class Configuration {
 	public static var levels:Array<LevelConfig> = [
 		{
 			// 1 . level
-			ldtk_level_id: 3,
+			ldtk_level_id: 0,
 			nextLevel: NextLevel(1),
 			cutSceneConfig: {
 				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],

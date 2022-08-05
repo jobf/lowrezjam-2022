@@ -124,7 +124,7 @@ class Ship extends BaseActor {
 		if (body.obstacleConfiguration.damagePoints > 0) {
 			takeDamage();
 			if (currentShield <= 0) {
-				// isDead = true;
+				isDead = true;
 			}
 		}
 	}

@@ -83,7 +83,7 @@ class PlayScene extends FullScene {
 			peoteView: app.core.peoteView
 		};
 
-		var shipSpeed = 1.0;
+		var shipSpeed = 2.0;
 		var maxTravelDistance = 40;
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles);
 
