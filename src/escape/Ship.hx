@@ -121,11 +121,11 @@ class Ship extends BaseActor {
 	}
 
 	function takeDamageFromObstacle(body:Body) {
-		if (body.obstacleConfiguration.damagePoints > 0) {
+		if (body.collider.isActive && body.obstacleConfiguration.damagePoints > 0) {
 			takeDamage();
 			if (currentShield <= 0) {
 				trace('ship shield expleted');
-				// isDead = true;
+				isDead = true;
 			}
 		}
 	}
