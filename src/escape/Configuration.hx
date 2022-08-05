@@ -1,5 +1,6 @@
 package escape;
 
+import escape.scenes.CutScene;
 import escape.scenes.CutScene.CutSceneConfiguration;
 import tyke.Graphics;
 
@@ -84,7 +85,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-            velocityX: -50.0,
+			velocityX: -50.0,
 			isDestructible: false,
 			damagePoints: 0
 		},
@@ -92,23 +93,71 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            velocityX: -50.0,
+			velocityX: -50.0,
 			isDestructible: false,
 			damagePoints: 1
 		},
 	];
 
-	public static var cutScenes:Map<Int, CutSceneConfiguration> = [
-		0 => {
-			startTile: 0,
-			endTile: (8 * 4) - 1,
-			// sceneWidth: sceneWidth,
-			// sceneHeight: sceneHeight,
-			// framesPerSecond: framesPerSecond,
-			framesAssetPath: "assets/cutScenes/test.png",
-			// backgroundColor: backgroundColor
+	/**
+		0 title screen intro
+		1 game over
+		2 end of game win
+		11 start of level 1
+		12 start of level 2
+		13 start of level 3
+
+	**/
+	public static var levels:Array<LevelConfig> = [
+		{
+			// 1 . level
+			ldtk_level_id: 0,
+			nextLevel: NextLevel(1),
+			cutSceneConfig: {
+				frames: [3, 4],
+				framesPerSecond: 1,
+				framesAssetPath: "assets/cutScenes/placeholders.png",
+			}
+		},
+		{
+			// 2 . level
+			ldtk_level_id: 1,
+			nextLevel: NextLevel(2),
+			cutSceneConfig: {
+				frames: [5, 6, 7],
+				framesPerSecond: 1,
+				framesAssetPath: "assets/cutScenes/placeholders.png",
+			}
+		},
+		{
+			// 3 . level
+			ldtk_level_id: 2,
+			nextLevel: GameWin,
+			cutSceneConfig: {
+				frames: [10, 10],
+				framesPerSecond: 1,
+				framesAssetPath: "assets/cutScenes/placeholders.png",
+			}
 		}
 	];
+
+	public static var introCutScene:CutSceneConfiguration = {
+		
+		frames: [0,1,2,3,4,5,6,7],
+		framesAssetPath: "assets/cutScenes/test.png",
+	};
+
+	public static var gameOverScene:CutSceneConfiguration = {
+		frames: [1, 1],
+		framesPerSecond: 1,
+		framesAssetPath: "assets/cutScenes/placeholders.png",
+	};
+
+	public static var gameWinScene:CutSceneConfiguration = {
+		frames: [2, 2],
+		framesPerSecond: 1,
+		framesAssetPath: "assets/cutScenes/placeholders.png",
+	};
 }
 
 @:structInit
@@ -142,4 +191,18 @@ class ObstacleConfiguration {
 		how much damage the obstacle inflicts on a ship when colliding
 	**/
 	public var damagePoints:Int;
+}
+
+@:structInit
+class LevelConfig {
+	public var cutSceneConfig:CutSceneConfiguration;
+	public var ldtk_level_id:Int;
+	public var nextLevel:SceneChange;
+}
+
+enum SceneChange {
+	Intro;
+	GameOver;
+	GameWin;
+	NextLevel(levelIndex:Int);
 }

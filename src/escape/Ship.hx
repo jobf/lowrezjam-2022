@@ -10,30 +10,30 @@ class Ship extends BaseActor {
 	var speed:Float;
 	var maxTravelDistance:Int;
 
+	public var isDead(default, null):Bool = false;
 	public var weapon(default, null):Weapon;
 
 	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
-		
+
 		maxShield = 6;
 		currentShield = 6;
 
 		weapon = new Weapon(system);
 		hud = new Hud(hudTiles, weapon);
-		
+
 		takeDamageCountdown = new CountDown(1.0, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
 
 		weaponUseCountdown = new CountDown(0.15, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
-
 	}
 
 	var isMovingVertical:Bool;
 	var isMovingHorizontal:Bool;
-	
+
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
@@ -123,6 +123,9 @@ class Ship extends BaseActor {
 	function takeDamageFromObstacle(body:Body) {
 		if (body.obstacleConfiguration.damagePoints > 0) {
 			takeDamage();
+			if (currentShield <= 0) {
+				// isDead = true;
+			}
 		}
 	}
 
@@ -177,7 +180,7 @@ class Weapon {
 	var refillWeaponCountdown:CountDown;
 
 	function increaseShotsAvailable() {
-		if(shotsAvailable < totalShots){
+		if (shotsAvailable < totalShots) {
 			shotsAvailable++;
 		}
 	}

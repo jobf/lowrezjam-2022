@@ -1,5 +1,7 @@
 package escape.scenes;
 
+import escape.scenes.BaseScene.MovieScene;
+import escape.Configuration;
 import escape.scenes.CutScene;
 import tyke.App;
 import core.Actor;
@@ -18,31 +20,31 @@ class PlayScene extends FullScene {
 	var ship:Ship;
 	var controller:Controller;
 	var hudTiles:SpriteRenderer;
-	var levelProgressIndex:Int;
+	var levelConfig:LevelConfig;
 
-	public function new(levelProgressIndex:Int, app:App, backgroundColor:Color = 0x000000ff, width:Int = 0, height:Int = 0) {
-		// these are the id's of the levels used from ldtk
-		final levelIds = [0, 1, 0];
-		
-		// next line forces which level is being played (for testing), comment it out for proper progression
-		levelProgressIndex = 1;
+	public function new(app:App, levelConfig:LevelConfig) {
+		// public function new(levelConfig:LevelConfig, app:App) {
 
-		level = new Level(levelIds[levelProgressIndex]);
+		this.levelConfig = levelConfig;
+		level = new Level(levelConfig.ldtk_level_id);
 
 		if (level.levelStyle == Neutralize) {
 			backgroundColor = 0xf79617ff;
 		}
 
-		super(app, backgroundColor, width, height);
+		if (level.levelStyle == Escape) {
+			backgroundColor = 0x00000000;
+		}
 
-		// this is the current level being played, e.g. 0 will use the first id from levelIds
-		this.levelProgressIndex = levelProgressIndex;
+		super(app, backgroundColor, 0, 0);
+		trace('start of level ${level.levelStyle}');
 	}
-
+	
 	override function create() {
 		super.create();
-
-		
+		@:privateAccess
+		stage.globalFrameBuffer.display.xOffset -= 64;
+		// this.cutScene = new CutScene(levelConfig.cutSceneConfig, cutSceneRendererFor(levelConfig.cutSceneConfig));
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
 		// world.width = 256;
 		// world.height = 256;
@@ -56,9 +58,9 @@ class PlayScene extends FullScene {
 
 		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView);
 
-		var layer = stage.getLayer("stars");
-		@:privateAccess
-		layer.frameBuffer.display.xOffset = -64;
+		// var layer = stage.getLayer("stars");
+		// @:privateAccess
+		// layer.frameBuffer.display.xOffset = -64;
 
 		var shipOptions:ActorOptions = {
 			spriteTileSize: 14,
@@ -134,7 +136,8 @@ class PlayScene extends FullScene {
 		// register ship and finish line collisions
 		world.listen(ship.core.body, level.finishLine.core.body, {
 			enter: (shipBody, finishLineBody, collisionData) -> {
-				endLevel();
+				isLevelEnded = true;
+				trace('finish line!!!!!!!!<<<<<<');
 			},
 		});
 
@@ -153,10 +156,14 @@ class PlayScene extends FullScene {
 		controller.disable();
 	}
 
+	// var isLevelComplete:Bool = false;
+	var isLevelEnded:Bool = false;
+
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		ship.update(elapsedSeconds);
-		if(level.levelStyle != Neutralize){
+
+		if (level.levelStyle != Neutralize) {
 			starField.update(elapsedSeconds);
 			var speedMod = starField.starfieldSpeed * 1.5;
 			for (a in level.actors) {
@@ -164,14 +171,35 @@ class PlayScene extends FullScene {
 				a.update(elapsedSeconds);
 			}
 			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity * speedMod;
-		}
-		else{
+		} else {
 			for (a in level.actors) {
 				a.update(elapsedSeconds);
 			}
 			level.finishLine.core.body.velocity.x = Configuration.finishLineVelocity;
 		}
 
+		if (ship.isDead) {
+			isLevelEnded = true;
+			trace('\n - \n ---- game over \n - \n ');
+			app.changeScene(new MovieScene(app, Configuration.gameOverScene, scene -> return));
+		}
+		if (isLevelEnded) {
+			trace('level complete');
+			// launched next play scene
+			switch levelConfig.nextLevel {
+				// case Intro: setCutScene(Configuration.introCutScene);
+				// case GameOver: setCutScene(Configuration.gameOverScene);
+				// case GameWin: setCutScene(Configuration.gameWinScene);
+				case NextLevel(nextLevelIndex):
+					trace('\n - \n ---- change to next level \n - \n ');
+					// app.changeScene(new PlayScene(Configuration.levels[nextLevelIndex], app));
+					app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
+						scene -> app.changeScene(new PlayScene(app, Configuration.levels[nextLevelIndex]))));
+				case _:
+					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
+					app.changeScene(new MovieScene(app, Configuration.gameWinScene, scene -> return));
+			}
+		}
 	}
 
 	var sun:Sun;
@@ -180,30 +208,7 @@ class PlayScene extends FullScene {
 		trace('sun ${sun.core.body.x} ${sun.core.body.y}');
 	}
 
-	// override function scrollDown() {
-	// 	// super.scrollDown();
-	// 	sun.core.body.y -= scrollIncrement;
-	// 	traceSun();
+	// function startLevel(scene:FullScene) {
+	// 	isLevelEnded = false;
 	// }
-	// override function scrollUp() {
-	// 	// super.scrollUp();
-	// 	sun.core.body.y += scrollIncrement;
-	// 	traceSun();
-	// }
-	// override function scrollLeft() {
-	// 	// super.scrollLeft();
-	// 	sun.core.body.x -= scrollIncrement;
-	// 	traceSun();
-	// }
-	// override function scrollRight() {
-	// 	// super.scrollRight();
-	// 	sun.core.body.x += scrollIncrement;
-	// 	traceSun();
-	// }
-
-	function endLevel() {
-		var nextLevelIndex = levelProgressIndex + 1;
-		trace('end level, starting $nextLevelIndex');
-		app.changeScene(new CutScene(nextLevelIndex, app, Configuration.cutScenes[0]));
-	}
 }

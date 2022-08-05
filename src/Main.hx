@@ -1,3 +1,4 @@
+import escape.scenes.BaseScene.MovieScene;
 import escape.Configuration;
 import escape.scenes.PlayScene;
 import escape.scenes.CutScene;
@@ -27,7 +28,9 @@ class Main extends App {
 class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
 		// app -> return new CutScene(0, app, Configuration.cutScenes[0]),
-		app -> return new PlayScene(0, app, 0x00000000, 256, 256)
+		// app -> return new MovieScene(app, ),
+		app -> return new MovieScene(app, Configuration.introCutScene, scene -> app.changeScene(new PlayScene(app, Configuration.levels[0])))
+		// app -> return new PlayScene(0, app, 0x00000000, 256, 256)
 	];
 
 	override function create() {

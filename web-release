@@ -1,2 +1,3 @@
+rm dist.zip
 lime build html5 -clean -final 
 zip dist.zip -r bin/html5/bin
