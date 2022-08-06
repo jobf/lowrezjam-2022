@@ -49,6 +49,13 @@ class Weapon {
 	}
 }
 
+@:enum abstract ProjectileType(Int) from Int to Int
+{
+	var STANDARD;
+	var BOMB;
+}
+
+
 @:structInit
 class ProjectileConfiguration {
 	/**

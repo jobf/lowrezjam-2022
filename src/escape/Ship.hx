@@ -1,5 +1,6 @@
 package escape;
 
+import escape.Weapon;
 import tyke.Graphics.SpriteRenderer;
 import echo.data.Types.ShapeType;
 import tyke.Loop;
@@ -22,19 +23,8 @@ class Ship extends BaseActor {
 		maxShield = 6;
 		currentShield = 6;
 
-		weapon = new Weapon(system, {
-			// velocityXMod: velocityXMod,
-			// totalShots: totalShots,
-			// spriteTileSize: spriteTileSize,
-			spriteTileId: 24,
-			// shape: shape,
-			reloadTimeSeconds: 4.0,
-			// refillSpeed: refillSpeed,
-			// isDestructible: isDestructible,
-			// hitboxWidth: hitboxWidth,
-			// hitboxHeight: hitboxHeight
-		});
-		
+		weapon = new Weapon(system, Configuration.projectiles[BOMB]);
+
 		hud = new Hud(hudTiles, weapon);
 
 		takeDamageCountdown = new CountDown(1.0, () -> resetTookDamage(), false);

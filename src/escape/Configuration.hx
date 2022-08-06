@@ -1,7 +1,7 @@
 package escape;
 
+import escape.Weapon;
 import escape.scenes.CutScene;
-import tyke.Graphics;
 import escape.Obstacle;
 
 class Configuration {
@@ -399,6 +399,31 @@ class Configuration {
 		},
 	];
 
+
+	public static var projectiles:Map<ProjectileType, ProjectileConfiguration> = [
+		STANDARD => {
+			// velocityXMod: velocityXMod,
+			// totalShots: totalShots,
+			// spriteTileSize: spriteTileSize,
+			spriteTileId: 24,
+			// shape: shape,
+			reloadTimeSeconds: 4.0,
+			// refillSpeed: refillSpeed,
+			// isDestructible: isDestructible,
+			// hitboxWidth: hitboxWidth,
+			// hitboxHeight: hitboxHeight
+		},
+		BOMB => {
+			velocityXMod: 0.2,
+			totalShots: 3,
+			spriteTileId: 25,
+			reloadTimeSeconds: 4.0,
+			refillSpeed: 1000.0, // so long it never refills
+			// isDestructible: isDestructible,
+			// hitboxWidth: hitboxWidth,
+			// hitboxHeight: hitboxHeight
+		}
+	];
 }
 
 @:structInit
