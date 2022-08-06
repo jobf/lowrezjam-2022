@@ -66,8 +66,9 @@ class Flare extends Obstacle{
 		this.frames = frames;
 		totalFrames = frames.length;
 		refreshFrameCountdown = new CountDown(1 / framesPerSecond, () -> advanceFrame(), true);
-		currentFrame = randomInt(frames.length - 1);
+		currentFrame = frames.indexOf(core.sprite.tile);//randomInt(frames.length - 1);
 		core.sprite.tile = frames[currentFrame];
+		trace('starting frame index $currentFrame starting tile id ${core.sprite.tile}');
 		core.body.collider.isActive = false;
 	}
 
