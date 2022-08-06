@@ -137,12 +137,14 @@ class Configuration {
 			isDestructible: false,
 			damagePoints: 0
 		},
-		8 => {
+		8 => { 
+			// sun target
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-			isDestructible: false,
-			damagePoints: 0
+			isDestructible: true,
+			damagePoints: 0,
+			spriteTileIdEnd: 13
 		},
 		9 => {
 			shape: CIRCLE,
@@ -405,7 +407,7 @@ class Configuration {
 			// velocityXMod: velocityXMod,
 			// totalShots: totalShots,
 			// spriteTileSize: spriteTileSize,
-			spriteTileId: 24,
+			spriteTileIdStart: 24,
 			// shape: shape,
 			reloadTimeSeconds: 4.0,
 			// refillSpeed: refillSpeed,
@@ -416,7 +418,7 @@ class Configuration {
 		BOMB => {
 			velocityXMod: 0.2,
 			totalShots: 3,
-			spriteTileId: 25,
+			spriteTileIdStart: 25,
 			reloadTimeSeconds: 4.0,
 			refillSpeed: 1000.0, // so long it never refills
 			// isDestructible: isDestructible,

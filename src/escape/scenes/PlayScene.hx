@@ -59,7 +59,7 @@ class PlayScene extends FullScene {
 
 		var shipOptions:ActorOptions = {
 			spriteTileSize: 14,
-			spriteTileId: 16,
+			spriteTileIdStart: 16,
 			shape: RECT,
 			makeCore: actorFactory,
 			debugColor: 0xff202080,

@@ -33,7 +33,12 @@ class Obstacle extends BaseActor {
 
 	function takeDamage(body:Body) {
 		if (config.isDestructible) {
-			kill();
+			if(body.collider.type == VEHICLE && core.body.collider.type == TARGET){
+				// do nothin
+			}
+			else{
+				kill();
+			}
 		}
 	}
 
@@ -47,6 +52,7 @@ class Obstacle extends BaseActor {
 	public function setSpeedMod(speedMod:Float) {
 		this.speedMod = speedMod;
 	}
+
 }
 
 
@@ -130,4 +136,10 @@ class ObstacleConfiguration {
 		how much damage the obstacle inflicts on a ship when colliding
 	**/
 	public var damagePoints:Int;
+
+	/**
+		sprite index to load after the obstacle has been destroyed 
+		-1 means the sprite will no longer be visible
+	**/
+	public var spriteTileIdEnd:Int = -1;
 }

@@ -59,6 +59,7 @@ class Level {
 		final solarFlareFramesPerSecond:Int = 3;
 		final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
 
+		// set up Obstacles ( rocks, targets, flares etc . . . )
 		LevelLoader.renderLayer(l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
 				
@@ -76,11 +77,12 @@ class Level {
 					var tileY = cy * l_Tiles_16_GridSize;
 					var obstacleOptions:ActorOptions = {
 						spriteTileSize: l_Tiles_16_RenderSize,
-						spriteTileId: tileData.tileId,
+						spriteTileIdStart: tileData.tileId,
+						spriteTileIdEnd: config.spriteTileIdEnd,
 						shape: config.shape,
 						makeCore: actorFactory,
 						debugColor: 0x44008880,
-						collisionType: ROCK,
+						collisionType: tileData.tileId == 8 ? TARGET : ROCK,
 						bodyOptions: {
 							shape: {
 								type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
@@ -124,7 +126,7 @@ class Level {
 			trace('entity.f_StartTile_infos ${entity.f_StartTile_infos} tileId $tileId');
 			var obstacleOptions:ActorOptions = {
 				spriteTileSize: l_Tiles_16_RenderSize,
-				spriteTileId: tileId,
+				spriteTileIdStart: tileId,
 				shape: config.shape,
 				makeCore: actorFactory,
 				debugColor: 0x44008880,
@@ -158,7 +160,7 @@ class Level {
 
 			finishLine = new BaseActor({
 				spriteTileSize: 0,
-				spriteTileId: 0,
+				spriteTileIdStart: 0,
 				shape: RECT,
 				makeCore: actorFactory,
 				debugColor: 0x992060a0,

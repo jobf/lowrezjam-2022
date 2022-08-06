@@ -91,7 +91,7 @@ class ProjectileConfiguration {
     /**
         the tile index to use for the sprite
     **/
-    public var spriteTileId:Int;
+    public var spriteTileIdStart:Int;
 
     /**
         the tile size to use for the sprite
@@ -113,7 +113,7 @@ class Projectile extends BaseActor {
 	public function new(system:ActorSystem, x:Int, y:Int, config:ProjectileConfiguration) {
 		super({
 			spriteTileSize: config.spriteTileSize,
-			spriteTileId: config.spriteTileId,
+			spriteTileIdStart: config.spriteTileIdStart,
 			shape: config.shape,
 			makeCore: actorFactory,
 			debugColor: 0xd6dd00a0,
@@ -140,7 +140,8 @@ class Projectile extends BaseActor {
 		super.collideWith(body);
 		switch body.collider.type {
 			case ROCK:
-				endUse();
+			case TARGET:
+					endUse();
 			case _:
 				return;
 		}
