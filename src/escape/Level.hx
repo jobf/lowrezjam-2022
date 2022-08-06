@@ -55,14 +55,25 @@ class Level {
 			peoteView: peoteView
 		}
 
+		final solarFlareTileId:Int = 9;
+		final solarFlareFramesPerSecond:Int = 3;
+		final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
+
 		LevelLoader.renderLayer(l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
-				var tileX = cx * l_Tiles_16_GridSize;
-				var tileY = cy * l_Tiles_16_GridSize;
+				
 				var config = Configuration.obstacles[tileData.tileId];
 				if (config == null) {
 					trace('!!! no config for tile Id ${tileData.tileId}');
 				} else {
+					if(tileData.tileId == solarFlareTileId){
+						// skip solar flares, they will be handled as entites only
+						// trace('skip solar flare');
+						continue;
+					}
+
+					var tileX = cx * l_Tiles_16_GridSize;
+					var tileY = cy * l_Tiles_16_GridSize;
 					var obstacleOptions:ActorOptions = {
 						spriteTileSize: l_Tiles_16_RenderSize,
 						spriteTileId: tileData.tileId,
@@ -85,10 +96,7 @@ class Level {
 						}
 					};
 
-					final flareFrames = [56, 57, 58, 59, 60, 61, 61, 62, 62, 63, 63];
-					var obstacle = tileData.tileId == 9 
-						? new Flare(obstacleOptions, obstacleSystem, config, flareFrames, 3)
-						: new Obstacle(obstacleOptions, obstacleSystem, config);
+					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
 
 					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
@@ -106,6 +114,43 @@ class Level {
 				}
 			}
 		});
+
+		for(entity in spaceMaps.levels[levelId].l_Zones.all_SolarFlare){
+
+			var tileX = entity.cx * l_Tiles_16_GridSize;
+			var tileY = entity.cy * l_Tiles_16_GridSize;
+			var config = Configuration.obstacles[solarFlareTileId];
+			var tileId:Int = Std.int(entity.f_StartTile_infos.x / 16) + 56;
+			trace('entity.f_StartTile_infos ${entity.f_StartTile_infos} tileId $tileId');
+			var obstacleOptions:ActorOptions = {
+				spriteTileSize: l_Tiles_16_RenderSize,
+				spriteTileId: tileId,
+				shape: config.shape,
+				makeCore: actorFactory,
+				debugColor: 0x44008880,
+				collisionType: ROCK,
+				bodyOptions: {
+					shape: {
+						type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
+						solid: false,
+						radius: Std.int(config.hitboxWidth * 0.5),
+						width: config.hitboxWidth,
+						height: config.hitboxHeight,
+					},
+					mass: 1,
+					x: tileX,
+					y: tileY,
+					kinematic: true
+				}
+			};
+
+			var obstacle = new Flare(obstacleOptions, obstacleSystem, config, solarFlareFrames, solarFlareFramesPerSecond);
+
+			actors.push(obstacle);
+			obstacles.push(obstacle.core.body);
+			obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+			obstacle.core.body.velocity.y = 0;
+		}
 
 		var finishLines = spaceMaps.levels[levelId].l_Zones.all_FinishLine;
 		for (f in finishLines) {
