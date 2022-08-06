@@ -1,5 +1,6 @@
 package escape;
 
+import escape.Obstacle;
 import echo.data.Types.ShapeType;
 import peote.view.PeoteView;
 import core.Actor;
@@ -84,11 +85,24 @@ class Level {
 						}
 					};
 
-					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+					final flareFrames = [56, 57, 58, 59, 60, 61, 61, 62, 62, 63, 63];
+					var obstacle = tileData.tileId == 9 
+						? new Flare(obstacleOptions, obstacleSystem, config, flareFrames, 3)
+						: new Obstacle(obstacleOptions, obstacleSystem, config);
+
 					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
 					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
 					obstacle.core.body.velocity.y = 0;
+
+					switch tileData.flipBits {
+						case 1: obstacle.core.sprite.flipX(true);
+						case 2: obstacle.core.sprite.flipY(true);
+						case 3:
+							obstacle.core.sprite.flipX(true);
+							obstacle.core.sprite.flipY(true);
+						case _: return;
+					}
 				}
 			}
 		});

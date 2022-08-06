@@ -5,6 +5,7 @@ import echo.Body;
 class Collider{
     var onCollide:Body -> Void;
     public var type:CollisionType;
+    public var isActive:Bool = true;
 
     public function new(type:CollisionType, onCollide:Body->Void){
         this.onCollide = onCollide;
@@ -12,7 +13,9 @@ class Collider{
     }
 
     public function collideWith(collidingBody:Body){
-        onCollide(collidingBody);
+        if(isActive){
+            onCollide(collidingBody);
+        }
     }
 }
 
