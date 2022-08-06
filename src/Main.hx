@@ -26,11 +26,11 @@ class Main extends App {
 }
 
 class Concepts extends FullScene {
-	static var startLevelIndex:Int = 1;
+	static var startLevelIndex:Int = 0;
 	public static var concepts:Array<App->Scene> = [
+		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, scene -> app.changeScene(new PlayScene(app, startLevelIndex))),
 		app -> return new PlayScene(app, startLevelIndex),
-		app -> return new TitleScene(app, Configuration.introCutScene,
-			scene -> app.changeScene(new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, scene -> app.changeScene(new PlayScene(app, startLevelIndex))))),
+		// app -> return new TitleScene(app, Configuration.introCutScene, scene -> app.changeScene()_,
 	];
 
 	override function create() {
