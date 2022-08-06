@@ -27,7 +27,7 @@ class Sun extends BaseActor{
                 x: -184,
                 y: 32,
                 kinematic: true,
-                velocity_x: 0.2
+                velocity_x: 1.2
             }
         },
         system);

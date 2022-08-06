@@ -125,7 +125,7 @@ class Ship extends BaseActor {
 			takeDamage();
 			if (currentShield <= 0) {
 				trace('ship shield expleted');
-				// isDead = true;
+				 isDead = true;
 			}
 		}
 	}

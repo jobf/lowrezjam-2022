@@ -349,7 +349,7 @@ class Configuration {
 	public static var levels:Array<LevelConfig> = [
 		{
 			// 1 . level
-			ldtk_level_id: 0,
+			ldtk_level_id: 2,
 			nextLevel: NextLevel(1),
 			cutSceneConfig: {
 				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],
