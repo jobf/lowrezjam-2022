@@ -2,6 +2,7 @@ package escape;
 
 import tyke.Glyph.randomInt;
 import tyke.Loop;
+import tyke.Graphics;
 import core.Actor;
 import escape.Configuration;
 import echo.Body;
@@ -94,4 +95,39 @@ class Flare extends Obstacle{
 
 	// }
 
+}
+
+
+
+@:structInit
+class ObstacleConfiguration {
+	/**
+		how wide the collision body should be (full width not radius)
+	**/
+	public var hitboxWidth:Int;
+
+	/**
+		how high the collision body should be (full width not radius)
+	**/
+	public var hitboxHeight:Int;
+
+	/**
+		the speed the body moves at, negative values means moving to the left
+	**/
+	public var velocityModX:Float = 1.0;
+
+	/**
+		if it's a CIRCLE or RECT (rectangle)
+	**/
+	public var shape:Geometry;
+
+	/**
+		if the obstacle can be destroyed set this to true
+	**/
+	public var isDestructible:Bool;
+
+	/**
+		how much damage the obstacle inflicts on a ship when colliding
+	**/
+	public var damagePoints:Int;
 }
