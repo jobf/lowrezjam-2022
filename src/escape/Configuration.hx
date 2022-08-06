@@ -21,7 +21,7 @@ class Configuration {
 	public static var levels:Array<LevelConfig> = [
 		{
 			// 1 . level
-			ldtk_level_id: 1,
+			ldtk_level_id: 0,
 			nextLevel: NextLevel(1),
 			cutSceneConfig: {
 				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],
@@ -175,11 +175,12 @@ class Configuration {
 			damagePoints: 1
 		},
 		13 => {
+			// target filled
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-			isDestructible: true,
-			damagePoints: 1
+			isDestructible: false,
+			damagePoints: 0
 		},
 		14 => {
 			shape: CIRCLE,

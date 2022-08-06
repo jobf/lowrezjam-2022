@@ -15,7 +15,7 @@ class Ship extends BaseActor {
 	public var isDead(default, null):Bool = false;
 	public var weapon(default, null):Weapon;
 
-	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer) {
+	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer, projectile:ProjectileType) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
@@ -23,7 +23,7 @@ class Ship extends BaseActor {
 		maxShield = 6;
 		currentShield = 6;
 
-		weapon = new Weapon(system, Configuration.projectiles[BOMB]);
+		weapon = new Weapon(system, Configuration.projectiles[projectile]);
 
 		hud = new Hud(hudTiles, weapon);
 

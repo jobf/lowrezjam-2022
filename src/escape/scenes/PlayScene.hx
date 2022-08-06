@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import escape.Weapon.ProjectileType;
 import escape.scenes.BaseScene.TitleScene;
 import escape.scenes.BaseScene.MovieScene;
 import escape.Configuration;
@@ -23,9 +24,11 @@ class PlayScene extends FullScene {
 	var hudTiles:SpriteRenderer;
 	var levelConfig:LevelConfig;
 	var shipActorSystem:ActorSystem;
+	var levelIndex:Int;
 
-	public function new(app:App, levelConfig:LevelConfig) {
-		this.levelConfig = levelConfig;
+	public function new(app:App, nextLevelIndex:Int) {
+		levelIndex = nextLevelIndex;
+		this.levelConfig = Configuration.levels[nextLevelIndex];
 		level = new Level(levelConfig.ldtk_level_id);
 
 		if (level.levelStyle == Neutralize) {
@@ -39,7 +42,7 @@ class PlayScene extends FullScene {
 		super(app, backgroundColor, 0, 0);
 		trace('start of level ${level.levelStyle}');
 	}
-	
+
 	override function create() {
 		super.create();
 		@:privateAccess
@@ -87,9 +90,8 @@ class PlayScene extends FullScene {
 
 		var shipSpeed = 2.0;
 		var maxTravelDistance = 40;
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles);
-
-		
+		var projectileType = level.levelStyle == Neutralize ? BOMB : STANDARD;
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileType);
 
 		if (level.levelStyle != Neutralize) {
 			starField = new StarField(ship, 256, 128, starSpriteRenderer);
@@ -138,7 +140,7 @@ class PlayScene extends FullScene {
 				projectileBody.collider.collideWith(obstacleBody);
 			},
 		});
-		
+
 		// register ship and finish line collisions
 		world.listen(ship.core.body, level.finishLine.core.body, {
 			enter: (shipBody, finishLineBody, collisionData) -> {
@@ -161,7 +163,7 @@ class PlayScene extends FullScene {
 		ship.update(elapsedSeconds);
 		var speedMod = ship.getSpeedMod() * 1.5;
 
-		for(a in level.actors){
+		for (a in level.actors) {
 			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
 			level.finishLine.core.body.velocity.x = Configuration.baseVelocityX * speedMod;
@@ -180,7 +182,19 @@ class PlayScene extends FullScene {
 		}
 		if (isLevelEnded && !ship.isDead) {
 			trace('level complete');
-			// launched next play scene
+			// if was a bombing level and the targets are not destroyed, it's game over with super nova
+			if (level.levelStyle == Neutralize) {
+				var targetActors = level.actors.filter(obstacle -> obstacle.core.body.collider.type == TARGET);
+				var targetActorsAlive = targetActors.filter(obstacle -> obstacle.isAlive);
+				var levelIsComplete = targetActorsAlive.length == 0;
+				if(!levelIsComplete){
+					trace('restarting neutralize effort');
+					app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
+					return;
+				}
+
+			} 
+			// else play scene
 			switch levelConfig.nextLevel {
 				// case Intro: setCutScene(Configuration.introCutScene);
 				// case GameOver: setCutScene(Configuration.gameOverScene);
@@ -189,7 +203,7 @@ class PlayScene extends FullScene {
 					trace('\n - \n ---- change to next level \n - \n ');
 					// app.changeScene(new PlayScene(Configuration.levels[nextLevelIndex], app));
 					app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
-						scene -> app.changeScene(new PlayScene(app, Configuration.levels[nextLevelIndex]))));
+						scene -> app.changeScene(new PlayScene(app, nextLevelIndex))));
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
 					app.changeScene(new MovieScene(app, Configuration.gameWinScene, scene -> return));

@@ -139,5 +139,5 @@ class BaseActor {
 		}
 	}
 
-	var isAlive:Bool = true;
+	public var isAlive:Bool = true;
 }
