@@ -108,7 +108,7 @@ class ProjectileConfiguration {
     /**
         the number of shots available before reload
     **/
-	public var totalShots(default, null):Int = 6;
+	public var totalShots:Int = 6;
 
     /**
         how long it takes to refill a single shot

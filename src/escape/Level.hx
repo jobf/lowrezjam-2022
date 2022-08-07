@@ -183,4 +183,9 @@ class Level {
 			trace('initiliazed finish line at $tileX');
 		}
 	}
+
+	public function countSolarTargets():Int {
+		var targets = obstacles.filter(body -> body.collider.type == TARGET);
+		return targets.length;
+	}
 }
