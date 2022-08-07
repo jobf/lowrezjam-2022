@@ -105,11 +105,14 @@ class PlayScene extends FullScene {
 				sunSurface.rotation += 0.3;
 				sunSurface.x -= 20;
 			}, true));
-		} else {
+		}
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
+		
+		if(level.levelStyle != Neutralize)
+		{
 			starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		}
 
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
 
 		if (level.levelStyle == Escape) {
 			var sunActorSystem:ActorSystem = {
