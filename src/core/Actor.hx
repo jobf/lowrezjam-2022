@@ -28,13 +28,13 @@ class ActorCore {
 @:structInit
 class ActorOptions {
 	public var bodyOptions:BodyOptions;
-	public var shape:Geometry;
-	public var debugColor:Color;
+	public var shape:Geometry = RECT;
+	public var debugColor:Color = 0xff00ddff;
 	public var spriteTileIdStart:Int;
 	public var spriteTileIdEnd:Int = -1;
 	public var spriteTileSize:Int;
-	public var collisionType:CollisionType;
-	public var makeCore:(options:ActorOptions, system:ActorSystem) -> ActorCore;
+	public var collisionType:CollisionType = CollisionType.UNDEFINED;
+	public var makeCore:(options:ActorOptions, system:ActorSystem) -> ActorCore = actorFactory;
 }
 
 function actorFactory(options:ActorOptions, actorSystem:ActorSystem):ActorCore {
@@ -118,7 +118,7 @@ class BaseActor {
 		// override me
 	}
 
-	function kill(endTileId:Int=-1){
+	public function kill(){
 		
 		core.shape.visible = false;
 		isAlive = false;
@@ -131,12 +131,25 @@ class BaseActor {
 			// core.body.remove();
 			core.body.dispose();
 
-			// make sprite invisible (todo - properly remove from buffer?)
-			// core.shape.color.a =0;
-			core.sprite.alphaStart = 0;// = false;
-			core.sprite.alphaEnd = 0;
-			core.sprite.alpha = 0;
+			hide();
 		}
+	}
+
+	public function hide(){
+		// make sprite invisible (todo - properly remove from buffer?)
+		// core.shape.color.a =0;
+		core.sprite.alphaStart = 0;// = false;
+		core.sprite.alphaEnd = 0;
+		core.sprite.alpha = 0;
+	}
+
+
+	public function show(){
+		// make sprite invisible (todo - properly remove from buffer?)
+		// core.shape.color.a =0;
+		core.sprite.alphaStart =1.0;// = false;
+		core.sprite.alphaEnd = 1.0;
+		core.sprite.alpha = 1.0;
 	}
 
 	public var isAlive:Bool = true;

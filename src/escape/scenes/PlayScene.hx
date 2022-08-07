@@ -49,7 +49,8 @@ class PlayScene extends FullScene {
 		super.create();
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset -= 64;
-		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
+		hudTiles = tiles14px; // stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
+		var f = hudFrame.makeSprite(64 + 32, 32, 64, 0);
 		// world.width = 256;
 		// world.height = 256;
 		world.dispose();
@@ -93,9 +94,10 @@ class PlayScene extends FullScene {
 		var shipSpeed = 2.0;
 		var maxTravelDistance = 40;
 		var projectileType = level.levelStyle == Neutralize ? BOMB : STANDARD;
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileType);
-
+		var projectileConfig = Configuration.projectiles[projectileType];
+		
 		if (level.levelStyle == Neutralize) {
+			projectileConfig.totalShots = level.countSolarTargets();
 			sunSurface = tiles640px.makeSprite(0, 0, 640, 0);
 			sunSurface.w = Std.int(level.finishLine.core.body.x + 100);
 			sunSurface.x = (sunSurface.w / 2);
@@ -106,6 +108,8 @@ class PlayScene extends FullScene {
 		} else {
 			starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		}
+
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
 
 		if (level.levelStyle == Escape) {
 			var sunActorSystem:ActorSystem = {

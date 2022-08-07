@@ -17,12 +17,12 @@ class Hud {
 		var x = 64 + 32;
 		var y = 64 - 5;
         var tileIndex = 6;
-		weaponMeterSprite = tiles.makeSprite(x, y, width, tileIndex, 0, true, height);
-
+		weaponMeterSprite = tiles.makeSprite(x, y, 0, tileIndex, 0, true, height);
+		
 		var x = 64 + 32;
 		var y = 5;
         var tileIndex = 6 + 8;
-		shieldMeterSprite = tiles.makeSprite(x, y, width, tileIndex, 0, true, height);
+		shieldMeterSprite = tiles.makeSprite(x, y, 0, tileIndex, 0, true, height);
 		shieldMeterSprite.flipY(true);
 	}
 
