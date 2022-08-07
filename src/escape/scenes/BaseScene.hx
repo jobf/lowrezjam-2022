@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import core.Controller;
 import lime.ui.KeyCode;
 import tyke.Graphics.SpriteRenderer;
 import tyke.App;
@@ -21,10 +22,22 @@ class MovieScene extends FullScene {
 	// override c
 	override function create() {
 		super.create();
+		
+
 		cutSceneRenderer = stage.createSpriteRendererFor(config.framesAssetPath, config.frameWidth, config.frameHeight, true, config.sceneWidth,
 			config.sceneHeight);
 
 		cutScene = new CutScene(config, cutSceneRenderer);
+
+
+		controller = new Controller(app.window, {
+			onControlUp: isDown -> return,
+			onControlRight: isDown -> return,
+			onControlLeft: isDown -> return,
+			onControlDown: isDown -> return,
+			onControlAction: isDown -> isSkipScene = true
+		});
+		controller.enable();
 
 		trace('\n \n \n \n ! cutscene new');
 	}
@@ -32,13 +45,22 @@ class MovieScene extends FullScene {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 
-		if (cutScene.isComplete) {
+		if (cutScene.isComplete || isSkipScene) {
 			trace('cutscene complete');
 			onComplete(this);
 		} else {
 			cutScene.update(elapsedSeconds);
 		}
 	}
+
+	override function destroy() {
+		super.destroy();
+		controller.disable();
+	}
+
+	var controller:Controller;
+
+	var isSkipScene(default, null):Bool = false;
 }
 
 class TitleScene extends FullScene {
@@ -64,7 +86,7 @@ class TitleScene extends FullScene {
 		trace('\n \n \n \n ! cutscene new');
 	}
 
-	var isWaitingForInput:Bool = false;
+	var isWaitingForInput:Bool = true;
 
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
