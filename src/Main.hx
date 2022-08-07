@@ -66,6 +66,7 @@ class FullScene extends Scene {
 
 	var tiles14px:SpriteRenderer;
 	var tiles18px:SpriteRenderer;
+	var tiles640px:SpriteRenderer;
 
 	var starRenderer:ShapeRenderer;
 	var starSpriteRenderer:SpriteRenderer;
@@ -99,6 +100,7 @@ class FullScene extends Scene {
 		var isIndividualFrameBuffer = false;
 		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
 		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 64, 1, true);
+		tiles640px = stage.createSpriteRendererFor("assets/sprites/640x640-sun-surface.png", 640, 640, true, 640, 640);
 		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true);
 		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, isIndividualFrameBuffer);
 		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", 18, 18, isIndividualFrameBuffer, 640, 640);
@@ -164,4 +166,6 @@ class FullScene extends Scene {
 		@:privateAccess
 		stage.globalFrameBuffer.display.yOffset -= scrollIncrement;
 	}
+
+	var tiles64px:SpriteRenderer;
 }

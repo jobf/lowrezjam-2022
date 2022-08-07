@@ -24,6 +24,8 @@ class PlayScene extends FullScene {
 	var hudTiles:SpriteRenderer;
 	var levelConfig:LevelConfig;
 	var shipActorSystem:ActorSystem;
+	var sun:Sun;
+	var sunSurface:Sprite;
 	var levelIndex:Int;
 
 	public function new(app:App, nextLevelIndex:Int) {
@@ -93,7 +95,15 @@ class PlayScene extends FullScene {
 		var projectileType = level.levelStyle == Neutralize ? BOMB : STANDARD;
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileType);
 
-		if (level.levelStyle != Neutralize) {
+		if (level.levelStyle == Neutralize) {
+			sunSurface = tiles640px.makeSprite(0, 0, 640, 0);
+			sunSurface.w = Std.int(level.finishLine.core.body.x + 100);
+			sunSurface.x = (sunSurface.w / 2);
+			behaviours.push(new CountDown(0.3, () -> {
+				sunSurface.rotation += 0.3;
+				sunSurface.x -= 20;
+			}, true));
+		} else {
 			starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		}
 
@@ -187,13 +197,12 @@ class PlayScene extends FullScene {
 				var targetActors = level.actors.filter(obstacle -> obstacle.core.body.collider.type == TARGET);
 				var targetActorsAlive = targetActors.filter(obstacle -> obstacle.isAlive);
 				var levelIsComplete = targetActorsAlive.length == 0;
-				if(!levelIsComplete){
+				if (!levelIsComplete) {
 					trace('restarting neutralize effort');
 					app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
 					return;
 				}
-
-			} 
+			}
 			// else play scene
 			switch levelConfig.nextLevel {
 				// case Intro: setCutScene(Configuration.introCutScene);
@@ -210,14 +219,4 @@ class PlayScene extends FullScene {
 			}
 		}
 	}
-
-	var sun:Sun;
-
-	function traceSun() {
-		trace('sun ${sun.core.body.x} ${sun.core.body.y}');
-	}
-
-	// function startLevel(scene:FullScene) {
-	// 	isLevelEnded = false;
-	// }
 }
