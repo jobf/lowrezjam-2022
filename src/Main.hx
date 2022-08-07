@@ -71,6 +71,7 @@ class FullScene extends Scene {
 	var starRenderer:ShapeRenderer;
 	var starSpriteRenderer:SpriteRenderer;
 	var spaceLevelTiles:SpriteRenderer;
+	var hudFrame:SpriteRenderer;
 	var debugShapes:ShapeRenderer;
 	
 	override function create() {
@@ -104,6 +105,8 @@ class FullScene extends Scene {
 		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true);
 		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, isIndividualFrameBuffer);
 		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", 18, 18, isIndividualFrameBuffer, 640, 640);
+		hudFrame = stage.createSpriteRendererFor("assets/sprites/hud-frame.png", 64, 64, isIndividualFrameBuffer, 640, 640);
+		
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 		app.core.log('initialized renderers');
 
