@@ -22,7 +22,8 @@ class Weapon {
 	public var totalShots(default, null):Int;
 	public var shotsAvailable(default, null):Int;
 	public var projectiles(default, null):Array<Body>;
-
+	public var onShoot:Void->Void;
+	public var onShotsIncreased:Void->Void;
 	public function shoot(from_x:Int, from_y:Int, velocity_x:Float, velocity_y:Float) {
 		// trace('shoot $from_x $from_y $velocity_x $velocity_y');
 		if (projectileActorSystem.world.members == null) {
@@ -32,6 +33,9 @@ class Weapon {
 				var projectile = new Projectile(projectileActorSystem, from_x, from_y, projectileConfig);
 				projectiles.push(projectile.core.body);
 				shotsAvailable--;
+				if(onShoot != null){
+					onShoot();
+				}
 			}
 		}
 	}
@@ -45,6 +49,9 @@ class Weapon {
 	function increaseShotsAvailable() {
 		if (shotsAvailable < totalShots) {
 			shotsAvailable++;
+			if(onShotsIncreased != null){
+				onShotsIncreased();
+			}
 		}
 	}
 }
@@ -104,9 +111,9 @@ class ProjectileConfiguration {
 	public var totalShots(default, null):Int = 6;
 
     /**
-        how long it takes to refiul a single shot
+        how long it takes to refill a single shot
     **/
-	public var refillSpeed(default, null):Float = 4.0;
+	public var refillSpeed(default, null):Float = 0.5;
 }
 
 class Projectile extends BaseActor {

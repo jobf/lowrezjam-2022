@@ -49,7 +49,8 @@ class PlayScene extends FullScene {
 		super.create();
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset -= 64;
-		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
+		hudTiles = tiles14px;//stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true);
+		var f = hudFrame.makeSprite(64+32, 32,64,0);
 		// world.width = 256;
 		// world.height = 256;
 		world.dispose();

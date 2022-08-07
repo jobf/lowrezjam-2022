@@ -27,4 +27,5 @@ enum CollisionType{
     PROJECTILE;
     TARGET;
     FINISH;
+    STOPPER;
 }

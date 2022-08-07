@@ -410,7 +410,7 @@ class Configuration {
 			// spriteTileSize: spriteTileSize,
 			spriteTileIdStart: 24,
 			// shape: shape,
-			reloadTimeSeconds: 4.0,
+			reloadTimeSeconds: 1.0,
 			// refillSpeed: refillSpeed,
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,
