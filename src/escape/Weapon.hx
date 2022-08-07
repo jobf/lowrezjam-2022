@@ -1,0 +1,154 @@
+package escape;
+
+import tyke.Graphics;
+import echo.data.Types;
+import echo.Body;
+import tyke.Loop;
+import core.Actor;
+
+class Weapon {
+	var projectileActorSystem:ActorSystem;
+    var projectileConfig:ProjectileConfiguration;
+
+	public function new(projectileActorSystem:ActorSystem, projectileConfig:ProjectileConfiguration) {
+		this.projectileActorSystem = projectileActorSystem;
+		this.projectileConfig = projectileConfig;
+        this.totalShots = projectileConfig.totalShots;
+        this.shotsAvailable = projectileConfig.totalShots;
+		projectiles = [];
+		refillWeaponCountdown = new CountDown(projectileConfig.refillSpeed, () -> increaseShotsAvailable(), true);
+	}
+
+	public var totalShots(default, null):Int;
+	public var shotsAvailable(default, null):Int;
+	public var projectiles(default, null):Array<Body>;
+
+	public function shoot(from_x:Int, from_y:Int, velocity_x:Float, velocity_y:Float) {
+		// trace('shoot $from_x $from_y $velocity_x $velocity_y');
+		if (projectileActorSystem.world.members == null) {
+			trace('how can this happen?');
+		} else {
+			if (shotsAvailable > 0) {
+				var projectile = new Projectile(projectileActorSystem, from_x, from_y, projectileConfig);
+				projectiles.push(projectile.core.body);
+				shotsAvailable--;
+			}
+		}
+	}
+
+	public function update(elapsedSeconds:Float) {
+		refillWeaponCountdown.update(elapsedSeconds);
+	}
+
+	var refillWeaponCountdown:CountDown;
+
+	function increaseShotsAvailable() {
+		if (shotsAvailable < totalShots) {
+			shotsAvailable++;
+		}
+	}
+}
+
+@:enum abstract ProjectileType(Int) from Int to Int
+{
+	var STANDARD;
+	var BOMB;
+}
+
+
+@:structInit
+class ProjectileConfiguration {
+	/**
+		how wide the collision body should be (full width not radius)
+	**/
+	public var hitboxWidth:Int = 4;
+
+	/**
+		how high the collision body should be (full width not radius)
+	**/
+	public var hitboxHeight:Int = 2;
+
+	/**
+		the speed the body moves at, negative values means moving to the left
+	**/
+	public var velocityXMod:Float = 1.0;
+
+	/**
+		if it's a CIRCLE or RECT (rectangle)
+	**/
+	public var shape:Geometry = RECT;
+
+	/**
+		if the projectile is destroyed on impact
+	**/
+	public var isDestructible:Bool = true;
+
+	/**
+		how long it takes the weapon to reload this projectile
+	**/
+	public var reloadTimeSeconds:Float;
+
+    /**
+        the tile index to use for the sprite
+    **/
+    public var spriteTileIdStart:Int;
+
+    /**
+        the tile size to use for the sprite
+    **/
+    public var spriteTileSize:Int = 14;
+
+    /**
+        the number of shots available before reload
+    **/
+	public var totalShots(default, null):Int = 6;
+
+    /**
+        how long it takes to refiul a single shot
+    **/
+	public var refillSpeed(default, null):Float = 4.0;
+}
+
+class Projectile extends BaseActor {
+	public function new(system:ActorSystem, x:Int, y:Int, config:ProjectileConfiguration) {
+		super({
+			spriteTileSize: config.spriteTileSize,
+			spriteTileIdStart: config.spriteTileIdStart,
+			shape: config.shape,
+			makeCore: actorFactory,
+			debugColor: 0xd6dd00a0,
+			collisionType: PROJECTILE,
+			bodyOptions: {
+				shape: {
+					type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
+					solid: false,
+					radius: Std.int(config.hitboxWidth / 2),
+					width: config.hitboxWidth,
+					height: config.hitboxHeight,
+				},
+				mass: 1,
+				x: x,
+				y: y,
+				kinematic: true,
+				velocity_x: Configuration.baseWeaponVelocityX * config.velocityXMod,
+				velocity_y: 0,
+			}
+		}, system);
+	}
+
+	override function collideWith(body:Body) {
+		super.collideWith(body);
+		switch body.collider.type {
+			case ROCK:
+			case TARGET:
+					endUse();
+			case _:
+				return;
+		}
+	}
+
+	function endUse() {
+		// todo - proper destroy function ?
+		kill();
+	}
+}

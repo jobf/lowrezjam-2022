@@ -30,7 +30,8 @@ class ActorOptions {
 	public var bodyOptions:BodyOptions;
 	public var shape:Geometry;
 	public var debugColor:Color;
-	public var spriteTileId:Int;
+	public var spriteTileIdStart:Int;
+	public var spriteTileIdEnd:Int = -1;
 	public var spriteTileSize:Int;
 	public var collisionType:CollisionType;
 	public var makeCore:(options:ActorOptions, system:ActorSystem) -> ActorCore;
@@ -44,7 +45,7 @@ function actorFactory(options:ActorOptions, actorSystem:ActorSystem):ActorCore {
 			x_, 
 			y_, 
 			options.spriteTileSize, 
-			options.spriteTileId
+			options.spriteTileIdStart
 		),
 		shape: actorSystem.shapes.makeShape(
 			x_, 
@@ -117,19 +118,26 @@ class BaseActor {
 		// override me
 	}
 
-	function kill(){
-		// core.body.remove();
-		core.body.dispose();
+	function kill(endTileId:Int=-1){
+		
 		core.shape.visible = false;
-		// core.sprite.visible = false;
-		
-		// core.shape.color.a =0;
-		core.sprite.alphaStart = 0;// = false;
-		core.sprite.alphaEnd = 0;
-		core.sprite.alpha = 0;
-		
 		isAlive = false;
+		
+		if(options.spriteTileIdEnd >= 0){
+			core.sprite.tile = options.spriteTileIdEnd;
+		}
+		else{
+			// stop physics
+			// core.body.remove();
+			core.body.dispose();
+
+			// make sprite invisible (todo - properly remove from buffer?)
+			// core.shape.color.a =0;
+			core.sprite.alphaStart = 0;// = false;
+			core.sprite.alphaEnd = 0;
+			core.sprite.alpha = 0;
+		}
 	}
 
-	var isAlive:Bool = true;
+	public var isAlive:Bool = true;
 }

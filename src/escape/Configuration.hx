@@ -1,11 +1,73 @@
 package escape;
 
+import escape.Weapon;
 import escape.scenes.CutScene;
-import escape.scenes.CutScene.CutSceneConfiguration;
-import tyke.Graphics;
+import escape.Obstacle;
 
 class Configuration {
 	public static var baseVelocityX: Float = -100.0;
+	public static var baseWeaponVelocityX: Float = 100.0;
+
+
+	/**
+		title screen intro
+		game over
+		end of game win
+		start of level 1
+		start of level 2
+		start of level 3
+	**/
+
+	public static var levels:Array<LevelConfig> = [
+		{
+			// 1 . level
+			ldtk_level_id: 0,
+			nextLevel: NextLevel(1),
+			cutSceneConfig: {
+				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],
+				framesPerSecond: 6,
+				framesAssetPath: "assets/cutScenes/test-frames-leave-earth.png",
+			}
+		},
+		{
+			// 2 . level
+			ldtk_level_id: 1,
+			nextLevel: NextLevel(2),
+			cutSceneConfig: {
+				frames: [2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+				framesPerSecond: 6,
+				framesAssetPath: "assets/cutScenes/test-frames-leave-asteroid.png",
+			}
+		},
+		{
+			// 3 . level
+			ldtk_level_id: 2,
+			nextLevel: GameWin,
+			cutSceneConfig: {
+				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+				framesPerSecond: 4,
+				framesAssetPath: "assets/cutScenes/test-frames-leave-sun.png",
+			}
+		}
+	];
+
+	public static var introCutScene:CutSceneConfiguration = {
+		frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13],
+		framesPerSecond: 3,
+		framesAssetPath: "assets/cutScenes/test-frames-control-room.png",
+	};
+
+	public static var gameOverScene:CutSceneConfiguration = {
+		frames: [1, 1],
+		framesPerSecond: 1,
+		framesAssetPath: "assets/cutScenes/placeholders.png",
+	};
+
+	public static var gameWinScene:CutSceneConfiguration = {
+		frames: [2, 2, 2, 2, 2, 2, 2],
+		framesPerSecond: 1,
+		framesAssetPath: "assets/cutScenes/placeholders.png",
+	};
 
 	public static var obstacles:Map<Int, ObstacleConfiguration> = [
 		// example rectangle
@@ -75,12 +137,14 @@ class Configuration {
 			isDestructible: false,
 			damagePoints: 0
 		},
-		8 => {
+		8 => { 
+			// sun target
 			shape: CIRCLE,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
-			isDestructible: false,
-			damagePoints: 0
+			isDestructible: true,
+			damagePoints: 0,
+			spriteTileIdEnd: 13
 		},
 		9 => {
 			shape: CIRCLE,
@@ -111,11 +175,12 @@ class Configuration {
 			damagePoints: 1
 		},
 		13 => {
+			// target filled
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-			isDestructible: true,
-			damagePoints: 1
+			isDestructible: false,
+			damagePoints: 0
 		},
 		14 => {
 			shape: CIRCLE,
@@ -177,6 +242,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
+            velocityModX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -336,98 +402,31 @@ class Configuration {
 		},
 	];
 
-	/**
-		0 title screen intro
-		1 game over
-		2 end of game win
-		11 start of level 1
-		12 start of level 2
-		13 start of level 3
 
-	**/
-	public static var levels:Array<LevelConfig> = [
-		{
-			// 1 . level
-			ldtk_level_id:1,
-			nextLevel: NextLevel(1),
-			cutSceneConfig: {
-				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],
-				framesPerSecond: 6,
-				framesAssetPath: "assets/cutScenes/test-frames-leave-earth.png",
-			}
+	public static var projectiles:Map<ProjectileType, ProjectileConfiguration> = [
+		STANDARD => {
+			// velocityXMod: velocityXMod,
+			// totalShots: totalShots,
+			// spriteTileSize: spriteTileSize,
+			spriteTileIdStart: 24,
+			// shape: shape,
+			reloadTimeSeconds: 4.0,
+			// refillSpeed: refillSpeed,
+			// isDestructible: isDestructible,
+			// hitboxWidth: hitboxWidth,
+			// hitboxHeight: hitboxHeight
 		},
-		{
-			// 2 . level
-			ldtk_level_id: 1,
-			nextLevel: NextLevel(2),
-			cutSceneConfig: {
-				frames: [2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 39, 39, 39, 39, 39],
-				framesPerSecond: 6,
-				framesAssetPath: "assets/cutScenes/test-frames-leave-asteroid.png",
-			}
-		},
-		{
-			// 3 . level
-			ldtk_level_id: 2,
-			nextLevel: GameWin,
-			cutSceneConfig: {
-				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 16, 16, 16, 16, 16],
-				framesPerSecond: 4,
-				framesAssetPath: "assets/cutScenes/test-frames-leave-sun.png",
-			}
+		BOMB => {
+			velocityXMod: 0.2,
+			totalShots: 3,
+			spriteTileIdStart: 25,
+			reloadTimeSeconds: 4.0,
+			refillSpeed: 1000.0, // so long it never refills
+			// isDestructible: isDestructible,
+			// hitboxWidth: hitboxWidth,
+			// hitboxHeight: hitboxHeight
 		}
 	];
-
-	public static var introCutScene:CutSceneConfiguration = {
-		frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13],
-		framesPerSecond: 3,
-		framesAssetPath: "assets/cutScenes/test-frames-control-room.png",
-	};
-
-	public static var gameOverScene:CutSceneConfiguration = {
-		frames: [1, 1],
-		framesPerSecond: 1,
-		framesAssetPath: "assets/cutScenes/placeholders.png",
-	};
-
-	public static var gameWinScene:CutSceneConfiguration = {
-		frames: [2, 2, 2, 2, 2, 2, 2],
-		framesPerSecond: 1,
-		framesAssetPath: "assets/cutScenes/placeholders.png",
-	};
-}
-
-@:structInit
-class ObstacleConfiguration {
-	/**
-		how wide the collision body should be (full width not radius)
-	**/
-	public var hitboxWidth:Int;
-
-	/**
-		how high the collision body should be (full width not radius)
-	**/
-	public var hitboxHeight:Int;
-
-	/**
-		the speed the body moves at, negative values means moving to the left
-	**/
-	public var velocityModX:Float = 1.0;
-
-	/**
-		if it's a CIRCLE or RECT (rectangle)
-	**/
-	public var shape:Geometry;
-
-	/**
-		if the obstacle can be destroyed set this to true
-	**/
-	public var isDestructible:Bool;
-
-	/**
-		how much damage the obstacle inflicts on a ship when colliding
-	**/
-	public var damagePoints:Int;
 }
 
 @:structInit

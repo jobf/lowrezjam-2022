@@ -10,7 +10,7 @@ class Sun extends BaseActor{
         final sunDiameter = 512;
         super({
             spriteTileSize: 0,  // not using sprite for the sun
-            spriteTileId: 0,    // not using sprite for the sun
+            spriteTileIdStart: 0,    // not using sprite for the sun
             shape: CIRCLE,
             makeCore: actorFactory,
             debugColor: 0xff8033ff,
