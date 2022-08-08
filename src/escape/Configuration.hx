@@ -61,6 +61,8 @@ class Configuration {
 		frames: [1, 1],
 		framesPerSecond: 1,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
+		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg"
+
 	};
 
 	public static var gameWinScene:CutSceneConfiguration = {

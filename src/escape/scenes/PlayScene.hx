@@ -209,9 +209,7 @@ class PlayScene extends FullScene {
 
 			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
-			audio.stopMusic(() -> app.changeScene(new TitleScene(app, Configuration.gameOverScene, scene -> {
-				// do thing
-			})));
+			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverScene, scene -> app.changeScene(new PlayScene(app, levelIndex)))));
 		}
 		if (isLevelEnded && !ship.isDead) {
 			trace('level complete');
