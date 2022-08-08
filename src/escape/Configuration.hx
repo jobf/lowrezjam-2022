@@ -7,7 +7,7 @@ import escape.Obstacle;
 class Configuration {
 	public static var baseVelocityX: Float = -100.0;
 	public static var baseWeaponVelocityX: Float = 100.0;
-
+	public static var isMuted:Bool = false;
 
 	/**
 		title screen intro
