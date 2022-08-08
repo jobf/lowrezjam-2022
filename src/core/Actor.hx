@@ -35,6 +35,7 @@ class ActorOptions {
 	public var spriteTileSize:Int;
 	public var collisionType:CollisionType = CollisionType.UNDEFINED;
 	public var makeCore:(options:ActorOptions, system:ActorSystem) -> ActorCore = actorFactory;
+	public var bodyRegisterInWorldsIsAutomatic:Bool = true;
 }
 
 function actorFactory(options:ActorOptions, actorSystem:ActorSystem):ActorCore {
@@ -94,8 +95,10 @@ class BaseActor {
 		// handle collisions with body
 		core.body.collider = new Collider(options.collisionType, body -> collideWith(body));
 
-		// register body in world
-		system.world.add(core.body);
+		if(options.bodyRegisterInWorldsIsAutomatic){
+			// register body in world
+			system.world.add(core.body);
+		}
 
 		#if !debug
 		// only show the debug shape for debugging
