@@ -131,6 +131,13 @@ class PlayScene extends FullScene {
 					shipBody.collider.collideWith(sunBody);
 				},
 			});
+
+			audio.playMusic('assets/audio/bg-a-147bpm.ogg');
+
+		}
+		else{
+			var bg = level.levelStyle == Neutralize ? "a" : "b";
+			audio.playMusic('assets/audio/bg-$bg.ogg');
 		}
 
 		controller = new Controller(app.window, {
@@ -165,6 +172,8 @@ class PlayScene extends FullScene {
 				trace('finish line!!!!!!!!<<<<<<');
 			},
 		});
+
+		
 	}
 
 	override function destroy() {
@@ -174,9 +183,14 @@ class PlayScene extends FullScene {
 
 	// var isLevelComplete:Bool = false;
 	var isLevelEnded:Bool = false;
+	var isLevelStopping:Bool = false;
 
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
+		if(isLevelStopping){
+			return;
+		}
+
 		ship.update(elapsedSeconds);
 		var speedMod = ship.getSpeedMod() * 1.5;
 
@@ -192,13 +206,16 @@ class PlayScene extends FullScene {
 
 		if (ship.isDead) {
 			isLevelEnded = true;
+
+			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
-			app.changeScene(new TitleScene(app, Configuration.gameOverScene, scene -> {
+			audio.stopMusic(() -> app.changeScene(new TitleScene(app, Configuration.gameOverScene, scene -> {
 				// do thing
-			}));
+			})));
 		}
 		if (isLevelEnded && !ship.isDead) {
 			trace('level complete');
+			isLevelStopping = true;
 			// if was a bombing level and the targets are not destroyed, it's game over with super nova
 			if (level.levelStyle == Neutralize) {
 				var targetActors = level.actors.filter(obstacle -> obstacle.core.body.collider.type == TARGET);
@@ -206,8 +223,10 @@ class PlayScene extends FullScene {
 				var levelIsComplete = targetActorsAlive.length == 0;
 				if (!levelIsComplete) {
 					trace('restarting neutralize effort');
-					app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
-					return;
+					isLevelStopping = true;
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex)))));
+					// app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
+					// return;
 				}
 			}
 			// else play scene
@@ -218,11 +237,12 @@ class PlayScene extends FullScene {
 				case NextLevel(nextLevelIndex):
 					trace('\n - \n ---- change to next level \n - \n ');
 					// app.changeScene(new PlayScene(Configuration.levels[nextLevelIndex], app));
-					app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
-						scene -> app.changeScene(new PlayScene(app, nextLevelIndex))));
+
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
+						scene -> app.changeScene(new PlayScene(app, nextLevelIndex)))));
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
-					app.changeScene(new MovieScene(app, Configuration.gameWinScene, scene -> return));
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameWinScene, scene -> return)));
 			}
 		}
 	}
