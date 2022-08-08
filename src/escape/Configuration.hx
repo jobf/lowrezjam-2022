@@ -110,8 +110,8 @@ class Configuration {
 		},
 		4 => {
 			shape: RECT,
-			hitboxWidth: 8,
-			hitboxHeight: 8,
+			hitboxWidth: 0,
+			hitboxHeight: 0,
 			velocityModX: 2.0,
 			isDestructible: false,
 			damagePoints: 0
