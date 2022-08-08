@@ -1,5 +1,6 @@
 package escape;
 
+import tyke.Stage;
 import escape.Obstacle;
 import echo.data.Types.ShapeType;
 import peote.view.PeoteView;
@@ -15,7 +16,7 @@ class Level {
 	var levelTiles:SpriteRenderer;
 	var world:World;
 	var levelId:Int;
-	var obstacleSystem:ActorSystem;
+	var obstacleSystems:Array<ActorSystem> = [];
 	final solarFlareTileId:Int = 9;
 	final solarFlareFramesPerSecond:Int = 3;
 	final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
@@ -44,38 +45,53 @@ class Level {
 		trace('level style $levelStyle');
 	}
 
-	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView) {
+	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, tileRenderers:Array<SpriteRenderer>) {
 		this.levelTiles = levelTiles;
 		this.world = world;
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
 		var l_Tiles_16_RenderSize = 16;
 		var l_Tiles_16_GridSize = 4;
 
-		obstacleSystem = {
-			world: world,
-			tiles: levelTiles,
-			shapes: debugRenderer,
-			peoteView: peoteView
-		}
+		obstacleSystems = [
+			{
+				world: world,
+				tiles: tileRenderers[0],
+				shapes: debugRenderer,
+				peoteView: peoteView
+			},
+			{
+				world: world,
+				tiles: tileRenderers[1],
+				shapes: debugRenderer,
+				peoteView: peoteView
+			},
+			{
+				world: world,
+				tiles: tileRenderers[2],
+				shapes: debugRenderer,
+				peoteView: peoteView
+			},
+
+		];
 
 
 
 		// set up Obstacles ( rocks, targets, flares etc . . . )
 		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
-				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize);
+				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize, obstacleSystems[1]);
 			}
 		});
 
 		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16_Slow, (stack, cx, cy) -> {
 			for (tileData in stack) {
-				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize);
+				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize, obstacleSystems[0]);
 			}
 		});
 
 		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16_Fast, (stack, cx, cy) -> {
 			for (tileData in stack) {
-				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize);
+				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize, obstacleSystems[2]);
 			}
 		});
 
@@ -108,7 +124,7 @@ class Level {
 				}
 			};
 
-			var obstacle = new Flare(obstacleOptions, obstacleSystem, config, solarFlareFrames, solarFlareFramesPerSecond);
+			var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFrames, solarFlareFramesPerSecond);
 
 			actors.push(obstacle);
 			obstacles.push(obstacle.core.body);
@@ -140,7 +156,7 @@ class Level {
 					kinematic: true,
 					velocity_x: Configuration.baseVelocityX
 				}
-			}, obstacleSystem);
+			}, obstacleSystems[0]);
 
 			trace('initiliazed finish line at $tileX');
 		}
@@ -151,7 +167,7 @@ class Level {
 		return targets.length;
 	}
 
-	function initObstacle(tileData:{tileId:Int, flipBits:Int}, cx:Int, cy:Int, l_Tiles_16_GridSize:Int, l_Tiles_16_RenderSize:Int) {
+	function initObstacle(tileData:{tileId:Int, flipBits:Int}, cx:Int, cy:Int, l_Tiles_16_GridSize:Int, l_Tiles_16_RenderSize:Int, obstacleSystem:ActorSystem) {
 		var config = Configuration.obstacles[tileData.tileId];
 				if (config == null) {
 					trace('!!! no config for tile Id ${tileData.tileId}');

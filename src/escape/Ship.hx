@@ -33,6 +33,8 @@ class Ship extends BaseActor {
 
 		weaponUseCountdown = new CountDown(0.15, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
+
+		// core.sprite.z = 0;
 	}
 
 	var isMovingVertical:Bool;

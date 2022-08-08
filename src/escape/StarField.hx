@@ -37,7 +37,9 @@ class StarField {
 				if(distance == 0){
 					distance = 1;
 				}
-				new Star(x, y, distanceModifier, starSprites.makeSprite(x, y, 64, distance, 0, true, 1));
+				var star = starSprites.makeSprite(x, y, 64, distance, 0, true, 1);
+				// star.z = -100;
+				new Star(x, y, distanceModifier, star);
 			}
 
 		];

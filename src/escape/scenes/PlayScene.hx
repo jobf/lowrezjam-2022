@@ -62,7 +62,7 @@ class PlayScene extends FullScene {
 			iterations: 2
 		});
 
-		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView);
+		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView, [spaceLevelTilesFar, spaceLevelTiles, spaceLevelTilesNear]);
 
 		var shipOptions:ActorOptions = {
 			spriteTileSize: 14,
