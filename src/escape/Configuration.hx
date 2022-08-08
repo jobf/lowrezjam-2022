@@ -112,6 +112,7 @@ class Configuration {
 			shape: RECT,
 			hitboxWidth: 8,
 			hitboxHeight: 8,
+			velocityModX: 2.0,
 			isDestructible: false,
 			damagePoints: 0
 		},
@@ -328,6 +329,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
+			velocityModX: 0.5,
 			isDestructible: true,
 			damagePoints: 1
 		},
