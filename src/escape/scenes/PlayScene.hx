@@ -113,8 +113,6 @@ class PlayScene extends FullScene {
 			starField = new StarField(ship, 256, 128, starSpriteRenderer);
 		}
 
-		var bg = level.levelStyle == Neutralize ? "a" : "b";
-		audio.playMusic('assets/audio/bg-$bg.ogg');
 
 		if (level.levelStyle == Escape) {
 			var sunActorSystem:ActorSystem = {
@@ -133,6 +131,13 @@ class PlayScene extends FullScene {
 					shipBody.collider.collideWith(sunBody);
 				},
 			});
+
+			audio.playMusic('assets/audio/bg-a-147bpm.ogg');
+
+		}
+		else{
+			var bg = level.levelStyle == Neutralize ? "a" : "b";
+			audio.playMusic('assets/audio/bg-$bg.ogg');
 		}
 
 		controller = new Controller(app.window, {
