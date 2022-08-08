@@ -133,6 +133,12 @@ class ObstacleConfiguration {
 	public var isDestructible:Bool;
 
 	/**
+		if the obstacle should let projectiles pass through (otherwise projectil is destroyed)
+	**/
+	public var letProjectileThrough:Bool = false;
+
+
+	/**
 		how much damage the obstacle inflicts on a ship when colliding
 	**/
 	public var damagePoints:Int;

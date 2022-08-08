@@ -28,7 +28,8 @@ class MovieScene extends FullScene {
 			config.sceneHeight);
 
 		cutScene = new CutScene(config, cutSceneRenderer);
-
+		
+		audio.playMusic("assets/audio/bg-intro-d.ogg");
 
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> return,
@@ -47,7 +48,7 @@ class MovieScene extends FullScene {
 
 		if (cutScene.isComplete || isSkipScene) {
 			trace('cutscene complete');
-			onComplete(this);
+			audio.stopMusic(() -> onComplete(this));
 		} else {
 			cutScene.update(elapsedSeconds);
 		}

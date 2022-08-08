@@ -8,13 +8,13 @@ import core.Actor;
 
 class Weapon {
 	var projectileActorSystem:ActorSystem;
-    var projectileConfig:ProjectileConfiguration;
+	var projectileConfig:ProjectileConfiguration;
 
 	public function new(projectileActorSystem:ActorSystem, projectileConfig:ProjectileConfiguration) {
 		this.projectileActorSystem = projectileActorSystem;
 		this.projectileConfig = projectileConfig;
-        this.totalShots = projectileConfig.totalShots;
-        this.shotsAvailable = projectileConfig.totalShots;
+		this.totalShots = projectileConfig.totalShots;
+		this.shotsAvailable = projectileConfig.totalShots;
 		projectiles = [];
 		refillWeaponCountdown = new CountDown(projectileConfig.refillSpeed, () -> increaseShotsAvailable(), true);
 	}
@@ -24,6 +24,7 @@ class Weapon {
 	public var projectiles(default, null):Array<Body>;
 	public var onShoot:Void->Void;
 	public var onShotsIncreased:Void->Void;
+
 	public function shoot(from_x:Int, from_y:Int, velocity_x:Float, velocity_y:Float) {
 		// trace('shoot $from_x $from_y $velocity_x $velocity_y');
 		if (projectileActorSystem.world.members == null) {
@@ -33,7 +34,7 @@ class Weapon {
 				var projectile = new Projectile(projectileActorSystem, from_x, from_y, projectileConfig);
 				projectiles.push(projectile.core.body);
 				shotsAvailable--;
-				if(onShoot != null){
+				if (onShoot != null) {
 					onShoot();
 				}
 			}
@@ -49,19 +50,17 @@ class Weapon {
 	function increaseShotsAvailable() {
 		if (shotsAvailable < totalShots) {
 			shotsAvailable++;
-			if(onShotsIncreased != null){
+			if (onShotsIncreased != null) {
 				onShotsIncreased();
 			}
 		}
 	}
 }
 
-@:enum abstract ProjectileType(Int) from Int to Int
-{
+@:enum abstract ProjectileType(Int) from Int to Int {
 	var STANDARD;
 	var BOMB;
 }
-
 
 @:structInit
 class ProjectileConfiguration {
@@ -95,24 +94,24 @@ class ProjectileConfiguration {
 	**/
 	public var reloadTimeSeconds:Float;
 
-    /**
-        the tile index to use for the sprite
-    **/
-    public var spriteTileIdStart:Int;
+	/**
+		the tile index to use for the sprite
+	**/
+	public var spriteTileIdStart:Int;
 
-    /**
-        the tile size to use for the sprite
-    **/
-    public var spriteTileSize:Int = 14;
+	/**
+		the tile size to use for the sprite
+	**/
+	public var spriteTileSize:Int = 14;
 
-    /**
-        the number of shots available before reload
-    **/
+	/**
+		the number of shots available before reload
+	**/
 	public var totalShots:Int = 6;
 
-    /**
-        how long it takes to refill a single shot
-    **/
+	/**
+		how long it takes to refill a single shot
+	**/
 	public var refillSpeed(default, null):Float = 0.5;
 }
 
@@ -147,16 +146,18 @@ class Projectile extends BaseActor {
 		super.collideWith(body);
 		switch body.collider.type {
 			case ROCK:
-				endUse();
+				endUse(body);
 			case TARGET:
-					endUse();
+				endUse(body);
 			case _:
 				return;
 		}
 	}
 
-	function endUse() {
-		// todo - proper destroy function ?
-		kill();
+	function endUse(body:Body) {
+		if(!body.obstacleConfiguration.letProjectileThrough){
+			// todo - proper destroy function ?
+				kill();
+		}
 	}
 }

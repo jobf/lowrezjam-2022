@@ -114,6 +114,7 @@ class Configuration {
 			hitboxHeight: 0,
 			velocityModX: 1.5,
 			isDestructible: false,
+			letProjectileThrough: true,
 			damagePoints: 0
 		},
 		5 => {
