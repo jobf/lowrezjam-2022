@@ -27,10 +27,10 @@ class Ship extends BaseActor {
 
 		hud = new Hud(system, weapon);
 
-		takeDamageCountdown = new CountDown(1.0, () -> resetTookDamage(), false);
+		takeDamageCountdown = new CountDown(0.75, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
 
-		weaponUseCountdown = new CountDown(0.15, () -> resetCanUseWeapon(), false);
+		weaponUseCountdown = new CountDown(0.1, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
 	}
 
