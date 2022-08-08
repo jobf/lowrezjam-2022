@@ -147,6 +147,7 @@ class Projectile extends BaseActor {
 		super.collideWith(body);
 		switch body.collider.type {
 			case ROCK:
+				endUse();
 			case TARGET:
 					endUse();
 			case _:
