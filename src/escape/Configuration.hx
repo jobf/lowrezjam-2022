@@ -83,7 +83,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 2,
 			hitboxHeight: 2,
-			velocityModX: 2.0,
+			velocityModX: 1.5,
 			isDestructible: true,
 			damagePoints: 0
 		},
@@ -112,7 +112,7 @@ class Configuration {
 			shape: RECT,
 			hitboxWidth: 0,
 			hitboxHeight: 0,
-			velocityModX: 2.0,
+			velocityModX: 1.5,
 			isDestructible: false,
 			letProjectileThrough: true,
 			damagePoints: 0
@@ -328,10 +328,10 @@ class Configuration {
 		},
 		34 => {
 			shape: CIRCLE,
-			hitboxWidth: 6,
-			hitboxHeight: 6,
+			hitboxWidth: 14,
+			hitboxHeight: 14,
 			velocityModX: 0.5,
-			isDestructible: true,
+			isDestructible: false,
 			damagePoints: 1
 		},
 		35 => {
