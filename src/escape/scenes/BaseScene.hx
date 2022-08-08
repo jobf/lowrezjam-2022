@@ -29,7 +29,7 @@ class MovieScene extends FullScene {
 
 		cutScene = new CutScene(config, cutSceneRenderer);
 		
-		audio.playMusic("assets/audio/bg-intro-d.ogg");
+		audio.playMusic(config.bgMusicAssetPath);
 
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> return,
@@ -43,11 +43,17 @@ class MovieScene extends FullScene {
 		trace('\n \n \n \n ! cutscene new');
 	}
 
+	var isSceneOver:Bool = false;
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
+		
+		if(isSceneOver){
+			return;
+		}
 
 		if (cutScene.isComplete || isSkipScene) {
 			trace('cutscene complete');
+			isSceneOver = true;
 			audio.stopMusic(() -> onComplete(this));
 		} else {
 			cutScene.update(elapsedSeconds);

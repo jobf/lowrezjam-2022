@@ -7,7 +7,7 @@ import escape.Obstacle;
 class Configuration {
 	public static var baseVelocityX: Float = -100.0;
 	public static var baseWeaponVelocityX: Float = 100.0;
-
+	public static var isMuted:Bool = false;
 
 	/**
 		title screen intro
@@ -61,6 +61,8 @@ class Configuration {
 		frames: [1, 1],
 		framesPerSecond: 1,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
+		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg"
+
 	};
 
 	public static var gameWinScene:CutSceneConfiguration = {

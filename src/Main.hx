@@ -95,7 +95,11 @@ class FullScene extends Scene {
 		app.core.log('initialized echo $stageWidth $stageHeight');
 
 		audio = new SoundManager();
+		if(Configuration.isMuted){
+			audio.mute();
+		}
 		app.core.log('initialized audio');
+
 		var tiles14pxTilesWide = 8;
 		var tiles18pxTilesWide = 1;
 		var isIndividualFrameBuffer = false;
@@ -115,6 +119,10 @@ class FullScene extends Scene {
 			case A: scrollLeft();
 			case S: scrollDown();
 			case D: scrollRight();
+			case P: {
+				Configuration.isMuted = true;
+				audio.mute();
+			};
 			case _: return;
 		});
 	}

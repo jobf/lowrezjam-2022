@@ -15,6 +15,7 @@ class CutSceneConfiguration {
 	public var framesPerSecond:Int = 12;
 	public var backgroundColor:Color = 0x000000ff;
 	public var sceneWidth:Int = 256;
+	public var bgMusicAssetPath = "assets/audio/bg-intro-d.ogg";
 	public var sceneHeight:Int = 256;
 }
 
