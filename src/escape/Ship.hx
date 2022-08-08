@@ -6,7 +6,8 @@ import echo.data.Types.ShapeType;
 import tyke.Loop;
 import echo.Body;
 import core.Actor;
-import escape.HudFun.Hud;
+// import escape.HudFun.Hud;
+import escape.Hud;
 
 class Ship extends BaseActor {
 	var speed:Float;
@@ -25,7 +26,7 @@ class Ship extends BaseActor {
 
 		weapon = new Weapon(system, projectileConfig);
 
-		hud = new Hud(system, weapon);
+		hud = new Hud(hudTiles, weapon);
 
 		takeDamageCountdown = new CountDown(0.75, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
@@ -40,7 +41,7 @@ class Ship extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
-		hud.update(elapsedSeconds);
+		hud.update(shieldPercent);
 	}
 
 	public function moveUp(isDown:Bool) {

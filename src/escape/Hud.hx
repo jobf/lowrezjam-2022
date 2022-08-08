@@ -2,9 +2,11 @@ package escape;
 
 import escape.Ship;
 import tyke.Graphics;
+import core.Actor;
 
 class Hud {
 	var weapon:Weapon;
+	// var ledSystem:ActorSystem;
 	var tiles:SpriteRenderer;
 	var weaponMeterSprite:Sprite;
 	var shieldMeterSprite:Sprite;
@@ -13,16 +15,16 @@ class Hud {
 		this.tiles = tiles;
 		this.weapon = weapon;
 		final width = 64;
-		final height = 14;
+		final height = 4;
 		var x = 64 + 32;
-		var y = 64 - 5;
-        var tileIndex = 6;
-		weaponMeterSprite = tiles.makeSprite(x, y, 0, tileIndex, 0, true, height);
-		
+		var y = 64 - 3;
+		var tileIndex = 0;
+		weaponMeterSprite = tiles.makeSprite(x, y, width, tileIndex, 0, true, height);
+
 		var x = 64 + 32;
-		var y = 5;
-        var tileIndex = 6 + 8;
-		shieldMeterSprite = tiles.makeSprite(x, y, 0, tileIndex, 0, true, height);
+		var y = 3;
+		var tileIndex = 6 + 7;
+		shieldMeterSprite = tiles.makeSprite(x, y, width, tileIndex, 0, true, height);
 		shieldMeterSprite.flipY(true);
 	}
 
@@ -34,7 +36,6 @@ class Hud {
 		weaponMeterSprite.tile = tile;
 
 		var tile = Std.int(meterTileRange * shieldPercent);
-		shieldMeterSprite.tile = tile + 8;
-
+		shieldMeterSprite.tile = tile + 7;
 	}
 }
