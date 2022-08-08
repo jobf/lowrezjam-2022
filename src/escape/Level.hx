@@ -15,7 +15,10 @@ class Level {
 	var levelTiles:SpriteRenderer;
 	var world:World;
 	var levelId:Int;
-
+	var obstacleSystem:ActorSystem;
+	final solarFlareTileId:Int = 9;
+	final solarFlareFramesPerSecond:Int = 3;
+	final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
 	public var obstacles(default, null):Array<Body>;
 	public var actors(default, null):Array<Obstacle> = [];
 	public var finishLine(default, null):BaseActor;
@@ -48,72 +51,31 @@ class Level {
 		var l_Tiles_16_RenderSize = 16;
 		var l_Tiles_16_GridSize = 4;
 
-		var obstacleSystem:ActorSystem = {
+		obstacleSystem = {
 			world: world,
 			tiles: levelTiles,
 			shapes: debugRenderer,
 			peoteView: peoteView
 		}
 
-		final solarFlareTileId:Int = 9;
-		final solarFlareFramesPerSecond:Int = 3;
-		final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
+
 
 		// set up Obstacles ( rocks, targets, flares etc . . . )
-		LevelLoader.renderLayer(l_Tiles_16, (stack, cx, cy) -> {
+		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
-				
-				var config = Configuration.obstacles[tileData.tileId];
-				if (config == null) {
-					trace('!!! no config for tile Id ${tileData.tileId}');
-				} else {
-					if(tileData.tileId == solarFlareTileId){
-						// skip solar flares, they will be handled as entites only
-						// trace('skip solar flare');
-						continue;
-					}
+				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize);
+			}
+		});
 
-					var tileX = cx * l_Tiles_16_GridSize;
-					var tileY = cy * l_Tiles_16_GridSize;
-					var obstacleOptions:ActorOptions = {
-						spriteTileSize: l_Tiles_16_RenderSize,
-						spriteTileIdStart: tileData.tileId,
-						spriteTileIdEnd: config.spriteTileIdEnd,
-						shape: config.shape,
-						makeCore: actorFactory,
-						debugColor: 0x44008880,
-						collisionType: tileData.tileId == 8 ? TARGET : ROCK,
-						bodyOptions: {
-							shape: {
-								type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
-								solid: false,
-								radius: Std.int(config.hitboxWidth * 0.5),
-								width: config.hitboxWidth,
-								height: config.hitboxHeight,
-							},
-							mass: 1,
-							x: tileX,
-							y: tileY,
-							kinematic: true
-						}
-					};
+		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16_Slow, (stack, cx, cy) -> {
+			for (tileData in stack) {
+				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize);
+			}
+		});
 
-					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
-
-					actors.push(obstacle);
-					obstacles.push(obstacle.core.body);
-					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
-					obstacle.core.body.velocity.y = 0;
-
-					switch tileData.flipBits {
-						case 1: obstacle.core.sprite.flipX(true);
-						case 2: obstacle.core.sprite.flipY(true);
-						case 3:
-							obstacle.core.sprite.flipX(true);
-							obstacle.core.sprite.flipY(true);
-						case _: return;
-					}
-				}
+		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16_Fast, (stack, cx, cy) -> {
+			for (tileData in stack) {
+				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize);
 			}
 		});
 
@@ -187,5 +149,59 @@ class Level {
 	public function countSolarTargets():Int {
 		var targets = obstacles.filter(body -> body.collider.type == TARGET);
 		return targets.length;
+	}
+
+	function initObstacle(tileData:{tileId:Int, flipBits:Int}, cx:Int, cy:Int, l_Tiles_16_GridSize:Int, l_Tiles_16_RenderSize:Int) {
+		var config = Configuration.obstacles[tileData.tileId];
+				if (config == null) {
+					trace('!!! no config for tile Id ${tileData.tileId}');
+				} else {
+					if(tileData.tileId == solarFlareTileId){
+						// skip solar flares, they will be handled as entites only
+						// trace('skip solar flare');
+						return;
+					}
+
+					var tileX = cx * l_Tiles_16_GridSize;
+					var tileY = cy * l_Tiles_16_GridSize;
+					var obstacleOptions:ActorOptions = {
+						spriteTileSize: l_Tiles_16_RenderSize,
+						spriteTileIdStart: tileData.tileId,
+						spriteTileIdEnd: config.spriteTileIdEnd,
+						shape: config.shape,
+						makeCore: actorFactory,
+						debugColor: 0x44008880,
+						collisionType: tileData.tileId == 8 ? TARGET : ROCK,
+						bodyOptions: {
+							shape: {
+								type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
+								solid: false,
+								radius: Std.int(config.hitboxWidth * 0.5),
+								width: config.hitboxWidth,
+								height: config.hitboxHeight,
+							},
+							mass: 1,
+							x: tileX,
+							y: tileY,
+							kinematic: true
+						}
+					};
+
+					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+
+					actors.push(obstacle);
+					obstacles.push(obstacle.core.body);
+					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+					obstacle.core.body.velocity.y = 0;
+
+					switch tileData.flipBits {
+						case 1: obstacle.core.sprite.flipX(true);
+						case 2: obstacle.core.sprite.flipY(true);
+						case 3:
+							obstacle.core.sprite.flipX(true);
+							obstacle.core.sprite.flipY(true);
+						case _: return;
+					}
+				}
 	}
 }
