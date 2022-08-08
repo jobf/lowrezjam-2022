@@ -122,6 +122,7 @@ class FullScene extends Scene {
 	override function destroy() {
 		super.destroy();
 		world.dispose();
+		audio.dispose();
 	}
 
 	override function update(elapsedSeconds:Float) {
