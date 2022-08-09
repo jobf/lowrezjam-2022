@@ -165,7 +165,7 @@ class PlayScene extends FullScene {
 		// register projectile and obstacle collisions
 		world.listen(ship.weapon.projectiles, level.obstacles, {
 			enter: (projectileBody, obstacleBody, collisionData) -> {
-				emitter.emit(obstacleBody.x, obstacleBody.y);
+				emitter.emit(obstacleBody.x, obstacleBody.y, projectileBody.velocity.x, randomFloat(5, -15));
 				obstacleBody.collider.collideWith(projectileBody);
 				projectileBody.collider.collideWith(obstacleBody);
 			},

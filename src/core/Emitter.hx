@@ -28,7 +28,7 @@ class Emitter {
 
 	var sprites:Array<Sprite> = [];
 
-	public function emit(x:Float, y:Float) {
+	public function emit(x:Float, y:Float, x_vel:Float, y_vel:Float) {
 		var sprite = tiles.makeSprite(Std.int(x), Std.int(y), 16, 4);
 		var body = new Body({
 			shape: {
@@ -57,9 +57,9 @@ class Emitter {
 			// scale_x: scale_x,
 			// scale_y: scale_y,
 			// elasticity: elasticity,
-			velocity_x: 100,
-			velocity_y: randomFloat(50,100),
-			rotational_velocity: 60,
+			velocity_x: x_vel,
+			velocity_y: y_vel,
+			rotational_velocity: randomFloat(20),
 			// max_velocity_x: max_velocity_x,
 			// max_velocity_y: max_velocity_y,
 			// max_velocity_length: max_velocity_length,
