@@ -210,7 +210,7 @@ class PlayScene extends FullScene {
 
 			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
-			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverScene, scene -> app.changeScene(new PlayScene(app, levelIndex)))));
+			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverScene, new PlayScene(app, levelIndex))));
 		}
 		if (isLevelEnded && !ship.isDead) {
 			trace('level complete');
@@ -223,7 +223,7 @@ class PlayScene extends FullScene {
 				if (!levelIsComplete) {
 					trace('restarting neutralize effort');
 					isLevelStopping = true;
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex)))));
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, new PlayScene(app, levelIndex))));
 					// app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
 					// return;
 				}
@@ -237,11 +237,10 @@ class PlayScene extends FullScene {
 					trace('\n - \n ---- change to next level \n - \n ');
 					// app.changeScene(new PlayScene(Configuration.levels[nextLevelIndex], app));
 
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
-						scene -> app.changeScene(new PlayScene(app, nextLevelIndex)))));
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,new PlayScene(app, nextLevelIndex))));
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameWinScene, scene -> return)));
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameWinScene, null)));
 			}
 		}
 	}

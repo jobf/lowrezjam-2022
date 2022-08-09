@@ -12,11 +12,13 @@ class MovieScene extends FullScene {
 	var config:CutSceneConfiguration;
 	var cutSceneRenderer:SpriteRenderer;
 	var onComplete:(scene:FullScene) -> Void;
+	var nextScene:FullScene;
 
-	public function new(app:App, config:CutSceneConfiguration, onComplete:(scene:FullScene) -> Void) {
+	public function new(app:App, config:CutSceneConfiguration, nextScene:FullScene) {
 		super(app, config.backgroundColor, config.sceneWidth, config.sceneHeight);
 		this.config = config;
-		this.onComplete = onComplete;
+		// this.onComplete = onComplete;
+		this.nextScene = nextScene;
 	}
 
 	// override c
@@ -54,7 +56,10 @@ class MovieScene extends FullScene {
 		if (cutScene.isComplete || isSkipScene) {
 			trace('cutscene complete');
 			isSceneOver = true;
-			audio.stopMusic(() -> onComplete(this));
+			trace('fade and start new scence');
+			if(nextScene != null){
+				audio.stopMusic(() -> app.changeScene(nextScene));
+			}
 		} else {
 			cutScene.update(elapsedSeconds);
 		}
