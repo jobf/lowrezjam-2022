@@ -156,6 +156,12 @@ class PlayScene extends FullScene {
 		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
+				if(obstacleBody.obstacleConfiguration != null){
+					if(!obstacleBody.obstacleConfiguration.letProjectileThrough){
+						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
+						emitter.emit(obstacleBody.x, obstacleBody.y, shipBody.velocity.x, randomFloat(0, -150), tileId);
+					}
+				}
 				obstacleBody.collider.collideWith(shipBody);
 				shipBody.collider.collideWith(obstacleBody);
 			},
@@ -165,7 +171,12 @@ class PlayScene extends FullScene {
 		// register projectile and obstacle collisions
 		world.listen(ship.weapon.projectiles, level.obstacles, {
 			enter: (projectileBody, obstacleBody, collisionData) -> {
-				emitter.emit(obstacleBody.x, obstacleBody.y, projectileBody.velocity.x, randomFloat(5, -15));
+				if(obstacleBody.obstacleConfiguration != null){
+					if(!obstacleBody.obstacleConfiguration.letProjectileThrough){
+						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
+						emitter.emit(obstacleBody.x, obstacleBody.y, projectileBody.velocity.x, randomFloat(0, -150), tileId);
+					}
+				}
 				obstacleBody.collider.collideWith(projectileBody);
 				projectileBody.collider.collideWith(obstacleBody);
 			},

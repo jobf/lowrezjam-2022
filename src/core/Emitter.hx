@@ -28,8 +28,8 @@ class Emitter {
 
 	var sprites:Array<Sprite> = [];
 
-	public function emit(x:Float, y:Float, x_vel:Float, y_vel:Float) {
-		var sprite = tiles.makeSprite(Std.int(x), Std.int(y), 16, 4);
+	public function emit(x:Float, y:Float, x_vel:Float, y_vel:Float, tileId:Int) {
+		var sprite = tiles.makeSprite(Std.int(x), Std.int(y), 16, tileId);
 		var body = new Body({
 			shape: {
 				// type: type,
@@ -59,7 +59,7 @@ class Emitter {
 			// elasticity: elasticity,
 			velocity_x: x_vel,
 			velocity_y: y_vel,
-			rotational_velocity: randomFloat(20),
+			rotational_velocity: randomFloat(100,300),
 			// max_velocity_x: max_velocity_x,
 			// max_velocity_y: max_velocity_y,
 			// max_velocity_length: max_velocity_length,
