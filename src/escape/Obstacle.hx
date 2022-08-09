@@ -38,6 +38,10 @@ class Obstacle extends BaseActor {
 			}
 			else{
 				kill();
+				if(core.body.collider.type == TARGET){
+					// should still be alive so it can track movement - crap fix but whatever
+					isAlive = true;
+				}
 			}
 		}
 	}
