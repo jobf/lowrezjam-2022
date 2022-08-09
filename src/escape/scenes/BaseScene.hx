@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import tyke.Graphics;
 import core.Controller;
 import lime.ui.KeyCode;
 import tyke.Graphics.SpriteRenderer;
@@ -20,16 +21,19 @@ class MovieScene extends FullScene {
 		// this.onComplete = onComplete;
 		this.nextScene = nextScene;
 	}
-
+	
 	// override c
 	override function create() {
 		super.create();
 		
-
+		
 		cutSceneRenderer = stage.createSpriteRendererFor(config.framesAssetPath, config.frameWidth, config.frameHeight, true, config.sceneWidth,
 			config.sceneHeight);
-
+			
 		cutScene = new CutScene(config, cutSceneRenderer);
+
+		var buttonTiles = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, true);
+		continueButton = buttonTiles.makeSprite(32, 53, 14, 32, 0, false);
 		
 		audio.playMusic(config.bgMusicAssetPath);
 
@@ -46,23 +50,33 @@ class MovieScene extends FullScene {
 	}
 
 	var isSceneOver:Bool = false;
+	var isFading:Bool = false;
+
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		
+		if (isSkipScene && !isFading) {
+			trace('fade and start new scence');
+			isFading = true;
+			if(nextScene != null){
+				audio.stopMusic(() -> app.changeScene(nextScene));
+			}
+		}
+
 		if(isSceneOver){
 			return;
 		}
 
-		if (cutScene.isComplete || isSkipScene) {
-			trace('cutscene complete');
-			isSceneOver = true;
-			trace('fade and start new scence');
-			if(nextScene != null){
-				audio.stopMusic(() -> app.changeScene(nextScene));
-			}
-		} else {
+		if(!cutScene.isComplete){
 			cutScene.update(elapsedSeconds);
+		}else{
+			isSceneOver = true;
+			trace('cutscene complete');
+			continueButton.makeVisible(true);
+			continueButton.setFlashing(true);
 		}
+
+		
 	}
 
 	override function destroy() {
@@ -73,6 +87,9 @@ class MovieScene extends FullScene {
 	var controller:Controller;
 
 	var isSkipScene(default, null):Bool = false;
+
+
+	var continueButton:Sprite;
 }
 
 class TitleScene extends FullScene {
