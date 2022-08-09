@@ -103,11 +103,13 @@ class PlayScene extends FullScene {
 		if (level.levelStyle == Neutralize) {
 			projectileConfig.totalShots = level.countSolarTargets();
 			sunSurface = tiles640px.makeSprite(0, 0, 640, 0);
-			sunSurface.w = Std.int(level.finishLine.core.body.x + 100);
+			sunSurface.w = Std.int(level.finishLine.core.body.x * 3.0);
+			sunSurface.h = 100;
+			sunSurface.y += 50;//
 			sunSurface.x = (sunSurface.w / 2);
 			behaviours.push(new CountDown(0.3, () -> {
-				sunSurface.rotation += 0.3;
-				sunSurface.x -= 20;
+				// sunSurface.rotation += 0.3;
+				sunSurface.x -= 3;
 			}, true));
 		}
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
@@ -140,7 +142,7 @@ class PlayScene extends FullScene {
 
 		}
 		else{
-			var bg = level.levelStyle == Neutralize ? "a" : "b";
+			var bg = level.levelStyle == Neutralize ? "f" : "b";
 			audio.playMusic('assets/audio/bg-$bg.ogg');
 		}
 
