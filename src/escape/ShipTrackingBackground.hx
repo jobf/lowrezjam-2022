@@ -5,26 +5,21 @@ import tyke.Glyph;
 import tyke.Loop.CountDown;
 import tyke.Graphics;
 
-class StarField {
+class StarField extends ShipTrackingBackground {
 	var stars:Array<Star>;
-	public var starfieldSpeed(default, null):Float;
-	var ship:Ship;
-	var behaviours:Array<CountDown>;
 
-	public function new(ship:Ship, width:Int, height:Int, starSprites:SpriteRenderer) {
-		this.ship = ship;
-		behaviours = [
+	public function new(ship:Ship, width:Int, height:Int, sprites:SpriteRenderer) {
+		super(ship, width, height, sprites);
+		behaviours.push(
 			new CountDown(0.2, () -> {
 				for (star in stars) {
-					star.update(starfieldSpeed);
+					star.update(speedMod);
 				}
-			}, true),
-		];
+			}, true)
+		);
 
 		// generate star range
 		var numStars = 42;
-		starfieldSpeed = 0;
-
 		stars = [
 			for (i in 0...numStars) {
 				var x = 64 + randomInt(64);
@@ -37,19 +32,29 @@ class StarField {
 				if(distance == 0){
 					distance = 1;
 				}
-				var star = starSprites.makeSprite(x, y, 64, distance, 0, true, 1);
-				// star.z = -100;
-				new Star(x, y, distanceModifier, star);
+				new Star(x, y, distanceModifier, sprites.makeSprite(x, y, 64, distance, 0, true, 1));
 			}
 
 		];
 	}
 
-	public function update(elapsedSeconds:Float) {
-		starfieldSpeed =  ship.getSpeedMod();
-		for (b in behaviours) {
-			b.update(elapsedSeconds);
-		}
+}
+
+class SunSurface extends ShipTrackingBackground{
+	var sunSurface:Sprite;
+	var sunSurfaceSpeed:Float = 30;
+	public function new(ship:Ship, width:Int, height:Int, sprites:SpriteRenderer) {
+		super(ship, width, height, sprites);
+
+		sunSurface = sprites.makeSprite(0, 0, 640, 0);
+		sunSurface.w = width;
+		sunSurface.h = height;
+		sunSurface.y += 50;//
+		sunSurface.x = (sunSurface.w / 2);
+		behaviours.push(new CountDown(0.3, () -> {
+			// sunSurface.rotation += 0.3;
+			sunSurface.x -= sunSurfaceSpeed * speedMod;
+		}, true));
 	}
 }
 
@@ -89,5 +94,29 @@ class Star {
 			trail = minTrail;
 		}
 		sprite.w = trail;
+	}
+}
+
+
+
+
+class ShipTrackingBackground {
+	var ship:Ship;
+	var behaviours:Array<CountDown>;
+	var sprites:SpriteRenderer;
+	var speedMod:Float;
+
+	public function new(ship:Ship, width:Int, height:Int, sprites:SpriteRenderer) {
+		this.ship = ship;
+		this.sprites = sprites;
+		speedMod = ship.getSpeedMod();
+		behaviours = [];
+	}
+
+	public function update(elapsedSeconds:Float) {
+		speedMod =  ship.getSpeedMod();
+		for (b in behaviours) {
+			b.update(elapsedSeconds);
+		}
 	}
 }

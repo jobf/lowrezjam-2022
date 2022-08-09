@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import escape.ShipTrackingBackground;
 import core.Emitter;
 import escape.Weapon.ProjectileType;
 import escape.scenes.BaseScene.TitleScene;
@@ -18,7 +19,7 @@ import tyke.Glyph;
 import peote.view.Color;
 
 class PlayScene extends FullScene {
-	var starField:StarField;
+	var background:ShipTrackingBackground;
 	var level:Level;
 	var ship:Ship;
 	var controller:Controller;
@@ -26,7 +27,6 @@ class PlayScene extends FullScene {
 	var levelConfig:LevelConfig;
 	var shipActorSystem:ActorSystem;
 	var sun:Sun;
-	var sunSurface:Sprite;
 	var levelIndex:Int;
 
 	public function new(app:App, nextLevelIndex:Int) {
@@ -102,21 +102,20 @@ class PlayScene extends FullScene {
 		
 		if (level.levelStyle == Neutralize) {
 			projectileConfig.totalShots = level.countSolarTargets();
-			sunSurface = tiles640px.makeSprite(0, 0, 640, 0);
-			sunSurface.w = Std.int(level.finishLine.core.body.x * 3.0);
-			sunSurface.h = 100;
-			sunSurface.y += 50;//
-			sunSurface.x = (sunSurface.w / 2);
-			behaviours.push(new CountDown(0.3, () -> {
-				// sunSurface.rotation += 0.3;
-				sunSurface.x -= 3;
-			}, true));
+		
 		}
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
 		
 		if(level.levelStyle != Neutralize)
 		{
-			starField = new StarField(ship, 256, 128, starSpriteRenderer);
+			background = new StarField(ship, 256, 128, starSpriteRenderer);
+		}
+		else{
+
+
+
+			background = new SunSurface(ship, Std.int(level.finishLine.core.body.x * 3.0), 128, tiles640px);
+
 		}
 
 
@@ -213,15 +212,12 @@ class PlayScene extends FullScene {
 		}
 		ship.update(elapsedSeconds);
 		var speedMod = ship.getSpeedMod() * 1.5;
-
+		background.update(elapsedSeconds);
+		
 		for (a in level.actors) {
 			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
 			level.finishLine.core.body.velocity.x = Configuration.baseVelocityX * speedMod;
-		}
-
-		if (level.levelStyle != Neutralize) {
-			starField.update(elapsedSeconds);
 		}
 
 		if (ship.isDead) {
