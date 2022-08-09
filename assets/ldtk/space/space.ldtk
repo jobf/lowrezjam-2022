@@ -252,7 +252,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "0000000000000000000000000000000000000000000000000000000000000000",
-				"averageColors": "156725673566256605675567956715673a233f72000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+				"averageColors": "156725673566256605675567956715673a233f72698749aa3fb37759784559996eee79bc4dee8b66339645ec4fb25b364ded6fffdddd9eee356b3ead4aa979a85ea55e94cdee7ddd48cf38672a896a9967ec5eb65eee38aa00000000000000000889188918890fb200000000000000000f820f821f821f822f823f823f723f72"
 			}
 		}
 	], "enums": [{ "identifier": "LevelStyle", "uid": 7, "values": [
@@ -2480,7 +2480,7 @@
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [76,10],
+							"__grid": [77,6],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
@@ -2489,42 +2489,8 @@
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [306,42],
+							"px": [310,26],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "SolarFlare",
-							"__grid": [63,8],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#3C3C3B",
-							"iid": "f68496e0-02f0-11ed-9da5-4dffd85a9100",
-							"width": 4,
-							"height": 4,
-							"defUid": 12,
-							"px": [254,34],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["48,112,16,16"]
-							}] }]
-						},
-						{
-							"__identifier": "SolarFlare",
-							"__grid": [38,7],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#3C3C3B",
-							"iid": "f7fd2d20-02f0-11ed-9da5-f5d78c46fd2b",
-							"width": 4,
-							"height": 4,
-							"defUid": 12,
-							"px": [154,30],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["64,112,16,16"]
-							}] }]
 						},
 						{
 							"__identifier": "SolarFlare",
@@ -2630,7 +2596,7 @@
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [93,9],
+							"__grid": [47,9],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
@@ -2639,7 +2605,7 @@
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [374,38],
+							"px": [190,38],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["80,112,16,16"]
@@ -2886,23 +2852,6 @@
 							"height": 4,
 							"defUid": 12,
 							"px": [406,18],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["112,112,16,16"]
-							}] }]
-						},
-						{
-							"__identifier": "SolarFlare",
-							"__grid": [59,11],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#3C3C3B",
-							"iid": "40cf4bf0-02f0-11ed-9da5-d18cb065b9b2",
-							"width": 4,
-							"height": 4,
-							"defUid": 12,
-							"px": [238,46],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["112,112,16,16"]
@@ -3426,23 +3375,6 @@
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["32,112,16,16"]
-							}] }]
-						},
-						{
-							"__identifier": "SolarFlare",
-							"__grid": [49,8],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#3C3C3B",
-							"iid": "f4021540-02f0-11ed-9da5-b55c47705baa",
-							"width": 4,
-							"height": 4,
-							"defUid": 12,
-							"px": [198,34],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["48,112,16,16"]
 							}] }]
 						},
 						{
@@ -4606,16 +4538,16 @@
 							"__grid": [369,12],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
 							"__smartColor": "#3C3C3B",
 							"iid": "3277d9c0-02f0-11ed-9da5-e9511b5d1bd6",
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
 							"px": [1478,50],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["80,112,16,16"]
+								"params": ["48,112,16,16"]
 							}] }]
 						},
 						{
@@ -5146,7 +5078,7 @@
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [71,11],
+							"__grid": [71,13],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
@@ -5155,7 +5087,7 @@
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [286,46],
+							"px": [286,54],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["80,112,16,16"]
@@ -5324,6 +5256,119 @@
 								"id": "V_String",
 								"params": ["64,112,16,16"]
 							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [17,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "e5951b10-02f0-11ed-9da5-1582bf7cc2af",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [70,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [5,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "e7320230-02f0-11ed-9da5-3756cd9a6548",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [22,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [7,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "e8a05f40-02f0-11ed-9da5-d59d5379d8b4",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [30,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [58,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0ebf2c00-02f0-11ed-9da5-55f77db2b484",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [234,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [53,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "10aec700-02f0-11ed-9da5-a3947527c463",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [214,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [37,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "1217a5d0-02f0-11ed-9da5-a5c75adaabe5",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [150,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [63,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "6cebcb70-02f0-11ed-9da5-4b48c5628da5",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [254,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
 						}
 					]
 				},
