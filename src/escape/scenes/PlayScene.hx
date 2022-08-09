@@ -104,7 +104,7 @@ class PlayScene extends FullScene {
 			projectileConfig.totalShots = level.countSolarTargets();
 		
 		}
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig, projectileSprites);
 		
 		if(level.levelStyle != Neutralize)
 		{

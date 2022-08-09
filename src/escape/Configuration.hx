@@ -412,13 +412,14 @@ class Configuration {
 
 	public static var projectiles:Map<ProjectileType, ProjectileConfiguration> = [
 		STANDARD => {
-			// velocityXMod: velocityXMod,
+			velocityXMod: 2.0,
 			// totalShots: totalShots,
 			// spriteTileSize: spriteTileSize,
 			spriteTileIdStart: 24,
 			// shape: shape,
-			reloadTimeSeconds: 1.0,
+			refillSpeed: 0.3,
 			// refillSpeed: refillSpeed,
+			shotCooldown: 0.3,
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,
 			// hitboxHeight: hitboxHeight
@@ -427,7 +428,7 @@ class Configuration {
 			velocityXMod: 0.2,
 			totalShots: 3,
 			spriteTileIdStart: 25,
-			reloadTimeSeconds: 4.0,
+			shotCooldown: 4.0,
 			refillSpeed: 1000.0, // so long it never refills
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,

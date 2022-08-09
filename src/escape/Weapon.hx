@@ -90,9 +90,9 @@ class ProjectileConfiguration {
 	public var isDestructible:Bool = true;
 
 	/**
-		how long it takes the weapon to reload this projectile
+		how long it takes between shots
 	**/
-	public var reloadTimeSeconds:Float;
+	public var shotCooldown:Float;
 
 	/**
 		the tile index to use for the sprite
