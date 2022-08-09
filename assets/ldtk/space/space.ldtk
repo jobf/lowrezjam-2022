@@ -2294,7 +2294,7 @@
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [105,12],
+							"__grid": [107,15],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
@@ -2303,7 +2303,7 @@
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [422,50],
+							"px": [430,62],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["48,112,16,16"]
@@ -2311,64 +2311,64 @@
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [159,4],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#3C3C3B",
-							"iid": "d7cf8f10-02f0-11ed-97c7-b3483b622f10",
-							"width": 4,
-							"height": 4,
-							"defUid": 12,
-							"px": [638,18],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["96,112,16,16"]
-							}] }]
-						},
-						{
-							"__identifier": "SolarFlare",
-							"__grid": [208,9],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
-							"__smartColor": "#3C3C3B",
-							"iid": "da73fb20-02f0-11ed-97c7-fd39700a485f",
-							"width": 4,
-							"height": 4,
-							"defUid": 12,
-							"px": [834,38],
-							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["112,112,16,16"]
-							}] }]
-						},
-						{
-							"__identifier": "SolarFlare",
-							"__grid": [261,12],
+							"__grid": [102,7],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
 							"__smartColor": "#3C3C3B",
-							"iid": "dc87bff0-02f0-11ed-97c7-4d5613eac017",
+							"iid": "b39c2410-02f0-11ed-9da5-ff71a7721370",
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [1046,50],
+							"px": [410,30],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [320,5],
+							"__grid": [109,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "b47baea0-02f0-11ed-9da5-49f543c2654f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [438,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [105,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "b85406d0-02f0-11ed-9da5-df70be850f08",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [422,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [118,8],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
 							"__smartColor": "#3C3C3B",
-							"iid": "de893540-02f0-11ed-97c7-2f3314357f7c",
+							"iid": "ba92ac30-02f0-11ed-9da5-9d74ffb8dd12",
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [1282,22],
+							"px": [474,34],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["64,112,16,16"]
@@ -2376,19 +2376,2953 @@
 						},
 						{
 							"__identifier": "SolarFlare",
-							"__grid": [368,13],
+							"__grid": [126,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "bc9ea8d0-02f0-11ed-9da5-615f41f02791",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [506,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [148,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "bd0ea8b0-02f0-11ed-9da5-e7855cd5d95f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [594,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [207,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f06b0140-02f0-11ed-9da5-33bcfab209b0",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [830,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [208,11],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
 							"__smartColor": "#3C3C3B",
-							"iid": "e13fa2b0-02f0-11ed-97c7-1f46035628c1",
+							"iid": "f0d0c7f0-02f0-11ed-9da5-1d046ad4bb3c",
 							"width": 4,
 							"height": 4,
 							"defUid": 12,
-							"px": [1474,54],
+							"px": [834,46],
 							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [78,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f51416f0-02f0-11ed-9da5-8b8632338dcd",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [314,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [49,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f5a22620-02f0-11ed-9da5-df8e0e06a279",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [198,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [52,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f5e98f60-02f0-11ed-9da5-39d4924b830a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [210,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [76,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f6384ba0-02f0-11ed-9da5-1d74e319a96b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [306,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [63,8],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f68496e0-02f0-11ed-9da5-4dffd85a9100",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [254,34],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [38,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f7fd2d20-02f0-11ed-9da5-f5d78c46fd2b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [154,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [45,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "fa0902b0-02f0-11ed-9da5-97a3b9062262",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [182,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [30,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "fb3a2fb0-02f0-11ed-9da5-9d1527b220d4",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [122,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [23,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "fca0c490-02f0-11ed-9da5-55e517411883",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [94,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [58,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "fe284ef0-02f0-11ed-9da5-c31dfc9d71e4",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [234,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [45,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "008d6810-02f0-11ed-9da5-015478e1180d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [182,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [88,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "03397540-02f0-11ed-9da5-c7a427cf0de6",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [354,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [93,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "05ab1180-02f0-11ed-9da5-ef96c7ef20d8",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [374,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [98,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "070a0540-02f0-11ed-9da5-f1c8f21f996a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [394,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [84,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "08adca30-02f0-11ed-9da5-4745415d514a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [338,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [131,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0b33d8d0-02f0-11ed-9da5-5bb80822b75f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [526,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [139,8],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0cc59c60-02f0-11ed-9da5-d5f342039f7f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [558,34],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [139,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0e4ab5c0-02f0-11ed-9da5-51146e6232fb",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [558,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [144,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0f6ca080-02f0-11ed-9da5-65c468d70781",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [578,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [151,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "10ea3fd0-02f0-11ed-9da5-675dc6a323ce",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [606,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [156,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "12c84ea0-02f0-11ed-9da5-bf46317e3c25",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [626,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [160,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2fc2d340-02f0-11ed-9da5-0d59ac87a033",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [642,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [164,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "30d2e3b0-02f0-11ed-9da5-572182f4d1e0",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [658,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [161,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "31996800-02f0-11ed-9da5-91b4594d6876",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [646,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [157,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "34a8a3d0-02f0-11ed-9da5-450a146bf5ee",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [630,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [106,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3c309680-02f0-11ed-9da5-2d9ee8a1f645",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [426,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [110,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3deb17c0-02f0-11ed-9da5-7b51e24fe860",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [442,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [101,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3ecfd270-02f0-11ed-9da5-cd9de5591ca8",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [406,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [59,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "40cf4bf0-02f0-11ed-9da5-d18cb065b9b2",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [238,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [65,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "4340c120-02f0-11ed-9da5-2168fee19d42",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [262,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [69,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "45030a90-02f0-11ed-9da5-73fb36884a44",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [278,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [162,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "bb107240-02f0-11ed-9da5-7d135dee46b0",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [650,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [165,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "bbcce470-02f0-11ed-9da5-9fcf8a7d157a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [662,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [153,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "bd8c6ec0-02f0-11ed-9da5-5144912e3970",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [614,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [164,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "bef04480-02f0-11ed-9da5-07d3440c485e",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [658,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [169,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c068dac0-02f0-11ed-9da5-6d3b37a8126d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [678,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [168,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c18d3680-02f0-11ed-9da5-d70e0cab9a8b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [674,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [158,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c2422ea0-02f0-11ed-9da5-dbb58364bd8a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [634,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [152,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c3e55750-02f0-11ed-9da5-4d208283b125",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [610,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [145,0],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c494d130-02f0-11ed-9da5-97270a62ba3a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [582,2],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [136,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c61c82a0-02f0-11ed-9da5-13acc3fa0545",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [546,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [113,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c91a3240-02f0-11ed-9da5-6f3b630b317a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [454,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [122,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ca5ceb70-02f0-11ed-9da5-b35c93f9d09d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [490,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [172,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ce240590-02f0-11ed-9da5-c39fd88b7f51",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [690,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [178,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ce44acf0-02f0-11ed-9da5-2b0490e88c0b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [714,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [183,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ce724ca0-02f0-11ed-9da5-adb2b32ee4aa",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [734,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [190,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ce9b0a50-02f0-11ed-9da5-793d7b8852aa",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [762,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [178,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ced0e760-02f0-11ed-9da5-4d3f2dd815a8",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [714,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [186,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cf031af0-02f0-11ed-9da5-1daeb67aee4d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [746,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [187,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cf294090-02f0-11ed-9da5-27ac13532730",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [750,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [182,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cf572e60-02f0-11ed-9da5-6162a32e094c",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [730,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [190,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cfd67080-02f0-11ed-9da5-658b3944939f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [762,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [193,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cfff2e30-02f0-11ed-9da5-73fa03abf3e6",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [774,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [194,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d027c4d0-02f0-11ed-9da5-39a4d01dc284",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [778,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [199,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d0490870-02f0-11ed-9da5-ad169e20c82e",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [798,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [198,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d06c6ef0-02f0-11ed-9da5-c763ed36f678",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [794,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [185,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d0ca6d70-02f0-11ed-9da5-3d2dc1720e62",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [742,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [187,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d0ee2210-02f0-11ed-9da5-5fb762ff25e2",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [750,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [195,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d111fdc0-02f0-11ed-9da5-f19068f1aa88",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [782,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [197,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d142aab0-02f0-11ed-9da5-d16586dd943d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [790,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [191,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d1942610-02f0-11ed-9da5-3b5e004d021f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [766,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [49,8],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f4021540-02f0-11ed-9da5-b55c47705baa",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [198,34],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [36,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f6160120-02f0-11ed-9da5-650ed8e109c7",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [146,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [63,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "f7b224f0-02f0-11ed-9da5-f583ae06b1a0",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [254,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [94,17],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "81d63810-02f0-11ed-9da5-2784f617cdb0",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [378,70],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [218,5],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "84d3c0a0-02f0-11ed-9da5-232afd2e34da",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [874,22],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [222,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "84fc0920-02f0-11ed-9da5-7fd0d2b12c85",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [890,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [220,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "852737d0-02f0-11ed-9da5-e12a7c16ac08",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [882,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [227,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "855043a0-02f0-11ed-9da5-2395ab42dd7e",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [910,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [224,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8578da40-02f0-11ed-9da5-cbabf4346c49",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [898,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [224,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "85ca0780-02f0-11ed-9da5-3fee7415b074",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [898,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [220,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "863aa3a0-02f0-11ed-9da5-a5ba43881285",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [882,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [217,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "865dbc00-02f0-11ed-9da5-4fab4ec61918",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [870,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [224,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8695bbf0-02f0-11ed-9da5-1d40767f08f9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [898,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [230,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "86f4a4d0-02f0-11ed-9da5-d5fea0e1180c",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [922,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [232,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "873ad590-02f0-11ed-9da5-2bd13490cd2a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [930,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [232,5],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "87a09c40-02f0-11ed-9da5-f15cd77878bf",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [930,22],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [230,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "87e51f50-02f0-11ed-9da5-eb9217c11169",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [922,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [218,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8829f080-02f0-11ed-9da5-c7e73636bf7d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [874,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [228,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8eeb5ee0-02f0-11ed-9da5-0fd24d1d33cc",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [914,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [205,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a2ca7f90-02f0-11ed-9da5-05c53ff005ac",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [822,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [203,17],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a47f5b80-02f0-11ed-9da5-a5d7e150764b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [814,70],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [164,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a7429a30-02f0-11ed-9da5-fff96dc41714",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [658,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [168,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "aa000c80-02f0-11ed-9da5-fb61975f0e04",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [674,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [258,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0ce5e3b0-02f0-11ed-9da5-4f10b210cdbd",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1034,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [265,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0e8c67c0-02f0-11ed-9da5-856418c5b877",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1062,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [268,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "0fb0ea90-02f0-11ed-9da5-97d8f716ceb3",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1074,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [272,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "10efd330-02f0-11ed-9da5-7bfd91fab4ee",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1090,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [253,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "12cd1eb0-02f0-11ed-9da5-b7203ceaded3",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1014,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [249,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "1429a170-02f0-11ed-9da5-11cba32c8047",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [998,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [255,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "15a2d3f0-02f0-11ed-9da5-653a0fc1c2a9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1022,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [246,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "17d6caf0-02f0-11ed-9da5-5f7a0d35c103",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [986,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [262,8],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "1a852210-02f0-11ed-9da5-bd4683328703",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1050,34],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [277,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "1c8c3cb0-02f0-11ed-9da5-4ff14f765e00",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1110,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [283,8],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "1f24c1e0-02f0-11ed-9da5-63492eb3aa35",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1134,34],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [273,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "1fddb1a0-02f0-11ed-9da5-d3d4999df131",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1094,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [281,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2256c7f0-02f0-11ed-9da5-a1d90cab0d79",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1126,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [281,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "25c67340-02f0-11ed-9da5-a32dda979900",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1126,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [285,5],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2608d370-02f0-11ed-9da5-b9126ed25f7d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1142,22],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [282,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "28b9e9b0-02f0-11ed-9da5-5785d5383d9f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1130,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [287,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "29edd5d0-02f0-11ed-9da5-cbb0116898ee",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1150,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [279,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2bd61dd0-02f0-11ed-9da5-73681faf15e5",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1118,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [252,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "92bf54d0-02f0-11ed-9da5-f975f1902084",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1010,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [296,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a5c0bfb0-02f0-11ed-9da5-0921622349a8",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1186,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [300,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a6fbfed0-02f0-11ed-9da5-2f7ba993458a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1202,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [303,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a77881d0-02f0-11ed-9da5-ed779f6064e9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1214,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [302,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a7f552f0-02f0-11ed-9da5-afdd473b9062",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1210,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [300,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a888e060-02f0-11ed-9da5-63fa9b0dd21b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1202,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [306,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a90aba90-02f0-11ed-9da5-f9648d4e1904",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1226,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [309,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a9756340-02f0-11ed-9da5-b3d9a0f174b8",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1238,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [304,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "a9d5f9d0-02f0-11ed-9da5-9bfbabbfc0eb",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1218,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [312,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "aa2ca550-02f0-11ed-9da5-dfd4a7828f0b",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1250,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [310,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "aa95a050-02f0-11ed-9da5-69286ed5bad5",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1242,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [319,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "aaedf980-02f0-11ed-9da5-b5ca96421044",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1278,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [314,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ad4de280-02f0-11ed-9da5-3b83856c07cf",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1258,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [320,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "adc7a660-02f0-11ed-9da5-2985790bbf6f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1282,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [325,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ae209bd0-02f0-11ed-9da5-1d732b844208",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1302,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [316,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ae8bb9b0-02f0-11ed-9da5-e14de22fc342",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1266,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [325,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c2fba8b0-02f0-11ed-9da5-8779457e11e9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1302,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [328,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c4ac65f0-02f0-11ed-9da5-594d3e835446",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1314,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [331,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c4f751a0-02f0-11ed-9da5-b99dbc7cd41c",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1326,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [331,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "c630e310-02f0-11ed-9da5-cf8d53df6f69",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1326,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [315,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ca132650-02f0-11ed-9da5-db1d614d48bd",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1262,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [318,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cb419430-02f0-11ed-9da5-097ba7046274",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1274,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [315,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cc8c1590-02f0-11ed-9da5-234e7dc24dd6",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1262,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [312,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "ce098dd0-02f0-11ed-9da5-ab3a1db33933",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1250,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [317,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "cf51ec50-02f0-11ed-9da5-270b17f63fb2",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1270,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [313,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d0b0e010-02f0-11ed-9da5-b9f33ba87412",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1254,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [307,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "d2d87b00-02f0-11ed-9da5-cd600adb91e2",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1230,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [376,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2c4739b0-02f0-11ed-9da5-ebe3becc2f6e",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1506,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [377,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2de83f80-02f0-11ed-9da5-535546026291",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1510,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [373,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "2ee76000-02f0-11ed-9da5-f72ad03b567a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1494,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [367,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3054d2b0-02f0-11ed-9da5-6ffc9b36f385",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1470,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [369,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3277d9c0-02f0-11ed-9da5-e9511b5d1bd6",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1478,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [341,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "36fa54a0-02f0-11ed-9da5-4d37dd4992ed",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1366,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [349,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "37205330-02f0-11ed-9da5-79f6af6f9af2",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1398,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [359,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "374a2250-02f0-11ed-9da5-2ffbfd9c0164",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1438,6],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [369,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3773f170-02f0-11ed-9da5-b9002a6d9a39",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1478,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [353,8],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "37a47750-02f0-11ed-9da5-45f240670635",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1414,34],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [343,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "37cf7ef0-02f0-11ed-9da5-81137aae01a6",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1374,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [359,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "3815afb0-02f0-11ed-9da5-dfc7d0af909f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1438,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [365,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "384487e0-02f0-11ed-9da5-3317f3d8ed63",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1462,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [354,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "38882090-02f0-11ed-9da5-fd6d99b8d94d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1418,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [348,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "38b4aed0-02f0-11ed-9da5-fb4e38e175a9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1394,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [358,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "39098590-02f0-11ed-9da5-072a402d915a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1434,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [349,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "4cef35f0-02f0-11ed-9da5-354047a3b692",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1398,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [353,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "4e711b00-02f0-11ed-9da5-df6259d7a2ec",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1414,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [361,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "4fd05ce0-02f0-11ed-9da5-4f9d4c3826a1",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1446,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [358,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "51530540-02f0-11ed-9da5-9bb82a585474",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1434,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [349,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "530ac760-02f0-11ed-9da5-83b7af97961d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1398,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 112, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["112,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [344,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "54bbd2c0-02f0-11ed-9da5-57bd8d9f18a9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1378,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [366,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "55b1cb80-02f0-11ed-9da5-eb954b6c3720",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1466,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [372,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "572a3ab0-02f0-11ed-9da5-5d721d414643",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1490,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [375,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "587ef540-02f0-11ed-9da5-99615c8ede16",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1502,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [378,7],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "5a3f69f0-02f0-11ed-9da5-d99f0c70c01a",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1514,30],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [381,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "5c12ca60-02f0-11ed-9da5-49be57e4a5dc",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1526,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 96, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["96,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [332,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "5e8ec6e0-02f0-11ed-9da5-e7c5c1db8a0d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1330,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [333,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "5fcb1770-02f0-11ed-9da5-41cf73e2604f",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1334,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [249,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "64670dc0-02f0-11ed-9da5-639a3aaecb53",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [998,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [247,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "6644f580-02f0-11ed-9da5-956aad5afc44",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [990,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [253,15],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "68b30f50-02f0-11ed-9da5-1915a25c8b69",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1014,62],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [250,3],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "697993a0-02f0-11ed-9da5-97f746ad4dc5",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [1002,14],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [125,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "6bbd4210-02f0-11ed-9da5-dd8ece0ab5dc",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [502,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [130,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "6c27eac0-02f0-11ed-9da5-6761200b75d3",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [522,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [121,4],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "6eed9a70-02f0-11ed-9da5-4ddebd0db582",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [486,18],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [117,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "705c45a0-02f0-11ed-9da5-d7ce15cee7fc",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [470,50],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [71,11],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "74ffdd10-02f0-11ed-9da5-5b4446e86eb9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [286,46],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 80, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["80,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [81,14],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "76825e60-02f0-11ed-9da5-07b610377027",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [326,58],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [238,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "80022970-02f0-11ed-9da5-d19133a7cda9",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [954,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [241,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "80530890-02f0-11ed-9da5-33504692237e",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [966,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [238,10],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "81c44bd0-02f0-11ed-9da5-5b0aab17b049",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [954,42],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 32, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["32,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [241,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "839a6b60-02f0-11ed-9da5-39c99d3daee6",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [966,54],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 16, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["16,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [238,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "85dba8d0-02f0-11ed-9da5-d3e31571af2d",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [954,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 0, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [243,9],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8639a750-02f0-11ed-9da5-5db0a07bb060",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [974,38],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 48, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["48,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [238,6],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "87bc9dd0-02f0-11ed-9da5-67ca66360680",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [954,26],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [244,16],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8afc3870-02f0-11ed-9da5-05646505812c",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [978,66],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
+							}] }]
+						},
+						{
+							"__identifier": "SolarFlare",
+							"__grid": [245,2],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 },
+							"__smartColor": "#3C3C3B",
+							"iid": "8ccab6e0-02f0-11ed-9da5-f1d154419fad",
+							"width": 4,
+							"height": 4,
+							"defUid": 12,
+							"px": [982,10],
+							"fieldInstances": [{ "__identifier": "StartTile", "__value": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "__type": "Tile", "__tile": { "tilesetUid": 1, "x": 64, "y": 112, "w": 16, "h": 16 }, "defUid": 15, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["64,112,16,16"]
 							}] }]
 						}
 					]
@@ -2571,6 +5505,7 @@
 						{ "px": [828,4], "src": [96,0], "f": 0, "t": 6, "d": [901] },
 						{ "px": [260,8], "src": [80,0], "f": 0, "t": 5, "d": [1453] },
 						{ "px": [376,8], "src": [80,0], "f": 0, "t": 5, "d": [1482] },
+						{ "px": [428,8], "src": [32,64], "f": 0, "t": 34, "d": [1495] },
 						{ "px": [468,8], "src": [80,0], "f": 0, "t": 5, "d": [1505] },
 						{ "px": [560,8], "src": [80,0], "f": 0, "t": 5, "d": [1528] },
 						{ "px": [588,8], "src": [80,0], "f": 0, "t": 5, "d": [1535] },
