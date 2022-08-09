@@ -160,6 +160,7 @@ class PlayScene extends FullScene {
 					if(!obstacleBody.obstacleConfiguration.letProjectileThrough){
 						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
 						emitter.emit(obstacleBody.x, obstacleBody.y, shipBody.velocity.x, randomFloat(0, -150), tileId);
+						ship.core.sprite.shake(app.core.peoteView.time);
 					}
 				}
 				obstacleBody.collider.collideWith(shipBody);
