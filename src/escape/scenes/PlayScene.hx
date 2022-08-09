@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import core.Emitter;
 import escape.Weapon.ProjectileType;
 import escape.scenes.BaseScene.TitleScene;
 import escape.scenes.BaseScene.MovieScene;
@@ -49,6 +50,8 @@ class PlayScene extends FullScene {
 		super.create();
 		@:privateAccess
 		stage.globalFrameBuffer.display.xOffset -= 64;
+		// emitterTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 8, 8, true, 640, 640); // tiles14px; // 
+		emitterTiles = spaceLevelTilesNear;
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 64, 4, true, 640, 640); // tiles14px; // 
 		// hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true, 640, 640); // tiles14px; // 
 		// var f = hudFrame.makeSprite(64 + 32, 32, 64, 0);
@@ -157,10 +160,12 @@ class PlayScene extends FullScene {
 				shipBody.collider.collideWith(obstacleBody);
 			},
 		});
-
+		
+		emitter = new Emitter(emitterTiles);
 		// register projectile and obstacle collisions
 		world.listen(ship.weapon.projectiles, level.obstacles, {
 			enter: (projectileBody, obstacleBody, collisionData) -> {
+				emitter.emit(obstacleBody.x, obstacleBody.y);
 				obstacleBody.collider.collideWith(projectileBody);
 				projectileBody.collider.collideWith(obstacleBody);
 			},
@@ -188,10 +193,10 @@ class PlayScene extends FullScene {
 
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
+		emitter.update(elapsedSeconds);
 		if(isLevelStopping){
 			return;
 		}
-
 		ship.update(elapsedSeconds);
 		var speedMod = ship.getSpeedMod() * 1.5;
 
@@ -244,4 +249,8 @@ class PlayScene extends FullScene {
 			}
 		}
 	}
+
+	var emitterTiles:SpriteRenderer;
+
+	var emitter:Emitter;
 }
