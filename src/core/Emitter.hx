@@ -17,7 +17,7 @@ class Emitter {
 			// gravity_y: gravity_y,
 			// members: members,
 			// listeners: listeners,
-			gravity_y: 100,
+			gravity_y: 0,
 			iterations: 2
 		});
 	}
