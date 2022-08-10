@@ -56,16 +56,16 @@ class Ship extends BaseActor {
 			weaponUseCountdown.reset();
 		}
 		
-		// keep within bounds (horizontal needs a fix)
-		// final marginH = 8;
-		// if(isMovingHorizontal){
-		// 	if( core.body.x < 1 + marginH){
-		// 		core.body.x = 1 + marginH;
-		// 	}
-		// 	if( core.body.x > 64 - 8){
-		// 		core.body.x = 64 - 8;
-		// 	}
-		// }
+		// keep within bounds 
+		final marginH = 8;
+		if(isMovingHorizontal){
+			if( core.body.x < 1 + marginH){
+				core.body.x = 1 + marginH;
+			}
+			if( core.body.x > 64 - 8){
+				core.body.x = 64 - 8;
+			}
+		}
 
 		final marginV = 4;
 		if(isMovingVertical){
