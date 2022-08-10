@@ -18,6 +18,13 @@ class CutSceneConfiguration {
 	public var bgMusicAssetPath = "assets/audio/bg-intro-d.ogg";
 	public var sceneHeight:Int = 256;
 	public var autoPlayNextScene:Bool = false;
+	public var changes:Array<AnimationChange> = [];
+}
+
+@:structInit 
+class AnimationChange{
+	public var atFrame:Int;
+	public var framesPerSecond:Int;
 }
 
 
@@ -26,14 +33,15 @@ class CutScene {
 	var refreshFrameCountdown:CountDown;
 	var totalFrames:Int;
 	var currentFrame:Int = 0;
+	var currentChange:Int = 0;
 	var config:CutSceneConfiguration;
     public var isComplete(get, null):Bool;
 
 	public function new(config:CutSceneConfiguration, renderer:SpriteRenderer) {
 		this.config = config;
 		isComplete = false;
-        var x = 0;//Std.int(config.frameWidth * 0.5);
-		var y = 0;//Std.int(config.frameHeight * 0.5);
+        var x = Std.int(config.frameWidth * 0.5) - 24;
+		var y = Std.int(config.frameHeight * 0.5) - 14;
 		totalFrames = config.frames.length;
 		frame = renderer.makeSprite(x, y, config.frameHeight, config.frames[currentFrame], 0, true);
 		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);
@@ -41,7 +49,15 @@ class CutScene {
 	}
 
 	function advanceFrame() {
-        currentFrame++;
+		if(config.changes.length > 0 && currentChange <= config.changes.length-1){
+			// trace('try change frame rate $currentChange');
+			if(config.frames[currentFrame] == config.changes[currentChange].atFrame){
+				trace('change frame rate');
+				refreshFrameCountdown.reset(config.changes[currentChange].framesPerSecond);
+				currentChange++;
+			}
+		}
+		currentFrame++;
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 	

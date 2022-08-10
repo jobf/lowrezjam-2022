@@ -67,15 +67,21 @@ class Configuration {
 
 	//end-of-the-earth-134x79
 	public static var gameOverEarthEndingA:CutSceneConfiguration = {
-		frames: [for(i in 0...58) i],
+		frames: [for(i in 21...51) i],
 		framesPerSecond: 6,
-		framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-134x79.png",
+		framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-134x79-orange.png",
 		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
 		sceneWidth: 256,
 		sceneHeight: 256,
 		frameWidth: 128,
 		frameHeight: 79,
 		// autoPlayNextScene: true
+		changes: [
+			{
+				framesPerSecond: 1,
+				atFrame: 44
+			}
+		]
 	};
 
 	// public static var gameOverEarthEndingB:CutSceneConfiguration = {
