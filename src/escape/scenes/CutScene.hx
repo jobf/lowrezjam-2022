@@ -17,6 +17,7 @@ class CutSceneConfiguration {
 	public var sceneWidth:Int = 256;
 	public var bgMusicAssetPath = "assets/audio/bg-intro-d.ogg";
 	public var sceneHeight:Int = 256;
+	public var autoPlayNextScene:Bool = false;
 }
 
 
@@ -31,8 +32,8 @@ class CutScene {
 	public function new(config:CutSceneConfiguration, renderer:SpriteRenderer) {
 		this.config = config;
 		isComplete = false;
-        var x = Std.int(config.frameWidth * 0.5);
-		var y = Std.int(config.frameHeight * 0.5);
+        var x = 0;//Std.int(config.frameWidth * 0.5);
+		var y = 0;//Std.int(config.frameHeight * 0.5);
 		totalFrames = config.frames.length;
 		frame = renderer.makeSprite(x, y, config.frameHeight, config.frames[currentFrame], 0, true);
 		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);

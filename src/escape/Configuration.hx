@@ -65,6 +65,53 @@ class Configuration {
 
 	};
 
+	//end-of-the-earth-134x79
+	public static var gameOverEarthEndingA:CutSceneConfiguration = {
+		frames: [for(i in 0...58) i],
+		framesPerSecond: 6,
+		framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-134x79.png",
+		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+		sceneWidth: 256,
+		sceneHeight: 256,
+		frameWidth: 128,
+		frameHeight: 79,
+		// autoPlayNextScene: true
+	};
+
+	// public static var gameOverEarthEndingB:CutSceneConfiguration = {
+	// 	frames: [for(i in 44...58) i],
+	// 	framesPerSecond: 2,
+	// 	framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-134x79.png",
+	// 	bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+	// 	sceneWidth: 256,
+	// 	sceneHeight: 256,
+	// 	frameWidth: 134,
+	// 	frameHeight: 79
+	// };
+
+	// public static var gameOverEarthEndingA:CutSceneConfiguration = {
+	// 	frames: [for(i in 0...43) i],
+	// 	framesPerSecond: 6,
+	// 	framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-128.png",
+	// 	bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+	// 	sceneWidth: 215,
+	// 	sceneHeight: 128,
+	// 	frameWidth: 215,
+	// 	frameHeight: 128,
+	// 	autoPlayNextScene: true
+	// };
+
+	// public static var gameOverEarthEndingB:CutSceneConfiguration = {
+	// 	frames: [for(i in 44...58) i],
+	// 	framesPerSecond: 2,
+	// 	framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-128.png",
+	// 	bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+	// 	sceneWidth: 215,
+	// 	sceneHeight: 128,
+	// 	frameWidth: 215,
+	// 	frameHeight: 128
+	// };
+
 	public static var gameWinScene:CutSceneConfiguration = {
 		frames: [2, 2, 2, 2, 2, 2, 2],
 		framesPerSecond: 1,
