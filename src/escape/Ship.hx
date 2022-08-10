@@ -13,10 +13,11 @@ class Ship extends BaseActor {
 	var speed:Float;
 	var maxTravelDistance:Int;
 
-	public var isDead(default, null):Bool = false;
+	public var hasShields(default, null):Bool = false;
 	public var weapon(default, null):Weapon;
 
-	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer, projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer) {
+	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer,
+			projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
@@ -40,7 +41,7 @@ class Ship extends BaseActor {
 
 		weaponUseCountdown = new CountDown(0.1, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
-
+		hasShields = true;
 		// core.sprite.z = 0;
 	}
 
@@ -50,29 +51,29 @@ class Ship extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
-		if(isShooting && canUseWeapon){
+		if (isShooting && canUseWeapon) {
 			canUseWeapon = false;
 			weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
 			weaponUseCountdown.reset();
 		}
-		
-		// keep within bounds 
+
+		// keep within bounds
 		final marginH = 8;
-		if(isMovingHorizontal){
-			if( core.body.x < 1 + marginH){
+		if (isMovingHorizontal) {
+			if (core.body.x < 1 + marginH) {
 				core.body.x = 1 + marginH;
 			}
-			if( core.body.x > 64 - 8){
+			if (core.body.x > 64 - 8) {
 				core.body.x = 64 - 8;
 			}
 		}
 
 		final marginV = 4;
-		if(isMovingVertical){
-			if( core.body.y < 0 + marginV){
+		if (isMovingVertical) {
+			if (core.body.y < 0 + marginV) {
 				core.body.y = 0 + marginV;
 			}
-			if( core.body.y > 64 - marginV){
+			if (core.body.y > 64 - marginV) {
 				core.body.y = 64 - marginV;
 			}
 		}
@@ -128,27 +129,31 @@ class Ship extends BaseActor {
 		// if (!isDown)
 		// 	return;
 		isShooting = isDown;
-		
 	}
 
 	override function collideWith(body:Body) {
 		super.collideWith(body);
+
+		if (!hasShields)
+			return;
+
 		switch body.collider.type {
 			case ROCK:
 				takeDamageFromObstacle(body);
 			case SUN:
 				trace('hit sun');
-				takeDamage();
+				takeDamageFromObstacle(body, true);
 			case _:
 				trace('unhandled collision');
 				return;
 		}
+		// if()
 	}
 
 	var takeDamageCountdown:CountDown;
 
 	function takeDamage() {
-		if (!isInvulnerable && !isDead) {
+		if (!isInvulnerable && currentShield > 0) {
 			trace('takeDamage');
 			currentShield--;
 			isInvulnerable = true;
@@ -157,13 +162,20 @@ class Ship extends BaseActor {
 		}
 	}
 
-	function takeDamageFromObstacle(body:Body) {
-		if (body.collider.isActive && body.obstacleConfiguration.damagePoints > 0) {
-			takeDamage();
-			if (currentShield <= 0) {
-				trace('ship shield expleted');
-				isDead = true;
+	function takeDamageFromObstacle(body:Body, isInstaKill:Bool = false) {
+
+		if(isInstaKill){
+			currentShield = -1;
+		}
+		else if (body.obstacleConfiguration != null) {
+			if(body.collider.isActive && body.obstacleConfiguration.damagePoints > 0){
+				takeDamage();
 			}
+		}
+		
+		if(currentShield <= 0){
+			trace('ship shield expleted');
+			hasShields = false;
 		}
 	}
 

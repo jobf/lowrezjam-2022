@@ -50,10 +50,10 @@ class PlayScene extends FullScene {
 		super.create();
 		// @:privateAccess
 		// stage.globalFrameBuffer.display.xOffset -= 64;
-		// emitterTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 8, 8, true, 640, 640); // tiles14px; // 
+		// emitterTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 8, 8, true, 640, 640); // tiles14px; //
 		emitterTiles = spaceLevelTilesNear;
-		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x8-tiles.png", 64, 8, true, 640, 640); // tiles14px; // 
-		// hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true, 640, 640); // tiles14px; // 
+		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x8-tiles.png", 64, 8, true, 640, 640); // tiles14px; //
+		// hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true, 640, 640); // tiles14px; //
 		// var f = hudFrame.makeSprite(64 + 32, 32, 64, 0);
 		// world.width = 256;
 		// world.height = 256;
@@ -99,25 +99,17 @@ class PlayScene extends FullScene {
 		var maxTravelDistance = 40;
 		var projectileType = level.levelStyle == Neutralize ? BOMB : STANDARD;
 		var projectileConfig = Configuration.projectiles[projectileType];
-		
+
 		if (level.levelStyle == Neutralize) {
 			projectileConfig.totalShots = level.countSolarTargets();
-		
 		}
 		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig, projectileSprites);
-		
-		if(level.levelStyle != Neutralize)
-		{
+
+		if (level.levelStyle != Neutralize) {
 			background = new StarField(ship, 256, 128, starSpriteRenderer);
-		}
-		else{
-
-
-
+		} else {
 			background = new SunSurface(ship, Std.int(level.finishLine.core.body.x * 3.0), 128, tiles640px);
-
 		}
-
 
 		if (level.levelStyle == Escape) {
 			var sunActorSystem:ActorSystem = {
@@ -138,9 +130,7 @@ class PlayScene extends FullScene {
 			});
 
 			audio.playMusic('assets/audio/bg-a-147bpm.ogg');
-
-		}
-		else{
+		} else {
 			var bg = level.levelStyle == Neutralize ? "f" : "b";
 			audio.playMusic('assets/audio/bg-$bg.ogg');
 		}
@@ -157,8 +147,8 @@ class PlayScene extends FullScene {
 		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
-				if(obstacleBody.obstacleConfiguration != null){
-					if(!obstacleBody.obstacleConfiguration.letProjectileThrough){
+				if (obstacleBody.obstacleConfiguration != null) {
+					if (!obstacleBody.obstacleConfiguration.letProjectileThrough) {
 						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
 						emitter.emit(obstacleBody.x, obstacleBody.y, shipBody.velocity.x, randomFloat(0, -150), tileId);
 						ship.core.sprite.shake(app.core.peoteView.time);
@@ -168,13 +158,13 @@ class PlayScene extends FullScene {
 				shipBody.collider.collideWith(obstacleBody);
 			},
 		});
-		
+
 		emitter = new Emitter(emitterTiles);
 		// register projectile and obstacle collisions
 		world.listen(ship.weapon.projectiles, level.obstacles, {
 			enter: (projectileBody, obstacleBody, collisionData) -> {
-				if(obstacleBody.obstacleConfiguration != null){
-					if(!obstacleBody.obstacleConfiguration.letProjectileThrough){
+				if (obstacleBody.obstacleConfiguration != null) {
+					if (!obstacleBody.obstacleConfiguration.letProjectileThrough) {
 						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
 						emitter.emit(obstacleBody.x, obstacleBody.y, projectileBody.velocity.x, randomFloat(0, -150), tileId);
 					}
@@ -209,43 +199,45 @@ class PlayScene extends FullScene {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		emitter.update(elapsedSeconds);
-		if(isLevelStopping){
+		if (isLevelStopping) {
 			return;
 		}
 		ship.update(elapsedSeconds);
 		var speedMod = ship.getSpeedMod() * 2.5;
 		background.update(elapsedSeconds);
-		
+
 		for (a in level.actors) {
 			a.setSpeedMod(speedMod);
 			a.update(elapsedSeconds);
 			level.finishLine.core.body.velocity.x = Configuration.baseVelocityX * speedMod;
 		}
 
-		if (ship.isDead) {
+		if (!ship.hasShields) {
 			isLevelEnded = true;
 
 			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
 			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverScene, new PlayScene(app, levelIndex))));
 		}
-		if (isLevelEnded && !ship.isDead) {
+
+		if (isLevelEnded && ship.hasShields) {
 			trace('level complete');
 			isLevelStopping = true;
 			// if was a bombing level and the targets are not destroyed, it's game over with super nova
 			if (level.levelStyle == Neutralize) {
 				var targetActors = level.actors.filter(obstacle -> obstacle.core.body.collider.type == TARGET);
-				var targetActorsAlive = targetActors.filter(obstacle -> obstacle.isAlive);
-				var levelIsComplete = targetActorsAlive.length == 0;
-				if (!levelIsComplete) {
+				var targetActorsAlive = targetActors.filter(obstacle -> obstacle.core.sprite.tile != obstacle.core.body.obstacleConfiguration.spriteTileIdEnd);
+				var restartNeutralizeLevel = targetActorsAlive.length > 0;
+				trace(' num targets  ${targetActors.length} num alive ${targetActorsAlive.length}');
+				if (restartNeutralizeLevel) {
 					trace('restarting neutralize effort');
 					isLevelStopping = true;
 					audio.stopMusic(() -> app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, new PlayScene(app, levelIndex))));
 					// app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
-					// return;
+					return;
 				}
 			}
-			// else play scene
+			// else play next level scene
 			switch levelConfig.nextLevel {
 				// case Intro: setCutScene(Configuration.introCutScene);
 				// case GameOver: setCutScene(Configuration.gameOverScene);
@@ -254,7 +246,8 @@ class PlayScene extends FullScene {
 					trace('\n - \n ---- change to next level \n - \n ');
 					// app.changeScene(new PlayScene(Configuration.levels[nextLevelIndex], app));
 
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,new PlayScene(app, nextLevelIndex))));
+					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
+						new PlayScene(app, nextLevelIndex))));
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
 					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameWinScene, null)));
