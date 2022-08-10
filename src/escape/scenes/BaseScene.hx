@@ -84,6 +84,23 @@ class MovieScene extends FullScene {
 		controller.disable();
 	}
 
+
+	override function scrollDown() {
+		cutScene.scrollDown(scrollIncrement);
+	}
+
+	override function scrollUp() {
+		cutScene.scrollUp(scrollIncrement);
+	}
+
+	override function scrollLeft() {
+		cutScene.scrollLeft(scrollIncrement);
+	}
+
+	override function scrollRight() {
+		cutScene.scrollRight(scrollIncrement);
+	}
+
 	var controller:Controller;
 
 	var isSkipScene(default, null):Bool = false;
@@ -112,6 +129,11 @@ class TitleScene extends FullScene {
 
 		cutScene = new CutScene(config, cutSceneRenderer);
 		app.window.onKeyDown.add((code, modifier) -> handleInput(code));
+
+
+		#if debug
+		drawGrid();
+		#end
 		trace('\n \n \n \n ! cutscene new');
 	}
 
@@ -134,4 +156,5 @@ class TitleScene extends FullScene {
 			onComplete(this);
 		}
 	}
+
 }

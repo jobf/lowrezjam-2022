@@ -1,3 +1,4 @@
+import peote.view.Color;
 import escape.scenes.BaseScene;
 import escape.Configuration;
 import escape.scenes.PlayScene;
@@ -28,9 +29,11 @@ class Main extends App {
 class Concepts extends FullScene {
 	static var startLevelIndex:Int = 0;
 	public static var concepts:Array<App->Scene> = [
-		app -> return new MovieScene(app, Configuration.introCutScene, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
+		// uncomment next line to get straight into the action
+		// app -> return new PlayScene(app, startLevelIndex),
+		app -> return new MovieScene(app, Configuration.introCutSceneA, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
+		app -> return new MovieScene(app, Configuration.gameOverEarthEndingA, new PlayScene(app, startLevelIndex)),
 		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
-		app -> return new PlayScene(app, startLevelIndex),
 		// app -> return new TitleScene(app, Configuration.introCutScene, scene -> app.changeScene()_,
 	];
 
@@ -107,6 +110,7 @@ class FullScene extends Scene {
 		var tiles14pxTilesWide = 8;
 		var tiles18pxTilesWide = 1;
 		var isIndividualFrameBuffer = false;
+
 		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
 		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 64, 1, true);
 		tiles640px = stage.createSpriteRendererFor("assets/sprites/640x640-sun-surface.png", 640, 640, true, 640, 640);
@@ -189,4 +193,23 @@ class FullScene extends Scene {
 	}
 
 	var tiles64px:SpriteRenderer;
+
+	function drawGrid(){
+		var color = Color.LIME;
+		color.a = 100;
+		var gridRenderer = stage.createRectangleRenderLayer("grid", false, false, this.width, this.height);
+		var gap = 8;
+		var w = width == 0 ? stage.width : width;
+		var h = height == 0 ? stage.height : height;
+		var numRows = Std.int(h / gap);
+		var numCols = Std.int(w / gap);
+		trace('grid dimension: $w x $h num rows/columns $numRows $numCols');
+		for(y in 0...numRows){
+			gridRenderer.makeRectangle(0, y * gap, w, 1, 0.0, color);
+		}
+
+		for(x in 0...numCols){
+			gridRenderer.makeRectangle(x * gap, 0, 1, h, 0.0, color);
+		}
+	}
 }

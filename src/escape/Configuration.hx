@@ -5,8 +5,8 @@ import escape.scenes.CutScene;
 import escape.Obstacle;
 
 class Configuration {
-	public static var baseVelocityX: Float = -100.0;
-	public static var baseWeaponVelocityX: Float = 100.0;
+	public static var baseVelocityX:Float = -100.0;
+	public static var baseWeaponVelocityX:Float = 100.0;
 	public static var isMuted:Bool = false;
 
 	/**
@@ -17,7 +17,6 @@ class Configuration {
 		start of level 2
 		start of level 3
 	**/
-
 	public static var levels:Array<LevelConfig> = [
 		{
 			// 1 . level
@@ -34,7 +33,9 @@ class Configuration {
 			ldtk_level_id: 5,
 			nextLevel: NextLevel(2),
 			cutSceneConfig: {
-				frames: [2, 3, 4, 5, 6, 7, 8, 9, 10,11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+				frames: [
+					2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+				],
 				framesPerSecond: 6,
 				framesAssetPath: "assets/cutScenes/test-frames-leave-asteroid.png",
 			}
@@ -57,14 +58,108 @@ class Configuration {
 		framesAssetPath: "assets/cutScenes/test-frames-control-room.png",
 	};
 
+	public static var introCutSceneA:CutSceneConfiguration = {
+		frames: [for (i in 0...142) i],
+		framesPerSecond: 8,
+		framesAssetPath: "assets/cutScenes/control-room-cut-16-sheet.png",
+		frameWidth: 145,
+		frameHeight: 145,
+	};
+
+	public static var winTheGame:CutSceneConfiguration = {
+		frames: [for (i in 0...117) i],
+		framesPerSecond: 8,
+		framesAssetPath: "assets/cutScenes/win-the-game-exit-sun.png",
+		frameWidth: 188,
+		frameHeight: 188,
+		sceneWidth: 188,
+		sceneHeight: 188,
+		changes: [
+			{
+				change: SetPosition(70, 94),
+				animFrameIndex: 0
+			},
+			{
+				change: ChangeScroll(-0.2, 0),
+				animFrameIndex: 1
+			},
+			{
+				change: ChangeScroll(0, 0),
+				animFrameIndex: 11
+			},
+			{
+				change: ChangeScroll(-1, 0),
+				animFrameIndex: 19
+			},
+			{
+				change: ChangeScroll(0, 0),
+				animFrameIndex: 32
+			},
+			{
+				change: SetPosition(0, 94),
+				animFrameIndex: 33
+			}
+		]
+	};
+
 	public static var gameOverScene:CutSceneConfiguration = {
 		frames: [1, 1],
 		framesPerSecond: 1,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
 		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg"
-
 	};
 
+	// end-of-the-earth-134x79
+	public static var gameOverEarthEndingA:CutSceneConfiguration = {
+		frames: [for (i in 0...37) i],
+		// frames: [for(i in 21...51) i],
+		framesPerSecond: 6,
+		framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-128x128.png",
+		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+		sceneWidth: 256,
+		sceneHeight: 256,
+		frameWidth: 128,
+		frameHeight: 128,
+		// autoPlayNextScene: true
+		changes: [
+			// {
+			// 	framesPerSecond: 3,
+			// 	atFrame: 22
+			// }
+		]
+	};
+
+	// public static var gameOverEarthEndingB:CutSceneConfiguration = {
+	// 	frames: [for(i in 44...58) i],
+	// 	framesPerSecond: 2,
+	// 	framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-134x79.png",
+	// 	bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+	// 	sceneWidth: 256,
+	// 	sceneHeight: 256,
+	// 	frameWidth: 134,
+	// 	frameHeight: 79
+	// };
+	// public static var gameOverEarthEndingA:CutSceneConfiguration = {
+	// 	frames: [for(i in 0...43) i],
+	// 	framesPerSecond: 6,
+	// 	framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-128.png",
+	// 	bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+	// 	sceneWidth: 215,
+	// 	sceneHeight: 128,
+	// 	frameWidth: 215,
+	// 	frameHeight: 128,
+	// 	autoPlayNextScene: true
+	// };
+	// public static var gameOverEarthEndingB:CutSceneConfiguration = {
+	// 	frames: [for(i in 44...58) i],
+	// 	framesPerSecond: 2,
+	// 	framesAssetPath: "assets/cutScenes/8-color/end-of-the-earth-128.png",
+	// 	bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+	// 	sceneWidth: 215,
+	// 	sceneHeight: 128,
+	// 	frameWidth: 215,
+	// 	frameHeight: 128
+	// };
 	public static var gameWinScene:CutSceneConfiguration = {
 		frames: [2, 2, 2, 2, 2, 2, 2],
 		framesPerSecond: 1,
@@ -143,7 +238,7 @@ class Configuration {
 			letProjectileThrough: true,
 			damagePoints: 0
 		},
-		8 => { 
+		8 => {
 			// sun target
 			shape: CIRCLE,
 			hitboxWidth: 8,
@@ -248,7 +343,7 @@ class Configuration {
 			shape: CIRCLE,
 			hitboxWidth: 6,
 			hitboxHeight: 6,
-            //velocityModX: -100.0,
+			// velocityModX: -100.0,
 			isDestructible: true,
 			damagePoints: 1
 		},
@@ -408,7 +503,6 @@ class Configuration {
 			damagePoints: 1
 		},
 	];
-
 
 	public static var projectiles:Map<ProjectileType, ProjectileConfiguration> = [
 		STANDARD => {

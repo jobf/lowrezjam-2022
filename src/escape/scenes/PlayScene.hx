@@ -48,8 +48,8 @@ class PlayScene extends FullScene {
 
 	override function create() {
 		super.create();
-		@:privateAccess
-		stage.globalFrameBuffer.display.xOffset -= 64;
+		// @:privateAccess
+		// stage.globalFrameBuffer.display.xOffset -= 64;
 		// emitterTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 8, 8, true, 640, 640); // tiles14px; // 
 		emitterTiles = spaceLevelTilesNear;
 		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x8-tiles.png", 64, 8, true, 640, 640); // tiles14px; // 
@@ -82,8 +82,8 @@ class PlayScene extends FullScene {
 					height: 4,
 				},
 				mass: 1,
-				x: 90,
-				y: 40,
+				x: 16,
+				y: 32,
 				kinematic: true
 			}
 		};
@@ -192,7 +192,9 @@ class PlayScene extends FullScene {
 			},
 		});
 
-		
+		#if debug
+		drawGrid();
+		#end
 	}
 
 	override function destroy() {

@@ -17,30 +17,63 @@ class CutSceneConfiguration {
 	public var sceneWidth:Int = 256;
 	public var bgMusicAssetPath = "assets/audio/bg-intro-d.ogg";
 	public var sceneHeight:Int = 256;
+	public var autoPlayNextScene:Bool = false;
+	public var changes:Array<AnimationChange> = [];
 }
 
+@:structInit 
+class AnimationChange{
+	public var animFrameIndex:Int;
+	public var change:AtFrameChange;
+}
+
+enum AtFrameChange{
+	ChangeFrameRate(seconds_per_frame:Int);
+	ChangeScroll(x_per_frame:Float, y_per_frame:Float);
+	SetPosition(x:Int, y:Int);
+}
 
 class CutScene {
     var frame:Sprite;
 	var refreshFrameCountdown:CountDown;
 	var totalFrames:Int;
 	var currentFrame:Int = 0;
+	var currentChange:Int = 0;
 	var config:CutSceneConfiguration;
     public var isComplete(get, null):Bool;
 
 	public function new(config:CutSceneConfiguration, renderer:SpriteRenderer) {
 		this.config = config;
 		isComplete = false;
-        var x = Std.int(config.frameWidth * 0.5);
+        var x = Std.int(config.frameWidth * 0.5) - 24;
 		var y = Std.int(config.frameHeight * 0.5);
+		x_actual = 0;
+		y_actual = 0;
 		totalFrames = config.frames.length;
-		frame = renderer.makeSprite(x, y, config.frameHeight, config.frames[currentFrame], 0, true);
+		frame = renderer.makeSprite(0, 0, config.frameHeight, config.frames[currentFrame], 0, true);
 		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);
+		
 
 	}
 
 	function advanceFrame() {
-        currentFrame++;
+		if(config.changes.length > 0 && currentChange <= config.changes.length-1){
+			// trace('try change frame rate $currentChange');
+			// if(config.frames[currentFrame] == config.changes[currentChange].atFrame){
+			if(currentFrame == config.changes[currentChange].animFrameIndex){
+				var toChange = config.changes[currentChange].change;
+				if(toChange != null){
+					switch toChange {
+						case ChangeFrameRate(seconds_per_frame): refreshFrameCountdown.reset(seconds_per_frame);
+						case ChangeScroll(x_per_frame, y_per_frame): setScroll(x_per_frame, y_per_frame);
+						case SetPosition(x, y):	setPosition(x, y);
+					};
+					currentChange++;
+					trace('change $toChange');
+				}
+			}
+		}
+		currentFrame++;
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 	
@@ -48,11 +81,59 @@ class CutScene {
 		if(!isComplete){
 			refreshFrameCountdown.update(elapsedSeconds);
 			frame.tile = config.frames[currentFrame];
+			x_actual += x_per_frame;
+			y_actual += y_per_frame;
+
+			frame.x = Math.floor(x_actual);
+			frame.y = Math.floor(y_actual);
 		}
     }
 
 
 	function get_isComplete():Bool {
 		return currentFrame >= config.frames.length - 1;
+	}
+
+	inline function setScroll(x_per_frame:Float, y_per_frame:Float) {
+		this.x_per_frame = x_per_frame;
+		this.y_per_frame = y_per_frame;
+	}
+
+	var x_per_frame:Float;
+	var y_per_frame:Float;
+
+	var x_actual:Float;
+	var y_actual:Float;
+
+	inline function setPosition(x:Int, y:Int) {
+		x_actual = x;
+		y_actual = y;
+		// frame.x = x;
+		// frame.y = y;
+		// trace('$x $y ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollDown(scrollIncrement:Int) {
+		y_actual += scrollIncrement;
+		// frame.y = Math.floor(y_actual);
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollUp(scrollIncrement:Int) {
+		y_actual -= scrollIncrement;
+		// frame.y = Math.floor(y_actual);
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollLeft(scrollIncrement:Int) {
+		x_actual -= scrollIncrement;
+		// frame.x = Math.
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollRight(scrollIncrement:Int) {
+		x_actual += scrollIncrement;
+		// frame.x += scrollIncrement;
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
 	}
 }
