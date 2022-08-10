@@ -52,7 +52,7 @@ class PlayScene extends FullScene {
 		stage.globalFrameBuffer.display.xOffset -= 64;
 		// emitterTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 8, 8, true, 640, 640); // tiles14px; // 
 		emitterTiles = spaceLevelTilesNear;
-		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 64, 4, true, 640, 640); // tiles14px; // 
+		hudTiles = stage.createSpriteRendererFor("assets/sprites/64x8-tiles.png", 64, 8, true, 640, 640); // tiles14px; // 
 		// hudTiles = stage.createSpriteRendererFor("assets/sprites/64x14-tiles.png", 64, 14, true, 640, 640); // tiles14px; // 
 		// var f = hudFrame.makeSprite(64 + 32, 32, 64, 0);
 		// world.width = 256;
@@ -104,7 +104,7 @@ class PlayScene extends FullScene {
 			projectileConfig.totalShots = level.countSolarTargets();
 		
 		}
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig);
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig, projectileSprites);
 		
 		if(level.levelStyle != Neutralize)
 		{
@@ -211,7 +211,7 @@ class PlayScene extends FullScene {
 			return;
 		}
 		ship.update(elapsedSeconds);
-		var speedMod = ship.getSpeedMod() * 1.5;
+		var speedMod = ship.getSpeedMod() * 2.5;
 		background.update(elapsedSeconds);
 		
 		for (a in level.actors) {

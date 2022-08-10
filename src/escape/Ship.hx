@@ -16,7 +16,7 @@ class Ship extends BaseActor {
 	public var isDead(default, null):Bool = false;
 	public var weapon(default, null):Weapon;
 
-	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer, projectileConfig:ProjectileConfiguration) {
+	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer, projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
@@ -24,7 +24,14 @@ class Ship extends BaseActor {
 		maxShield = 6;
 		currentShield = 6;
 
-		weapon = new Weapon(system, projectileConfig);
+		var protectilesSystem:ActorSystem = {
+			world: system.world,
+			tiles: projectileSprites,
+			shapes: system.shapes,
+			peoteView: system.peoteView
+		};
+
+		weapon = new Weapon(protectilesSystem, projectileConfig);
 
 		hud = new Hud(hudTiles, weapon);
 
@@ -43,6 +50,11 @@ class Ship extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
+		if(isShooting && canUseWeapon){
+			canUseWeapon = false;
+			weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
+			weaponUseCountdown.reset();
+		}
 		hud.update(shieldPercent);
 	}
 
@@ -82,6 +94,7 @@ class Ship extends BaseActor {
 		}
 	}
 
+	var isShooting:Bool = false;
 	var canUseWeapon:Bool = true;
 	var weaponUseCountdown:CountDown;
 
@@ -90,14 +103,10 @@ class Ship extends BaseActor {
 	}
 
 	public function action(isDown:Bool) {
-		if (!isDown)
-			return;
-
-		if (canUseWeapon) {
-			canUseWeapon = false;
-			weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
-			weaponUseCountdown.reset();
-		}
+		// if (!isDown)
+		// 	return;
+		isShooting = isDown;
+		
 	}
 
 	override function collideWith(body:Body) {

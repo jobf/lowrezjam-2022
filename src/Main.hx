@@ -74,6 +74,7 @@ class FullScene extends Scene {
 	var spaceLevelTilesFar:SpriteRenderer;
 	var spaceLevelTiles:SpriteRenderer;
 	var spaceLevelTilesNear:SpriteRenderer;
+	var projectileSprites:SpriteRenderer;
 	var hudFrame:SpriteRenderer;
 	var debugShapes:ShapeRenderer;
 	
@@ -112,6 +113,7 @@ class FullScene extends Scene {
 		
 		spaceLevelTilesFar = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "far");
 		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "mid");
+		projectileSprites = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, isIndividualFrameBuffer, "projectiles");
 		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, isIndividualFrameBuffer);
 		spaceLevelTilesNear = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "near");
 
