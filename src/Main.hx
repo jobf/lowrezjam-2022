@@ -29,8 +29,9 @@ class Main extends App {
 class Concepts extends FullScene {
 	static var startLevelIndex:Int = 0;
 	public static var concepts:Array<App->Scene> = [
-		app -> return new PlayScene(app, startLevelIndex),
-		app -> return new MovieScene(app, Configuration.winTheGame, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
+		// uncomment next line to get straight into the action
+		// app -> return new PlayScene(app, startLevelIndex),
+		app -> return new MovieScene(app, Configuration.introCutSceneA, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
 		app -> return new MovieScene(app, Configuration.gameOverEarthEndingA, new PlayScene(app, startLevelIndex)),
 		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
 		// app -> return new TitleScene(app, Configuration.introCutScene, scene -> app.changeScene()_,
