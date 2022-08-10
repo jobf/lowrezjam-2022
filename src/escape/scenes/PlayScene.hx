@@ -211,7 +211,7 @@ class PlayScene extends FullScene {
 			return;
 		}
 		ship.update(elapsedSeconds);
-		var speedMod = ship.getSpeedMod() * 1.5;
+		var speedMod = ship.getSpeedMod() * 2.5;
 		background.update(elapsedSeconds);
 		
 		for (a in level.actors) {
