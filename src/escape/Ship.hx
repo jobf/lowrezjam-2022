@@ -55,6 +55,25 @@ class Ship extends BaseActor {
 			weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
 			weaponUseCountdown.reset();
 		}
+		final marginH = 8;
+		if(isMovingHorizontal){
+			if( core.body.x < 1 + marginH){
+				core.body.x = 1 + marginH;
+			}
+			if( core.body.x > 64 - 8){
+				core.body.x = 64 - 8;
+			}
+		}
+
+		final marginV = 4;
+		if(isMovingVertical){
+			if( core.body.y < 0 + marginV){
+				core.body.y = 0 + marginV;
+			}
+			if( core.body.y > 64 - marginV){
+				core.body.y = 64 - marginV;
+			}
+		}
 		hud.update(shieldPercent);
 	}
 
