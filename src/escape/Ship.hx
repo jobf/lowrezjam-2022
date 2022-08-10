@@ -43,6 +43,7 @@ class Ship extends BaseActor {
 		behaviours.push(weaponUseCountdown);
 		hasShields = true;
 		// core.sprite.z = 0;
+
 	}
 
 	var isMovingVertical:Bool;
@@ -159,6 +160,8 @@ class Ship extends BaseActor {
 			isInvulnerable = true;
 			core.sprite.setFlashing(true);
 			takeDamageCountdown.reset();
+			@:privateAccess
+			hud.shieldMeterSprite.setFlashing(true);
 		}
 	}
 
@@ -186,6 +189,8 @@ class Ship extends BaseActor {
 			trace('resetTookDamage');
 			isInvulnerable = false;
 			core.sprite.setFlashing(false);
+			@:privateAccess
+			hud.shieldMeterSprite.setFlashing(false);
 		}
 	}
 
