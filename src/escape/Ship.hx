@@ -190,6 +190,8 @@ class Ship extends BaseActor {
 	}
 
 	inline public function getSpeedMod():Float {
-		return (core.body.x / 64) - 1;
+		return (core.body.x / 64);
+		// return (core.body.x / 64) - 1;
+		// return 1.0;
 	}
 }

@@ -129,6 +129,11 @@ class TitleScene extends FullScene {
 
 		cutScene = new CutScene(config, cutSceneRenderer);
 		app.window.onKeyDown.add((code, modifier) -> handleInput(code));
+
+
+		#if debug
+		drawGrid();
+		#end
 		trace('\n \n \n \n ! cutscene new');
 	}
 

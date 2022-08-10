@@ -52,6 +52,7 @@ class CutScene {
 		totalFrames = config.frames.length;
 		frame = renderer.makeSprite(0, 0, config.frameHeight, config.frames[currentFrame], 0, true);
 		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);
+		
 
 	}
 
