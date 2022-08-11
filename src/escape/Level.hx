@@ -20,6 +20,7 @@ class Level {
 	final solarFlareTileId:Int = 9;
 	final solarFlareFramesPerSecond:Int = 3;
 	final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
+
 	public var obstacles(default, null):Array<Body>;
 	public var actors(default, null):Array<Obstacle> = [];
 	public var finishLine(default, null):BaseActor;
@@ -74,8 +75,6 @@ class Level {
 
 		];
 
-
-
 		// set up Obstacles ( rocks, targets, flares etc . . . )
 		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16, (stack, cx, cy) -> {
 			for (tileData in stack) {
@@ -94,43 +93,6 @@ class Level {
 				initObstacle(tileData, cx, cy, l_Tiles_16_GridSize, l_Tiles_16_RenderSize, obstacleSystems[2]);
 			}
 		});
-
-		for(entity in spaceMaps.levels[levelId].l_Zones.all_SolarFlare){
-
-			var tileX = entity.cx * l_Tiles_16_GridSize;
-			var tileY = entity.cy * l_Tiles_16_GridSize;
-			var config = Configuration.obstacles[solarFlareTileId];
-			var tileId:Int = Std.int(entity.f_StartTile_infos.x / 16) + 56;
-			trace('entity.f_StartTile_infos ${entity.f_StartTile_infos} tileId $tileId');
-			var obstacleOptions:ActorOptions = {
-				spriteTileSize: l_Tiles_16_RenderSize,
-				spriteTileIdStart: tileId,
-				shape: config.shape,
-				makeCore: actorFactory,
-				debugColor: 0x44008880,
-				collisionType: FLARE,
-				bodyOptions: {
-					shape: {
-						type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
-						solid: false,
-						radius: Std.int(config.hitboxWidth * 0.5),
-						width: config.hitboxWidth,
-						height: config.hitboxHeight,
-					},
-					mass: 1,
-					x: tileX,
-					y: tileY,
-					kinematic: true
-				}
-			};
-
-			var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFrames, solarFlareFramesPerSecond);
-
-			actors.push(obstacle);
-			obstacles.push(obstacle.core.body);
-			obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
-			obstacle.core.body.velocity.y = 0;
-		}
 
 		var finishLines = spaceMaps.levels[levelId].l_Zones.all_FinishLine;
 		for (f in finishLines) {
@@ -168,56 +130,91 @@ class Level {
 	}
 
 	function initObstacle(tileData:{tileId:Int, flipBits:Int}, cx:Int, cy:Int, l_Tiles_16_GridSize:Int, l_Tiles_16_RenderSize:Int, obstacleSystem:ActorSystem) {
-		var config = Configuration.obstacles[tileData.tileId];
-				if (config == null) {
-					trace('!!! no config for tile Id ${tileData.tileId}');
-				} else {
-					if(tileData.tileId == solarFlareTileId){
-						// skip solar flares, they will be handled as entites only
-						// trace('skip solar flare');
+				
+		var tileId = tileData.tileId >= solarFlareFrames[0] ?solarFlareTileId : tileData.tileId;
+		var config = Configuration.obstacles[tileId];
+		if (config == null) {
+			trace('!!! no config for tile Id ${tileData.tileId}');
+		} else {
+			if (tileData.tileId >= solarFlareTileId) {
+				var tileX = cx * l_Tiles_16_GridSize;
+				var tileY = cy * l_Tiles_16_GridSize;
+				// var config = Configuration.obstacles[solarFlareTileId];
+				// var tileId:Int = Std.int(entity.f_StartTile_infos.x / 16) + 56;
+				// trace('entity.f_StartTile_infos ${entity.f_StartTile_infos} tileId $tileId');
+				var obstacleOptions:ActorOptions = {
+					spriteTileSize: l_Tiles_16_RenderSize,
+					spriteTileIdStart: tileData.tileId,
+					shape: config.shape,
+					makeCore: actorFactory,
+					debugColor: 0x44008880,
+					collisionType: FLARE,
+					bodyOptions: {
+						shape: {
+							type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
+							solid: false,
+							radius: Std.int(config.hitboxWidth * 0.5),
+							width: config.hitboxWidth,
+							height: config.hitboxHeight,
+						},
+						mass: 1,
+						x: tileX,
+						y: tileY,
+						kinematic: true
+					}
+				};
+
+				var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFrames, solarFlareFramesPerSecond);
+
+				actors.push(obstacle);
+				obstacles.push(obstacle.core.body);
+				obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+				obstacle.core.body.velocity.y = 0;
+			} else {
+				var tileX = cx * l_Tiles_16_GridSize;
+				var tileY = cy * l_Tiles_16_GridSize;
+				var obstacleOptions:ActorOptions = {
+					spriteTileSize: l_Tiles_16_RenderSize,
+					spriteTileIdStart: tileData.tileId,
+					spriteTileIdEnd: config.spriteTileIdEnd,
+					shape: config.shape,
+					makeCore: actorFactory,
+					debugColor: 0x44008880,
+					collisionType: tileData.tileId == 8 ? TARGET : ROCK,
+					bodyOptions: {
+						shape: {
+							type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
+							solid: false,
+							radius: Std.int(config.hitboxWidth * 0.5),
+							width: config.hitboxWidth,
+							height: config.hitboxHeight,
+						},
+						mass: 1,
+						x: tileX,
+						y: tileY,
+						kinematic: true
+					}
+				};
+
+				var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+
+				actors.push(obstacle);
+				obstacles.push(obstacle.core.body);
+				obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+				obstacle.core.body.velocity.y = 0;
+
+				switch tileData.flipBits {
+					case 1:
+						obstacle.core.sprite.flipX(true);
+					case 2:
+						obstacle.core.sprite.flipY(true);
+					case 3:
+						obstacle.core.sprite.flipX(true);
+						obstacle.core.sprite.flipY(true);
+					case _:
 						return;
-					}
-
-					var tileX = cx * l_Tiles_16_GridSize;
-					var tileY = cy * l_Tiles_16_GridSize;
-					var obstacleOptions:ActorOptions = {
-						spriteTileSize: l_Tiles_16_RenderSize,
-						spriteTileIdStart: tileData.tileId,
-						spriteTileIdEnd: config.spriteTileIdEnd,
-						shape: config.shape,
-						makeCore: actorFactory,
-						debugColor: 0x44008880,
-						collisionType: tileData.tileId == 8 ? TARGET : ROCK,
-						bodyOptions: {
-							shape: {
-								type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,
-								solid: false,
-								radius: Std.int(config.hitboxWidth * 0.5),
-								width: config.hitboxWidth,
-								height: config.hitboxHeight,
-							},
-							mass: 1,
-							x: tileX,
-							y: tileY,
-							kinematic: true
-						}
-					};
-
-					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
-
-					actors.push(obstacle);
-					obstacles.push(obstacle.core.body);
-					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
-					obstacle.core.body.velocity.y = 0;
-
-					switch tileData.flipBits {
-						case 1: obstacle.core.sprite.flipX(true);
-						case 2: obstacle.core.sprite.flipY(true);
-						case 3:
-							obstacle.core.sprite.flipX(true);
-							obstacle.core.sprite.flipY(true);
-						case _: return;
-					}
 				}
+			}
+		}
 	}
 }
