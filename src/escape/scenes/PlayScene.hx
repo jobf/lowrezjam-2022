@@ -124,8 +124,17 @@ class PlayScene extends FullScene {
 			// register ship and sun collisions
 			world.listen(ship.core.body, sun.core.body, {
 				enter: (shipBody, sunBody, collisionData) -> {
-					sunBody.collider.collideWith(shipBody, emitter);
+					// sunBody.collider.collideWith(shipBody, emitter);
 					shipBody.collider.collideWith(sunBody, emitter);
+				},
+			});
+
+			// register obstacle and sun collisions
+			world.listen(sun.core.body, level.obstacles, {
+				enter: (sunBody, obstacleBody, collisionData) -> {
+					obstacleBody.collider.collideWith(sunBody, emitter);
+					// trace('hit sun');
+					// sunBody.collider.collideWith(obstacleBody, emitter);
 				},
 			});
 
@@ -148,9 +157,9 @@ class PlayScene extends FullScene {
 		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
-				if (obstacleBody.obstacleConfiguration != null) {
-					ship.core.sprite.shake(app.core.peoteView.time);
-				}
+				// if (obstacleBody.obstacleConfiguration != null) {
+				// 	ship.core.sprite.shake(app.core.peoteView.time);
+				// }
 				obstacleBody.collider.collideWith(shipBody, emitter);
 				shipBody.collider.collideWith(obstacleBody, emitter);
 			},

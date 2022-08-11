@@ -28,7 +28,7 @@ class Main extends App {
 }
 
 class Concepts extends FullScene {
-	static var startLevelIndex:Int = 1;
+	static var startLevelIndex:Int = 0;
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
 		app -> return new PlayScene(app, startLevelIndex),
