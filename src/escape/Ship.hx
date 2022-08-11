@@ -142,6 +142,8 @@ class Ship extends BaseActor {
 		switch collidingBody.collider.type {
 			case ROCK:
 				takeDamageFromObstacle(collidingBody);
+			case FLARE:
+				takeDamageFromObstacle(collidingBody);
 			case SUN:
 				trace('hit sun');
 				takeDamageFromObstacle(collidingBody, true);
