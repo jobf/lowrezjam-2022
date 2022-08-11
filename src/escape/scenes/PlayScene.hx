@@ -207,7 +207,8 @@ class PlayScene extends FullScene {
 
 			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
-			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverScene, new PlayScene(app, levelIndex))));
+			final fadeOutIncrement = 0.4;
+			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverScene, new PlayScene(app, levelIndex))), fadeOutIncrement);
 		}
 
 		if (isLevelEnded && ship.hasShields) {
