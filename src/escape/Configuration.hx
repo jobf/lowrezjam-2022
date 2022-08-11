@@ -542,7 +542,7 @@ class Configuration {
 			// shape: shape,
 			refillSpeed: 0.3,
 			// refillSpeed: refillSpeed,
-			shotCooldown: 0.3,
+			shotCooldown: 0.07,
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,
 			// hitboxHeight: hitboxHeight
