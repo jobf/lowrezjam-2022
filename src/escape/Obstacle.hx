@@ -1,12 +1,13 @@
 package escape;
 
+import tyke.Glyph.randomFloat;
 import tyke.Glyph.randomInt;
 import tyke.Loop;
 import tyke.Graphics;
 import core.Actor;
+import core.Emitter;
 import escape.Configuration;
 import echo.Body;
-import core.Actor.BaseActor;
 
 class Obstacle extends BaseActor {
 	var config:ObstacleConfiguration;
@@ -19,29 +20,41 @@ class Obstacle extends BaseActor {
 		speedMod = 1.0;
 	}
 
-	override function collideWith(body:Body) {
-		super.collideWith(body);
-		switch body.collider.type {
+	override function collideWith(collidingBody:Body, emitter:Emitter) {
+		super.collideWith(collidingBody, emitter);
+		switch collidingBody.collider.type {
 			case PROJECTILE:
-				takeDamage(body);
+				takeDamage(collidingBody, emitter);
 			case VEHICLE:
-				takeDamage(body);
+				takeDamage(collidingBody, emitter);
 			case _:
 				return;
 		}
 	}
 
-	function takeDamage(body:Body) {
+	function takeDamage(collidingBody:Body, emitter:Emitter) {
+		final sparksTile = 51;
+		final brokenAsteroidTileStart = 48;
+		if (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET) {
+			
+			var particleTile = core.body.obstacleConfiguration.isDestructible 
+				? brokenAsteroidTileStart + randomInt(2)
+				: sparksTile;
+
+			trace('hit obstacle, emit $particleTile');
+			emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, -150), particleTile);
+		}
+		
 		if (config.isDestructible) {
-			if(body.collider.type == VEHICLE && core.body.collider.type == TARGET){
+			if (collidingBody.collider.type == VEHICLE && core.body.collider.type == TARGET) {
 				// do nothin
-			}
-			else{
+			} else {
 				kill();
-				if(core.body.collider.type == TARGET){
-					// should still be alive so it can track movement - crap fix but whatever
-					isAlive = true;
-				}
+			}
+
+			if (core.body.collider.type == TARGET) {
+				// should still be alive so it can track movement - crap fix but whatever
+				isAlive = true;
 			}
 		}
 	}
@@ -56,17 +69,15 @@ class Obstacle extends BaseActor {
 	public function setSpeedMod(speedMod:Float) {
 		this.speedMod = speedMod;
 	}
-
 }
 
-
-class Flare extends Obstacle{	
+class Flare extends Obstacle {
 	var refreshFrameCountdown:CountDown;
 	var totalFrames:Int;
 	var currentFrame:Int = 0;
 	var frames:Array<Int>;
-    public var isComplete(get, null):Bool;
-	
+
+	public var isComplete(get, null):Bool;
 
 	function get_isComplete():Bool {
 		return currentFrame >= frames.length - 1;
@@ -77,37 +88,31 @@ class Flare extends Obstacle{
 		this.frames = frames;
 		totalFrames = frames.length;
 		refreshFrameCountdown = new CountDown(1 / framesPerSecond, () -> advanceFrame(), true);
-		currentFrame = frames.indexOf(core.sprite.tile);//randomInt(frames.length - 1);
+		currentFrame = frames.indexOf(core.sprite.tile); // randomInt(frames.length - 1);
 		core.sprite.tile = frames[currentFrame];
 		trace('starting frame index $currentFrame starting tile id ${core.sprite.tile}');
 		core.body.collider.isActive = false;
 	}
 
-    override function update(elapsedSeconds:Float){
+	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		refreshFrameCountdown.update(elapsedSeconds);
-		if(isComplete){
+		if (isComplete) {
 			currentFrame = 0;
 		}
 		core.sprite.tile = frames[currentFrame];
 		core.body.collider.isActive = currentFrame >= 5;
-    }
-
+	}
 
 	function advanceFrame() {
-        currentFrame++;
+		currentFrame++;
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 
-
 	// override function collideWith(body:Body) {
 	// 	// super.collideWith(body);
-
 	// }
-
 }
-
-
 
 @:structInit
 class ObstacleConfiguration {
@@ -140,7 +145,6 @@ class ObstacleConfiguration {
 		if the obstacle should let projectiles pass through (otherwise projectil is destroyed)
 	**/
 	public var letProjectileThrough:Bool = false;
-
 
 	/**
 		how much damage the obstacle inflicts on a ship when colliding

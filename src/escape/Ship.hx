@@ -6,6 +6,7 @@ import echo.data.Types.ShapeType;
 import tyke.Loop;
 import echo.Body;
 import core.Actor;
+import core.Emitter;
 // import escape.HudFun.Hud;
 import escape.Hud;
 
@@ -132,18 +133,18 @@ class Ship extends BaseActor {
 		isShooting = isDown;
 	}
 
-	override function collideWith(body:Body) {
-		super.collideWith(body);
+	override function collideWith(collidingBody:Body, emitter:Emitter) {
+		super.collideWith(collidingBody, emitter);
 
 		if (!hasShields)
 			return;
 
-		switch body.collider.type {
+		switch collidingBody.collider.type {
 			case ROCK:
-				takeDamageFromObstacle(body);
+				takeDamageFromObstacle(collidingBody);
 			case SUN:
 				trace('hit sun');
-				takeDamageFromObstacle(body, true);
+				takeDamageFromObstacle(collidingBody, true);
 			case _:
 				trace('unhandled collision');
 				return;

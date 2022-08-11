@@ -93,7 +93,7 @@ class BaseActor {
 		}
 
 		// handle collisions with body
-		core.body.collider = new Collider(options.collisionType, body -> collideWith(body));
+		core.body.collider = new Collider(options.collisionType, (body, emitter) -> collideWith(body, emitter));
 
 		if(options.bodyRegisterInWorldsIsAutomatic){
 			// register body in world
@@ -117,7 +117,7 @@ class BaseActor {
 		core.body.velocity.y = 0;
 	}
 
-	function collideWith(body:Body) {
+	function collideWith(body:Body, emitter:Emitter) {
 		// override me
 	}
 

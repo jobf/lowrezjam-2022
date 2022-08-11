@@ -124,8 +124,8 @@ class PlayScene extends FullScene {
 			// register ship and sun collisions
 			world.listen(ship.core.body, sun.core.body, {
 				enter: (shipBody, sunBody, collisionData) -> {
-					sunBody.collider.collideWith(shipBody);
-					shipBody.collider.collideWith(sunBody);
+					sunBody.collider.collideWith(shipBody, emitter);
+					shipBody.collider.collideWith(sunBody, emitter);
 				},
 			});
 
@@ -144,33 +144,23 @@ class PlayScene extends FullScene {
 		});
 		controller.enable();
 
+		emitter = new Emitter(emitterTiles);
 		// register ship and obstacle collisions
 		world.listen(ship.core.body, level.obstacles, {
 			enter: (shipBody, obstacleBody, collisionData) -> {
 				if (obstacleBody.obstacleConfiguration != null) {
-					if (!obstacleBody.obstacleConfiguration.letProjectileThrough) {
-						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
-						emitter.emit(obstacleBody.x, obstacleBody.y, shipBody.velocity.x, randomFloat(0, -150), tileId);
-						ship.core.sprite.shake(app.core.peoteView.time);
-					}
+					ship.core.sprite.shake(app.core.peoteView.time);
 				}
-				obstacleBody.collider.collideWith(shipBody);
-				shipBody.collider.collideWith(obstacleBody);
+				obstacleBody.collider.collideWith(shipBody, emitter);
+				shipBody.collider.collideWith(obstacleBody, emitter);
 			},
 		});
 
-		emitter = new Emitter(emitterTiles);
 		// register projectile and obstacle collisions
 		world.listen(ship.weapon.projectiles, level.obstacles, {
 			enter: (projectileBody, obstacleBody, collisionData) -> {
-				if (obstacleBody.obstacleConfiguration != null) {
-					if (!obstacleBody.obstacleConfiguration.letProjectileThrough) {
-						var tileId = obstacleBody.obstacleConfiguration.isDestructible ? 48 + randomInt(2) : 51;
-						emitter.emit(obstacleBody.x, obstacleBody.y, projectileBody.velocity.x, randomFloat(0, -150), tileId);
-					}
-				}
-				obstacleBody.collider.collideWith(projectileBody);
-				projectileBody.collider.collideWith(obstacleBody);
+				obstacleBody.collider.collideWith(projectileBody, emitter);
+				projectileBody.collider.collideWith(obstacleBody, emitter);
 			},
 		});
 
