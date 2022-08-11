@@ -224,7 +224,8 @@ class Configuration {
 			hitboxWidth: 6,
 			hitboxHeight: 6,
 			isDestructible: true,
-			damagePoints: 1
+			damagePoints: 1,
+			numParticles: 2
 		},
 		3 => {
 			shape: CIRCLE,
@@ -248,7 +249,8 @@ class Configuration {
 			hitboxHeight: 6,
 			velocityModX: 0.5,
 			isDestructible: true,
-			damagePoints: 1
+			damagePoints: 1,
+			numParticles: 3
 		},
 		6 => {
 			shape: CIRCLE,
