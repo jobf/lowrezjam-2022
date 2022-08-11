@@ -23,9 +23,17 @@ class Configuration {
 			ldtk_level_id: 4,
 			nextLevel: NextLevel(1),
 			cutSceneConfig: {
-				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10, 10],
+				frames: [for (i in 0...78) i],
 				framesPerSecond: 6,
-				framesAssetPath: "assets/cutScenes/test-frames-leave-earth.png",
+				framesAssetPath: "assets/cutScenes/level-1-preview.png",
+				frameWidth: 200,
+				frameHeight: 200,
+				sceneWidth: 200,
+				sceneHeight: 128,
+				changes: [{
+					change: SetPosition(32, 63),
+					animFrameIndex: 0
+				}]
 			}
 		},
 		{
@@ -33,11 +41,17 @@ class Configuration {
 			ldtk_level_id: 5,
 			nextLevel: NextLevel(2),
 			cutSceneConfig: {
-				frames: [
-					2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
-				],
-				framesPerSecond: 6,
-				framesAssetPath: "assets/cutScenes/test-frames-leave-asteroid.png",
+				frames: [for (i in 0...67) i],
+				framesPerSecond: ,
+				framesAssetPath: "assets/cutScenes/level-2-preview.png",
+				frameWidth: 128,
+				frameHeight: 128,
+				sceneWidth: 128,
+				sceneHeight: 128,
+				changes: [{
+					change: SetPosition(32, 63),
+					animFrameIndex: 0
+				}]
 			}
 		},
 		{
@@ -64,6 +78,20 @@ class Configuration {
 		framesAssetPath: "assets/cutScenes/control-room-cut-16-sheet.png",
 		frameWidth: 145,
 		frameHeight: 145,
+	};
+
+	public static var level2:CutSceneConfiguration = {
+		frames: [for (i in 0...161) i],
+		framesPerSecond: 8,
+		framesAssetPath: "assets/cutScenes/level-2.png",
+		frameWidth: 128,
+		frameHeight: 64,
+		sceneWidth: 128,
+		sceneHeight: 64,
+		// changes: [{
+		// 	change: SetPosition(70, 94),
+		// 	animFrameIndex: 0
+		// }]
 	};
 
 	public static var winTheGame:CutSceneConfiguration = {
