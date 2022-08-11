@@ -8,6 +8,8 @@ import core.Actor;
 class Sun extends BaseActor{
     public function new(system:ActorSystem){
         final sunDiameter = 512;
+        var sizeOffset = -(512/2);
+        final startPosition = 2;
         super({
             spriteTileSize: 0,  // not using sprite for the sun
             spriteTileIdStart: 0,    // not using sprite for the sun
@@ -24,7 +26,7 @@ class Sun extends BaseActor{
                     height: sunDiameter,
                 },
                 mass: 1,
-                x: -184,
+                x: sizeOffset + startPosition,
                 y: 32,
                 kinematic: true,
                 velocity_x: 1.8
