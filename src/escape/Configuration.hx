@@ -224,7 +224,8 @@ class Configuration {
 			hitboxWidth: 6,
 			hitboxHeight: 6,
 			isDestructible: true,
-			damagePoints: 1
+			damagePoints: 1,
+			numParticles: 2
 		},
 		3 => {
 			shape: CIRCLE,
@@ -248,7 +249,8 @@ class Configuration {
 			hitboxHeight: 6,
 			velocityModX: 0.5,
 			isDestructible: true,
-			damagePoints: 1
+			damagePoints: 1,
+			numParticles: 3
 		},
 		6 => {
 			shape: CIRCLE,
@@ -542,7 +544,7 @@ class Configuration {
 			// shape: shape,
 			refillSpeed: 0.3,
 			// refillSpeed: refillSpeed,
-			shotCooldown: 0.3,
+			shotCooldown: 0.07,
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,
 			// hitboxHeight: hitboxHeight
@@ -551,8 +553,8 @@ class Configuration {
 			velocityXMod: 0.2,
 			totalShots: 3,
 			spriteTileIdStart: 25,
-			shotCooldown: 4.0,
-			refillSpeed: 1000.0, // so long it never refills
+			shotCooldown: 1.0,
+			refillSpeed: 3.0, // so long it never refills
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,
 			// hitboxHeight: hitboxHeight

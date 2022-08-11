@@ -36,13 +36,13 @@ class Obstacle extends BaseActor {
 		final sparksTile = 51;
 		final brokenAsteroidTileStart = 48;
 		if (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET) {
-			
-			var particleTile = core.body.obstacleConfiguration.isDestructible 
-				? brokenAsteroidTileStart + randomInt(2)
-				: sparksTile;
-
-			trace('hit obstacle, emit $particleTile');
-			emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, -150), particleTile);
+			// trace('hit obstacle, emit $particleTile');
+			for(i in 0...core.body.obstacleConfiguration.numParticles){
+				var particleTile = core.body.obstacleConfiguration.isDestructible 
+					? brokenAsteroidTileStart + randomInt(2)
+					: sparksTile;
+				emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
+			}
 		}
 		
 		if (config.isDestructible) {
@@ -142,6 +142,11 @@ class ObstacleConfiguration {
 	public var isDestructible:Bool;
 
 	/**
+		how many particles to make if destroyef
+	**/
+	public var numParticles:Int = 1;
+
+	/**
 		if the obstacle should let projectiles pass through (otherwise projectil is destroyed)
 	**/
 	public var letProjectileThrough:Bool = false;
@@ -156,4 +161,5 @@ class ObstacleConfiguration {
 		-1 means the sprite will no longer be visible
 	**/
 	public var spriteTileIdEnd:Int = -1;
+
 }
