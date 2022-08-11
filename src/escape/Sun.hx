@@ -1,5 +1,6 @@
 package escape;
 
+import tyke.Graphics.ShapeRenderer;
 import echo.Body;
 import tyke.Graphics.Geometry;
 import echo.data.Types.ShapeType;
@@ -35,8 +36,20 @@ class Sun extends BaseActor{
         system);
 
         core.shape.visible = true;
+    }
 
-        system.shapes.injectIntoProgram("
+	// function makeCore(options:ActorOptions, system:ActorSystem):ActorCore{
+    //     return {
+    //         sprite: system.tiles.makeSprite(0,0,1,0,0,false),
+    //         shape: Geometry.CIRCLE,
+    //         bodyOptions: options.bodyOptions,
+    //         body: new Body()
+    //     }
+    // }
+}
+
+function addLavaFragment(shapeRenderer:ShapeRenderer){
+	shapeRenderer.injectIntoProgram("
 		// random2 function by Patricio Gonzalez
 		vec2 random2(vec2 st){
 			st = vec2( dot(st,vec2(127.1,311.7)),
@@ -84,17 +97,7 @@ class Sun extends BaseActor{
 		}
 		");
 
-		system.shapes.setColorFormula("
+		shapeRenderer.setColorFormula("
 		sun(compose(color, shape, sides))
 		");
-    }
-
-	// function makeCore(options:ActorOptions, system:ActorSystem):ActorCore{
-    //     return {
-    //         sprite: system.tiles.makeSprite(0,0,1,0,0,false),
-    //         shape: Geometry.CIRCLE,
-    //         bodyOptions: options.bodyOptions,
-    //         body: new Body()
-    //     }
-    // }
 }

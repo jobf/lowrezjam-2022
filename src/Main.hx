@@ -1,3 +1,4 @@
+import escape.Sun.addLavaFragment;
 import peote.view.Color;
 import escape.scenes.BaseScene;
 import escape.Configuration;
@@ -27,7 +28,7 @@ class Main extends App {
 }
 
 class Concepts extends FullScene {
-	static var startLevelIndex:Int = 2;
+	static var startLevelIndex:Int = 1;
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
 		app -> return new PlayScene(app, startLevelIndex),
@@ -115,6 +116,8 @@ class FullScene extends Scene {
 
 		starRenderer = stage.createShapeRenderLayer("stars", false, true, this.width, this.height);
 		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 64, 1, true);
+		lavaRenderer = stage.createShapeRenderLayer("lava");
+		addLavaFragment(lavaRenderer);
 		tiles640px = stage.createSpriteRendererFor("assets/sprites/640x640-sun-surface.png", 640, 640, true, 640, 640);
 		
 		spaceLevelTilesFar = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "far");
@@ -214,6 +217,9 @@ class FullScene extends Scene {
 			gridRenderer.makeRectangle(x * gap, 0, 1, h, 0.0, color);
 		}
 	}
+
+
+	var lavaRenderer:ShapeRenderer;
 }
 
 class TestScene extends FullScene{
