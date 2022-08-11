@@ -40,7 +40,7 @@ class Ship extends BaseActor {
 		takeDamageCountdown = new CountDown(0.75, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
 
-		weaponUseCountdown = new CountDown(0.1, () -> resetCanUseWeapon(), false);
+		weaponUseCountdown = new CountDown(projectileConfig.shotCooldown, () -> resetCanUseWeapon(), false);
 		behaviours.push(weaponUseCountdown);
 		hasShields = true;
 		// core.sprite.z = 0;

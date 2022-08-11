@@ -551,8 +551,8 @@ class Configuration {
 			velocityXMod: 0.2,
 			totalShots: 3,
 			spriteTileIdStart: 25,
-			shotCooldown: 4.0,
-			refillSpeed: 1000.0, // so long it never refills
+			shotCooldown: 1.0,
+			refillSpeed: 3.0, // so long it never refills
 			// isDestructible: isDestructible,
 			// hitboxWidth: hitboxWidth,
 			// hitboxHeight: hitboxHeight
