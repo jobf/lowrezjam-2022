@@ -252,6 +252,7 @@ class Configuration {
 			hitboxWidth: 6,
 			hitboxHeight: 6,
 			isDestructible: false,
+			letProjectileThrough: true,
 			damagePoints: 1
 		},
 		10 => {

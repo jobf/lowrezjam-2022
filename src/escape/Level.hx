@@ -108,7 +108,7 @@ class Level {
 				shape: config.shape,
 				makeCore: actorFactory,
 				debugColor: 0x44008880,
-				collisionType: ROCK,
+				collisionType: FLARE,
 				bodyOptions: {
 					shape: {
 						type: config.shape == CIRCLE ? ShapeType.CIRCLE : ShapeType.RECT,

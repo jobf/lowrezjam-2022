@@ -5,6 +5,7 @@ import echo.data.Types;
 import echo.Body;
 import tyke.Loop;
 import core.Actor;
+import core.Emitter;
 
 class Weapon {
 	var projectileActorSystem:ActorSystem;
@@ -142,13 +143,13 @@ class Projectile extends BaseActor {
 		}, system);
 	}
 
-	override function collideWith(body:Body) {
-		super.collideWith(body);
-		switch body.collider.type {
+	override function collideWith(collidingBody:Body, emitter:Emitter) {
+		super.collideWith(collidingBody, emitter);
+		switch collidingBody.collider.type {
 			case ROCK:
-				endUse(body);
+				endUse(collidingBody);
 			case TARGET:
-				endUse(body);
+				endUse(collidingBody);
 			case _:
 				return;
 		}
