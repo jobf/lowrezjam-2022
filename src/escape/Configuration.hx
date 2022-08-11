@@ -42,7 +42,7 @@ class Configuration {
 			nextLevel: NextLevel(2),
 			cutSceneConfig: {
 				frames: [for (i in 0...67) i],
-				framesPerSecond: ,
+				framesPerSecond: 4,
 				framesAssetPath: "assets/cutScenes/level-2-preview.png",
 				frameWidth: 128,
 				frameHeight: 128,
