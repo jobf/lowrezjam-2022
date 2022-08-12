@@ -140,7 +140,7 @@ class PlayScene extends FullScene {
 
 			audio.playMusic('assets/audio/bg-a-147bpm.ogg');
 		} else {
-			var bg = level.levelStyle == Neutralize ? "f" : "b";
+			var bg = level.levelStyle == Neutralize ? "g" : "b"; //f
 			audio.playMusic('assets/audio/bg-$bg.ogg');
 		}
 
