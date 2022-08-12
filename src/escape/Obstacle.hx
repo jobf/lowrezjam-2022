@@ -28,28 +28,34 @@ class Obstacle extends BaseActor {
 			case VEHICLE:
 				takeDamage(collidingBody, emitter);
 			case SUN:
-				takeDamage(collidingBody, emitter);
+				takeDamage(collidingBody, emitter, true);
 			case _:
 				return;
 		}
 	}
 
-	function takeDamage(collidingBody:Body, emitter:Emitter) {
+	function takeDamage(collidingBody:Body, emitter:Emitter, isHittingSun:Bool=false) {
 		final sparksTile = 51;
 		final brokenAsteroidTileStart = 48;
-		if (collidingBody.collider.type == SUN 
-			|| (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET)
-			) {
-			// trace('hit obstacle, emit $particleTile');
+		
+		var shouldEmit = isHittingSun 
+			|| (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET);
+		
+		if (shouldEmit) {
 			for(i in 0...core.body.obstacleConfiguration.numParticles){
-				var particleTile = core.body.obstacleConfiguration.isDestructible 
-					? brokenAsteroidTileStart + randomInt(2)
-					: sparksTile;
+				
+				var particleTile = isHittingSun ? brokenAsteroidTileStart + randomInt(2)
+					: core.body.obstacleConfiguration.isDestructible
+						? brokenAsteroidTileStart + randomInt(2)
+						: sparksTile;
+
+				trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
+				
 				emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
 			}
 		}
 		
-		if (config.isDestructible) {
+		if (config.isDestructible || isHittingSun) {
 			if (collidingBody.collider.type == VEHICLE && core.body.collider.type == TARGET) {
 				// do nothin
 			} else {
