@@ -18,8 +18,8 @@ class Level {
 	var levelId:Int;
 	var obstacleSystems:Array<ActorSystem> = [];
 	final solarFlareTileId:Int = 9;
-	final solarFlareFramesPerSecond:Int = 3;
-	final solarFlareFrames = [56, 57, 58, 59, 60, 61, 62, 63];
+	final solarFlareFramesPerSecond:Int = 12;
+	var solarFlareFrames:Array<Int> =[for(i in 56...79) i];
 
 	public var obstacles(default, null):Array<Body>;
 	public var actors(default, null):Array<Obstacle> = [];
@@ -74,6 +74,8 @@ class Level {
 			},
 
 		];
+
+		solarFlareFramesPadded = [79,79,79,79].concat(solarFlareFrames);
 
 		// set up Obstacles ( rocks, targets, flares etc . . . )
 		LevelLoader.renderLayer(spaceMaps.levels[levelId].l_Tiles_16, (stack, cx, cy) -> {
@@ -131,7 +133,10 @@ class Level {
 
 	function initObstacle(tileData:{tileId:Int, flipBits:Int}, cx:Int, cy:Int, l_Tiles_16_GridSize:Int, l_Tiles_16_RenderSize:Int, obstacleSystem:ActorSystem) {
 				
-		var tileId = tileData.tileId >= solarFlareFrames[0] ?solarFlareTileId : tileData.tileId;
+		var tileId = tileData.tileId >= solarFlareFrames[0] 
+			? solarFlareTileId 
+			: tileData.tileId;
+
 		var config = Configuration.obstacles[tileId];
 		if (config == null) {
 			trace('!!! no config for tile Id ${tileData.tileId}');
@@ -164,7 +169,7 @@ class Level {
 					}
 				};
 
-				var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFrames, solarFlareFramesPerSecond);
+				var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFramesPadded, solarFlareFramesPerSecond);
 
 				actors.push(obstacle);
 				obstacles.push(obstacle.core.body);
@@ -217,4 +222,6 @@ class Level {
 			}
 		}
 	}
+
+	var solarFlareFramesPadded:Array<Int>;
 }

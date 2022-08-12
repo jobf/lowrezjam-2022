@@ -111,7 +111,7 @@ class Flare extends Obstacle {
 			currentFrame = 0;
 		}
 		core.sprite.tile = frames[currentFrame];
-		core.body.collider.isActive = currentFrame >= 5;
+		core.body.collider.isActive = core.sprite.tile >= 64 && core.sprite.tile <= 74;
 	}
 
 	function advanceFrame() {
