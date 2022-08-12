@@ -28,8 +28,8 @@ class Emitter {
 
 	var particles:Array<Particle> = [];
 
+	var maxParticles:Int = 20;
 	public function emit(x:Float, y:Float, x_vel:Float, y_vel:Float, tileId:Int) {
-		var maxParticles:Int = 20;
 		if (particles.length < maxParticles) {
 			var sprite = tiles.makeSprite(Std.int(x), Std.int(y), 16, tileId);
 			var p:Particle = {
