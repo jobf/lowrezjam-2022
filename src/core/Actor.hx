@@ -65,7 +65,7 @@ function actorFactory(options:ActorOptions, actorSystem:ActorSystem):ActorCore {
 
 class BaseActor {
 	public var core(default, null):ActorCore;
-
+	public var isDangerous(default, null):Bool = false;
 	var options:ActorOptions;
 	var behaviours:Array<CountDown>;
 	

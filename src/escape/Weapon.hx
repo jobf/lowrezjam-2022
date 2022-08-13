@@ -141,6 +141,7 @@ class Projectile extends BaseActor {
 				velocity_y: 0,
 			}
 		}, system);
+		isDangerous = true;
 	}
 
 	override function collideWith(collidingBody:Body, emitter:Emitter) {
@@ -158,6 +159,7 @@ class Projectile extends BaseActor {
 	function endUse(body:Body) {
 		if(!body.obstacleConfiguration.letProjectileThrough){
 			// todo - proper destroy function ?
+				trace('projectil ended');
 				kill();
 		}
 	}
