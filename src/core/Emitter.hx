@@ -75,6 +75,7 @@ class Emitter {
 					p.body.velocity.x = x_vel;
 					p.body.velocity.y = y_vel;
 					p.body.rotational_velocity = randomFloat(100, 300);
+					p.sprite.tile = tileId;
 					break;
 				}
 			}
