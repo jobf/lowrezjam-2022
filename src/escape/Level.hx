@@ -46,7 +46,7 @@ class Level {
 		trace('level style $levelStyle');
 	}
 
-	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, tileRenderers:Array<SpriteRenderer>) {
+	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, tileRenderers:Array<SpriteRenderer>, soundEffects:SoundEffects) {
 		this.levelTiles = levelTiles;
 		this.world = world;
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
@@ -58,19 +58,22 @@ class Level {
 				world: world,
 				tiles: tileRenderers[0],
 				shapes: debugRenderer,
-				peoteView: peoteView
+				peoteView: peoteView,
+				soundEffects: soundEffects
 			},
 			{
 				world: world,
 				tiles: tileRenderers[1],
 				shapes: debugRenderer,
-				peoteView: peoteView
+				peoteView: peoteView,
+				soundEffects: soundEffects
 			},
 			{
 				world: world,
 				tiles: tileRenderers[2],
 				shapes: debugRenderer,
-				peoteView: peoteView
+				peoteView: peoteView,
+				soundEffects: soundEffects
 			},
 
 		];
@@ -169,7 +172,7 @@ class Level {
 					}
 				};
 
-				var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFramesPadded, solarFlareFramesPerSecond);
+				var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystems[1], config, solarFlareFramesPadded, solarFlareFramesPerSecond);
 
 				actors.push(obstacle);
 				obstacles.push(obstacle.core.body);
@@ -201,24 +204,37 @@ class Level {
 					}
 				};
 
-				var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+				if(obstacleOptions.collisionType == TARGET){
+					trace('added TARGET');
+					final targetFrames = [8].concat([for(i in 88...88+8) i]);
+					final targetFps = 8;
+					final autoPlayAnimation = false;
 
-				actors.push(obstacle);
-				obstacles.push(obstacle.core.body);
-				obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
-				obstacle.core.body.velocity.y = 0;
-
-				switch tileData.flipBits {
-					case 1:
-						obstacle.core.sprite.flipX(true);
-					case 2:
-						obstacle.core.sprite.flipY(true);
-					case 3:
-						obstacle.core.sprite.flipX(true);
-						obstacle.core.sprite.flipY(true);
-					case _:
-						return;
+					var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystem, config, targetFrames, targetFps, autoPlayAnimation);
+					actors.push(obstacle);
+					obstacles.push(obstacle.core.body);
+					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+					obstacle.core.body.velocity.y = 0;
 				}
+				else{
+					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+					actors.push(obstacle);
+					obstacles.push(obstacle.core.body);
+					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+					obstacle.core.body.velocity.y = 0;
+				}
+
+				// switch tileData.flipBits {
+				// 	case 1:
+				// 		obstacle.core.sprite.flipX(true);
+				// 	case 2:
+				// 		obstacle.core.sprite.flipY(true);
+				// 	case 3:
+				// 		obstacle.core.sprite.flipX(true);
+				// 		obstacle.core.sprite.flipY(true);
+				// 	case _:
+				// 		return;
+				// }
 			}
 		}
 	}

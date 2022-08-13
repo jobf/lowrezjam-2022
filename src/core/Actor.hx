@@ -1,5 +1,6 @@
 package core;
 
+import escape.SoundEffects;
 import core.Collider;
 import peote.view.PeoteView;
 import tyke.Graphics;
@@ -15,6 +16,7 @@ class ActorSystem {
 	public var shapes:ShapeRenderer;
 	public var world:World;
 	public var peoteView:PeoteView;
+	public var soundEffects:SoundEffects;
 }
 
 @:structInit
@@ -75,6 +77,7 @@ class BaseActor {
 
 	public function new(options:ActorOptions, system:ActorSystem) {
 		this.options = options;
+		this.system = system;
 		core = options.makeCore(options, system);
 		behaviours = [];
 
@@ -156,4 +159,6 @@ class BaseActor {
 	}
 
 	public var isAlive:Bool = true;
+
+	var system:ActorSystem;
 }

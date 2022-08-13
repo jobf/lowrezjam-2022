@@ -22,6 +22,7 @@ class Obstacle extends BaseActor {
 
 	override function collideWith(collidingBody:Body, emitter:Emitter) {
 		super.collideWith(collidingBody, emitter);
+		trace('obstacle hit by ${collidingBody.collider.type}');
 		switch collidingBody.collider.type {
 			case PROJECTILE:
 				takeDamage(collidingBody, emitter);
@@ -42,6 +43,7 @@ class Obstacle extends BaseActor {
 			|| (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET);
 		
 		if (shouldEmit) {
+			var isRockCracking = false;
 			for(i in 0...core.body.obstacleConfiguration.numParticles){
 				
 				var particleTile = isHittingSun ? brokenAsteroidTileStart + randomInt(2)
@@ -49,9 +51,13 @@ class Obstacle extends BaseActor {
 						? brokenAsteroidTileStart + randomInt(2)
 						: sparksTile;
 
-				trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
+				isRockCracking = particleTile != sparksTile;
+				// trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
 				
 				emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
+			}
+			if(isRockCracking){
+				system.soundEffects.playSound(CrackRock);
 			}
 		}
 		
@@ -60,12 +66,16 @@ class Obstacle extends BaseActor {
 				// do nothin
 			} else {
 				kill();
+				trace('kill ${core.body.collider.type}');
 			}
+		}
 
-			if (core.body.collider.type == TARGET) {
-				// should still be alive so it can track movement - crap fix but whatever
-				isAlive = true;
-			}
+		if (core.body.collider.type == TARGET) {
+			// should still be alive so it can track movement - crap fix but whatever
+			isAlive = true;
+			var anim:AnimatedObstacle = cast this;
+			anim.startAnimation();
+			trace('play target anim ${anim}');
 		}
 	}
 
@@ -79,9 +89,10 @@ class Obstacle extends BaseActor {
 	public function setSpeedMod(speedMod:Float) {
 		this.speedMod = speedMod;
 	}
+
 }
 
-class Flare extends Obstacle {
+class AnimatedObstacle extends Obstacle {
 	var refreshFrameCountdown:CountDown;
 	var totalFrames:Int;
 	var currentFrame:Int = 0;
@@ -93,25 +104,31 @@ class Flare extends Obstacle {
 		return currentFrame >= frames.length - 1;
 	}
 
-	public function new(options:ActorOptions, system:ActorSystem, config:ObstacleConfiguration, frames:Array<Int>, framesPerSecond:Int) {
+	public function new(options:ActorOptions, system:ActorSystem, config:ObstacleConfiguration, frames:Array<Int>, framesPerSecond:Int, autoPlayLoop:Bool=true) {
 		super(options, system, config);
 		this.frames = frames;
 		totalFrames = frames.length;
-		refreshFrameCountdown = new CountDown(1 / framesPerSecond, () -> advanceFrame(), true);
+		refreshFrameCountdown = new CountDown(1 / framesPerSecond, () -> advanceFrame(), autoPlayLoop);
+		isLooped = autoPlayLoop;
+		if(!autoPlayLoop){
+			refreshFrameCountdown.stop();
+		}
 		currentFrame = frames.indexOf(core.sprite.tile); // randomInt(frames.length - 1);
 		core.sprite.tile = frames[currentFrame];
-		trace('starting frame index $currentFrame starting tile id ${core.sprite.tile}');
+		// trace('starting frame index $currentFrame starting tile id ${core.sprite.tile}');
 		core.body.collider.isActive = false;
 	}
 
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		refreshFrameCountdown.update(elapsedSeconds);
-		if (isComplete) {
+		if (isComplete && isLooped) {
 			currentFrame = 0;
 		}
 		core.sprite.tile = frames[currentFrame];
-		core.body.collider.isActive = core.sprite.tile >= 64 && core.sprite.tile <= 74;
+		if(isLooped){ // actually isFlare
+			core.body.collider.isActive = core.sprite.tile >= 64 && core.sprite.tile <= 74;
+		}
 	}
 
 	function advanceFrame() {
@@ -119,9 +136,17 @@ class Flare extends Obstacle {
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 
+
+	public function startAnimation() {
+		trace('startAnimation');
+		refreshFrameCountdown.reset();
+	}
+
 	// override function collideWith(body:Body) {
 	// 	// super.collideWith(body);
 	// }
+
+	var isLooped:Bool;
 }
 
 @:structInit

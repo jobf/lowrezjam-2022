@@ -1,3 +1,4 @@
+import escape.SoundEffects;
 import escape.Sun.addLavaFragment;
 import peote.view.Color;
 import escape.scenes.BaseScene;
@@ -33,7 +34,9 @@ class Concepts extends FullScene {
 
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
-		// app -> return new PlayScene(app, startLevelIndex),
+		app -> return new PlayScene(app, startLevelIndex),
+		app -> return new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, startLevelIndex)),
+		app -> return new TestSounds(app),
 		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
 		app -> return new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, startLevelIndex)),
 		app -> return new MovieScene(app, Configuration.introCutSceneA, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
@@ -222,6 +225,23 @@ class FullScene extends Scene {
 
 
 	var lavaRenderer:ShapeRenderer;
+}
+class TestSounds extends FullScene{
+	override function create() {
+		super.create();
+		var soundEffects = new SoundEffects(audio);
+		
+		app.window.onKeyDown.add((code, modifier) -> 
+			switch code{
+				case NUMBER_1: soundEffects.playSound(Sample.CrackRock);
+				case NUMBER_2: soundEffects.playSound(Sample.Explosion);
+				case NUMBER_3: soundEffects.playSound(Sample.Hit);
+				case NUMBER_4: soundEffects.playSound(Sample.LaserShoot);
+				case NUMBER_5: soundEffects.playSound(Sample.Shoot);
+				case _: audio.playSound(Sample.NoAmmo);
+			}
+		);
+	}
 }
 
 class TestScene extends FullScene{

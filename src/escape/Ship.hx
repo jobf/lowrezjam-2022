@@ -18,7 +18,7 @@ class Ship extends BaseActor {
 	public var weapon(default, null):Weapon;
 
 	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer,
-			projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer) {
+			projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer, soundEffects:SoundEffects) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
@@ -30,7 +30,8 @@ class Ship extends BaseActor {
 			world: system.world,
 			tiles: projectileSprites,
 			shapes: system.shapes,
-			peoteView: system.peoteView
+			peoteView: system.peoteView,
+			soundEffects: soundEffects
 		};
 
 		weapon = new Weapon(protectilesSystem, projectileConfig);
@@ -53,10 +54,17 @@ class Ship extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
-		if (isShooting && canUseWeapon) {
-			canUseWeapon = false;
-			weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
-			weaponUseCountdown.reset();
+		if (isShooting) {
+			if(canUseWeapon){
+
+				canUseWeapon = false;
+				weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
+				weaponUseCountdown.reset();
+				system.soundEffects.playSound(Shoot);
+			}
+			else{
+				system.soundEffects.playSound(NoAmmo);
+			}
 		}
 
 		// keep within bounds
@@ -142,6 +150,8 @@ class Ship extends BaseActor {
 		switch collidingBody.collider.type {
 			case ROCK:
 				takeDamageFromObstacle(collidingBody);
+			// case TARGET:
+			// 	takeDamageFromObstacle(collidingBody);
 			case FLARE:
 				takeDamageFromObstacle(collidingBody);
 			case SUN:
@@ -158,13 +168,14 @@ class Ship extends BaseActor {
 
 	function takeDamage() {
 		if (!isInvulnerable && currentShield > 0) {
-			trace('takeDamage');
+			// trace('takeDamage');
 			currentShield--;
 			isInvulnerable = true;
 			core.sprite.setFlashing(true);
 			takeDamageCountdown.reset();
 			@:privateAccess
 			hud.shieldMeterSprite.setFlashing(true);
+			system.soundEffects.playSound(Hit);
 		}
 	}
 
@@ -189,7 +200,7 @@ class Ship extends BaseActor {
 
 	inline function resetTookDamage() {
 		if (isInvulnerable) {
-			trace('resetTookDamage');
+			// trace('resetTookDamage');
 			isInvulnerable = false;
 			core.sprite.setFlashing(false);
 			@:privateAccess
