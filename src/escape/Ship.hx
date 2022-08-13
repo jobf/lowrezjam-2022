@@ -166,7 +166,7 @@ class Ship extends BaseActor {
 
 	function takeDamage() {
 		if (!isInvulnerable && currentShield > 0) {
-			trace('takeDamage');
+			// trace('takeDamage');
 			currentShield--;
 			isInvulnerable = true;
 			core.sprite.setFlashing(true);
@@ -198,7 +198,7 @@ class Ship extends BaseActor {
 
 	inline function resetTookDamage() {
 		if (isInvulnerable) {
-			trace('resetTookDamage');
+			// trace('resetTookDamage');
 			isInvulnerable = false;
 			core.sprite.setFlashing(false);
 			@:privateAccess
