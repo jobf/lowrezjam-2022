@@ -206,8 +206,8 @@ class Level {
 
 				if(obstacleOptions.collisionType == TARGET){
 					trace('added TARGET');
-					final targetFrames = [8].concat([for(i in 88...88+8) i]);
-					final targetFps = 8;
+					final targetFrames = [8].concat([for(i in 88...94) i]).concat([13]);
+					final targetFps = 5;
 					final autoPlayAnimation = false;
 
 					var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystem, config, targetFrames, targetFps, autoPlayAnimation);
