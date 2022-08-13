@@ -78,6 +78,7 @@ class Obstacle extends BaseActor {
 		if (core.body.collider.type == TARGET && collidingBody.collider.type == PROJECTILE) {
 			// should still be alive so it can track movement - crap fix but whatever
 			isAlive = true;
+			core.body.data.isAlive = true;
 			// if(isNeedToPlayEndAnim){
 			// 	isNeedToPlayEndAnim = false;
 			// 	// var anim:AnimatedObstacle = cast this;
@@ -157,7 +158,7 @@ class AnimatedObstacle extends Obstacle {
 	
 	override function collideWith(body:Body, emitter:Emitter) {
 		super.collideWith(body, emitter);
-		if(core.body.collider.type == TARGET && body.collider.type == PROJECTILE){
+		if(core.body.collider.type == TARGET && body.collider.type == PROJECTILE && body.data.isAlive){
 			startAnimation();
 		}
 	}

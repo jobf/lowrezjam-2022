@@ -117,6 +117,7 @@ class ProjectileConfiguration {
 }
 
 class Projectile extends BaseActor {
+	final isActiveWithinX:Int = 72;
 	public function new(system:ActorSystem, x:Int, y:Int, config:ProjectileConfiguration) {
 		super({
 			spriteTileSize: config.spriteTileSize,
@@ -156,6 +157,14 @@ class Projectile extends BaseActor {
 		}
 	}
 
+	override function onMove(x:Float, y:Float) {
+		super.onMove(x, y);
+		if(isAlive && x > this.isActiveWithinX){
+			isAlive = false;
+			core.body.data.isAlive = false;
+			trace('projectil oob');
+		}
+	}
 	function endUse(body:Body) {
 		if(!body.obstacleConfiguration.letProjectileThrough){
 			// todo - proper destroy function ?

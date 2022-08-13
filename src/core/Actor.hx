@@ -82,12 +82,14 @@ class BaseActor {
 		behaviours = [];
 
 		// move graphics with body
-		core.body.on_move = (x, y) -> {
-			core.sprite.x = x;
-			core.sprite.y = y;
-			core.shape.x = x;
-			core.shape.y = y;
-		}
+		core.body.on_move = onMove;
+
+		// core.body.on_move = (x, y) -> {
+		// 	core.sprite.x = x;
+		// 	core.sprite.y = y;
+		// 	core.shape.x = x;
+		// 	core.shape.y = y;
+		// }
 
 		// rotate graphics with body
 		core.body.on_rotate = r -> {
@@ -103,6 +105,9 @@ class BaseActor {
 			system.world.add(core.body);
 		}
 
+		isAlive = true;
+		core.body.data.isAlive = true;
+		
 		#if !debug
 		// only show the debug shape for debugging
 		core.shape.visible = false;
@@ -110,8 +115,10 @@ class BaseActor {
 	}
 
 	public function update(elapsedSeconds:Float) {
-		for (b in behaviours) {
-			b.update(elapsedSeconds);
+		if(isAlive && core.body.data.isAlive){
+			for (b in behaviours) {
+				b.update(elapsedSeconds);
+			}
 		}
 	}
 
@@ -125,9 +132,9 @@ class BaseActor {
 	}
 
 	public function kill(){
-		
 		core.shape.visible = false;
 		isAlive = false;
+		core.body.data.isAlive = false;
 		
 		if(options.spriteTileIdEnd >= 0){
 			core.sprite.tile = options.spriteTileIdEnd;
@@ -161,4 +168,11 @@ class BaseActor {
 	public var isAlive:Bool = true;
 
 	var system:ActorSystem;
+
+	function onMove(x:Float, y:Float){
+		core.sprite.x = x;
+		core.sprite.y = y;
+		core.shape.x = x;
+		core.shape.y = y;
+	}
 }
