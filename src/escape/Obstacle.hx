@@ -116,7 +116,9 @@ class AnimatedObstacle extends Obstacle {
 		currentFrame = frames.indexOf(core.sprite.tile); // randomInt(frames.length - 1);
 		core.sprite.tile = frames[currentFrame];
 		// trace('starting frame index $currentFrame starting tile id ${core.sprite.tile}');
-		core.body.collider.isActive = false;
+		var isFlare = autoPlayLoop;
+
+		core.body.collider.isActive = isFlare ? false : true;
 	}
 
 	override function update(elapsedSeconds:Float) {
@@ -132,7 +134,9 @@ class AnimatedObstacle extends Obstacle {
 	}
 
 	function advanceFrame() {
-		currentFrame++;
+		if(currentFrame < frames.length -1){
+			currentFrame++;
+		}
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 
