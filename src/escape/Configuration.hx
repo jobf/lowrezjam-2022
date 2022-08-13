@@ -59,18 +59,20 @@ class Configuration {
 			ldtk_level_id: 6,
 			nextLevel: GameWin,
 			cutSceneConfig: {
-				frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+				frames: [for (i in 0...12) i],
 				framesPerSecond: 4,
-				framesAssetPath: "assets/cutScenes/test-frames-leave-sun.png",
+				framesAssetPath: "assets/cutScenes/level-3-preview.png",
+				frameWidth: 200,
+				frameHeight: 200,
+				sceneWidth: 200,
+				sceneHeight: 200,
+				changes: [{
+					change: SetPosition(32, 63),
+					animFrameIndex: 0
+				}]
 			}
 		}
 	];
-
-	public static var introCutScene:CutSceneConfiguration = {
-		frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13],
-		framesPerSecond: 3,
-		framesAssetPath: "assets/cutScenes/test-frames-control-room.png",
-	};
 
 	public static var introCutSceneA:CutSceneConfiguration = {
 		frames: [for (i in 0...142) i],
@@ -80,19 +82,6 @@ class Configuration {
 		frameHeight: 145,
 	};
 
-	public static var level2:CutSceneConfiguration = {
-		frames: [for (i in 0...161) i],
-		framesPerSecond: 8,
-		framesAssetPath: "assets/cutScenes/level-2.png",
-		frameWidth: 128,
-		frameHeight: 64,
-		sceneWidth: 128,
-		sceneHeight: 64,
-		// changes: [{
-		// 	change: SetPosition(70, 94),
-		// 	animFrameIndex: 0
-		// }]
-	};
 
 	public static var winTheGame:CutSceneConfiguration = {
 		frames: [for (i in 0...117) i],
@@ -135,6 +124,24 @@ class Configuration {
 		framesPerSecond: 1,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
 		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg"
+	};
+
+	// end-of-the-earth-134x79
+	public static var gameOverShipExplodes:CutSceneConfiguration = {
+		frames: [for (i in 0...13) i],
+		framesPerSecond: 6,
+		framesAssetPath: "assets/cutScenes/game-over-ship-explodes.png",
+		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+		sceneWidth: 200,
+		sceneHeight: 200,
+		frameWidth: 200,
+		frameHeight: 200,
+		changes: [
+			// {
+			// 	framesPerSecond: 3,
+			// 	atFrame: 22
+			// }
+		]
 	};
 
 	// end-of-the-earth-134x79
