@@ -1,5 +1,6 @@
 package core;
 
+import escape.SoundEffects;
 import core.Collider;
 import peote.view.PeoteView;
 import tyke.Graphics;
@@ -15,6 +16,7 @@ class ActorSystem {
 	public var shapes:ShapeRenderer;
 	public var world:World;
 	public var peoteView:PeoteView;
+	public var soundEffects:SoundEffects;
 }
 
 @:structInit

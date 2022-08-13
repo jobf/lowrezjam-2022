@@ -48,6 +48,7 @@ class PlayScene extends FullScene {
 
 	override function create() {
 		super.create();
+		soundEffects = new SoundEffects(audio);
 		// @:privateAccess
 		// stage.globalFrameBuffer.display.xOffset -= 64;
 		// emitterTiles = stage.createSpriteRendererFor("assets/sprites/64x4-tiles.png", 8, 8, true, 640, 640); // tiles14px; //
@@ -65,7 +66,7 @@ class PlayScene extends FullScene {
 			iterations: 2
 		});
 
-		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView, [spaceLevelTilesFar, spaceLevelTiles, spaceLevelTilesNear]);
+		level.initLevel(debugShapes, spaceLevelTiles, world, app.core.peoteView, [spaceLevelTilesFar, spaceLevelTiles, spaceLevelTilesNear], soundEffects);
 
 		var shipOptions:ActorOptions = {
 			spriteTileSize: 14,
@@ -92,7 +93,8 @@ class PlayScene extends FullScene {
 			world: world,
 			tiles: tiles14px,
 			shapes: debugShapes,
-			peoteView: app.core.peoteView
+			peoteView: app.core.peoteView,
+			soundEffects: soundEffects
 		};
 
 		var shipSpeed = 2.0;
@@ -103,7 +105,7 @@ class PlayScene extends FullScene {
 		if (level.levelStyle == Neutralize) {
 			projectileConfig.totalShots = level.countSolarTargets();
 		}
-		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig, projectileSprites);
+		ship = new Ship(shipOptions, shipActorSystem, shipSpeed, maxTravelDistance, hudTiles, projectileConfig, projectileSprites, soundEffects);
 
 		if (level.levelStyle != Neutralize) {
 			background = new StarField(ship, 256, 128, starSpriteRenderer);
@@ -116,7 +118,8 @@ class PlayScene extends FullScene {
 				world: world,
 				tiles: tiles14px,
 				shapes: lavaRenderer,
-				peoteView: app.core.peoteView
+				peoteView: app.core.peoteView,
+				soundEffects: soundEffects
 			};
 
 			sun = new Sun(sunActorSystem);
@@ -258,4 +261,6 @@ class PlayScene extends FullScene {
 	var emitterTiles:SpriteRenderer;
 
 	var emitter:Emitter;
+
+	var soundEffects:SoundEffects;
 }

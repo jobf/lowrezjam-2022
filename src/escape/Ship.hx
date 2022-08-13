@@ -18,7 +18,7 @@ class Ship extends BaseActor {
 	public var weapon(default, null):Weapon;
 
 	public function new(options:ActorOptions, system:ActorSystem, speed:Float, maxTravelDistance:Int, hudTiles:SpriteRenderer,
-			projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer) {
+			projectileConfig:ProjectileConfiguration, projectileSprites:SpriteRenderer, soundEffects:SoundEffects) {
 		super(options, system);
 		this.speed = speed;
 		this.maxTravelDistance = maxTravelDistance;
@@ -30,7 +30,8 @@ class Ship extends BaseActor {
 			world: system.world,
 			tiles: projectileSprites,
 			shapes: system.shapes,
-			peoteView: system.peoteView
+			peoteView: system.peoteView,
+			soundEffects: soundEffects
 		};
 
 		weapon = new Weapon(protectilesSystem, projectileConfig);

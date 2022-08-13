@@ -34,7 +34,7 @@ class Concepts extends FullScene {
 
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
-		// app -> return new PlayScene(app, startLevelIndex),
+		app -> return new PlayScene(app, startLevelIndex),
 		app -> return new TestSounds(app),
 		app -> return new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, startLevelIndex)),
 		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),

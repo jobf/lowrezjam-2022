@@ -46,7 +46,7 @@ class Level {
 		trace('level style $levelStyle');
 	}
 
-	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, tileRenderers:Array<SpriteRenderer>) {
+	public function initLevel(debugRenderer:ShapeRenderer, levelTiles:SpriteRenderer, world:World, peoteView:PeoteView, tileRenderers:Array<SpriteRenderer>, soundEffects:SoundEffects) {
 		this.levelTiles = levelTiles;
 		this.world = world;
 		var l_Tiles_16 = spaceMaps.levels[levelId].l_Tiles_16;
@@ -58,19 +58,22 @@ class Level {
 				world: world,
 				tiles: tileRenderers[0],
 				shapes: debugRenderer,
-				peoteView: peoteView
+				peoteView: peoteView,
+				soundEffects: soundEffects
 			},
 			{
 				world: world,
 				tiles: tileRenderers[1],
 				shapes: debugRenderer,
-				peoteView: peoteView
+				peoteView: peoteView,
+				soundEffects: soundEffects
 			},
 			{
 				world: world,
 				tiles: tileRenderers[2],
 				shapes: debugRenderer,
-				peoteView: peoteView
+				peoteView: peoteView,
+				soundEffects: soundEffects
 			},
 
 		];
