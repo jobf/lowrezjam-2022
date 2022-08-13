@@ -1,5 +1,6 @@
 package escape;
 
+import tyke.Glyph.randomFloat;
 import escape.Weapon;
 import tyke.Graphics.SpriteRenderer;
 import echo.data.Types.ShapeType;
@@ -149,14 +150,14 @@ class Ship extends BaseActor {
 
 		switch collidingBody.collider.type {
 			case ROCK:
-				takeDamageFromObstacle(collidingBody);
+				takeDamageFromObstacle(collidingBody, emitter);
 			// case TARGET:
 			// 	takeDamageFromObstacle(collidingBody);
 			case FLARE:
-				takeDamageFromObstacle(collidingBody);
+				takeDamageFromObstacle(collidingBody, emitter);
 			case SUN:
 				trace('hit sun');
-				takeDamageFromObstacle(collidingBody, true);
+				takeDamageFromObstacle(collidingBody, emitter, true);
 			case _:
 				trace('unhandled collision');
 				return;
@@ -179,7 +180,7 @@ class Ship extends BaseActor {
 		}
 	}
 
-	function takeDamageFromObstacle(body:Body, isInstaKill:Bool = false) {
+	function takeDamageFromObstacle(body:Body, emitter:Emitter, isInstaKill:Bool = false) {
 
 		if(isInstaKill){
 			currentShield = -1;
@@ -193,9 +194,14 @@ class Ship extends BaseActor {
 		if(currentShield <= 0){
 			trace('ship shield expleted');
 			hasShields = false;
+			for(p in shipParts){
+				var x_vel = randomFloat(0,300)-150;
+				var y_vel = randomFloat(0,300)-150;
+				emitter.emit(core.body.x, core.body.y, x_vel, y_vel, p);
+			}
 		}
 	}
-
+	final shipParts = [for(i in 80...86) i];
 	var isInvulnerable:Bool;
 
 	inline function resetTookDamage() {
