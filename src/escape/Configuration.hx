@@ -31,8 +31,20 @@ class Configuration {
 				sceneWidth: 200,
 				sceneHeight: 128,
 				changes: [{
-					change: SetPosition(32, 63),
+					change: SetPosition(32, 64),
 					animFrameIndex: 0
+				},
+				{
+					change: ChangeScroll(-0.2, 0.2),
+					animFrameIndex: 55
+				},
+				{
+					change: ChangeScroll(-0.1, 0.1),
+					animFrameIndex: 66
+				},
+				{
+					change: ChangeScroll(0, 0),
+					animFrameIndex: 68
 				}]
 			}
 		},
@@ -49,9 +61,31 @@ class Configuration {
 				sceneWidth: 128,
 				sceneHeight: 128,
 				changes: [{
-					change: SetPosition(32, 63),
+					change: SetPosition(64, 63),
 					animFrameIndex: 0
-				}]
+				},
+				{
+					change: ChangeScroll(-0.8, 0),
+					animFrameIndex: 6
+				},
+				{
+					change: ChangeScroll(0, 0),
+					animFrameIndex: 9
+				},
+				{
+					change: SetPosition(32, 64),
+					animFrameIndex: 11
+				
+				},
+				{
+					change: ChangeScroll(0.25, 0),
+					animFrameIndex: 24
+				},
+				{
+					change: ChangeScroll(0, 0),
+					animFrameIndex: 32
+				}
+			]
 			}
 		},
 		{
@@ -67,7 +101,7 @@ class Configuration {
 				sceneWidth: 200,
 				sceneHeight: 200,
 				changes: [{
-					change: SetPosition(32, 63),
+					change: SetPosition(32, 64),
 					animFrameIndex: 0
 				}]
 			}
@@ -137,6 +171,11 @@ class Configuration {
 		frameWidth: 200,
 		frameHeight: 200,
 		changes: [
+			
+				{
+					change: SetPosition(32,84),
+					animFrameIndex: 0
+				}
 			// {
 			// 	framesPerSecond: 3,
 			// 	atFrame: 22
