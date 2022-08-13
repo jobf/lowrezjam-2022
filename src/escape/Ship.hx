@@ -198,6 +198,7 @@ class Ship extends BaseActor {
 				var x_vel = randomFloat(0,300)-150;
 				var y_vel = randomFloat(0,300)-150;
 				emitter.emit(core.body.x, core.body.y, x_vel, y_vel, p);
+				core.sprite.w = 0;
 			}
 		}
 	}

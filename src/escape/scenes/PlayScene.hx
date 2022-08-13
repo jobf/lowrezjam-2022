@@ -1,5 +1,6 @@
 package escape.scenes;
 
+import tyke.jam.Scene;
 import escape.ShipTrackingBackground;
 import core.Emitter;
 import escape.Weapon.ProjectileType;
@@ -184,6 +185,10 @@ class PlayScene extends FullScene {
 			},
 		});
 
+		endLevelCountDown = new CountDown(1, () -> endLevel());
+		endLevelCountDown.stop();
+		behaviours.push(endLevelCountDown);
+
 		#if debug
 		drawGrid();
 		#end
@@ -219,8 +224,13 @@ class PlayScene extends FullScene {
 
 			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
-			final fadeOutIncrement = 0.4;
-			audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, levelIndex))), fadeOutIncrement);
+
+			nextScene = new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, levelIndex));
+			trace('trigger game over ${Date.now()}');
+			endLevelCountDown.reset();
+
+			// final fadeOutIncrement = 0.4;
+			// audio.stopMusic(() -> app.changeScene(), fadeOutIncrement);
 		}
 
 		if (isLevelEnded && ship.hasShields) {
@@ -235,8 +245,10 @@ class PlayScene extends FullScene {
 				if (restartNeutralizeLevel) {
 					trace('restarting neutralize effort');
 					isLevelStopping = true;
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, new PlayScene(app, levelIndex))));
-					// app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
+					nextScene = new MovieScene(app, levelConfig.cutSceneConfig, new PlayScene(app, levelIndex));
+					trace('trigger game level retry ${Date.now()}');
+					endLevelCountDown.reset();
+					// // app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
 					return;
 				}
 			}
@@ -248,12 +260,14 @@ class PlayScene extends FullScene {
 				case NextLevel(nextLevelIndex):
 					trace('\n - \n ---- change to next level \n - \n ');
 					// app.changeScene(new PlayScene(Configuration.levels[nextLevelIndex], app));
-
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,
-						new PlayScene(app, nextLevelIndex))));
+					nextScene = new MovieScene(app, Configuration.levels[nextLevelIndex].cutSceneConfig,new PlayScene(app, nextLevelIndex));
+					trace('trigger game continue ${Date.now()}');
+					endLevelCountDown.reset();
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
-					audio.stopMusic(() -> app.changeScene(new MovieScene(app, Configuration.gameWinScene, null)));
+					nextScene = new MovieScene(app, Configuration.gameWinScene, null);
+					trace('trigger game won ${Date.now()}');
+					endLevelCountDown.reset();
 			}
 		}
 	}
@@ -263,4 +277,11 @@ class PlayScene extends FullScene {
 	var emitter:Emitter;
 
 	var soundEffects:SoundEffects;
+
+	var endLevelCountDown:CountDown;
+	var nextScene:Scene;
+	function endLevel() {
+		trace('fade music ${Date.now()}');
+		audio.stopMusic(() -> app.changeScene(nextScene));
+	}
 }
