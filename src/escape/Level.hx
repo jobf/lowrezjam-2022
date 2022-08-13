@@ -172,7 +172,7 @@ class Level {
 					}
 				};
 
-				var obstacle = new Flare(obstacleOptions, obstacleSystems[1], config, solarFlareFramesPadded, solarFlareFramesPerSecond);
+				var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystems[1], config, solarFlareFramesPadded, solarFlareFramesPerSecond);
 
 				actors.push(obstacle);
 				obstacles.push(obstacle.core.body);
@@ -204,24 +204,37 @@ class Level {
 					}
 				};
 
-				var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+				if(obstacleOptions.collisionType == TARGET){
+					trace('added TARGET');
+					final targetFrames = [8].concat([for(i in 88...88+8) i]);
+					final targetFps = 8;
+					final autoPlayAnimation = false;
 
-				actors.push(obstacle);
-				obstacles.push(obstacle.core.body);
-				obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
-				obstacle.core.body.velocity.y = 0;
-
-				switch tileData.flipBits {
-					case 1:
-						obstacle.core.sprite.flipX(true);
-					case 2:
-						obstacle.core.sprite.flipY(true);
-					case 3:
-						obstacle.core.sprite.flipX(true);
-						obstacle.core.sprite.flipY(true);
-					case _:
-						return;
+					var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystem, config, targetFrames, targetFps, autoPlayAnimation);
+					actors.push(obstacle);
+					obstacles.push(obstacle.core.body);
+					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+					obstacle.core.body.velocity.y = 0;
 				}
+				else{
+					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+					actors.push(obstacle);
+					obstacles.push(obstacle.core.body);
+					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
+					obstacle.core.body.velocity.y = 0;
+				}
+
+				// switch tileData.flipBits {
+				// 	case 1:
+				// 		obstacle.core.sprite.flipX(true);
+				// 	case 2:
+				// 		obstacle.core.sprite.flipY(true);
+				// 	case 3:
+				// 		obstacle.core.sprite.flipX(true);
+				// 		obstacle.core.sprite.flipY(true);
+				// 	case _:
+				// 		return;
+				// }
 			}
 		}
 	}
