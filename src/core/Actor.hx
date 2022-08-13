@@ -77,6 +77,7 @@ class BaseActor {
 
 	public function new(options:ActorOptions, system:ActorSystem) {
 		this.options = options;
+		this.system = system;
 		core = options.makeCore(options, system);
 		behaviours = [];
 
@@ -158,4 +159,6 @@ class BaseActor {
 	}
 
 	public var isAlive:Bool = true;
+
+	var system:ActorSystem;
 }

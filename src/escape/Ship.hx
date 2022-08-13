@@ -54,10 +54,17 @@ class Ship extends BaseActor {
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
-		if (isShooting && canUseWeapon) {
-			canUseWeapon = false;
-			weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
-			weaponUseCountdown.reset();
+		if (isShooting) {
+			if(canUseWeapon){
+
+				canUseWeapon = false;
+				weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
+				weaponUseCountdown.reset();
+				system.soundEffects.playSound(Shoot);
+			}
+			else{
+				system.soundEffects.playSound(NoAmmo);
+			}
 		}
 
 		// keep within bounds
@@ -166,6 +173,7 @@ class Ship extends BaseActor {
 			takeDamageCountdown.reset();
 			@:privateAccess
 			hud.shieldMeterSprite.setFlashing(true);
+			system.soundEffects.playSound(Hit);
 		}
 	}
 

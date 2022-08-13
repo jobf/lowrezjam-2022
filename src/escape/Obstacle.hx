@@ -42,6 +42,7 @@ class Obstacle extends BaseActor {
 			|| (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET);
 		
 		if (shouldEmit) {
+			var isRockCracking = false;
 			for(i in 0...core.body.obstacleConfiguration.numParticles){
 				
 				var particleTile = isHittingSun ? brokenAsteroidTileStart + randomInt(2)
@@ -49,9 +50,13 @@ class Obstacle extends BaseActor {
 						? brokenAsteroidTileStart + randomInt(2)
 						: sparksTile;
 
-				trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
+				isRockCracking = particleTile != sparksTile;
+				// trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
 				
 				emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
+			}
+			if(isRockCracking){
+				system.soundEffects.playSound(CrackRock);
 			}
 		}
 		
