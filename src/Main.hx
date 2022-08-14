@@ -52,20 +52,18 @@ class Concepts extends FullScene {
 	override function create() {
 		super.create();
 		app.window.onKeyDown.add((code, modifier) -> {
-			var conceptId = switch code {
-				case R: -2;
-				case NUMBER_1: 0;
-				case NUMBER_2: 1;
-				case NUMBER_3: 2;
-				case _: -1;
-			}
-
-			if (conceptId == -2) {
-				app.resetScene();
-			}
-
-			if (conceptId >= 0) {
-				// app.changeScene(concepts[conceptId](app));
+			switch code {
+				// case R: app.resetScene();
+				// case MINUS: reduce_audio_gain();
+				// case NUMPAD_MINUS: reduce_audio_gain();
+				// case UNDERSCORE: reduce_audio_gain();
+				// case EQUALS: increase_audio_gain();
+				// case PLUS: increase_audio_gain();
+				// case NUMPAD_PLUS: increase_audio_gain();
+				// case NUMBER_1: 0;
+				// case NUMBER_2: 1;
+				// case NUMBER_3: 2;
+				case _: return;
 			}
 		});
 		var lastIndex = concepts.length - 1;
