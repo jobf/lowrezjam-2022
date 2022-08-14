@@ -80,8 +80,6 @@ class FullScene extends Scene {
 	var behaviours:Array<CountDown> = [];
 
 	var tiles14px:SpriteRenderer;
-	var tiles18px:SpriteRenderer;
-	var tiles640px:SpriteRenderer;
 
 	var starRenderer:ShapeRenderer;
 	var starSpriteRenderer:SpriteRenderer;
@@ -89,7 +87,6 @@ class FullScene extends Scene {
 	var spaceLevelTiles:SpriteRenderer;
 	var spaceLevelTilesNear:SpriteRenderer;
 	var projectileSprites:SpriteRenderer;
-	var hudFrame:SpriteRenderer;
 	var debugShapes:ShapeRenderer;
 	
 	override function create() {
@@ -127,7 +124,6 @@ class FullScene extends Scene {
 		starSpriteRenderer = stage.createSpriteRendererFor("assets/sprites/stars-64x1.png", 64, 1, true);
 		lavaRenderer = stage.createShapeRenderLayer("lava");
 		addLavaFragment(lavaRenderer);
-		tiles640px = stage.createSpriteRendererFor("assets/sprites/640x640-sun-surface.png", 640, 640, true, 640, 640);
 		
 		spaceLevelTilesFar = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "far");
 		spaceLevelTiles = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "mid");
@@ -135,9 +131,6 @@ class FullScene extends Scene {
 		tiles14px = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, isIndividualFrameBuffer);
 		spaceLevelTilesNear = stage.createSpriteRendererFor("assets/sprites/16-px-tiles.png", 16, 16, true, "near");
 
-		tiles18px = stage.createSpriteRendererFor("assets/sprites/18-px-tiles.png", 18, 18, isIndividualFrameBuffer, 640, 640);
-		hudFrame = stage.createSpriteRendererFor("assets/sprites/hud-frame.png", 64, 64, isIndividualFrameBuffer, 640, 640);
-		
 		debugShapes = stage.createShapeRenderLayer("debugShapes");
 		app.core.log('initialized renderers');
 

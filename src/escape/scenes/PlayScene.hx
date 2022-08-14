@@ -111,7 +111,7 @@ class PlayScene extends FullScene {
 		if (level.levelStyle != Neutralize) {
 			background = new StarField(ship, 256, 128, starSpriteRenderer);
 		} else {
-			background = new SunSurface(ship, Std.int(level.finishLine.core.body.x * 3.0), 128, tiles640px, lavaRenderer);
+			background = new SunSurface(ship, Std.int(level.finishLine.core.body.x * 3.0), 128, lavaRenderer);
 		}
 
 		if (level.levelStyle == Escape) {

@@ -1,0 +1,159 @@
+package escape.scenes;
+
+import peote.view.Color;
+import tyke.Loop.CountDown;
+import tyke.Graphics;
+
+@:structInit
+class CutSceneConfiguration {
+	public var framesAssetPath:String;
+	public var frameWidth:Int = 64;
+	public var frameHeight:Int = 64;
+	// public var startTile:Int;
+	// public var endTile:Int;
+	public var frames:Array<Int>;
+	public var framesPerSecond:Int = 12;
+	public var backgroundColor:Color = 0x000000ff;
+	public var sceneWidth:Int = 256;
+	public var bgMusicAssetPath = "assets/audio/bg-intro-d.ogg";
+	public var sceneHeight:Int = 256;
+	public var autoPlayNextScene:Bool = false;
+	public var changes:Array<AnimationChange> = [];
+	public var initial_x:Int = 0;
+	public var initial_y:Int = 0;
+}
+
+@:structInit
+class AnimationChange {
+	public var animFrameIndex:Int;
+	public var change:AtFrameChange;
+}
+
+<<<<<<< HEAD
+enum AtFrameChange {
+	ChangeFrameRate(seconds_per_frame:Int);
+=======
+enum AtFrameChange{
+	ChangeFrameRate(seconds_per_frame:Float);
+>>>>>>> gitlab/master
+	ChangeScroll(x_per_frame:Float, y_per_frame:Float);
+	SetPosition(x:Int, y:Int);
+}
+
+class CutScene {
+	var frame:Sprite;
+	var refreshFrameCountdown:CountDown;
+	var totalFrames:Int;
+	var currentFrame:Int = 0;
+	var currentChange:Int = 0;
+	var config:CutSceneConfiguration;
+
+	public var isComplete(get, null):Bool;
+
+	public function new(config:CutSceneConfiguration, renderer:SpriteRenderer) {
+		this.config = config;
+		isComplete = false;
+		// var x = Std.int(config.frameWidth * 0.5) - 24;
+		// var y = Std.int(config.frameHeight * 0.5);
+		x_actual = config.initial_x;
+		y_actual = config.initial_y;
+		x_per_frame = 0.0;
+		y_per_frame = 0.0;
+		totalFrames = config.frames.length;
+		frame = renderer.makeSprite(Std.int(x_actual), Std.int(y_actual), config.frameHeight, config.frames[currentFrame], 0, true);
+		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);
+	}
+
+	function advanceFrame() {
+		if (config.changes.length > 0 && currentChange <= config.changes.length - 1) {
+			// trace('try change frame rate $currentChange');
+			// if(config.frames[currentFrame] == config.changes[currentChange].atFrame){
+			if (currentFrame == config.changes[currentChange].animFrameIndex) {
+				var toChange = config.changes[currentChange].change;
+				if (toChange != null) {
+					switch toChange {
+						case ChangeFrameRate(seconds_per_frame):
+							trace('ChangeFrameRate ${Date.now()}');
+							refreshFrameCountdown.reset(seconds_per_frame);
+						case ChangeScroll(x_per_frame, y_per_frame):
+							setScroll(x_per_frame, y_per_frame);
+							trace('ChangeScroll ${Date.now()}');
+						case SetPosition(x, y):
+							trace('SetPosition ${Date.now()}');
+							setPosition(x, y);
+					};
+					currentChange++;
+					// trace('change $toChange');
+				}
+			}
+		}
+		currentFrame++;
+
+		frame.tile = config.frames[currentFrame];
+		trace('new frame is ${config.frames[currentFrame]} ${Date.now()}');
+
+	}
+
+	public function update(elapsedSeconds:Float) {
+		if (!isComplete) {
+			x_actual += x_per_frame;
+			y_actual += y_per_frame;
+			refresh();
+			refreshFrameCountdown.update(elapsedSeconds);
+			// trace('x_per_frame ${this.x_per_frame} y_per_frame ${this.y_per_frame}');
+		}
+	}
+
+	function get_isComplete():Bool {
+		return currentFrame >= config.frames.length - 1;
+	}
+
+	inline function setScroll(x_per_frame:Float, y_per_frame:Float) {
+		this.x_per_frame = x_per_frame;
+		this.y_per_frame = y_per_frame;
+	}
+
+	var x_per_frame:Float;
+	var y_per_frame:Float;
+
+	var x_actual:Float;
+	var y_actual:Float;
+
+	inline function refresh() {
+		frame.x = Math.floor(x_actual);
+		frame.y = Math.floor(y_actual);
+	}
+
+	inline function setPosition(x:Int, y:Int) {
+		x_actual = x;
+		y_actual = y;
+		refresh();
+		// frame.x = x;
+		// frame.y = y;
+		// trace('$x $y ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollDown(scrollIncrement:Int) {
+		y_actual += scrollIncrement;
+		// frame.y = Math.floor(y_actual);
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollUp(scrollIncrement:Int) {
+		y_actual -= scrollIncrement;
+		// frame.y = Math.floor(y_actual);
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollLeft(scrollIncrement:Int) {
+		x_actual -= scrollIncrement;
+		// frame.x = Math.
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+
+	public function scrollRight(scrollIncrement:Int) {
+		x_actual += scrollIncrement;
+		// frame.x += scrollIncrement;
+		// trace('frame scrolled to ${frame.x}  ${frame.y} ');
+	}
+}

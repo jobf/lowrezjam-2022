@@ -42,30 +42,15 @@ class StarField extends ShipTrackingBackground {
 }
 
 class SunSurface extends ShipTrackingBackground{
-	var sunSurface:Sprite;
 	var sunShape:Shape;
 	var sunSurfaceSpeed:Float = 30;
-	public function new(ship:Ship, width:Int, height:Int, sprites:SpriteRenderer, lavaRenderer:ShapeRenderer) {
+	public function new(ship:Ship, width:Int, height:Int, lavaRenderer:ShapeRenderer) {
 		super(ship, width, height, sprites);
 
-        // addLavaFragment(lavaRenderer);
 		sunShape = lavaRenderer.makeShape(0,0, 640, 480, RECT);
-		// sunShape.w = width;
-		// sunShape.h = height;
 		sunShape.y += 50;//
 		sunShape.x = (sunShape.w / 2);
 
-		// sunSurface = sprites.makeSprite(0, 0, 640, 0);
-		// sunSurface.w = width;
-		// sunSurface.h = height;
-		// sunSurface.y += 50;//
-		// sunSurface.x = (sunSurface.w / 2);
-	// 	behaviours.push(new CountDown(0.3, () -> {
-	// 		// sunSurface.rotation += 0.3;
-	// 		// sunSurface.x -= sunSurfaceSpeed * speedMod;
-	// 		// sunShape.x -= sunSurfaceSpeed * speedMod;
-	// 	}, true));
-	// }
 	}
 }
 

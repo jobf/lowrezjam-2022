@@ -1,3 +1,8 @@
 scratch/
 bin/
 *.zip
+*.bak
+assets-temp-backup/
+assets-working
+tools
+assets/audio/mp3-backup

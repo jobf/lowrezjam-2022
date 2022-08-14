@@ -71,10 +71,18 @@ class Hud {
 		for(i in 0...weapon.shotsAvailable){
 			increaseShots(i * width);
 		}
-		weapon.onShoot = () -> useLed();
-		weapon.onShotsIncreased = () -> {
-			increaseShots();
+		weapon.onShoot = () -> {
+			unLoadProjectile();
 		};
+
+		// weapon.onShotsIncreased = () -> {
+		// 	loadProjectile();
+		// };
+
+		// weapon.onShoot = () -> useLed();
+		// weapon.onShotsIncreased = () -> {
+		// 	increaseShots();
+		// };
 	}
 
 	var firstLedX:Float;
@@ -126,6 +134,30 @@ class Hud {
 		}
 	}
 
+	var unloadedIndex:Int;
+	var loadedIndex:Int;
+	function unLoadProjectile(){
+		projectileLeds[unloadedIndex].unload();
+		unloadedIndex++;
+		if(unloadedIndex > projectileLeds.length -1){
+			unloadedIndex = 0;
+		}
+		// called onReload
+		// put projectile off screen in 'preload' state
+		// only if total projectiles
+	}
+
+	function loadProjectile(){
+		projectileLeds[loadedIndex].load();
+		loadedIndex++;
+		if(loadedIndex > projectileLeds.length -1){
+			loadedIndex = 0;
+		}
+		// called onReload
+		// put projectile off screen in 'preload' state
+		// only if total projectiles
+	}
+
 	var meterTileRange = 6;
 
 	public function update(elapsedSeconds:Float) {
@@ -149,24 +181,58 @@ class Hud {
 }
 
 class Led extends BaseActor {
-	public function new(options:ActorOptions, system:ActorSystem) {
+	var loadedX:Float;
+	var state:LedState;
+
+	public function new(options:ActorOptions, system:ActorSystem, initState:LedState = LOADED) {
 		super(options, system);
+		loadedX = core.body.x;
+		this.state = initState;
 	}
 
-	public var isLit(default, null):Bool = true;
-
-	public function enable() {
-		isLit = true;
-		show();
+	// public var isLit(default, null):Bool = true;
+	public function unload(){
+		if(state == LOADED){
+			state = UNLOADED;
+			core.body.x = loadedX += 80;
+		}
 	}
 
-	public function disable() {
-		isLit = false;
-		hide();
+	public function load(){
+		if(state == UNLOADED){
+			state = PRELOAD;
+			core.body.velocity.x = loadTravelSpeed;
+		}
 	}
 
+	// public function enable() {
+	// 	isLit = true;
+	// 	show();
+	// }
+
+	// public function disable() {
+	// 	isLit = false;
+	// 	hide();
+	// }
+
+	final loadTravelSpeed:Float = -500.0;
 	override function update(elapsedSeconds:Float) {
 		super.update(elapsedSeconds);
-		// core.body.velocity.y = 0;
+		
+		// if(state == PRELOAD && core.body.velocity.y == 0){
+		// 	core.body.velocity.x = loadTravelSpeed;
+		// }
+
+		if(state == PRELOAD && core.body.velocity.y != 0 && core.body.x <= loadedX){
+			core.body.velocity.x = 0;
+			core.body.x = loadedX;
+			state = LOADED;
+		}
 	}
+}
+
+enum LedState{
+	UNLOADED;
+	PRELOAD;
+	LOADED;
 }

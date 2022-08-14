@@ -27,7 +27,7 @@ class SoundEffects {
 			Sample.RockC => "assets/audio/sounds/rockBreak2.ogg",
 			Sample.Explosion => "assets/audio/sounds/explosion.ogg",
 			Sample.TakeDamage => "assets/audio/sounds/hit.ogg",
-			Sample.LaserShoot => "assets/audio/sounds/laserShoot.ogg",
+			// Sample.LaserShoot => "assets/audio/sounds/laserShoot.ogg",
 			Sample.NoAmmo => "assets/audio/sounds/noAmmo5.ogg",
 			Sample.Shoot => "assets/audio/sounds/shoot1.ogg",
 			Sample.HitTarget => "assets/audio/sounds/hitTarget.ogg"
