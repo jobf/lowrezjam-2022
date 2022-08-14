@@ -176,7 +176,7 @@ class Ship extends BaseActor {
 			takeDamageCountdown.reset();
 			@:privateAccess
 			hud.shieldMeterSprite.setFlashing(true);
-			system.soundEffects.playSound(Hit);
+			system.soundEffects.playSound(TakeDamage);
 		}
 	}
 
@@ -199,6 +199,7 @@ class Ship extends BaseActor {
 				var y_vel = randomFloat(0,300)-150;
 				emitter.emit(core.body.x, core.body.y, x_vel, y_vel, p);
 				core.sprite.w = 0;
+				system.soundEffects.playSound(Explosion);
 			}
 		}
 	}
