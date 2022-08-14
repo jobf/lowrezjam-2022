@@ -141,31 +141,31 @@ class Configuration {
 
 
 	public static var winTheGame:CutSceneConfiguration = {
-		frames: [for (i in 0...46) i],
+		frames: [for (i in 0...56) i],
 		framesPerSecond: 8,
-		framesAssetPath: "assets/cutScenes/win-the-game-exit-sun2.png",
+		framesAssetPath: "assets/cutScenes/win-the-game-exit-sun3.png",
 		frameWidth: 188,
 		frameHeight: 188,
 		sceneWidth: 188,
 		sceneHeight: 188,
-		initial_x: 32,
-		initial_y: 80,
+		initial_x: 26,
+		initial_y: 82,
 		changes: [
 			{
 				change: SetPosition(32, 85),
-				animFrameIndex: 7
+				animFrameIndex: 17
 			},
 			{
 				change: ChangeScroll(-0.4, 0),
-				animFrameIndex: 8
+				animFrameIndex: 18
 			},
 			{
 				change: ChangeScroll(0, 0),
-				animFrameIndex: 16
+				animFrameIndex: 26
 			},
 			{
 				change: SetPosition(27, 76),
-				animFrameIndex: 23
+				animFrameIndex: 33
 			}
 			// ,
 			// {
