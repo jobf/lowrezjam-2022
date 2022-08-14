@@ -173,7 +173,7 @@ class Level {
 				};
 
 				var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystems[1], config, solarFlareFramesPadded, solarFlareFramesPerSecond);
-
+				obstacle.setAlive(false);
 				actors.push(obstacle);
 				obstacles.push(obstacle.core.body);
 				obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
@@ -211,6 +211,7 @@ class Level {
 					final autoPlayAnimation = false;
 					obstacleOptions.spriteTileIdStart = 8;
 					var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystem, config, targetFrames, targetFps, autoPlayAnimation);
+					obstacle.setAlive(false);
 					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
 					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
@@ -219,6 +220,7 @@ class Level {
 				}
 				else{
 					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);
+					obstacle.setAlive(false);
 					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
 					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;

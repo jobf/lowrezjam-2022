@@ -14,13 +14,13 @@ class Obstacle extends BaseActor {
 	var config:ObstacleConfiguration;
 	var speedMod:Float;
 	var isNeedToPlayEndAnim:Bool = false;
-	
+
 	public function new(options:ActorOptions, system:ActorSystem, config:ObstacleConfiguration) {
 		super(options, system);
 		this.config = config;
 		core.body.obstacleConfiguration = config;
 		speedMod = 1.0;
-		if(core.body.collider.type == TARGET){
+		if (core.body.collider.type == TARGET) {
 			isNeedToPlayEndAnim = true;
 		}
 	}
@@ -40,62 +40,57 @@ class Obstacle extends BaseActor {
 		}
 	}
 
-	function takeDamage(collidingBody:Body, emitter:Emitter, isHittingSun:Bool=false) {
+	function takeDamage(collidingBody:Body, emitter:Emitter, isHittingSun:Bool = false) {
 		final sparksTile = 51;
 		final brokenAsteroidTileStart = 48;
-		
-		var shouldEmit = isHittingSun 
-			|| (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET);
-		
-		if (shouldEmit) {
-			var isRockCracking = false;
-			for(i in 0...core.body.obstacleConfiguration.numParticles){
-				
-				var particleTile = isHittingSun ? brokenAsteroidTileStart + randomInt(2)
-					: core.body.obstacleConfiguration.isDestructible
-						? brokenAsteroidTileStart + randomInt(2)
-						: sparksTile;
 
-				isRockCracking = particleTile != sparksTile;
-				// trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
-				
-				emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
-			}
-			if(isRockCracking){
-				var rockBreak = randomInt(2);
-				system.soundEffects.playSound(rockBreak);
-			}
-		}
-		
-		if (config.isDestructible || isHittingSun) {
-			if (collidingBody.collider.type == VEHICLE && core.body.collider.type == TARGET) {
-				// do nothin
-			} else {
-				kill();
-				// if(core.body.collider.type != TARGET)
-				trace('kill ${core.body.collider.type} ${Date.now()}');
-			}
-		}
+		if (isAlive) {
+			var shouldEmit = isHittingSun || (!core.body.obstacleConfiguration.letProjectileThrough && core.body.collider.type != TARGET);
+			if (shouldEmit) {
+				var isRockCracking = false;
+				for (i in 0...core.body.obstacleConfiguration.numParticles) {
+					var particleTile = isHittingSun ? brokenAsteroidTileStart +
+						randomInt(2) : core.body.obstacleConfiguration.isDestructible ? brokenAsteroidTileStart
+						+ randomInt(2) : sparksTile;
 
-		if (core.body.collider.type == TARGET && collidingBody.collider.type == PROJECTILE) {
-			// should still be alive so it can track movement - crap fix but whatever
-			isAlive = true;
-			core.body.data.isAlive = true;
-			system.soundEffects.playSound(Sample.HitTarget);
-			// if(isNeedToPlayEndAnim){
-			// 	isNeedToPlayEndAnim = false;
-			// 	// var anim:AnimatedObstacle = cast this;
-			// 	var anim = cast (this, AnimatedObstacle); // safe cast
-			// 	anim.startAnimation();
-			// 	trace('play target anim ${anim}');
-			// }
+					isRockCracking = particleTile != sparksTile;
+					// trace('hit obstacle, tileid ${core.sprite.tile} emit $particleTile x ${core.body.obstacleConfiguration.numParticles}');
+
+					emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
+				}
+				if (isRockCracking) {
+					var rockBreak = randomInt(2);
+					system.soundEffects.playSound(rockBreak);
+				}
+			}
+
+			if (config.isDestructible || isHittingSun) {
+				if (collidingBody.collider.type == VEHICLE && core.body.collider.type == TARGET) {
+					// do nothin
+				} else {
+					hasBeenDestroyed = true;
+					kill();
+					// if(core.body.collider.type != TARGET)
+					trace('kill ${core.body.collider.type} ${Date.now()}');
+				}
+			}
+
+			if (core.body.collider.type == TARGET && collidingBody.collider.type == PROJECTILE) {
+				// should still be alive so it can track movement - crap fix but whatever
+				setAlive(true);
+				system.soundEffects.playSound(Sample.HitTarget);
+			}
 		}
 	}
 
 	override function update(elapsedSeconds:Float) {
+		// trace('obstacle ${core.body.collider.type} is alive ${core.body.active}');
 		if (isAlive) {
 			super.update(elapsedSeconds);
 			core.body.velocity.x = (Configuration.baseVelocityX * speedMod) * config.velocityModX;
+			if (core.body.x < -16) {
+				setAlive(false);
+			}
 		}
 	}
 
@@ -103,6 +98,7 @@ class Obstacle extends BaseActor {
 		this.speedMod = speedMod;
 	}
 
+	public var hasBeenDestroyed(default, null):Bool;
 }
 
 class AnimatedObstacle extends Obstacle {
@@ -117,13 +113,14 @@ class AnimatedObstacle extends Obstacle {
 		return currentFrame >= frames.length - 1;
 	}
 
-	public function new(options:ActorOptions, system:ActorSystem, config:ObstacleConfiguration, frames:Array<Int>, framesPerSecond:Int, autoPlayLoop:Bool=true) {
+	public function new(options:ActorOptions, system:ActorSystem, config:ObstacleConfiguration, frames:Array<Int>, framesPerSecond:Int,
+			autoPlayLoop:Bool = true) {
 		super(options, system, config);
 		this.frames = frames;
 		totalFrames = frames.length;
 		refreshFrameCountdown = new CountDown(1 / framesPerSecond, () -> advanceFrame(), autoPlayLoop);
 		isLooped = autoPlayLoop;
-		if(!autoPlayLoop){
+		if (!autoPlayLoop) {
 			refreshFrameCountdown.stop();
 		}
 		var startFrame = frames.indexOf(options.spriteTileIdStart);
@@ -143,28 +140,27 @@ class AnimatedObstacle extends Obstacle {
 			currentFrame = 0;
 		}
 		core.sprite.tile = frames[currentFrame];
-		if(isLooped){ // actually isFlare
+		if (isLooped) { // actually isFlare
 			core.body.collider.isActive = core.sprite.tile >= 64 && core.sprite.tile <= 74;
 		}
 	}
 
 	function advanceFrame() {
-		if(currentFrame < frames.length -1){
+		if (currentFrame < frames.length - 1) {
 			currentFrame++;
 		}
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 
-
 	public function startAnimation() {
 		trace('startAnimation ${Date.now()}');
 		refreshFrameCountdown.reset();
 	}
-	
+
 	override function collideWith(body:Body, emitter:Emitter) {
 		super.collideWith(body, emitter);
 		var isAlive = body.data.isAlive != null && body.data.isAlive;
-		if(core.body.collider.type == TARGET && body.collider.type == PROJECTILE && isAlive){
+		if (core.body.collider.type == TARGET && body.collider.type == PROJECTILE && isAlive) {
 			startAnimation();
 		}
 	}
@@ -219,5 +215,4 @@ class ObstacleConfiguration {
 		-1 means the sprite will no longer be visible
 	**/
 	public var spriteTileIdEnd:Int = -1;
-
 }

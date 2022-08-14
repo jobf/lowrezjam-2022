@@ -160,15 +160,15 @@ class Projectile extends BaseActor {
 	override function onMove(x:Float, y:Float) {
 		super.onMove(x, y);
 		if(isAlive && x > this.isActiveWithinX){
-			isAlive = false;
-			core.body.data.isAlive = false;
-			trace('projectil oob');
+			setAlive(false);
+			// kill(); ?
+			trace('projectile out of bounds');
 		}
 	}
 	function endUse(body:Body) {
 		if(!body.obstacleConfiguration.letProjectileThrough){
 			// todo - proper destroy function ?
-				trace('projectil ended');
+				trace('projectile ended');
 				kill();
 		}
 	}
