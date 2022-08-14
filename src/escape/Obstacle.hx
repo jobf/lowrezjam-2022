@@ -158,7 +158,8 @@ class AnimatedObstacle extends Obstacle {
 	
 	override function collideWith(body:Body, emitter:Emitter) {
 		super.collideWith(body, emitter);
-		if(core.body.collider.type == TARGET && body.collider.type == PROJECTILE && body.data.isAlive){
+		var isAlive = body.data.isAlive != null && body.data.isAlive;
+		if(core.body.collider.type == TARGET && body.collider.type == PROJECTILE && isAlive){
 			startAnimation();
 		}
 	}

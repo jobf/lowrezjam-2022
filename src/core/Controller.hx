@@ -30,27 +30,27 @@ class Controller {
 		actionConfig = [
 			{
 				gamepad: [GamepadButton.DPAD_LEFT, GamepadButton.LEFT_SHOULDER],
-				keyboard: KeyCode.LEFT,
+				keyboard: [KeyCode.LEFT, KeyCode.A],
 				action: "left"
 			},
 			{
 				gamepad: [GamepadButton.DPAD_RIGHT, GamepadButton.RIGHT_SHOULDER],
-				keyboard: KeyCode.RIGHT,
+				keyboard: [KeyCode.RIGHT, KeyCode.D],
 				action: "right"
 			},
 			{
 				gamepad: GamepadButton.DPAD_UP,
-				keyboard: KeyCode.UP,
+				keyboard: [KeyCode.UP, KeyCode.W],
 				action: "up"
 			},
 			{
 				gamepad: GamepadButton.DPAD_DOWN,
-				keyboard: KeyCode.DOWN,
+				keyboard: [KeyCode.DOWN, KeyCode.S],
 				action: "down"
 			},
 			{
 				gamepad: GamepadButton.B,
-				keyboard: KeyCode.LEFT_SHIFT,
+				keyboard: KeyCode.G,
 				action: "action"
 			},
 		];
