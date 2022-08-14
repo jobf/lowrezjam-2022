@@ -238,9 +238,9 @@ class TestSounds extends FullScene{
 		
 		app.window.onKeyDown.add((code, modifier) -> 
 			switch code{
-				case NUMBER_1: soundEffects.playSound(Sample.CrackRock);
+				case NUMBER_1: soundEffects.playSound(Sample.RockA);
 				case NUMBER_2: soundEffects.playSound(Sample.Explosion);
-				case NUMBER_3: soundEffects.playSound(Sample.Hit);
+				case NUMBER_3: soundEffects.playSound(Sample.HitTarget);
 				case NUMBER_4: soundEffects.playSound(Sample.LaserShoot);
 				case NUMBER_5: soundEffects.playSound(Sample.Shoot);
 				case _: audio.playSound(Sample.NoAmmo);
