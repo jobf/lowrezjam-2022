@@ -30,7 +30,7 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	// next line is which of the levels to start on 0 = Level 1, 1 = Level 2, 2 = Level 3
-	static var startLevelIndex:Int = 0;
+	static var startLevelIndex:Int = 1;
 
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action

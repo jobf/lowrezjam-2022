@@ -28,7 +28,7 @@ class AnimationChange{
 }
 
 enum AtFrameChange{
-	ChangeFrameRate(seconds_per_frame:Int);
+	ChangeFrameRate(seconds_per_frame:Float);
 	ChangeScroll(x_per_frame:Float, y_per_frame:Float);
 	SetPosition(x:Int, y:Int);
 }
