@@ -104,9 +104,8 @@ class BaseActor {
 			// register body in world
 			system.world.add(core.body);
 		}
-
-		isAlive = true;
-		core.body.data.isAlive = true;
+		
+		setAlive(true);
 		
 		#if !debug
 		// only show the debug shape for debugging
@@ -114,8 +113,19 @@ class BaseActor {
 		#end
 	}
 
+
+	public function setAlive(isAlive:Bool){
+		this.isAlive = isAlive;
+		if(core.body != null && core.body.data != null){
+
+			core.body.data.isAlive = isAlive;
+			core.body.active = isAlive;
+		}
+	}
+
 	public function update(elapsedSeconds:Float) {
-		if(isAlive && core.body.data.isAlive){
+		//&& core.body.data.isAlive
+		if(isAlive ){
 			for (b in behaviours) {
 				b.update(elapsedSeconds);
 			}
@@ -133,8 +143,7 @@ class BaseActor {
 
 	public function kill(){
 		core.shape.visible = false;
-		isAlive = false;
-		core.body.data.isAlive = false;
+		setAlive(false);
 		
 		if(options.spriteTileIdEnd >= 0){
 			core.sprite.tile = options.spriteTileIdEnd;
@@ -142,7 +151,7 @@ class BaseActor {
 		else{
 			// stop physics
 			// core.body.remove();
-			core.body.dispose();
+			// core.body.dispose();
 
 			hide();
 		}

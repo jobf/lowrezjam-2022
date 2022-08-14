@@ -214,8 +214,21 @@ class PlayScene extends FullScene {
 		background.update(elapsedSeconds);
 
 		for (a in level.actors) {
-			a.setSpeedMod(speedMod);
-			a.update(elapsedSeconds);
+			if(a.isAlive){
+				a.setSpeedMod(speedMod);
+				a.update(elapsedSeconds);
+			}
+			else{
+				// should it be alive?
+				if(!a.hasBeenDestroyed){
+					if(a.core.body.x > ship.core.body.x){
+						var distance = a.core.body.x - ship.core.body.x;
+						var isCloseEnough = distance < 64;
+						// trace('isCloseEnough ? $isCloseEnough distance $distance');
+						a.setAlive(true);
+					}
+				}
+			}
 			level.finishLine.core.body.velocity.x = Configuration.baseVelocityX * speedMod;
 		}
 
