@@ -255,21 +255,21 @@ class Configuration {
 		};
 
 
-	public static var gameWinScene:CutSceneConfiguration = {
-		frames: [2, 2, 2, 2, 2, 2, 2],
-		framesPerSecond: 3,
-		framesAssetPath: "assets/cutScenes/placeholders.png",
-		initial_x: 32,
-		initial_y: 32,
-		changes: [
+	// public static var gameWinScene:CutSceneConfiguration = {
+	// 	frames: [2, 2, 2, 2, 2, 2, 2],
+	// 	framesPerSecond: 3,
+	// 	framesAssetPath: "assets/cutScenes/placeholders.png",
+	// 	initial_x: 32,
+	// 	initial_y: 32,
+	// 	changes: [
 				
-			// {
-			// 	change: SetPosition(32,32),
-			// 	animFrameIndex: 0
-			// }
+	// 		// {
+	// 		// 	change: SetPosition(32,32),
+	// 		// 	animFrameIndex: 0
+	// 		// }
 		
-		]
-	};
+	// 	]
+	// };
 
 	public static var obstacles:Map<Int, ObstacleConfiguration> = [
 		// example rectangle
