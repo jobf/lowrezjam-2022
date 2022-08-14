@@ -20,7 +20,9 @@
 	<!--<set name="angle" if="windows" />-->
 	
 	<source path="src" />
-	<assets path="assets" />
+	<!-- <assets path="assets" /> -->
+	<assets path="assets" exclude="*.ogg" if="web" />
+	<assets path="assets" exclude="*.mp3" unless="web" />
 	
 	<haxelib name="tyke" />
 	
