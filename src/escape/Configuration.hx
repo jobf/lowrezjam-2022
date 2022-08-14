@@ -115,12 +115,14 @@ class Configuration {
 		// framesAssetPath: "assets/cutScenes/control-room-cut-16-sheet.png",
 		frameWidth: 64,
 		frameHeight: 64,
-		changes: [
-			{
-				change: SetPosition(32,32),
-				animFrameIndex: 0
-			}
-		]
+		initial_x: 32,
+		initial_y: 32,
+		// changes: [
+		// 	{
+		// 		change: SetPosition(32,32),
+		// 		animFrameIndex: 0
+		// 	}
+		// ]
 	};
 
 
