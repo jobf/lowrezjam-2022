@@ -65,12 +65,12 @@ class Configuration {
 					animFrameIndex: 0
 				},
 				{
-					change: ChangeScroll(-0.8, 0),
-					animFrameIndex: 6
+					change: ChangeScroll(-1.2, 0),
+					animFrameIndex: 1
 				},
 				{
 					change: ChangeScroll(0, 0),
-					animFrameIndex: 9
+					animFrameIndex: 4
 				},
 				{
 					change: SetPosition(32, 64),
@@ -84,6 +84,11 @@ class Configuration {
 				{
 					change: ChangeScroll(0, 0),
 					animFrameIndex: 32
+				}
+				,
+				{
+					change: ChangeFrameRate(0.1),
+					animFrameIndex: 33
 				}
 			]
 			}
@@ -212,8 +217,16 @@ class Configuration {
 
 	public static var gameWinScene:CutSceneConfiguration = {
 		frames: [2, 2, 2, 2, 2, 2, 2],
-		framesPerSecond: 1,
+		framesPerSecond: 3,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
+		changes: [
+				
+			{
+				change: SetPosition(32,32),
+				animFrameIndex: 0
+			}
+		
+	]
 	};
 
 	public static var obstacles:Map<Int, ObstacleConfiguration> = [
