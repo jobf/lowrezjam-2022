@@ -1,5 +1,6 @@
 package escape;
 
+import escape.SoundEffects;
 import tyke.Glyph.randomFloat;
 import tyke.Glyph.randomInt;
 import tyke.Loop;
@@ -61,7 +62,8 @@ class Obstacle extends BaseActor {
 				emitter.emit(core.body.x, core.body.y, core.body.velocity.x * -1, randomFloat(0, 300) - 150, particleTile);
 			}
 			if(isRockCracking){
-				system.soundEffects.playSound(CrackRock);
+				var rockBreak = randomInt(2);
+				system.soundEffects.playSound(rockBreak);
 			}
 		}
 		
@@ -79,6 +81,7 @@ class Obstacle extends BaseActor {
 			// should still be alive so it can track movement - crap fix but whatever
 			isAlive = true;
 			core.body.data.isAlive = true;
+			system.soundEffects.playSound(Sample.HitTarget);
 			// if(isNeedToPlayEndAnim){
 			// 	isNeedToPlayEndAnim = false;
 			// 	// var anim:AnimatedObstacle = cast this;
