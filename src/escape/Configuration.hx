@@ -185,14 +185,14 @@ class Configuration {
 	public static var gameOverEarthExplodes:CutSceneConfiguration = {
 		frames: [for (i in 0...36) i],
 		framesPerSecond: 6,
-		framesAssetPath: "assets/cutScenes/game-over-earth-explodes.png",
+		framesAssetPath: "assets/cutScenes/game-over-earth-explodes-sheet2.png",
 		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
-		sceneWidth: 200,
-		sceneHeight: 200,
+		sceneWidth: 134,
+		sceneHeight: 134,
 		frameWidth: 134,
-		frameHeight: 80,
+		frameHeight: 134,
 		initial_x: 35,
-		initial_y: 35,
+		initial_y: 64,
 		changes: [
 			
 			// {
