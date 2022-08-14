@@ -160,7 +160,7 @@ class Ship extends BaseActor {
 				takeDamageFromObstacle(collidingBody, emitter, true);
 			case _:
 				trace('unhandled collision');
-				return;
+				// return;
 		}
 		// if()
 	}

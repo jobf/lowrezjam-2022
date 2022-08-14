@@ -161,19 +161,19 @@ class Configuration {
 	};
 
 	// end-of-the-earth-134x79
-	public static var gameOverShipExplodes:CutSceneConfiguration = {
-		frames: [for (i in 0...13) i],
+	public static var gameOverEarthExplodes:CutSceneConfiguration = {
+		frames: [for (i in 0...36) i],
 		framesPerSecond: 6,
-		framesAssetPath: "assets/cutScenes/game-over-ship-explodes.png",
+		framesAssetPath: "assets/cutScenes/game-over-earth-explodes.png",
 		bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
 		sceneWidth: 200,
 		sceneHeight: 200,
-		frameWidth: 200,
-		frameHeight: 200,
+		frameWidth: 134,
+		frameHeight: 80,
 		changes: [
 			
 				{
-					change: SetPosition(32,84),
+					change: SetPosition(35,35),
 					animFrameIndex: 0
 				}
 			// {
@@ -182,6 +182,29 @@ class Configuration {
 			// }
 		]
 	};
+
+		// end-of-the-earth-134x79
+		public static var gameOverShipExplodes:CutSceneConfiguration = {
+			frames: [for (i in 0...13) i],
+			framesPerSecond: 6,
+			framesAssetPath: "assets/cutScenes/game-over-ship-explodes.png",
+			bgMusicAssetPath: "assets/audio/bg-game-over-b.ogg",
+			sceneWidth: 200,
+			sceneHeight: 200,
+			frameWidth: 200,
+			frameHeight: 200,
+			changes: [
+				
+					{
+						change: SetPosition(32,84),
+						animFrameIndex: 0
+					}
+				// {
+				// 	framesPerSecond: 3,
+				// 	atFrame: 22
+				// }
+			]
+		};
 
 	// end-of-the-earth-134x79
 	public static var gameOverEarthEndingA:CutSceneConfiguration = {

@@ -244,6 +244,60 @@ class TestSounds extends FullScene{
 	}
 }
 
+class TestCutScene extends FullScene{
+	override function create(){
+		super.create();
+		
+		// var config = Configuration.levels[0].cutSceneConfig;
+		// var config:CutSceneConfiguration = {
+		// 	sceneWidth: 128,
+		// 	sceneHeight: 128,
+		// 	framesPerSecond: 1,
+		// 	framesAssetPath: "assets/cutScenes/debugger-128-sheet.png",
+		// 	frames: [0, 1, 2, 3],
+		// 	frameWidth: 64,
+		// 	frameHeight: 64,
+		// 	// changes: changes,
+		// 	bgMusicAssetPath: "assets/audio/bg-intro-d.ogg",
+		// 	// backgroundColor: backgroundColor,
+		// 	// autoPlayNextScene: autoPlayNextScene
+		// }
+		var config = Configuration.levels[0].cutSceneConfig;
+		
+		// Loader.image(config.framesAssetPath, false, null, s -> trace(s), image -> {
+		// 	cutSceneRenderer = stage.createSpriteRendererLayer("cutscene", image, config.frameWidth, config.frameHeight, false, config.sceneWidth, config.sceneHeight);
+		// 	cutscene = new CutScene(config, cutSceneRenderer);
+		// 	drawGrid();
+		// 	isReady = true;
+		// });
+
+		cutSceneRenderer = stage.createSpriteRendererFor(config.framesAssetPath, config.frameWidth, config.frameHeight, true, config.sceneWidth, config.sceneHeight);
+		// cutSceneRenderer = stage.createSpriteRendererLayer("cutscene", image, config.frameWidth, config.frameHeight, false, config.sceneWidth, config.sceneHeight);
+		cutscene = new CutScene(config, cutSceneRenderer);
+		
+		@:privateAccess
+		cutscene.setPosition(Std.int(config.sceneWidth * 0.25), Std.int(config.sceneHeight * 0.50));
+
+		drawGrid();
+		isReady = true;
+
+
+	}
+
+	var cutSceneRenderer:SpriteRenderer;
+	var cutscene:CutScene;
+
+	override function update(elapsedSeconds:Float) {
+		if(isReady){
+
+			super.update(elapsedSeconds);
+			cutscene.update(elapsedSeconds);
+		}
+	}
+
+	var isReady:Bool = false;
+}
+
 class TestScene extends FullScene{
 	override function create(){
 		super.create();

@@ -49,6 +49,8 @@ class CutScene {
 		var y = Std.int(config.frameHeight * 0.5);
 		x_actual = 0;
 		y_actual = 0;
+		x_per_frame = 0.0;
+		y_per_frame = 0.0;
 		totalFrames = config.frames.length;
 		frame = renderer.makeSprite(0, 0, config.frameHeight, config.frames[currentFrame], 0, true);
 		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);
@@ -57,6 +59,8 @@ class CutScene {
 	}
 
 	function advanceFrame() {
+
+
 		if(config.changes.length > 0 && currentChange <= config.changes.length-1){
 			// trace('try change frame rate $currentChange');
 			// if(config.frames[currentFrame] == config.changes[currentChange].atFrame){
@@ -74,18 +78,19 @@ class CutScene {
 			}
 		}
 		currentFrame++;
+
+		frame.tile = config.frames[currentFrame];
+
 		// trace('new frame is ${config.frames[currentFrame]}');
 	}
 	
     public function update(elapsedSeconds:Float){
 		if(!isComplete){
 			refreshFrameCountdown.update(elapsedSeconds);
-			frame.tile = config.frames[currentFrame];
 			x_actual += x_per_frame;
 			y_actual += y_per_frame;
-
-			frame.x = Math.floor(x_actual);
-			frame.y = Math.floor(y_actual);
+			// trace('x_per_frame ${this.x_per_frame} y_per_frame ${this.y_per_frame}');
+			refresh();
 		}
     }
 
@@ -105,9 +110,15 @@ class CutScene {
 	var x_actual:Float;
 	var y_actual:Float;
 
+	inline function refresh(){
+		frame.x = Math.floor(x_actual);
+		frame.y = Math.floor(y_actual);
+	}
+
 	inline function setPosition(x:Int, y:Int) {
 		x_actual = x;
 		y_actual = y;
+		refresh();
 		// frame.x = x;
 		// frame.y = y;
 		// trace('$x $y ${frame.x}  ${frame.y} ');

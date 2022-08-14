@@ -12,12 +12,16 @@ import echo.Body;
 class Obstacle extends BaseActor {
 	var config:ObstacleConfiguration;
 	var speedMod:Float;
-
+	var isNeedToPlayEndAnim:Bool = false;
+	
 	public function new(options:ActorOptions, system:ActorSystem, config:ObstacleConfiguration) {
 		super(options, system);
 		this.config = config;
 		core.body.obstacleConfiguration = config;
 		speedMod = 1.0;
+		if(core.body.collider.type == TARGET){
+			isNeedToPlayEndAnim = true;
+		}
 	}
 
 	override function collideWith(collidingBody:Body, emitter:Emitter) {
@@ -66,16 +70,22 @@ class Obstacle extends BaseActor {
 				// do nothin
 			} else {
 				kill();
+				// if(core.body.collider.type != TARGET)
 				trace('kill ${core.body.collider.type}');
 			}
 		}
 
-		if (core.body.collider.type == TARGET) {
+		if (core.body.collider.type == TARGET && collidingBody.collider.type == PROJECTILE) {
 			// should still be alive so it can track movement - crap fix but whatever
 			isAlive = true;
-			var anim:AnimatedObstacle = cast this;
-			anim.startAnimation();
-			trace('play target anim ${anim}');
+			core.body.data.isAlive = true;
+			// if(isNeedToPlayEndAnim){
+			// 	isNeedToPlayEndAnim = false;
+			// 	// var anim:AnimatedObstacle = cast this;
+			// 	var anim = cast (this, AnimatedObstacle); // safe cast
+			// 	anim.startAnimation();
+			// 	trace('play target anim ${anim}');
+			// }
 		}
 	}
 
@@ -145,10 +155,13 @@ class AnimatedObstacle extends Obstacle {
 		trace('startAnimation');
 		refreshFrameCountdown.reset();
 	}
-
-	// override function collideWith(body:Body) {
-	// 	// super.collideWith(body);
-	// }
+	
+	override function collideWith(body:Body, emitter:Emitter) {
+		super.collideWith(body, emitter);
+		if(core.body.collider.type == TARGET && body.collider.type == PROJECTILE && body.data.isAlive){
+			startAnimation();
+		}
+	}
 
 	var isLooped:Bool;
 }
