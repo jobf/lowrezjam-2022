@@ -142,9 +142,9 @@ class PlayScene extends FullScene {
 				},
 			});
 
-			audio.playMusic('assets/audio/bg-a-147bpm.ogg');
+			audio.playMusic('assets/audio/bg-a.ogg');
 		} else {
-			var bg = level.levelStyle == Neutralize ? "g" : "b"; //f
+			var bg = level.levelStyle == Neutralize ? "g2" : "b"; //f
 			audio.playMusic('assets/audio/bg-$bg.ogg');
 		}
 
