@@ -225,7 +225,8 @@ class PlayScene extends FullScene {
 			isLevelStopping = true;
 			trace('\n - \n ---- game over \n - \n ');
 
-			nextScene = new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, levelIndex));
+			nextScene = new MovieScene(app, Configuration.gameOverTryAgain, new PlayScene(app, levelIndex));
+			// nextScene = new PlayScene(app, levelIndex);
 			trace('trigger game over ${Date.now()}');
 			endLevelCountDown.reset();
 
