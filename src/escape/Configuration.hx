@@ -30,10 +30,13 @@ class Configuration {
 				frameHeight: 200,
 				sceneWidth: 200,
 				sceneHeight: 128,
-				changes: [{
-					change: SetPosition(32, 64),
-					animFrameIndex: 0
-				},
+				initial_x: 32,
+				initial_y: 64,
+				changes: [
+				// {
+				// 	change: SetPosition(32, 64),
+				// 	animFrameIndex: 0
+				// },
 				{
 					change: ChangeScroll(-0.2, 0.2),
 					animFrameIndex: 55
@@ -60,10 +63,13 @@ class Configuration {
 				frameHeight: 128,
 				sceneWidth: 128,
 				sceneHeight: 128,
-				changes: [{
-					change: SetPosition(64, 63),
-					animFrameIndex: 0
-				},
+				initial_x: 64,
+				initial_y: 63,
+				changes: [
+				// {
+				// 	change: SetPosition(64, 63),
+				// 	animFrameIndex: 0
+				// },
 				{
 					change: ChangeScroll(-1.2, 0),
 					animFrameIndex: 1
@@ -105,10 +111,13 @@ class Configuration {
 				frameHeight: 200,
 				sceneWidth: 200,
 				sceneHeight: 200,
-				changes: [{
-					change: SetPosition(32, 64),
-					animFrameIndex: 0
-				}]
+				initial_x: 32,
+				initial_y: 64,
+				// changes: [
+				// 	{
+				// 	change: SetPosition(32, 64),
+				// 	animFrameIndex: 0
+				// }]
 			}
 		}
 	];
@@ -139,11 +148,13 @@ class Configuration {
 		frameHeight: 188,
 		sceneWidth: 188,
 		sceneHeight: 188,
+		initial_x: 70,
+		initial_y: 94,
 		changes: [
-			{
-				change: SetPosition(70, 94),
-				animFrameIndex: 0
-			},
+			// {
+			// 	change: SetPosition(70, 94),
+			// 	animFrameIndex: 0
+			// },
 			{
 				change: ChangeScroll(-0.2, 0),
 				animFrameIndex: 1
@@ -178,12 +189,14 @@ class Configuration {
 		sceneHeight: 200,
 		frameWidth: 134,
 		frameHeight: 80,
+		initial_x: 35,
+		initial_y: 35,
 		changes: [
 			
-				{
-					change: SetPosition(35,35),
-					animFrameIndex: 0
-				}
+			// {
+			// 	change: SetPosition(35,35),
+			// 	animFrameIndex: 0
+			// },
 			// {
 			// 	framesPerSecond: 3,
 			// 	atFrame: 22
@@ -201,12 +214,14 @@ class Configuration {
 			sceneHeight: 200,
 			frameWidth: 200,
 			frameHeight: 200,
+			initial_x: 32,
+			initial_y: 84,
 			changes: [
 				
-					{
-						change: SetPosition(32,84),
-						animFrameIndex: 0
-					}
+				// {
+				// 	change: SetPosition(32,84),
+				// 	animFrameIndex: 0
+				// },
 				// {
 				// 	framesPerSecond: 3,
 				// 	atFrame: 22
@@ -219,14 +234,16 @@ class Configuration {
 		frames: [2, 2, 2, 2, 2, 2, 2],
 		framesPerSecond: 3,
 		framesAssetPath: "assets/cutScenes/placeholders.png",
+		initial_x: 32,
+		initial_y: 32,
 		changes: [
 				
-			{
-				change: SetPosition(32,32),
-				animFrameIndex: 0
-			}
+			// {
+			// 	change: SetPosition(32,32),
+			// 	animFrameIndex: 0
+			// }
 		
-	]
+		]
 	};
 
 	public static var obstacles:Map<Int, ObstacleConfiguration> = [
