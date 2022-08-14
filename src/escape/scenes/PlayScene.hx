@@ -266,7 +266,7 @@ class PlayScene extends FullScene {
 					endLevelCountDown.reset();
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
-					nextScene = new MovieScene(app, Configuration.gameWinScene, null);
+					nextScene = new MovieScene(app, Configuration.winTheGame, null);
 					trace('trigger game won ${Date.now()}');
 					endLevelCountDown.reset();
 			}
