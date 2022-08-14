@@ -206,15 +206,16 @@ class Level {
 
 				if(obstacleOptions.collisionType == TARGET){
 					trace('added TARGET');
-					final targetFrames = [8].concat([for(i in 88...94) i]).concat([13]);
-					final targetFps = 5;
+					final targetFrames = [for(i in 88...94) i].concat([13]);//[8].concat();
+					final targetFps = 8;
 					final autoPlayAnimation = false;
-
+					obstacleOptions.spriteTileIdStart = 8;
 					var obstacle = new AnimatedObstacle(obstacleOptions, obstacleSystem, config, targetFrames, targetFps, autoPlayAnimation);
 					actors.push(obstacle);
 					obstacles.push(obstacle.core.body);
 					obstacle.core.body.velocity.x = Configuration.baseVelocityX * config.velocityModX;
 					obstacle.core.body.velocity.y = 0;
+					// obstacle.core.sprite.tile = 8;
 				}
 				else{
 					var obstacle = new Obstacle(obstacleOptions, obstacleSystem, config);

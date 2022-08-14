@@ -71,7 +71,7 @@ class Obstacle extends BaseActor {
 			} else {
 				kill();
 				// if(core.body.collider.type != TARGET)
-				trace('kill ${core.body.collider.type}');
+				trace('kill ${core.body.collider.type} ${Date.now()}');
 			}
 		}
 
@@ -123,7 +123,9 @@ class AnimatedObstacle extends Obstacle {
 		if(!autoPlayLoop){
 			refreshFrameCountdown.stop();
 		}
-		currentFrame = frames.indexOf(core.sprite.tile); // randomInt(frames.length - 1);
+		var startFrame = frames.indexOf(options.spriteTileIdStart);
+		// trace('start frame is $startFrame');
+		currentFrame = startFrame < 0 ? 0 : startFrame; // randomInt(frames.length - 1);
 		core.sprite.tile = frames[currentFrame];
 		// trace('starting frame index $currentFrame starting tile id ${core.sprite.tile}');
 		var isFlare = autoPlayLoop;
@@ -152,7 +154,7 @@ class AnimatedObstacle extends Obstacle {
 
 
 	public function startAnimation() {
-		trace('startAnimation');
+		trace('startAnimation ${Date.now()}');
 		refreshFrameCountdown.reset();
 	}
 	
