@@ -64,14 +64,13 @@ class Obstacle extends BaseActor {
 				}
 			}
 
-			hasBeenDestroyed = true;
-			trace('destroyed obstacle ${core.body.collider.type}');
-			
 			if (config.isDestructible || isHittingSun) {
 				if (collidingBody.collider.type == VEHICLE && core.body.collider.type == TARGET) {
 					// do nothin
 				} else {
 					kill();
+					hasBeenDestroyed = true;
+					trace('destroyed obstacle ${core.body.collider.type}');
 					// if(core.body.collider.type != TARGET)
 					trace('kill ${core.body.collider.type} ${Date.now()}');
 				}
@@ -80,6 +79,7 @@ class Obstacle extends BaseActor {
 			if (core.body.collider.type == TARGET && collidingBody.collider.type == PROJECTILE) {
 				// should still be alive so it can track movement - crap fix but whatever
 				setAlive(true);
+				hasBeenDestroyed = true;
 				system.soundEffects.playSound(Sample.HitTarget);
 			}
 		}
