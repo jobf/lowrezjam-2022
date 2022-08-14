@@ -76,8 +76,8 @@ function addLavaFragment(shapeRenderer:ShapeRenderer){
 			// c.r = 0.2;
 			// return vec4(c.rgb, c.a);
 
-			vec3 orange = vec3(1., .45, 0.);
-			vec3 yellow = vec3(1., 0.15, 0.);
+			vec3 orange = vec3(0.631, 0.0, 0.0);
+			vec3 yellow = vec3(0.961, 0.557, 0.0);
 			
 			// vec2 uv = (2. * fragCoord - iResolution.xy) / iResolution.y;
 			vec2 uv = vTexCoord;
