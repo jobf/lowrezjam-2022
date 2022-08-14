@@ -64,11 +64,13 @@ class Obstacle extends BaseActor {
 				}
 			}
 
+			hasBeenDestroyed = true;
+			trace('destroyed obstacle ${core.body.collider.type}');
+			
 			if (config.isDestructible || isHittingSun) {
 				if (collidingBody.collider.type == VEHICLE && core.body.collider.type == TARGET) {
 					// do nothin
 				} else {
-					hasBeenDestroyed = true;
 					kill();
 					// if(core.body.collider.type != TARGET)
 					trace('kill ${core.body.collider.type} ${Date.now()}');

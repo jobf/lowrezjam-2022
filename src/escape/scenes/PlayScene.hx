@@ -253,7 +253,7 @@ class PlayScene extends FullScene {
 			// if was a bombing level and the targets are not destroyed, it's game over with super nova
 			if (level.levelStyle == Neutralize) {
 				var targetActors = level.actors.filter(obstacle -> obstacle.core.body.collider.type == TARGET);
-				var targetActorsAlive = targetActors.filter(obstacle -> obstacle.core.sprite.tile != obstacle.core.body.obstacleConfiguration.spriteTileIdEnd);
+				var targetActorsAlive = targetActors.filter(obstacle -> !obstacle.hasBeenDestroyed);
 				var restartNeutralizeLevel = targetActorsAlive.length > 0;
 				trace(' num targets  ${targetActors.length} num alive ${targetActorsAlive.length}');
 				if (restartNeutralizeLevel) {
