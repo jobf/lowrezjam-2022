@@ -245,7 +245,7 @@ class PlayScene extends FullScene {
 				if (restartNeutralizeLevel) {
 					trace('restarting neutralize effort');
 					isLevelStopping = true;
-					nextScene = new MovieScene(app, levelConfig.cutSceneConfig, new PlayScene(app, levelIndex));
+					nextScene = new MovieScene(app, Configuration.gameOverEarthExplodes, new PlayScene(app, levelIndex));
 					trace('trigger game level retry ${Date.now()}');
 					endLevelCountDown.reset();
 					// // app.changeScene(new MovieScene(app, levelConfig.cutSceneConfig, scene -> app.changeScene(new PlayScene(app, levelIndex))));
