@@ -33,15 +33,15 @@ class Main extends App {
 
 class Concepts extends FullScene {
 	// next line is which of the levels to start on 0 = Level 1, 1 = Level 2, 2 = Level 3
-	static var startLevelIndex:Int = 1;
+	static var startLevelIndex:Int = 0;
 
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
 		// app -> return new PlayScene(app, startLevelIndex),
-		app -> return new MovieScene(app, Configuration.gameOverEarthExplodes, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
+		app -> return new MovieScene(app, Configuration.introCutScene, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
+		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
 		// app -> return new TestCutScene(app),
 		app -> return new TestSounds(app),
-		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
 		app -> return new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, startLevelIndex)),
 		app -> return new TestSounds(app),
 		app -> return new MovieScene(app, Configuration.gameOverShipExplodes, new PlayScene(app, startLevelIndex)),
