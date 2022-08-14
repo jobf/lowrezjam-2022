@@ -38,7 +38,7 @@ class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
 		// app -> return new PlayScene(app, startLevelIndex),
-		app -> return new MovieScene(app, Configuration.introCutScene, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
+		app -> return new MovieScene(app, Configuration.gameOverEarthExplodes, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
 		// app -> return new TestCutScene(app),
 		app -> return new TestSounds(app),
 		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
@@ -113,6 +113,7 @@ class FullScene extends Scene {
 		app.core.log('initialized echo $stageWidth $stageHeight');
 
 		audio = new SoundManager();
+		audio.setGain(Configuration.globalGain);
 		if(Configuration.isMuted){
 			audio.mute();
 		}
@@ -141,6 +142,13 @@ class FullScene extends Scene {
 		app.core.log('initialized renderers');
 
 		app.window.onKeyDown.add((code, modifier) -> switch code {
+			case R: app.resetScene();
+			case MINUS: reduce_audio_gain();
+			case NUMPAD_MINUS: reduce_audio_gain();
+			case UNDERSCORE: reduce_audio_gain();
+			case EQUALS: increase_audio_gain();
+			case PLUS: increase_audio_gain();
+			case NUMPAD_PLUS: increase_audio_gain();
 			case W: scrollUp();
 			case A: scrollLeft();
 			case S: scrollDown();
@@ -154,6 +162,7 @@ class FullScene extends Scene {
 	}
 
 	override function destroy() {
+		Configuration.globalGain = audio.gain;
 		super.destroy();
 		world.dispose();
 		audio.dispose();
@@ -228,6 +237,21 @@ class FullScene extends Scene {
 
 
 	var lavaRenderer:ShapeRenderer;
+	final gainIncrement = 0.05;
+	function reduce_audio_gain() {
+		if(audio != null){
+			audio.reduceGain(gainIncrement);
+			Configuration.globalGain = audio.gain;
+		}
+	}
+
+
+	function increase_audio_gain() {
+		if(audio != null){
+			audio.increaseGain(gainIncrement);
+			Configuration.globalGain = audio.gain;
+		}
+	}
 }
 class TestSounds extends FullScene{
 	override function create() {

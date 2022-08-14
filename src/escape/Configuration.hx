@@ -638,6 +638,8 @@ class Configuration {
 			// hitboxHeight: hitboxHeight
 		}
 	];
+
+	public static var globalGain:Float=0.5;
 }
 
 @:structInit
