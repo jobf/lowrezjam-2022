@@ -1,5 +1,6 @@
 package escape;
 
+import escape.SoundEffects.Sample;
 import tyke.Glyph.randomFloat;
 import escape.Weapon;
 import tyke.Graphics.SpriteRenderer;
@@ -42,7 +43,7 @@ class Ship extends BaseActor {
 		takeDamageCountdown = new CountDown(0.75, () -> resetTookDamage(), false);
 		behaviours.push(takeDamageCountdown);
 
-		weaponUseCountdown = new CountDown(projectileConfig.shotCooldown, () -> resetCanUseWeapon(), false);
+		weaponUseCountdown = new CountDown(projectileConfig.shotCooldown, () -> resetWeaponCoolDown(), false);
 		behaviours.push(weaponUseCountdown);
 		hasShields = true;
 		// core.sprite.z = 0;
@@ -56,15 +57,14 @@ class Ship extends BaseActor {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
 		if (isShooting) {
-			if(canUseWeapon){
-
-				canUseWeapon = false;
+			var soundEffect = weaponHasCooledDown ? Sample.Shoot : Sample.NoAmmo;
+			// trace('shooting  $soundEffect ${Date.now()}');
+			system.soundEffects.playSound(soundEffect);
+			
+			if(weaponHasCooledDown){
+				weaponHasCooledDown = false;
 				weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
 				weaponUseCountdown.reset();
-				system.soundEffects.playSound(Shoot);
-			}
-			else{
-				system.soundEffects.playSound(NoAmmo);
 			}
 		}
 
@@ -129,11 +129,11 @@ class Ship extends BaseActor {
 	}
 
 	var isShooting:Bool = false;
-	var canUseWeapon:Bool = true;
+	var weaponHasCooledDown:Bool = true;
 	var weaponUseCountdown:CountDown;
 
-	function resetCanUseWeapon() {
-		canUseWeapon = true;
+	function resetWeaponCoolDown() {
+		weaponHasCooledDown = true;
 	}
 
 	public function action(isDown:Bool) {
