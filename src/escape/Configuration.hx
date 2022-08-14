@@ -143,7 +143,7 @@ class Configuration {
 	public static var winTheGame:CutSceneConfiguration = {
 		frames: [for (i in 0...117) i],
 		framesPerSecond: 8,
-		framesAssetPath: "assets/cutScenes/win-the-game-exit-sun.png",
+		framesAssetPath: "assets/cutScenes/win-the-game-exit-sun2.png",
 		frameWidth: 188,
 		frameHeight: 188,
 		sceneWidth: 188,
