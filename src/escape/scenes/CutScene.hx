@@ -56,7 +56,7 @@ class CutScene {
 		y_per_frame = 0.0;
 		totalFrames = config.frames.length;
 		frame = renderer.makeSprite(Std.int(x_actual), Std.int(y_actual), config.frameHeight, config.frames[currentFrame], 0, true);
-		refreshFrameCountdown = new CountDown(1 / config.framesPerSecond, () -> advanceFrame(), true);
+		refreshFrameCountdown = new CountDown(1 / (config.framesPerSecond *  2), () -> advanceFrame(), true);
 	}
 
 	function advanceFrame() {
@@ -69,7 +69,7 @@ class CutScene {
 					switch toChange {
 						case ChangeFrameRate(seconds_per_frame):
 							trace('ChangeFrameRate ${Date.now()}');
-							refreshFrameCountdown.reset(seconds_per_frame);
+							refreshFrameCountdown.reset(1 / (config.framesPerSecond *  2));
 						case ChangeScroll(x_per_frame, y_per_frame):
 							setScroll(x_per_frame, y_per_frame);
 							trace('ChangeScroll ${Date.now()}');
