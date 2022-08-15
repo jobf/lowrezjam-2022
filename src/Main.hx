@@ -136,21 +136,21 @@ class FullScene extends Scene {
 		app.core.log('initialized renderers');
 
 		app.window.onKeyDown.add((code, modifier) -> switch code {
-			case R: app.resetScene();
+			// case R: app.resetScene();
 			case MINUS: reduce_audio_gain();
 			case NUMPAD_MINUS: reduce_audio_gain();
 			case UNDERSCORE: reduce_audio_gain();
 			case EQUALS: increase_audio_gain();
 			case PLUS: increase_audio_gain();
 			case NUMPAD_PLUS: increase_audio_gain();
-			case W: scrollUp();
-			case A: scrollLeft();
-			case S: scrollDown();
-			case D: scrollRight();
-			case P: {
-				Configuration.isMuted = true;
-				audio.mute();
-			};
+			// case W: scrollUp();
+			// case A: scrollLeft();
+			// case S: scrollDown();
+			// case D: scrollRight();
+			// case P: {
+			// 	Configuration.isMuted = true;
+			// 	audio.mute();
+			// };
 			case _: return;
 		});
 	}
