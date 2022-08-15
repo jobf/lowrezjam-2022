@@ -23,7 +23,7 @@ class StarField extends ShipTrackingBackground {
 		var numStars = 42;
 		stars = [
 			for (i in 0...numStars) {
-				var x = 64 + randomInt(64);
+				var x = 6 + randomInt(64);
 				var y = randomInt(height);
 				var distanceLevels = 6;
 				var slowDown = 0.5;
