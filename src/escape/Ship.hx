@@ -57,11 +57,11 @@ class Ship extends BaseActor {
 		super.update(elapsedSeconds);
 		weapon.update(elapsedSeconds);
 		if (isShooting) {
-			var soundEffect = weaponHasCooledDown ? Sample.Shoot : Sample.NoAmmo;
+			// var soundEffect = weaponHasCooledDown ? Sample.Shoot : Sample.NoAmmo;
 			// trace('shooting  $soundEffect ${Date.now()}');
-			system.soundEffects.playSound(soundEffect);
 			
 			if(weaponHasCooledDown){
+				system.soundEffects.playSound(Sample.Shoot);
 				weaponHasCooledDown = false;
 				weapon.shoot(Std.int(this.core.body.x + 5), Std.int(this.core.body.y + 2), 60.0, 0.0);
 				weaponUseCountdown.reset();
