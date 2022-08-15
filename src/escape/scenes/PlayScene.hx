@@ -141,8 +141,8 @@ class PlayScene extends FullScene {
 					// sunBody.collider.collideWith(obstacleBody, emitter);
 				},
 			});
-
-			audio.playMusic('assets/audio/bg-a.ogg');
+			final isLooped = false;
+			audio.playMusic('assets/audio/bg-a.ogg', isLooped);
 		} else {
 			var bg = level.levelStyle == Neutralize ? "g2" : "b"; //f
 			audio.playMusic('assets/audio/bg-$bg.ogg');
@@ -279,7 +279,7 @@ class PlayScene extends FullScene {
 					endLevelCountDown.reset();
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
-					nextScene = new MovieScene(app, Configuration.winTheGame, null);
+					nextScene = new MovieScene(app, Configuration.winTheGame, new MovieScene(app, Configuration.levels[0].cutSceneConfig, new PlayScene(app, 0)));
 					Configuration.preserveMusic = true;
 					trace('trigger game won ${Date.now()}');
 					endLevelCountDown.reset();

@@ -74,8 +74,11 @@ class MovieScene extends FullScene {
 		}else{
 			isSceneOver = true;
 			trace('cutscene complete');
-			continueButton.makeVisible(true);
-			continueButton.setFlashing(true);
+			if(!Configuration.preserveMusic){
+				// only show if we didn't end
+				continueButton.makeVisible(true);
+				continueButton.setFlashing(true);
+			}
 		}
 
 		
