@@ -104,7 +104,7 @@ class Configuration {
 			ldtk_level_id: 6,
 			nextLevel: GameWin,
 			cutSceneConfig: {
-				frames: [for (i in 0...12) i],
+				frames: [for (i in 0...19) i],
 				framesPerSecond: 4,
 				framesAssetPath: "assets/cutScenes/level-3-preview.png",
 				frameWidth: 200,
