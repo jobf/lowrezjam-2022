@@ -1,3 +1,3 @@
 rm dist.zip
-lime build html5 -clean -final 
+lime build html5 -clean -final --no-traces
 zip dist.zip -r bin/html5/bin
