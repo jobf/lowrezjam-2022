@@ -38,6 +38,7 @@ class Concepts extends FullScene {
 	public static var concepts:Array<App->Scene> = [
 		// uncomment next line to get straight into the action
 		// app -> return new PlayScene(app, startLevelIndex),
+		// app -> return new MovieScene(app, Configuration.winTheGame, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
 		app -> return new MovieScene(app, Configuration.introCutScene, new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex))),
 		app -> return new MovieScene(app, Configuration.levels[startLevelIndex].cutSceneConfig, new PlayScene(app, startLevelIndex)),
 		// app -> return new TestCutScene(app),
@@ -158,7 +159,9 @@ class FullScene extends Scene {
 		Configuration.globalGain = audio.gain;
 		super.destroy();
 		world.dispose();
-		audio.dispose();
+		if(!Configuration.preserveMusic){
+			audio.dispose();
+		}
 	}
 
 	override function update(elapsedSeconds:Float) {

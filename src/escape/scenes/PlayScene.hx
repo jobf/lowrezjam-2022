@@ -280,6 +280,7 @@ class PlayScene extends FullScene {
 				case _:
 					trace('\n - \n ---- game WON \\o/ \\o/ \\o/ \n - \n ');
 					nextScene = new MovieScene(app, Configuration.winTheGame, null);
+					Configuration.preserveMusic = true;
 					trace('trigger game won ${Date.now()}');
 					endLevelCountDown.reset();
 			}
@@ -296,6 +297,11 @@ class PlayScene extends FullScene {
 	var nextScene:Scene;
 	function endLevel() {
 		trace('fade music ${Date.now()}');
-		audio.stopMusic(() -> app.changeScene(nextScene));
+		if(Configuration.preserveMusic){
+			app.changeScene(nextScene);
+		}
+		else{
+			audio.stopMusic(() -> app.changeScene(nextScene));
+		}
 	}
 }

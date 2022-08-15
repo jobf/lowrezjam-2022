@@ -34,8 +34,10 @@ class MovieScene extends FullScene {
 
 		var buttonTiles = stage.createSpriteRendererFor("assets/sprites/14-px-tiles.png", 14, 14, true);
 		continueButton = buttonTiles.makeSprite(32, 53, 14, 32, 0, false);
-		
-		audio.playMusic(config.bgMusicAssetPath);
+
+		if(!Configuration.preserveMusic){
+			audio.playMusic(config.bgMusicAssetPath);
+		}
 
 		controller = new Controller(app.window, {
 			onControlUp: isDown -> return,
