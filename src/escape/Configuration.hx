@@ -63,7 +63,7 @@ class Configuration {
 				frameHeight: 128,
 				sceneWidth: 128,
 				sceneHeight: 128,
-				initial_x: 64,
+				initial_x: 0,
 				initial_y: 63,
 				changes: [
 				// {
@@ -71,7 +71,7 @@ class Configuration {
 				// 	animFrameIndex: 0
 				// },
 				{
-					change: ChangeScroll(-1.2, 0),
+					change: ChangeScroll(0.3, 0),
 					animFrameIndex: 1
 				},
 				{
@@ -615,6 +615,8 @@ class Configuration {
 	];
 
 	public static var globalGain:Float=0.5;
+
+	public static var preserveMusic:Bool = false;
 }
 
 @:structInit
